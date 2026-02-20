@@ -1,0 +1,26 @@
+# Verkstedpakken
+
+> Alt-i-ett SaaS-løsning for bilverksteder i Norge.
+
+## Om Verkstedpakken
+
+Verkstedpakken er et komplett skybasert verktøy utviklet spesielt for bilverksteder. Løsningen samler bilhåndtering, kundeoppfølging, fakturering og delebestilling i én plattform, slik at verksteder kan drive mer effektivt.
+
+## Hovedfunksjoner
+
+- Bilhåndtering og oversikt: Registrer biler, servicehistorikk og planlegg arbeid.
+- Kundeoppfølging: Automatiske påminnelser, kommunikasjonslogg og kontakthåndtering.
+- Fakturering og økonomi: Opprett fakturaer fra arbeidsordre, synkroniser med regnskap.
+- Lager og deler: Lageroversikt, delebestilling og kobling til jobber.
+
+## Integrasjoner
+
+- Fiken: Automatisk synkronisering av fakturaer og bilag med Fiken regnskap.
+- Tripletex: Sømløs overføring av fakturaer, kunder og økonomiske data til Tripletex.
+- MEKO: Bestill bildeler direkte fra MEKO sin varekatalog.
+- Stripe: Sikker kortbetaling både på verkstedet og online.
+
+## Kontakt
+
+- Nettside: https://verkstedpakken.no
+- E-post: kontakt@verkstedpakken.no
