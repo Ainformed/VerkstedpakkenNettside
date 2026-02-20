@@ -19,6 +19,22 @@ const features = [
     title: "Deler og lager",
     text: "Lagerstatus, bestilling og kobling til jobber.",
   },
+  {
+    title: "Delebestilling",
+    text: "Bestill deler direkte fra systemet.",
+  },
+  {
+    title: "Dekkhotell",
+    text: "Lagring, sporing og sesongbytte for dekk.",
+  },
+  {
+    title: "Leiebil",
+    text: "Administrer leiebiler og utlån til kunder.",
+  },
+  {
+    title: "Rapporter",
+    text: "Innsikt i omsetning, timer og produktivitet.",
+  },
 ];
 
 export default function Features() {
