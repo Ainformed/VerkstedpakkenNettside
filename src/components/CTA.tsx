@@ -36,13 +36,13 @@ export default function CTA() {
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="mailto:salg@verkstedpakken.no"
-            className="rounded-full bg-white px-8 py-3.5 text-[15px] font-semibold text-primary transition-all duration-200 hover:shadow-lg hover:shadow-white/20"
+            className="rounded-full bg-white px-8 py-3.5 text-[15px] font-semibold text-primary transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-white/25"
           >
             salg@verkstedpakken.no
           </a>
           <a
             href="tel:+4793484220"
-            className="rounded-full border border-white/20 px-8 py-3.5 text-[15px] font-medium text-white transition-all duration-200 hover:border-white/40 hover:bg-white/5"
+            className="rounded-full border border-white/20 px-8 py-3.5 text-[15px] font-medium text-white transition-all duration-200 hover:scale-105 hover:border-white/50 hover:bg-white/10"
           >
             934 84 220
           </a>

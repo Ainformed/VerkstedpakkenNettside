@@ -14,7 +14,7 @@ export default function Hero() {
         </h1>
 
         <p className="animate-fade-up delay-2 mt-6 max-w-[480px] text-[17px] leading-[1.65] text-sub">
-          Bil, båt, lastebil eller anleggsmaskiner — kunder, jobber,
+          Bil, båt, lastebil eller anleggsmaskiner. Kunder, jobber,
           deler og faktura samlet på ett sted.
         </p>
 

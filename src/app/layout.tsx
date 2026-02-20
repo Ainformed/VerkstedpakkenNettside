@@ -20,11 +20,11 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL("https://verkstedpakken.no"),
   title: {
-    default: "Verkstedpakken – Alt-i-ett-løsning for bilverksteder",
+    default: "Verkstedpakken | Komplett system for verksteder",
     template: "%s | Verkstedpakken",
   },
   description:
-    "Verkstedpakken er et komplett SaaS-verktøy for alle typer verksteder. Bil, båt, lastebil og anleggsmaskiner. Kundeoppfølging, fakturering og integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
+    "Verkstedpakken samler kunder, jobber, faktura og deler i ett system. For bil, båt, lastebil og anleggsmaskiner. Integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
   keywords: [
     "bilverksted",
     "verksted",
@@ -47,23 +47,23 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     url: "https://verkstedpakken.no",
     siteName: "Verkstedpakken",
-    title: "Verkstedpakken – Alt-i-ett-løsning for bilverksteder",
+    title: "Verkstedpakken | Komplett system for verksteder",
     description:
-      "Komplett SaaS-verktøy for bilverksteder med integrasjoner mot Fiken, Tripletex, MEKO og Stripe.",
+      "Kunder, jobber, faktura og deler samlet i ett system for verksteder.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Verkstedpakken – Effektiviser bilverkstedet ditt",
+        alt: "Verkstedpakken | Komplett system for verksteder",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Verkstedpakken – Alt-i-ett-løsning for bilverksteder",
+    title: "Verkstedpakken | Komplett system for verksteder",
     description:
-      "Komplett SaaS-verktøy for bilverksteder med integrasjoner mot Fiken, Tripletex, MEKO og Stripe.",
+      "Kunder, jobber, faktura og deler samlet i ett system for verksteder.",
     images: ["/og-image.png"],
   },
   alternates: {
