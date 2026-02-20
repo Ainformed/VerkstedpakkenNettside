@@ -36,6 +36,14 @@ export default function Header() {
           </li>
           <li>
             <a
+              href="https://verkstedpakken.app"
+              className="text-xs font-medium text-foreground transition-colors hover:text-primary"
+            >
+              Logg inn
+            </a>
+          </li>
+          <li>
+            <a
               href="#kontakt"
               className="rounded-full bg-primary px-4 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-80"
             >
@@ -67,6 +75,11 @@ export default function Header() {
             <li><a href="#funksjoner" className="text-sm text-foreground" onClick={() => setOpen(false)}>Funksjoner</a></li>
             <li><a href="#integrasjoner" className="text-sm text-foreground" onClick={() => setOpen(false)}>Integrasjoner</a></li>
             <li><a href="#kontakt" className="text-sm text-foreground" onClick={() => setOpen(false)}>Kontakt</a></li>
+            <li>
+              <a href="https://verkstedpakken.app" className="text-sm font-medium text-foreground" onClick={() => setOpen(false)}>
+                Logg inn
+              </a>
+            </li>
             <li>
               <a href="#kontakt" className="inline-block rounded-full bg-primary px-5 py-2 text-sm font-medium text-white" onClick={() => setOpen(false)}>
                 Kom i gang
