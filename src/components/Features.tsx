@@ -1,51 +1,72 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 const features = [
   {
-    title: "Bilhåndtering",
-    description:
-      "Registrer kjøretøy uansett type. Hold oversikt over servicehistorikk, og planlegg kommende arbeid. Alt samlet på ett sted.",
+    title: "Kjøretøy og jobber",
+    text: "Full oversikt over pågående og tidligere arbeid.",
   },
   {
-    title: "Kundeoppfølging",
-    description:
-      "Automatiske påminnelser, kommunikasjonslogg og enkel kontakthåndtering for alle dine kunder.",
+    title: "Kunder",
+    text: "Kundekort, historikk og automatiske påminnelser.",
   },
   {
-    title: "Fakturering",
-    description:
-      "Opprett fakturaer direkte fra arbeidsordre og synkroniser med regnskapet automatisk.",
+    title: "Faktura",
+    text: "Fra arbeidsordre til faktura på sekunder.",
   },
   {
-    title: "Lager og deler",
-    description:
-      "Følg med på lagerbeholdning, bestill deler direkte, og koble dem til spesifikke jobber.",
+    title: "Deler og lager",
+    text: "Lagerstatus, bestilling og kobling til jobber.",
   },
 ];
 
 export default function Features() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    el.querySelectorAll(".reveal").forEach((child) => observer.observe(child));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="funksjoner" className="bg-surface px-6 py-28 lg:py-36">
-      <div className="mx-auto max-w-[980px]">
-        <div className="text-center">
-          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-foreground">
-            Alt et verksted trenger.
-            <br />
-            <span className="text-muted">Ingenting det ikke trenger.</span>
+    <section id="funksjoner" className="px-8 py-28 lg:px-12 lg:py-36" ref={ref}>
+      <div className="mx-auto max-w-[1200px]">
+        <div className="max-w-xl">
+          <p className="reveal text-[13px] font-semibold uppercase tracking-[0.2em] text-primary">
+            Funksjoner
+          </p>
+          <h2 className="reveal mt-3 font-[family-name:var(--font-bricolage)] text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] tracking-tight text-fg" style={{ transitionDelay: "80ms" }}>
+            Alt et verksted trenger
           </h2>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {features.map((f) => (
-            <article
+        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line sm:grid-cols-2 lg:grid-cols-4">
+          {features.map((f, i) => (
+            <div
               key={f.title}
-              className="rounded-3xl bg-surface-alt p-10"
+              className="reveal bg-bg p-8 transition-colors duration-300 hover:bg-bg-alt"
+              style={{ transitionDelay: `${200 + i * 80}ms` }}
             >
-              <h3 className="text-2xl font-semibold text-foreground">
-                {f.title}
-              </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-muted">
-                {f.description}
+              <h3 className="text-[15px] font-semibold text-fg">{f.title}</h3>
+              <p className="mt-2 text-[14px] leading-[1.65] text-sub">
+                {f.text}
               </p>
-            </article>
+            </div>
           ))}
         </div>
       </div>
