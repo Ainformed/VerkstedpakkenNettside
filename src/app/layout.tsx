@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,6 +9,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
 });
 
@@ -109,7 +114,7 @@ function JsonLd() {
       "@type": "Organization",
       name: "Verkstedpakken",
       url: "https://verkstedpakken.no",
-      email: "kontakt@verkstedpakken.no",
+      email: "salg@verkstedpakken.no",
       description:
         "Utvikler av SaaS-løsninger for bilverksteder i Norge.",
     },
@@ -150,7 +155,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} antialiased`}
       >
         {children}
       </body>

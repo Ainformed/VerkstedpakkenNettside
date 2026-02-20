@@ -1,29 +1,26 @@
 export default function CTA() {
   return (
-    <section id="kontakt" className="bg-primary py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Klar for å effektivisere verkstedet ditt?
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-blue-100">
-            Ta kontakt med oss for en uforpliktende demo. Vi viser deg hvordan
-            Verkstedpakken kan tilpasses ditt verksted.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="mailto:kontakt@verkstedpakken.no"
-              className="w-full rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-primary shadow-sm transition-colors hover:bg-blue-50 sm:w-auto"
-            >
-              Send e-post
-            </a>
-            <a
-              href="tel:+4712345678"
-              className="w-full rounded-lg border border-white/30 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
-            >
-              Ring oss
-            </a>
-          </div>
+    <section id="kontakt" className="bg-surface px-6 py-28 lg:py-36">
+      <div className="mx-auto max-w-[980px] text-center">
+        <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-foreground">
+          Klar for å prøve?
+        </h2>
+        <p className="mx-auto mt-4 max-w-md text-[17px] leading-relaxed text-muted">
+          Ta kontakt for en uforpliktende demo tilpasset ditt verksted.
+        </p>
+        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <a
+            href="mailto:salg@verkstedpakken.no"
+            className="rounded-full bg-primary px-8 py-3.5 text-[14px] font-medium text-white transition-transform hover:scale-105"
+          >
+            salg@verkstedpakken.no
+          </a>
+          <a
+            href="tel:+4793484220"
+            className="rounded-full border border-border px-8 py-3.5 text-[14px] font-medium text-foreground transition-colors hover:bg-surface-alt"
+          >
+            934 84 220
+          </a>
         </div>
       </div>
     </section>
