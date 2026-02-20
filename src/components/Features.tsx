@@ -2,7 +2,7 @@ const features = [
   {
     title: "Bilhåndtering",
     description:
-      "Registrer kjøretøy, hold oversikt over servicehistorikk, og planlegg kommende arbeid. Alt samlet på ett sted.",
+      "Registrer kjøretøy uansett type. Hold oversikt over servicehistorikk, og planlegg kommende arbeid. Alt samlet på ett sted.",
   },
   {
     title: "Kundeoppfølging",

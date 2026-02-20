@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Verkstedpakken",
   },
   description:
-    "Verkstedpakken er et komplett SaaS-verktøy for bilverksteder. Bilhåndtering, kundeoppfølging, fakturering og integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
+    "Verkstedpakken er et komplett SaaS-verktøy for alle typer verksteder. Bil, båt, lastebil og anleggsmaskiner. Kundeoppfølging, fakturering og integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
   keywords: [
     "bilverksted",
     "verksted",
