@@ -30,19 +30,31 @@ export default function Header() {
 
         <nav className="hidden items-center gap-9 md:flex">
           <a
-            href="#funksjoner"
+            href="/#utfordringer"
+            className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
+          >
+            Utfordringer
+          </a>
+          <a
+            href="/#funksjoner"
             className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
           >
             Funksjoner
           </a>
           <a
-            href="#integrasjoner"
+            href="/#integrasjoner"
             className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
           >
             Integrasjoner
           </a>
           <a
-            href="#kontakt"
+            href="/om-oss"
+            className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
+          >
+            Om oss
+          </a>
+          <a
+            href="/#kontakt"
             className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
           >
             Kontakt
@@ -54,10 +66,10 @@ export default function Header() {
             Logg inn
           </a>
           <a
-            href="#kontakt"
+            href="/#interesse"
             className="rounded-full bg-primary px-6 py-2.5 text-[13px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-primary/20 hover:brightness-125"
           >
-            Kom i gang
+            Meld interesse
           </a>
         </nav>
 
@@ -125,13 +137,19 @@ export default function Header() {
           </button>
         </div>
         <nav className="mt-8 flex flex-col gap-1">
-          <a href="#funksjoner" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
+          <a href="/#utfordringer" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
+            Utfordringer
+          </a>
+          <a href="/#funksjoner" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
             Funksjoner
           </a>
-          <a href="#integrasjoner" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
+          <a href="/#integrasjoner" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
             Integrasjoner
           </a>
-          <a href="#kontakt" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
+          <a href="/om-oss" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
+            Om oss
+          </a>
+          <a href="/#kontakt" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
             Kontakt
           </a>
           <a href="https://verkstedpakken.app" className="rounded-xl px-4 py-3 text-[16px] font-medium text-fg transition-colors hover:bg-bg-alt" onClick={() => setOpen(false)}>
@@ -139,11 +157,11 @@ export default function Header() {
           </a>
         </nav>
         <a
-          href="#kontakt"
+          href="/#interesse"
           className="mt-6 block rounded-full bg-primary py-3.5 text-center text-[15px] font-semibold text-white transition-all hover:brightness-125"
           onClick={() => setOpen(false)}
         >
-          Kom i gang
+          Meld interesse
         </a>
       </div>
     </header>

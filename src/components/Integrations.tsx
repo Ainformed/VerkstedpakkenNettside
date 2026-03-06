@@ -52,7 +52,7 @@ export default function Integrations() {
           {integrations.map((item, i) => (
             <div
               key={item.name}
-              className="reveal group flex items-center justify-center rounded-2xl border border-line bg-bg px-6 py-8 transition-all duration-300 hover:border-primary/15 hover:shadow-md hover:shadow-primary/5"
+              className="reveal group flex items-center justify-center rounded-2xl border border-line bg-bg px-6 py-8 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-0.5"
               style={{ transitionDelay: `${200 + i * 80}ms` }}
             >
               <Image

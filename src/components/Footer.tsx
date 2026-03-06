@@ -22,6 +22,8 @@ export default function Footer() {
               <div className="mt-3 flex flex-col gap-2 text-[13px] text-faint">
                 <a href="#funksjoner" className="transition-colors duration-200 hover:text-fg">Funksjoner</a>
                 <a href="#integrasjoner" className="transition-colors duration-200 hover:text-fg">Integrasjoner</a>
+                <a href="/om-oss" className="transition-colors duration-200 hover:text-fg">Om oss</a>
+                <a href="#interesse" className="transition-colors duration-200 hover:text-fg">Meld interesse</a>
               </div>
             </div>
             <div>

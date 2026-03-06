@@ -28,10 +28,10 @@ export default function CTA() {
     <section id="kontakt" className="px-8 py-28 lg:px-12 lg:py-36" ref={ref}>
       <div className="reveal mx-auto max-w-[1200px] rounded-3xl bg-primary px-10 py-20 text-center lg:px-20 lg:py-24">
         <h2 className="font-[family-name:var(--font-bricolage)] text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] tracking-tight text-white">
-          Klar for å prøve?
+          Har du spørsmål?
         </h2>
         <p className="mx-auto mt-4 max-w-md text-[16px] leading-[1.65] text-white/55">
-          Book en uforpliktende demo tilpasset ditt verksted.
+          Ta kontakt for en uforpliktende prat.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a

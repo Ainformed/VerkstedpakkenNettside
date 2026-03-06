@@ -102,6 +102,17 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
+/* ─── Typewriter cursor ─── */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor {
+  animation: blink 1.06s step-end infinite;
+}
+
 /* ─── Subtle selection color ─── */
 ::selection {
   background: rgba(12, 0, 90, 0.1);
