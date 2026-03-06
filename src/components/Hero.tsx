@@ -73,7 +73,7 @@ export default function Hero() {
           Alt for en enklere verkstedhverdag
         </h1>
 
-        <p className="animate-fade-up delay-3 mt-6 whitespace-nowrap text-[17px] leading-[1.65] text-sub lg:max-w-none">
+        <p className="animate-fade-up delay-3 mt-6 text-[17px] leading-[1.65] text-sub">
           I Verkstedpakken får du:{" "}
           <span className="font-semibold text-primary">{displayText}</span>
           <span className="animate-cursor text-primary">|</span>

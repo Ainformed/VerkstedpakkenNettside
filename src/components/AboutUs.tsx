@@ -33,53 +33,37 @@ export default function AboutUs() {
 
   return (
     <div ref={ref}>
-      {/* Hero */}
-      <section className="bg-bg-alt px-8 pt-40 pb-28 lg:px-12 lg:pt-48 lg:pb-36">
-        <div className="mx-auto max-w-[1200px]">
+      {/* Om oss + Historien */}
+      <section className="px-8 pt-40 pb-28 lg:px-12 lg:pt-48 lg:pb-36">
+        <div className="mx-auto max-w-[720px]">
           <p className="reveal inline-block rounded-full border border-line bg-bg px-4 py-1.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-primary">
             Om oss
           </p>
           <h1
-            className="reveal mt-6 max-w-2xl font-[family-name:var(--font-bricolage)] text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.1] tracking-tight text-fg"
+            className="reveal mt-6 font-[family-name:var(--font-bricolage)] text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.1] tracking-tight text-fg"
             style={{ transitionDelay: "80ms" }}
           >
-            Startet med en kaffe og en frustrasjon
+            Fra en kaffeprat til bransjeløsning
           </h1>
           <p
-            className="reveal mt-6 max-w-xl text-[16px] leading-[1.7] text-sub"
+            className="reveal mt-6 text-[16px] leading-[1.75] text-sub"
             style={{ transitionDelay: "160ms" }}
           >
             Verkstedpakken AS ble etablert 5. januar 2026 av fire gründere som
             var lei av systemer som ikke fungerte. Vi bygger løsningen vi selv
             savnet — med fokus på mer skruing og mindre tull.
           </p>
-        </div>
-      </section>
-
-      {/* Historien */}
-      <section className="px-8 py-28 lg:px-12 lg:py-36">
-        <div className="mx-auto max-w-[720px]">
-          <p className="reveal text-[13px] font-semibold uppercase tracking-[0.2em] text-primary">
-            Historien
-          </p>
-
-          <h2
-            className="reveal mt-3 font-[family-name:var(--font-bricolage)] text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] tracking-tight text-fg"
-            style={{ transitionDelay: "80ms" }}
-          >
-            Fra en kaffeprat til bransjeløsning
-          </h2>
 
           <p
-            className="reveal mt-6 text-[16px] leading-[1.75] text-sub"
-            style={{ transitionDelay: "160ms" }}
+            className="reveal mt-4 text-[16px] leading-[1.75] text-sub"
+            style={{ transitionDelay: "240ms" }}
           >
             Sommeren 2025 delte Oscar sin frustrasjon etter seks år på verkstedgulvet: Utdaterte systemer, manglende oversikt og ineffektive rutiner kostet rett og slett bedrifter penger.
           </p>
 
           <p
             className="reveal mt-4 text-[16px] leading-[1.75] text-sub"
-            style={{ transitionDelay: "240ms" }}
+            style={{ transitionDelay: "320ms" }}
           >
             Sammen med resten av gründerteamet og deres tekniske ekspertise, startet arbeidet med å bygge systemet bransjen faktisk trenger. Et system som fungerer.
           </p>
@@ -141,13 +125,13 @@ export default function AboutUs() {
       {/* Team */}
       <section className="bg-bg-alt px-8 py-28 lg:px-12 lg:py-36">
         <div className="mx-auto max-w-[1200px]">
-          <div className="max-w-xl">
+          <div className="text-center">
             <p className="reveal text-[13px] font-semibold uppercase tracking-[0.2em] text-primary">
               Teamet
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:mx-auto lg:max-w-[900px]">
             {team.map((member, i) => (
               <div
                 key={member.name}
