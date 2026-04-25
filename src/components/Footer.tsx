@@ -1,43 +1,43 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
-    <footer className="border-t border-line px-8 py-14 lg:px-12">
-      <div className="mx-auto max-w-[1200px]">
-        <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
-          <div className="max-w-xs">
-            <span className="font-[family-name:var(--font-bricolage)] text-[28px] font-extrabold tracking-tight text-primary">
-              Verkstedpakken
-            </span>
-            <p className="mt-3 text-[13px] text-faint">
-              Verkstedsystemet som bare fungerer.
+    <footer className="site-footer">
+      <div className="wrap">
+        <div className="ft-grid">
+          <div className="ft-brand">
+            <div className="logo">
+              <span className="logo-mark">V</span>Verkstedpakken
+            </div>
+            <p>
+              En komplett løsning med verkstedsystem, mekanikerportal, custom
+              nettside og booking-moduler — for alle typer verksteder.
             </p>
-            <div className="mt-3 space-y-1 text-[13px] text-faint">
-              <p>Org.nr: 937 000 847</p>
-              <p>Tordenskiolds gate 2, 0160 Oslo</p>
-            </div>
           </div>
-
-          <div className="flex gap-16">
-            <div>
-              <p className="text-[12px] font-semibold uppercase tracking-wider text-sub">Sider</p>
-              <div className="mt-3 flex flex-col gap-2 text-[13px] text-faint">
-                <a href="#funksjoner" className="transition-colors duration-200 hover:text-fg">Funksjoner</a>
-                <a href="#integrasjoner" className="transition-colors duration-200 hover:text-fg">Integrasjoner</a>
-                <a href="/om-oss" className="transition-colors duration-200 hover:text-fg">Om oss</a>
-                <a href="#interesse" className="transition-colors duration-200 hover:text-fg">Meld interesse</a>
-              </div>
-            </div>
-            <div>
-              <p className="text-[12px] font-semibold uppercase tracking-wider text-sub">Kontakt</p>
-              <div className="mt-3 flex flex-col gap-2 text-[13px] text-faint">
-                <a href="mailto:salg@verkstedpakken.no" className="transition-colors duration-200 hover:text-fg">salg@verkstedpakken.no</a>
-                <a href="tel:+4793484220" className="transition-colors duration-200 hover:text-fg">934 84 220</a>
-              </div>
-            </div>
+          <div className="ft-col">
+            <h4>Produkt</h4>
+            <a href="/#produkt">Produkt</a>
+            <a href="/#roller">Roller</a>
+            <a href="/#integrasjoner">Integrasjoner</a>
+            <a href="/#interesse">Pris</a>
+          </div>
+          <div className="ft-col">
+            <h4>Selskap</h4>
+            <Link href="/om-oss">Om oss</Link>
+            <a href="/#interesse">Meld interesse</a>
+            <a href="mailto:x@verkstedpakken.no">Kontakt</a>
+            <a href="https://verkstedpakken.app">Logg inn</a>
+          </div>
+          <div className="ft-col">
+            <h4>Kontakt</h4>
+            <a href="mailto:x@verkstedpakken.no">x@verkstedpakken.no</a>
+            <a href="tel:+4793484220">934 84 220</a>
+            <a href="#">Tordenskiolds gate 2, Oslo</a>
           </div>
         </div>
-
-        <div className="mt-10 border-t border-line pt-6 text-[13px] text-faint">
-          &copy; {new Date().getFullYear()} Verkstedpakken AS
+        <div className="ft-bottom">
+          <span>© 2026 Verkstedpakken AS · Org.nr 937 000 847</span>
+          <span>Verkstedsystemet som bare fungerer.</span>
         </div>
       </div>
     </footer>

@@ -1,12 +1,12 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Problems from "@/components/Problems";
-import Features from "@/components/Features";
+import Product from "@/components/Product";
+import Roles from "@/components/Roles";
 import Integrations from "@/components/Integrations";
-
-
-import FAQ from "@/components/FAQ";
+import Pricing from "@/components/Pricing";
 import InterestList from "@/components/InterestList";
+import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -17,10 +17,12 @@ export default function Home() {
       <main>
         <Hero />
         <Problems />
-        <Features />
+        <Product />
+        <Roles />
         <Integrations />
-        <FAQ />
+        <Pricing />
         <InterestList />
+        <FAQ />
         <CTA />
       </main>
       <Footer />

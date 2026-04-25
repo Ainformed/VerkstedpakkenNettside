@@ -1,169 +1,104 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (!open) return;
+    const close = () => setOpen(false);
+    window.addEventListener("hashchange", close);
+    return () => window.removeEventListener("hashchange", close);
+  }, [open]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
-    <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "border-b border-line/60 bg-bg/80 backdrop-blur-xl"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-8 py-4 lg:px-12">
-        <a
-          href="/"
-          className="font-[family-name:var(--font-bricolage)] text-[28px] font-extrabold tracking-tight text-primary"
-        >
+    <nav className="nav">
+      <div className="wrap nav-in">
+        <Link href="/" className="logo" onClick={() => setOpen(false)}>
+          <span className="logo-mark">V</span>
           Verkstedpakken
-        </a>
-
-        <nav className="hidden items-center gap-9 md:flex">
-          <a
-            href="/#utfordringer"
-            className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
-          >
-            Utfordringer
-          </a>
-          <a
-            href="/#funksjoner"
-            className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
-          >
-            Funksjoner
-          </a>
-          <a
-            href="/#integrasjoner"
-            className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
-          >
-            Integrasjoner
-          </a>
-          <a
-            href="/om-oss"
-            className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
-          >
-            Om oss
-          </a>
-          <a
-            href="/#kontakt"
-            className="text-[14px] text-sub transition-colors duration-200 hover:text-fg"
-          >
-            Kontakt
-          </a>
-          <a
-            href="https://verkstedpakken.app"
-            className="text-[14px] font-medium text-fg transition-colors duration-200 hover:text-primary"
-          >
+        </Link>
+        <div className="nav-links">
+          <a href="/#utfordringer">Utfordringer</a>
+          <a href="/#produkt">Produkt</a>
+          <a href="/#roller">Roller</a>
+          <a href="/#integrasjoner">Integrasjoner</a>
+          <Link href="/om-oss">Om oss</Link>
+        </div>
+        <div className="nav-spacer" />
+        <div className="nav-cta">
+          <a className="btn btn-ghost btn-sm" href="https://verkstedpakken.app">
             Logg inn
           </a>
-          <a
-            href="/#interesse"
-            className="rounded-full bg-primary px-6 py-2.5 text-[13px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-primary/20 hover:brightness-125"
-          >
+          <a className="btn btn-primary btn-sm" href="/#interesse">
             Meld interesse
-          </a>
-        </nav>
-
-        <button
-          type="button"
-          className="rounded-lg p-2 transition-colors hover:bg-bg-alt md:hidden"
-          onClick={() => setOpen(!open)}
-          aria-expanded={open}
-          aria-label="Meny"
-        >
-          <svg
-            className="h-5 w-5 text-fg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            {open ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 8h16M4 16h16"
-              />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile overlay */}
-      <div
-        className={`fixed inset-0 z-40 bg-black/20 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        onClick={() => setOpen(false)}
-      />
-      <div
-        className={`fixed inset-x-0 top-0 z-50 bg-bg px-8 pb-10 pt-6 shadow-2xl transition-all duration-300 md:hidden ${
-          open ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-        }`}
-      >
-        <div className="flex items-center justify-between">
-          <a
-            href="/"
-            className="font-[family-name:var(--font-bricolage)] text-[28px] font-extrabold tracking-tight text-primary"
-            onClick={() => setOpen(false)}
-          >
-            Verkstedpakken
           </a>
           <button
             type="button"
-            className="rounded-lg p-2 transition-colors hover:bg-bg-alt"
-            onClick={() => setOpen(false)}
-            aria-label="Lukk meny"
+            className="nav-burger"
+            aria-label={open ? "Lukk meny" : "Åpne meny"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
           >
-            <svg className="h-5 w-5 text-fg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            {open ? (
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M6 18L18 6M6 6l12 12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 7h16M4 12h16M4 17h16"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            )}
           </button>
         </div>
-        <nav className="mt-8 flex flex-col gap-1">
-          <a href="/#utfordringer" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
-            Utfordringer
-          </a>
-          <a href="/#funksjoner" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
-            Funksjoner
-          </a>
-          <a href="/#integrasjoner" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
-            Integrasjoner
-          </a>
-          <a href="/om-oss" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
-            Om oss
-          </a>
-          <a href="/#kontakt" className="rounded-xl px-4 py-3 text-[16px] text-sub transition-colors hover:bg-bg-alt hover:text-fg" onClick={() => setOpen(false)}>
-            Kontakt
-          </a>
-          <a href="https://verkstedpakken.app" className="rounded-xl px-4 py-3 text-[16px] font-medium text-fg transition-colors hover:bg-bg-alt" onClick={() => setOpen(false)}>
-            Logg inn
-          </a>
-        </nav>
+      </div>
+
+      <div className={`nav-mobile${open ? " open" : ""}`}>
+        <a href="/#utfordringer" onClick={() => setOpen(false)}>
+          Utfordringer
+        </a>
+        <a href="/#produkt" onClick={() => setOpen(false)}>
+          Produkt
+        </a>
+        <a href="/#roller" onClick={() => setOpen(false)}>
+          Roller
+        </a>
+        <a href="/#integrasjoner" onClick={() => setOpen(false)}>
+          Integrasjoner
+        </a>
+        <Link href="/om-oss" onClick={() => setOpen(false)}>
+          Om oss
+        </Link>
+        <a href="https://verkstedpakken.app" onClick={() => setOpen(false)}>
+          Logg inn
+        </a>
         <a
           href="/#interesse"
-          className="mt-6 block rounded-full bg-primary py-3.5 text-center text-[15px] font-semibold text-white transition-all hover:brightness-125"
+          className="btn btn-primary"
           onClick={() => setOpen(false)}
         >
           Meld interesse
         </a>
       </div>
-    </header>
+    </nav>
   );
 }

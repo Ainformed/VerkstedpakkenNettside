@@ -1,99 +1,231 @@
-"use client";
-
-import { useState, useEffect } from "react";
-
-const words = [
-  "Egen nettside med online booking",
-  "Bookingportal med sanntidsstatus",
-  "Ordrestyring med direktefakturering",
-  "Mekanikerportal for verkstedgulvet",
-  "Delebestilling rett fra jobben",
-  "Lageroversikt med statusoppdatering",
-  "Dekkhotell med sesongpåminnelser",
-  "Kundechat og intern chat",
-  "Timeføring og statistikk",
-  "Alt koblet mot fakturaprogrammet",
-];
-
-const TYPING_SPEED = 60;
-const DELETING_SPEED = 35;
-const PAUSE_AFTER_TYPED = 1500;
-const PAUSE_BETWEEN_WORDS = 400;
+import Image from "next/image";
 
 export default function Hero() {
-  const [displayText, setDisplayText] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentWord = words[wordIndex];
-
-    if (!isDeleting) {
-      // Typing
-      if (displayText.length < currentWord.length) {
-        const timeout = setTimeout(() => {
-          setDisplayText(currentWord.slice(0, displayText.length + 1));
-        }, TYPING_SPEED);
-        return () => clearTimeout(timeout);
-      }
-      // Finished typing — pause then start deleting
-      const timeout = setTimeout(() => {
-        setIsDeleting(true);
-      }, PAUSE_AFTER_TYPED);
-      return () => clearTimeout(timeout);
-    }
-
-    // Deleting
-    if (displayText.length > 0) {
-      const timeout = setTimeout(() => {
-        setDisplayText(displayText.slice(0, -1));
-      }, DELETING_SPEED);
-      return () => clearTimeout(timeout);
-    }
-
-    // Finished deleting — pause then move to next word
-    const timeout = setTimeout(() => {
-      setIsDeleting(false);
-      setWordIndex((prev) => (prev + 1) % words.length);
-    }, PAUSE_BETWEEN_WORDS);
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, wordIndex]);
-
   return (
-    <section className="relative overflow-hidden bg-bg-alt px-8 pt-40 pb-28 lg:px-12 lg:pt-52 lg:pb-36">
-      {/* Subtle top grain texture */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
-
-      <div className="mx-auto max-w-[1200px]">
-        <p className="animate-fade-up text-[13px] font-semibold uppercase tracking-[0.2em] text-primary">
-          For alle typer verksteder
-        </p>
-
-        <h1 className="animate-fade-up delay-2 mt-5 max-w-[720px] font-[family-name:var(--font-bricolage)] text-[clamp(2.25rem,5.5vw,4.25rem)] leading-[1.02] tracking-tight text-fg">
-          Alt for en enklere verkstedhverdag
-        </h1>
-
-        <p className="animate-fade-up delay-3 mt-6 text-[17px] leading-[1.65] text-sub">
-          I Verkstedpakken får du:{" "}
-          <span className="font-semibold text-primary">{displayText}</span>
-          <span className="animate-cursor text-primary">|</span>
-        </p>
-
-        <div className="animate-fade-up delay-4 mt-10 flex items-center gap-4">
-          <a
-            href="#interesse"
-            className="rounded-full bg-primary px-8 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:shadow-lg hover:shadow-primary/20 hover:brightness-125"
-          >
-            Meld interesse
-          </a>
-          <a
-            href="#funksjoner"
-            className="rounded-full border border-line px-8 py-3.5 text-[15px] font-medium text-fg transition-all duration-200 hover:border-sub hover:bg-bg"
-          >
-            Se funksjoner
-          </a>
+    <section className="hero section">
+      <div className="wrap">
+        <div className="hero-grid">
+          <div className="hero-left">
+            <span className="hero-eyebrow">
+              <span className="dot" /> For alle typer verksteder
+            </span>
+            <h1 className="hero-h1">
+              Alt for en enklere <em>verkstedhverdag.</em>
+            </h1>
+            <p className="hero-sub">
+              Ett system for ordre, kundechat, deler, timer og egen nettside —
+              bygget etter 6 år på verkstedgulvet, for verksteder som vil vokse
+              uten å drukne i papirarbeid.
+            </p>
+            <div className="hero-ctas">
+              <a className="btn btn-primary btn-lg btn-arrow" href="#interesse">
+                Meld interesse
+              </a>
+              <a className="btn btn-secondary btn-lg" href="#produkt">
+                Se produktet
+              </a>
+            </div>
+            <div className="hero-meta">
+              <div>
+                <b>Ett</b>system — hele driften
+              </div>
+              <div>
+                <b>3</b>roller tilpasset hver hverdag
+              </div>
+              <div>
+                <b>2 uker</b>fra signert til i gang
+              </div>
+            </div>
+          </div>
+          <div className="hero-right">
+            <div className="hero-visual">
+              <div className="hv-photo">
+                <Image
+                  src="/hero-photo.png"
+                  alt="Verkstednettside eksempel"
+                  fill
+                  priority
+                  sizes="(max-width: 960px) 100vw, 620px"
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "50% 75%",
+                  }}
+                />
+              </div>
+              <div className="hv-product">
+                <ProductMock />
+              </div>
+              <div className="hv-badge">
+                <div className="hv-badge-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M4 12l6 6L20 6"
+                      stroke="#fff"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <b>Faktura sendt</b>
+                  <span>Passat B7 · 4 840 kr</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function ProductMock() {
+  return (
+    <div className="product-mock">
+      <div className="pm-top">
+        <div className="pm-top-l">
+          <div className="pm-burger">
+            <span /><span /><span />
+          </div>
+          <span className="pm-top-brand">VP</span>
+        </div>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="3" stroke="#fff" strokeWidth="1.8" />
+          <path
+            d="M19.4 15a1.7 1.7 0 00.4 1.8l.1.1a2 2 0 11-2.9 2.9l-.1-.1a1.7 1.7 0 00-1.8-.4 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.4l-.1.1a2 2 0 11-2.9-2.9l.1-.1a1.7 1.7 0 00.4-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.4-1.8l-.1-.1a2 2 0 112.9-2.9l.1.1a1.7 1.7 0 001.8.4H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.4l.1-.1a2 2 0 112.9 2.9l-.1.1a1.7 1.7 0 00-.4 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"
+            stroke="#fff"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+      <div className="pm-cats">
+        <span className="pm-cat active">Alle</span>
+        <span className="pm-cat">
+          Service <i>2</i>
+        </span>
+        <span className="pm-cat">EU-kontroll</span>
+        <span className="pm-cat">
+          Lakkering <i>1</i>
+        </span>
+      </div>
+      <div className="pm-tabs">
+        <span className="pm-tab active">
+          Alle <i>7</i>
+        </span>
+        <span className="pm-tab">Ny</span>
+        <span className="pm-tab">Tilbud</span>
+        <span className="pm-tab">
+          Bekreftet <i>1</i>
+        </span>
+        <span className="pm-tab">
+          Tildelt <i>2</i>
+        </span>
+        <span className="pm-tab">
+          Pågår <i>3</i>
+        </span>
+        <span className="pm-tab">
+          Klar <i>1</i>
+        </span>
+      </div>
+      <div className="pm-list">
+        <div className="pm-daylabel">Fredag 17. april</div>
+        <div className="pm-order">
+          <span className="pm-order-ic">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.1 2.1-2.1-2.1z"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          <div className="pm-order-body">
+            <div className="pm-order-title">
+              <span className="pm-num">#38</span>
+              <b>Bremseskiver +1til</b>
+            </div>
+            <div className="pm-order-meta">
+              <PersonIcon />
+              Intern — eget kjøretøy · AR4842
+            </div>
+          </div>
+          <span className="pm-status wait">VENTER TILDELING</span>
+        </div>
+        <div className="pm-order">
+          <span className="pm-order-ic sync">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 12a8 8 0 0113-6l2-2m1 4v6h-6M20 12a8 8 0 01-13 6l-2 2m-1-4v-6h6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          <div className="pm-order-body">
+            <div className="pm-order-title">
+              <span className="pm-num">#37</span>
+              <b>Sesongskifte — Vinter, 225</b>
+            </div>
+            <div className="pm-order-meta">
+              <PersonIcon />
+              Ola Nordmann · UX58585
+            </div>
+            <div className="pm-order-tags">
+              <span className="pm-order-tag">Firestone 225</span>
+              <span className="pm-order-tag loc">
+                <svg width="7" height="7" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 22s-7-7-7-13a7 7 0 0114 0c0 6-7 13-7 13z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="2" />
+                </svg>
+                A-05
+              </span>
+            </div>
+          </div>
+          <span className="pm-status prog">PÅBEGYNT</span>
+        </div>
+        <div className="pm-daylabel">Torsdag 16. april</div>
+        <div className="pm-order">
+          <span className="pm-order-ic">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.1 2.1-2.1-2.1z"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          <div className="pm-order-body">
+            <div className="pm-order-title">
+              <span className="pm-num">#30</span>
+              <b>Dekkskift +2til</b>
+            </div>
+            <div className="pm-order-meta">
+              <PersonIcon />
+              Kari Nordmann · UX49001
+            </div>
+          </div>
+          <span className="pm-status assign">TILDELT 16. APRIL</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PersonIcon() {
+  return (
+    <svg width="8" height="8" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
+      <path d="M4 21a8 8 0 0116 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
   );
 }
