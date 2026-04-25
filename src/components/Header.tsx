@@ -20,10 +20,21 @@ export default function Header() {
     };
   }, [open]);
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setOpen(false);
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      e.preventDefault();
+      if (window.location.hash) {
+        history.replaceState(null, "", "/");
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="nav">
       <div className="wrap nav-in">
-        <Link href="/" className="logo" onClick={() => setOpen(false)}>
+        <Link href="/" className="logo" onClick={handleLogoClick}>
           <span className="logo-mark">V</span>
           Verkstedpakken
         </Link>
