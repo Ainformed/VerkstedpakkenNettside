@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const team = [
   { name: "Oscar André Naas", role: "Daglig leder", desc: "6 års erfaring fra verkstedgulvet. Mannen bak produktkravene og den som vet hvordan hverdagen faktisk ser ut.", initials: "ON", color: "bg-primary", image: "/team/oscar.jpg" },
-  { name: "Fredrik Øien", role: "Utvikler", desc: "Teknisk spesialist som bygger kjernen i systemet sammen med teamet.", initials: "FØ", color: "bg-amber-500" },
+  { name: "Fredrik Øien", role: "Utvikler", desc: "Teknisk spesialist som bygger kjernen i systemet sammen med teamet.", initials: "FØ", color: "bg-amber-500", image: "/team/fredrik.jpg" },
   { name: "Henrik Hayes", role: "Utvikler", desc: "Teknisk spesialist som sørger for at alt fungerer sømløst under panseret.", initials: "HH", color: "bg-violet-500", image: "/team/henrik.jpg" },
 ];
 

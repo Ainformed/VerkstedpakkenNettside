@@ -9,6 +9,7 @@ import InterestList from "@/components/InterestList";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
@@ -16,14 +17,28 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Problems />
-        <Product />
-        <Roles />
-        <Integrations />
-        <Pricing />
+        <Reveal stagger=".pain-card" step={80}>
+          <Problems />
+        </Reveal>
+        <Reveal stagger=".product-card" step={100}>
+          <Product />
+        </Reveal>
+        <Reveal stagger=".role" step={90}>
+          <Roles />
+        </Reveal>
+        <Reveal stagger=".int-card" step={50}>
+          <Integrations />
+        </Reveal>
+        <Reveal>
+          <Pricing />
+        </Reveal>
         <InterestList />
-        <FAQ />
-        <CTA />
+        <Reveal stagger=".faq-q" step={40}>
+          <FAQ />
+        </Reveal>
+        <Reveal>
+          <CTA />
+        </Reveal>
       </main>
       <Footer />
     </>
