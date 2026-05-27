@@ -2,6 +2,7 @@
 
 import { headers } from "next/headers";
 import { Resend } from "resend";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -250,9 +251,25 @@ export async function submitInterest(
     if (officialName) workshop = officialName;
   }
 
+  const orgnr = orgnrRaw.trim() || undefined;
+
   const employeeLabel = employees
     ? (employeeLabels[employees] ?? employees)
     : "Ikke oppgitt";
+
+  // Database insert — should not block email sending
+  try {
+    await supabaseAdmin.from("interest_submissions").insert({
+      orgnr,
+      workshop,
+      contact,
+      email,
+      phone,
+      employees: employees || null,
+    });
+  } catch (e) {
+    console.error("Failed to insert interest submission:", e);
+  }
 
   try {
     await Promise.all([

@@ -6,12 +6,10 @@ export default function Footer() {
       <div className="wrap">
         <div className="ft-grid">
           <div className="ft-brand">
-            <div className="logo">
-              <span className="logo-mark">V</span>Verkstedpakken
-            </div>
+            <div className="logo">Verkstedpakken</div>
             <p>
               En komplett løsning med verkstedsystem, mekanikerportal, custom
-              nettside og booking-moduler — for alle typer verksteder.
+              nettside og booking-moduler. For alle typer verksteder.
             </p>
           </div>
           <div className="ft-col">

@@ -1,6 +1,42 @@
+const FAQ_ITEMS = [
+  {
+    q: "Hva koster Verkstedpakken?",
+    a: "Fast månedspris per ansatt, tilpasset størrelsen på verkstedet. Alt inkludert: systemet, egen nettside med booking, AI-hjelp, oppsett og support. Ingen oppstartskostnad, ingen skjulte tillegg.",
+  },
+  {
+    q: "Hva er inkludert i prisen?",
+    a: "Alt. Verkstedoversikten, ordrestyring med faktura, kundechat og ansattchat, delebestilling, dekkhotell, timeføring, statistikk, egen nettside med online booking, innebygd AI-hjelp. Og support fra oss når dere trenger det.",
+  },
+  {
+    q: "Hvor lang tid tar det å komme i gang?",
+    a: "Omtrent to uker. Vi setter opp systemet, importerer data fra dagens løsning og klargjør nettsiden. Innebygd AI-introduksjon guider hver ansatt gjennom sin rolle, så dere slipper manualer og lange kursøkter.",
+  },
+  {
+    q: "Trenger mekanikerne opplæring?",
+    a: "Minimalt. Hver ansatt får en interaktiv introduksjon tilpasset sin rolle, og alle har tilgang til en innebygd AI-chat som svarer på spørsmål underveis. De fleste er i gang på egenhånd etter kort tid.",
+  },
+];
+
 export default function FAQ() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ_ITEMS.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <section className="faq section">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="wrap">
         <div className="faq-top">
           <div>

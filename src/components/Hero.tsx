@@ -6,15 +6,13 @@ export default function Hero() {
       <div className="wrap">
         <div className="hero-grid">
           <div className="hero-left">
-            <span className="hero-eyebrow">
-              <span className="dot" /> For alle typer verksteder
-            </span>
+            <span className="hero-eyebrow">For alle typer verksteder</span>
             <h1 className="hero-h1">
-              Alt for en enklere <em>verkstedhverdag.</em>
+              Bygget fra <em>verkstedgulvet.</em>
             </h1>
             <p className="hero-sub">
-              Ett system for ordre, kundechat, deler, timer og egen nettside —
-              bygget etter 6 år på verkstedgulvet, for verksteder som vil vokse
+              Ett system for ordre, kundechat, deler, timer og egen nettside.
+              Bygget etter 6 år på verkstedgulvet, for verksteder som vil vokse
               uten å drukne i papirarbeid.
             </p>
             <div className="hero-ctas">

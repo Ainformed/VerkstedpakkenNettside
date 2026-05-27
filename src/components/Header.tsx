@@ -35,7 +35,6 @@ export default function Header() {
     <nav className="nav">
       <div className="wrap nav-in">
         <Link href="/" className="logo" onClick={handleLogoClick}>
-          <span className="logo-mark">V</span>
           Verkstedpakken
         </Link>
         <div className="nav-links">

@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Bricolage_Grotesque } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist_Mono, Bricolage_Grotesque, Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import ScrollReset from "@/components/ScrollReset";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
@@ -21,115 +21,206 @@ const bricolage = Bricolage_Grotesque({
   weight: ["400", "500", "600", "700"],
 });
 
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5efe7" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c005a" },
+  ],
+  colorScheme: "light",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://verkstedpakken.no"),
   title: {
-    default: "Verkstedpakken | Komplett system for verksteder",
+    default:
+      "Verkstedpakken — Komplett verkstedsystem bygget fra verkstedgulvet",
     template: "%s | Verkstedpakken",
   },
   description:
-    "Verkstedpakken samler kunder, jobber, faktura og deler i ett system. For bil, båt, lastebil og anleggsmaskiner. Integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
+    "Verkstedpakken samler ordre, kundechat, deler, timer og egen nettside i ett system. Bygget etter 6 år på verkstedgulvet, for bil, båt, lastebil og anleggsverksteder i Norge. Integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
+  applicationName: "Verkstedpakken",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
   keywords: [
-    "bilverksted",
-    "verksted",
+    "verkstedsystem",
     "bilverksted programvare",
-    "verksted system",
-    "bilverksted fakturering",
-    "Fiken integrasjon",
-    "Tripletex integrasjon",
-    "MEKO bildeler",
-    "Stripe betaling",
-    "verksted drift",
-    "bilverksted Norge",
-    "SaaS bilverksted",
+    "bilverksted system",
+    "verksted SaaS",
+    "verkstedsystem Norge",
+    "ordresystem verksted",
+    "fakturering bilverksted",
+    "kundeoppfølging verksted",
+    "deler og lager verksted",
+    "timeregistrering verksted",
+    "Fiken integrasjon verksted",
+    "Tripletex integrasjon verksted",
+    "MEKO bildeler integrasjon",
+    "Stripe betaling verksted",
+    "bilverksted Oslo",
+    "båtverksted system",
+    "lastebilverksted system",
+    "anleggsverksted system",
   ],
-  authors: [{ name: "Verkstedpakken" }],
+  authors: [{ name: "Verkstedpakken", url: "https://verkstedpakken.no" }],
   creator: "Verkstedpakken",
   publisher: "Verkstedpakken",
+  category: "Business Software",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "nb_NO",
     url: "https://verkstedpakken.no",
     siteName: "Verkstedpakken",
-    title: "Verkstedpakken | Komplett system for verksteder",
+    title: "Verkstedpakken — Komplett verkstedsystem bygget fra verkstedgulvet",
     description:
-      "Kunder, jobber, faktura og deler samlet i ett system for verksteder.",
+      "Ordre, kundechat, deler, timer og egen nettside i ett system. Bygget etter 6 år på verkstedgulvet, for alle typer verksteder.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Verkstedpakken | Komplett system for verksteder",
+        alt: "Verkstedpakken — komplett system for verksteder",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Verkstedpakken | Komplett system for verksteder",
+    site: "@verkstedpakken",
+    creator: "@verkstedpakken",
+    title: "Verkstedpakken — Komplett verkstedsystem",
     description:
-      "Kunder, jobber, faktura og deler samlet i ett system for verksteder.",
+      "Ordre, kundechat, deler, timer og egen nettside i ett system. Bygget fra verkstedgulvet.",
     images: ["/og-image.png"],
   },
   alternates: {
-    canonical: "https://verkstedpakken.no",
+    canonical: "/",
+    languages: {
+      "nb-NO": "/",
+    },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/icon-512.png", sizes: "512x512", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
+  },
+  manifest: "/manifest.webmanifest",
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
+  verification: {
+    // Legg til Google Search Console verification-token her når du har det:
+    // google: "xxxxxxxxxxxxxxxx",
+  },
 };
 
 function JsonLd() {
+  const SITE = "https://verkstedpakken.no";
   const schemas = [
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
+      "@id": `${SITE}/#software`,
       name: "Verkstedpakken",
       applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
+      applicationSubCategory: "Workshop Management Software",
+      operatingSystem: "Web, iOS, Android",
       description:
-        "Alt-i-ett SaaS-løsning for bilverksteder. Bilhåndtering, kundeoppfølging, fakturering og integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
-      url: "https://verkstedpakken.no",
+        "Alt-i-ett SaaS-løsning for verksteder. Ordre, kundechat, deler, timer, mekanikerportal og egen nettside i ett system. Integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
+      url: SITE,
+      image: `${SITE}/og-image.png`,
+      screenshot: `${SITE}/og-image.png`,
+      inLanguage: "nb-NO",
+      availableOnDevice: "Desktop, Tablet, Mobile",
+      softwareVersion: "1.0",
       offers: {
         "@type": "Offer",
         availability: "https://schema.org/InStock",
         priceCurrency: "NOK",
+        category: "SaaS subscription",
+        url: `${SITE}/#interesse`,
       },
+      aggregateRating: undefined,
+      provider: { "@id": `${SITE}/#org` },
       featureList: [
-        "Bilhåndtering og oversikt",
-        "Kundeoppfølging",
-        "Fakturering og økonomi",
-        "Lager og deler",
+        "Ordrehåndtering",
+        "Kundechat og oppfølging",
+        "Deler og lager",
+        "Timeregistrering",
+        "Mekanikerportal",
+        "Egen verkstednettside",
+        "Booking-moduler",
         "Fiken-integrasjon",
         "Tripletex-integrasjon",
         "MEKO-integrasjon",
-        "Stripe-integrasjon",
+        "Stripe-betaling",
       ],
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": `${SITE}/#org`,
       name: "Verkstedpakken",
-      url: "https://verkstedpakken.no",
+      legalName: "Verkstedpakken",
+      url: SITE,
+      logo: `${SITE}/icon-512.png`,
       email: "x@verkstedpakken.no",
       description:
-        "Utvikler av SaaS-løsninger for bilverksteder i Norge.",
+        "Utvikler av SaaS-løsninger for verksteder i Norge. Bygget etter 6 år på verkstedgulvet.",
+      foundingDate: "2024",
+      areaServed: { "@type": "Country", name: "Norway" },
+      knowsLanguage: ["nb-NO", "no"],
+      sameAs: [],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          email: "x@verkstedpakken.no",
+          contactType: "customer support",
+          areaServed: "NO",
+          availableLanguage: ["Norwegian", "Bokmål"],
+        },
+      ],
     },
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${SITE}/#website`,
       name: "Verkstedpakken",
-      url: "https://verkstedpakken.no",
+      url: SITE,
+      inLanguage: "nb-NO",
+      publisher: { "@id": `${SITE}/#org` },
       potentialAction: {
         "@type": "SearchAction",
-        target: "https://verkstedpakken.no/?q={search_term_string}",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${SITE}/?q={search_term_string}`,
+        },
         "query-input": "required name=search_term_string",
       },
     },
@@ -159,7 +250,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} antialiased`}
+        className={`${inter.variable} ${geistMono.variable} ${bricolage.variable} ${manrope.variable} antialiased`}
       >
         <ScrollReset />
         {children}
