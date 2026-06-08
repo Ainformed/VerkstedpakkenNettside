@@ -2,9 +2,13 @@
 
 import { headers } from "next/headers";
 import { Resend } from "resend";
-import { supabaseAdmin } from "@/lib/supabase-admin";
+import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy: new Resend(undefined) throws "Missing API key" at construction, which
+// would crash the whole action at module load. Only build it when configured.
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 export type InterestState = {
   success: boolean;
@@ -257,18 +261,34 @@ export async function submitInterest(
     ? (employeeLabels[employees] ?? employees)
     : "Ikke oppgitt";
 
-  // Database insert — should not block email sending
-  try {
-    await supabaseAdmin.from("interest_submissions").insert({
-      orgnr,
-      workshop,
-      contact,
-      email,
-      phone,
-      employees: employees || null,
-    });
-  } catch (e) {
-    console.error("Failed to insert interest submission:", e);
+  // Database insert — should not block email sending. Skipped (logged) if
+  // Supabase isn't configured, rather than crashing the action.
+  const db = getSupabaseAdmin();
+  if (db) {
+    try {
+      await db.from("interest_submissions").insert({
+        orgnr,
+        workshop,
+        contact,
+        email,
+        phone,
+        employees: employees || null,
+      });
+    } catch (e) {
+      console.error("Failed to insert interest submission:", e);
+    }
+  } else {
+    console.error("Supabase not configured — skipping interest DB insert.");
+  }
+
+  // Email is the critical user-facing path: if Resend isn't configured we
+  // can't notify anyone, so surface a graceful error instead of a 500.
+  if (!resend) {
+    console.error("Resend not configured — cannot send interest emails.");
+    return {
+      success: false,
+      error: "Noe gikk galt. Vennligst prøv igjen eller kontakt oss direkte.",
+    };
   }
 
   try {
