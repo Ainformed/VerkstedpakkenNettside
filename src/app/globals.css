@@ -1174,17 +1174,19 @@ footer.site-footer{background:var(--ink);color:rgba(255,255,255,.7);padding:56px
   .cmp-head{flex-direction:column;align-items:flex-start;gap:20px}
   .cmp-mascot{align-self:flex-start}
   .cmp-table thead{display:none}
-  .cmp-table,.cmp-table tbody,.cmp-table tr,.cmp-table th,.cmp-table td{display:block;width:auto}
-  .cmp-table tbody tr{padding:16px 18px;border-bottom:1px solid var(--line)}
+  .cmp-table,.cmp-table tbody,.cmp-table th,.cmp-table td{display:block;width:auto}
+  .cmp-table tbody tr{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:2px;padding:15px 0;border-bottom:1px solid var(--line)}
   .cmp-table tbody tr:last-child{border-bottom:0}
-  .cmp-table tbody th{padding:0 0 12px;font-size:16px;font-weight:600}
-  .cmp-table td{padding:7px 0}
+  .cmp-table tbody th{grid-column:1 / -1;padding:0 0 11px;font-size:15.5px;font-weight:600}
+  .cmp-table td{padding:0}
   .cmp-table td.cmp-col-vp{background:transparent;border:0}
   .cmp-table td::before{
     content:attr(data-label);display:block;color:var(--ink-mute);
-    font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;
+    font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;
   }
-  .cmp-table tr.cmp-total th,.cmp-table tr.cmp-total td{padding-top:14px;padding-bottom:14px}
+  .cmp-table tr.cmp-total{padding-top:18px}
+  .cmp-table tr.cmp-total th,.cmp-table tr.cmp-total td{border-top:0;padding-top:0}
+  .cmp-table tr.cmp-total th{padding-bottom:11px}
 }
 
 /* ====================================================================== */
