@@ -10,13 +10,17 @@ export default function Hero() {
           <div className="hero-left">
             <span className="hero-eyebrow">Laget i 2026, ikke 2006.</span>
             <h1 className="hero-h1">
-              Bygget for verksteder som vil <em>vokse.</em>
+              Fra booking til ferdig <em>faktura.</em>
             </h1>
             <p className="hero-sub">
-              Booking, ordre, deler, timer og kundeportal — samlet i ett
-              system, fra første henvendelse til ferdig faktura. Ingen
-              oppstartskostnad, ingen skjulte moduler. Bygget etter 6 år på
-              verkstedgulvet.
+              Ordre, kundechat, deler, timer, kundeportal og online booking —
+              uten oppstartskostnad og uten skjulte moduler. Bygget etter 6 år
+              på verkstedgulvet.
+            </p>
+            {/* Oppdater tallet når flere registrerer seg */}
+            <p className="hero-social">
+              <span className="hero-social-dot" />
+              <b>14 brukere</b> har allerede registrert seg
             </p>
             <div className="hero-ctas">
               <a className="btn btn-primary btn-lg btn-arrow" href={SIGNUP_URL}>
@@ -45,7 +49,7 @@ export default function Hero() {
             <div className="hero-visual">
               <div className="hv-collage">
                 <Image
-                  src="/hero-collage.png"
+                  src="/hero-collage-v3.png"
                   alt="RGL Automotive nettside og Verkstedpakken ordresystem"
                   fill
                   priority

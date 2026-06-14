@@ -6,7 +6,6 @@ import Roles from "@/components/Roles";
 import Process from "@/components/Process";
 import Integrations from "@/components/Integrations";
 import Comparison from "@/components/Comparison";
-import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import InterestList from "@/components/InterestList";
 import FAQ from "@/components/FAQ";
@@ -39,9 +38,6 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <Comparison />
-        </Reveal>
-        <Reveal stagger=".tm-card" step={80}>
-          <Testimonials />
         </Reveal>
         <Reveal>
           <Pricing />

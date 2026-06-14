@@ -14,7 +14,7 @@ export default function Product() {
 
         <div className="product-shot">
           <Image
-            src="/product-split-clean.png"
+            src="/product-split-v6.png"
             alt="Verkstedoversikten i Verkstedpakken – Kanban- og listevisning"
             fill
             sizes="(max-width: 960px) 100vw, 1100px"
