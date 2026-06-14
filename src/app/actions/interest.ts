@@ -4,11 +4,26 @@ import { headers } from "next/headers";
 import { Resend } from "resend";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
+// Strip BOM, zero-width and control characters that sneak in when an API key
+// is pasted from a BOM-prefixed file or some web UIs. Such a character makes
+// the Resend constructor throw "Cannot convert argument to a ByteString" while
+// building the Authorization header, which crashes the whole module at load.
+const RESEND_API_KEY = process.env.RESEND_API_KEY
+  ?.replace(/[\u0000-\u001F\u007F-\u009F\u200B\uFEFF]/g, "")
+  .trim();
+
 // Lazy: new Resend(undefined) throws "Missing API key" at construction, which
-// would crash the whole action at module load. Only build it when configured.
-const resend = process.env.RESEND_API_KEY
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null;
+// would crash the whole action at module load. Only build it when configured,
+// and guard the construction so a malformed key degrades gracefully instead of
+// turning every submission into a 500.
+let resend: Resend | null = null;
+if (RESEND_API_KEY) {
+  try {
+    resend = new Resend(RESEND_API_KEY);
+  } catch (e) {
+    console.error("Failed to construct Resend client:", e);
+  }
+}
 
 export type InterestState = {
   success: boolean;
@@ -309,7 +324,8 @@ export async function submitInterest(
     ]);
 
     return { success: true, error: "" };
-  } catch {
+  } catch (e) {
+    console.error("Failed to send interest emails:", e);
     return {
       success: false,
       error: "Noe gikk galt. Vennligst prøv igjen eller kontakt oss direkte.",

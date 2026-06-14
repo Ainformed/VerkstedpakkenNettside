@@ -1,25 +1,29 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import fiken from "../../public/logos/fiken.png";
+import tripletex from "../../public/logos/tripletex.png";
+import meko from "../../public/logos/meko.png";
+import stripe from "../../public/logos/stripe.png";
+import poweroffice from "../../public/logos/poweroffice.png";
+import visma from "../../public/logos/visma.png";
+import finago from "../../public/logos/finago.png";
+import vegvesen from "../../public/logos/vegvesen2.png";
+import brreg from "../../public/logos/brreg.png";
+import kartverket from "../../public/logos/kartverket2.png";
 
-type IntLogo = {
-  src: string;
-  alt: string;
-  /** Rendert høyde i px — justeres per logo så de visuelt balanserer. */
-  h: number;
-  /** Intrinsisk bredde/høyde-forhold (px-bredde / px-høyde). */
-  ratio: number;
-};
-
-const LOGOS: IntLogo[] = [
-  { src: "/logos/fiken.png", alt: "Fiken", h: 32, ratio: 656 / 398 },
-  { src: "/logos/tripletex.png", alt: "Tripletex", h: 26, ratio: 1920 / 727 },
-  { src: "/logos/meko.png", alt: "MEKO", h: 22, ratio: 514 / 98 },
-  { src: "/logos/stripe.png", alt: "Stripe", h: 30, ratio: 1280 / 533 },
-  { src: "/logos/poweroffice.png", alt: "PowerOffice", h: 24, ratio: 1958 / 425 },
-  { src: "/logos/visma.png", alt: "Visma eAccounting", h: 22, ratio: 1249 / 234 },
-  { src: "/logos/finago.png", alt: "Finago", h: 26, ratio: 2930 / 1088 },
-  { src: "/logos/vegvesen.png", alt: "Statens vegvesen", h: 58, ratio: 320 / 320 },
-  { src: "/logos/brreg.png", alt: "Brønnøysundregistrene", h: 20, ratio: 709 / 86 },
-  { src: "/logos/kartverket2.png", alt: "Kartverket", h: 52, ratio: 300 / 218 },
+// Some source PNGs carry extra transparent padding, so a single max-height
+// makes them render smaller than tight-cropped wordmarks. `scale` nudges those
+// up to keep the row visually balanced.
+const integrations: { src: StaticImageData; alt: string; scale?: number }[] = [
+  { src: fiken, alt: "Fiken", scale: 1.45 },
+  { src: tripletex, alt: "Tripletex" },
+  { src: meko, alt: "MEKO" },
+  { src: stripe, alt: "Stripe" },
+  { src: poweroffice, alt: "PowerOffice" },
+  { src: visma, alt: "Visma eAccounting" },
+  { src: finago, alt: "Finago" },
+  { src: vegvesen, alt: "Statens vegvesen", scale: 1.5 },
+  { src: brreg, alt: "Brønnøysundregistrene" },
+  { src: kartverket, alt: "Kartverket", scale: 1.3 },
 ];
 
 export default function Integrations() {
@@ -38,15 +42,21 @@ export default function Integrations() {
         </p>
 
         <div className="ints-band">
-          {LOGOS.map((logo) => (
-            <div className="int-card" key={logo.src}>
+          {integrations.map((logo) => (
+            <div className="int-card" key={logo.alt}>
               <Image
                 className="int-logo"
                 src={logo.src}
                 alt={logo.alt}
-                width={Math.round(logo.h * logo.ratio)}
-                height={logo.h}
-                style={{ height: logo.h, width: "auto" }}
+                sizes="(max-width: 800px) 40vw, 200px"
+                style={
+                  logo.scale
+                    ? {
+                        maxHeight: `${34 * logo.scale}px`,
+                        maxWidth: `${150 * logo.scale}px`,
+                      }
+                    : undefined
+                }
               />
             </div>
           ))}

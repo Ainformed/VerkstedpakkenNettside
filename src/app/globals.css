@@ -567,7 +567,8 @@ main{
 }
 .int-wordmark{display:inline-flex;align-items:center;gap:8px;line-height:1}
 .int-wordmark svg{display:block}
-.int-logo{display:block;max-width:100%;object-fit:contain}
+.int-logo{height:auto;width:auto;max-height:34px;max-width:150px;object-fit:contain}
+@media (max-width:560px){ .int-logo{max-height:28px;max-width:120px} }
 
 .ints-ask{
   margin-top:28px;
