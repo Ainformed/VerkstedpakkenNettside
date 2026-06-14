@@ -1140,13 +1140,14 @@ footer.site-footer{background:var(--ink);color:rgba(255,255,255,.7);padding:56px
 .cmp-head .lede{margin-top:14px;max-width:520px}
 .cmp-mascot{flex-shrink:0;margin-bottom:6px}
 .cmp-table-wrap{ margin-top:32px }
-.cmp-table{width:100%;border-collapse:collapse;font-size:15px}
+.cmp-table{width:100%;border-collapse:collapse;font-size:15px;table-layout:fixed}
 .cmp-table thead th{
   text-align:left;padding:14px 18px;font-weight:700;font-size:16px;
   font-family:var(--font-display),sans-serif;letter-spacing:-.01em;
   color:var(--ink);border-bottom:1px solid var(--line);
 }
 .cmp-table thead th:first-child{width:38%}
+.cmp-table thead th.cmp-col-vp{width:31%}
 .cmp-table tbody th{text-align:left;font-weight:500;padding:17px 18px;color:var(--ink);font-size:15.5px}
 .cmp-table td{padding:17px 18px;vertical-align:top}
 .cmp-table tbody tr{border-bottom:1px solid var(--line-soft)}
