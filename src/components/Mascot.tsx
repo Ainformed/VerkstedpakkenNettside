@@ -10,7 +10,10 @@ export type MutternPose =
   | "thumbsup"
   | "celebrate"
   | "working"
-  | "tool";
+  | "tool"
+  | "phone"
+  | "laptop"
+  | "screw";
 
 // Muttern beholder sin egen palett (navy + terracotta) — vises kun på lyse flater.
 export default function Mascot({
