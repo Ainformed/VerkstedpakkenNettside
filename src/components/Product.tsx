@@ -4,7 +4,7 @@ export default function Product() {
   return (
     <section className="product section" id="produkt">
       <div className="wrap">
-        <span className="eyebrow">Bygget fra verkstedgulvet</span>
+        <span className="eyebrow">For verksteder som vil vokse</span>
         <h2 className="product-h">Hele driften på ett brett.</h2>
         <p className="product-sub">
           Verkstedoversikten — hjertet i systemet. Nye bookinger, utsendte

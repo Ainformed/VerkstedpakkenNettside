@@ -10,7 +10,7 @@ export default function Hero() {
           <div className="hero-left">
             <span className="hero-eyebrow">Laget i 2026, ikke 2006.</span>
             <h1 className="hero-h1">
-              Bygget fra <em>verkstedgulvet.</em>
+              Bygget for verksteder som vil <em>vokse.</em>
             </h1>
             <p className="hero-sub">
               Booking, ordre, deler, timer og kundeportal — samlet i ett
@@ -37,7 +37,7 @@ export default function Hero() {
                 <b>0 kr</b> i oppstartskostnad
               </div>
               <div>
-                <b>Online booking</b> inkludert i prisen
+                <b>Online booking</b> koblet rett i systemet
               </div>
             </div>
           </div>
