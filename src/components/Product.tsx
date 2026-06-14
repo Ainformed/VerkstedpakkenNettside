@@ -162,6 +162,33 @@ function MockBoard() {
           <div className="mock-kanban" style={{ paddingLeft: 0 }}>
             <div className="mock-col">
               <div className="mock-col-h">
+                Innkommende <i>2</i>
+              </div>
+              <div className="mock-card tilbud">
+                <div className="top">
+                  <b>Pajero Pinin</b>
+                  <span className="reg">UX 49001</span>
+                </div>
+                <div className="svc">EU-kontroll</div>
+                <div className="foot">
+                  <span>Ikke tildelt</span>
+                  <span className="bdg open">Tilbud sendt</span>
+                </div>
+              </div>
+              <div className="mock-card tildelt">
+                <div className="top">
+                  <b>Caddy</b>
+                  <span className="reg">UX 58585</span>
+                </div>
+                <div className="svc">Service + bremser</div>
+                <div className="foot">
+                  <span>Ikke tildelt</span>
+                  <span>14. jun</span>
+                </div>
+              </div>
+            </div>
+            <div className="mock-col">
+              <div className="mock-col-h">
                 Booking <i>4</i>
               </div>
               <div className="mock-card booking">
@@ -336,6 +363,29 @@ function MockBoard() {
               statusClass="assign"
               statusText="TILDELT 16. APRIL"
             />
+            <ListOrder
+              num="#28"
+              title="Service + olje"
+              meta="Per Hansen · BV 11223"
+              statusClass="assign"
+              statusText="TILDELT"
+            />
+            <div className="mock-list-day">ONSDAG 15. APRIL</div>
+            <ListOrder
+              num="#25"
+              title="Hjulstilling"
+              meta="Ola Nordmann · DH 12345"
+              statusClass="prog"
+              statusText="PÅBEGYNT"
+              icSync
+            />
+            <ListOrder
+              num="#22"
+              title="EU-kontroll"
+              meta="Kari Nordmann · EP 45678"
+              statusClass="assign"
+              statusText="FERDIG"
+            />
           </div>
         </div>
       </div>
@@ -414,9 +464,21 @@ function ListOrder({
 function MiniChat() {
   return (
     <div className="mini-chat">
+      <div className="mini-bubble me">
+        Hei Ola! Vi svarer som regel innen 15 minutter i åpningstiden.
+        <span className="time">09:38</span>
+      </div>
       <div className="mini-bubble">
         Hei! Bilen lager en ulyd fra venstre foran. Kan dere sjekke i dag?
         <span className="time">09:42</span>
+      </div>
+      <div className="mini-bubble me">
+        Klart! Kommer lyden ved bremsing eller når du svinger?
+        <span className="time">09:43</span>
+      </div>
+      <div className="mini-bubble">
+        Mest når jeg svinger til venstre.
+        <span className="time">09:43</span>
       </div>
       <div className="mini-bubble me">
         Vi kan ta en titt kl 14 — her er et foreløpig overslag:
@@ -482,44 +544,42 @@ function MiniChat() {
 function MiniPortal() {
   return (
     <div className="mini-portal">
-      <div className="mini-portal-h">
-        <div className="mini-portal-h-l">
-          <span className="lbl">Din bestilling</span>
-          <b>Passat B7</b>
-          <span className="reg">DH 12345 · Service 30 000 km</span>
+      <div className="mp2-head">
+        <div>
+          <span className="mp2-veh">Volkswagen Caddy · 2010</span>
+          <b className="mp2-reg">UX 58585</b>
         </div>
-        <span className="mini-portal-badge">På verkstedet</span>
+        <span className="mp2-ready">Klar for henting</span>
       </div>
-      <div className="mini-portal-eta">
-        <span>Forventet ferdig</span>
-        <b>I dag · 15:30</b>
+      <div className="mp2-job">
+        <b>Verkstedjobb #14</b>
+        <span>Ola Nordmann · 30. mai</span>
       </div>
-      <div className="mini-portal-timeline">
-        <PortalStep status="done" title="Bestilling mottatt" sub="Man 21. apr · 09:42" />
-        <PortalStep status="done" title="Prisforslag godtatt" sub="Man 21. apr · 09:47" />
-        <PortalStep status="done" title="Bekreftet — innlevering i dag" sub="Tor 24. apr · 08:55" />
-        <PortalStep status="active" title="Under arbeid — Ola" sub="Startet 10:12 · 2:18 t" />
-        <PortalStep status="pending" title="Klar for henting" sub="Varsles per SMS" />
+      <div className="mp2-steps">
+        <div className="mp2-step done">
+          <span className="mp2-dot">✓</span>Bekreftet
+        </div>
+        <div className="mp2-step done">
+          <span className="mp2-dot">✓</span>Mottatt
+        </div>
+        <div className="mp2-step done">
+          <span className="mp2-dot">✓</span>Pågår
+        </div>
+        <div className="mp2-step active">
+          <span className="mp2-dot">✓</span>Klar
+        </div>
       </div>
-    </div>
-  );
-}
-
-function PortalStep({
-  status,
-  title,
-  sub,
-}: {
-  status: "done" | "active" | "pending";
-  title: string;
-  sub: string;
-}) {
-  return (
-    <div className={`mini-portal-step ${status}`}>
-      <span className="mini-portal-dot" />
-      <div className="mini-portal-step-b">
-        <div className="mini-portal-step-t">{title}</div>
-        <div className="mini-portal-step-s">{sub}</div>
+      <div className="mp2-approve">
+        <span className="mp2-approve-h">Forslag til tilleggsarbeid</span>
+        <b className="mp2-approve-t">Bytte av differensial</b>
+        <div className="mp2-approve-row">
+          <span>4 t × kr 550</span>
+          <b>kr 2 200</b>
+        </div>
+        <div className="mp2-approve-actions">
+          <span className="mp2-btn ghost">Nei takk</span>
+          <span className="mp2-btn ok">✓ Godkjenn</span>
+        </div>
       </div>
     </div>
   );

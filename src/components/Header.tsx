@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { APP_URL, SIGNUP_URL } from "@/lib/links";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -42,15 +43,16 @@ export default function Header() {
           <a href="/#produkt">Produkt</a>
           <a href="/#roller">Roller</a>
           <a href="/#integrasjoner">Integrasjoner</a>
+          <a href="/#pris">Pris</a>
           <Link href="/om-oss">Om oss</Link>
         </div>
         <div className="nav-spacer" />
         <div className="nav-cta">
-          <a className="btn btn-ghost btn-sm" href="https://verkstedpakken.app">
+          <a className="btn btn-ghost btn-sm" href={APP_URL}>
             Logg inn
           </a>
-          <a className="btn btn-primary btn-sm" href="/#interesse">
-            Meld interesse
+          <a className="btn btn-primary btn-sm" href={SIGNUP_URL}>
+            Start gratis prøveperiode
           </a>
           <button
             type="button"
@@ -95,18 +97,21 @@ export default function Header() {
         <a href="/#integrasjoner" onClick={() => setOpen(false)}>
           Integrasjoner
         </a>
+        <a href="/#pris" onClick={() => setOpen(false)}>
+          Pris
+        </a>
         <Link href="/om-oss" onClick={() => setOpen(false)}>
           Om oss
         </Link>
-        <a href="https://verkstedpakken.app" onClick={() => setOpen(false)}>
+        <a href={APP_URL} onClick={() => setOpen(false)}>
           Logg inn
         </a>
         <a
-          href="/#interesse"
+          href={SIGNUP_URL}
           className="btn btn-primary"
           onClick={() => setOpen(false)}
         >
-          Meld interesse
+          Start gratis prøveperiode
         </a>
       </div>
     </nav>

@@ -51,13 +51,14 @@ export default function Roles() {
               <h3>Mekaniker</h3>
             </div>
             <p>
-              Rett på jobben med stempling per ordre. Dokumenter arbeidet med
-              tekst og bilder — alt kobles til riktig kunde automatisk.
+              Rett på jobben med stempling per ordre — og Muttern, AI-assistenten,
+              koblet på registreringsnummeret. Dokumenter arbeidet med tekst og
+              bilder, alt kobles til riktig kunde automatisk.
             </p>
             <ul className="role-list">
+              <li>Muttern AI-assistent koblet på reg.nr</li>
               <li>Stempling på spesifikke oppgaver</li>
               <li>Bilder og notater i ordrehistorikken</li>
-              <li>Arbeidstid og fraværsoversikt</li>
             </ul>
           </div>
 

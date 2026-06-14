@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { APP_URL } from "@/lib/links";
 
 export default function Footer() {
   return (
@@ -17,18 +18,18 @@ export default function Footer() {
             <a href="/#produkt">Produkt</a>
             <a href="/#roller">Roller</a>
             <a href="/#integrasjoner">Integrasjoner</a>
-            <a href="/#interesse">Pris</a>
+            <a href="/#pris">Pris</a>
           </div>
           <div className="ft-col">
             <h4>Selskap</h4>
             <Link href="/om-oss">Om oss</Link>
-            <a href="/#interesse">Meld interesse</a>
-            <a href="mailto:x@verkstedpakken.no">Kontakt</a>
-            <a href="https://verkstedpakken.app">Logg inn</a>
+            <a href="/#interesse">Book demo</a>
+            <a href="mailto:hei@verkstedpakken.no">Kontakt</a>
+            <a href={APP_URL}>Logg inn</a>
           </div>
           <div className="ft-col">
             <h4>Kontakt</h4>
-            <a href="mailto:x@verkstedpakken.no">x@verkstedpakken.no</a>
+            <a href="mailto:hei@verkstedpakken.no">hei@verkstedpakken.no</a>
             <a href="tel:+4793484220">934 84 220</a>
             <a href="#">Tordenskiolds gate 2, Oslo</a>
           </div>

@@ -52,12 +52,12 @@ export default function InterestList() {
       <div className="wrap">
         <div className="interest-grid">
           <div>
-            <span className="eyebrow">Interesseliste</span>
-            <h2 className="h-section">Meld interesse</h2>
+            <span className="eyebrow">Book demo</span>
+            <h2 className="h-section">Vil du se det først?</h2>
             <p className="lede">
-              Verkstedpakken er under utvikling og lanseres om kort tid. Meld
-              interesse nå, så holder vi deg oppdatert og tar kontakt før vi
-              åpner dørene.
+              Book en kort demo — ca. 20 minutter der vi viser Verkstedpakken på
+              en ekte jobb, ingen presentasjon. Eller start gratis prøveperiode
+              på app.verkstedpakken.no når du vil.
             </p>
 
             <div className="interest-list">
@@ -67,7 +67,7 @@ export default function InterestList() {
                 </div>
                 <div>
                   <b>Uforpliktende</b>
-                  <p>Vi ringer, lytter og viser systemet. Ingen press, ingen salgspitch.</p>
+                  <p>Vi viser systemet på en ekte jobb. Ingen press, ingen salgspitch.</p>
                 </div>
               </div>
               <div className="il-item">
@@ -75,8 +75,8 @@ export default function InterestList() {
                   <CheckIcon />
                 </div>
                 <div>
-                  <b>Tilpasset verkstedet</b>
-                  <p>Vi tar utgangspunkt i hvordan dere jobber i dag — ikke omvendt.</p>
+                  <b>Kort og konkret</b>
+                  <p>Ca. 20 minutter — ingen lang presentasjon.</p>
                 </div>
               </div>
               <div className="il-item">
@@ -84,8 +84,8 @@ export default function InterestList() {
                   <CheckIcon />
                 </div>
                 <div>
-                  <b>To uker til i gang etter signering</b>
-                  <p>Oppsett, dataimport og opplæring — vi står for det meste.</p>
+                  <b>Eller bare test selv</b>
+                  <p>Vil du heller hoppe rett i? Start gratis prøveperiode på minutter.</p>
                 </div>
               </div>
             </div>
@@ -94,9 +94,9 @@ export default function InterestList() {
           {state.success ? (
             <div className="interest-form">
               <div className="fr-success">
-                <b>Takk for din interesse!</b>
+                <b>Takk! Vi tar kontakt for å avtale demo.</b>
                 <p>
-                  Vi har mottatt informasjonen din og tar kontakt så snart vi
+                  Vi har mottatt forespørselen din og tar kontakt så snart vi
                   kan. Sjekk e-posten din for en bekreftelse.
                 </p>
               </div>
@@ -237,7 +237,7 @@ export default function InterestList() {
                 disabled={isPending}
                 className="btn btn-primary btn-lg btn-arrow fr-submit"
               >
-                {isPending ? "Sender…" : "Meld interesse"}
+                {isPending ? "Sender…" : "Book demo"}
               </button>
             </form>
           )}

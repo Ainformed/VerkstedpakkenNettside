@@ -2,37 +2,37 @@ export default function Problems() {
   return (
     <section className="pain section" id="utfordringer">
       <div className="wrap">
-        <span className="eyebrow">Hverdagen uten system</span>
-        <h2 className="h-section">Kjenner du deg igjen?</h2>
+        <span className="eyebrow">Problemet med de gamle systemene</span>
+        <h2 className="h-section">Regningen som aldri stopper.</h2>
         <p className="lede">
-          De fleste verksteder drives fortsatt på lapper, telefoner og e-post.
-          Her er det vi hører oftest.
+          Verkstedsystemet er kjøpt, men kostnadene fortsetter å komme. Det er
+          ikke selve driften som er problemet — det er prislappen, modulene og
+          kontrakten rundt den.
         </p>
 
         <div className="pain-grid">
           <div className="pain-card big">
             <div className="pain-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <ellipse cx="12" cy="5" rx="8" ry="3" stroke="#241d44" strokeWidth="1.8" />
                 <path
-                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                  stroke="#0c005a"
+                  d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"
+                  stroke="#241d44"
                   strokeWidth="1.8"
-                  strokeLinejoin="round"
                 />
                 <path
-                  d="M8 10h8M8 13h5"
-                  stroke="#0c005a"
+                  d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"
+                  stroke="#241d44"
                   strokeWidth="1.8"
-                  strokeLinecap="round"
                 />
               </svg>
             </div>
             <div>
-              <h3>Beskjeder som forsvinner</h3>
+              <h3>Tunge oppstartskostnader</h3>
               <p>
-                Kommunikasjonen mellom kundemottaker, mekaniker og kunde blir en
-                evig runddans. Lapper forsvinner, beskjeder glemmes — og ingen
-                vet hvem som gjør hva.
+                Du betaler dyrt før du har skrevet en eneste ordrelinje.
+                Lisenser, oppsett og konsulenttimer som spiser opp budsjettet —
+                lenge før systemet tjener deg en krone.
               </p>
             </div>
           </div>
@@ -41,18 +41,33 @@ export default function Problems() {
             <div className="pain-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                 <path
-                  d="M12 3v18M17 7H9a2 2 0 000 4h6a2 2 0 010 4H7"
-                  stroke="#0c005a"
+                  d="M12 3l9 5-9 5-9-5 9-5z"
+                  stroke="#241d44"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M3 12l9 5 9-5"
+                  stroke="#241d44"
                   strokeWidth="1.8"
                   strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M3 16l9 5 9-5"
+                  stroke="#241d44"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
             <div>
-              <h3>Tapte inntekter</h3>
+              <h3>Skjulte modulpriser</h3>
               <p>
-                Fragmenterte systemer gjør at utført arbeid og deler ikke alltid
-                faktureres. Penger forsvinner i sprekkene.
+                Grunnpakken ser grei ut — helt til du innser at det du faktisk
+                trenger ligger bak fire ekstra moduler, hver med sin egen
+                prislapp.
               </p>
             </div>
           </div>
@@ -60,19 +75,29 @@ export default function Problems() {
           <div className="pain-card">
             <div className="pain-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.35 1.9.66 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.3 1.85.52 2.81.66A2 2 0 0122 16.92z"
-                  stroke="#0c005a"
+                <rect
+                  x="5"
+                  y="11"
+                  width="14"
+                  height="9"
+                  rx="2"
+                  stroke="#241d44"
                   strokeWidth="1.8"
                   strokeLinejoin="round"
+                />
+                <path
+                  d="M8 11V7a4 4 0 018 0v4"
+                  stroke="#241d44"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
                 />
               </svg>
             </div>
             <div>
-              <h3>Telefonen spiser arbeidstiden</h3>
+              <h3>Bindingstid og lang oppstart</h3>
               <p>
-                Ingen booking, ingen status, ingen selvbetjening. Resultatet er
-                en endeløs strøm av telefoner kundemottaket ikke trenger.
+                Måneder med implementering og lange kontrakter. Du låses inn før
+                du vet om systemet i det hele tatt passer verkstedet ditt.
               </p>
             </div>
           </div>
@@ -80,43 +105,45 @@ export default function Problems() {
 
         <div className="pain-more">
           <details className="pain-acc">
-            <summary>Flere utfordringer vi løser</summary>
+            <summary>Flere ting de gamle systemene overser</summary>
             <div className="pain-more-grid">
               <div className="pain-mini">
-                <h4>Tomme luker i kalenderen</h4>
+                <h4>Ingen nettside til kunden</h4>
                 <p>
-                  Mye rykk og napp — arbeidsmengden svinger med sesong. Uten
-                  enkel booking og påminnelser forblir stille perioder stille.
+                  De tradisjonelle systemene er bygget for innsiden av
+                  verkstedet. Kunden din sitter fortsatt og ringer for å bestille
+                  time.
                 </p>
               </div>
               <div className="pain-mini">
-                <h4>Delebestilling er kaos</h4>
+                <h4>Bygget for en annen tid</h4>
                 <p>
-                  Ring eller mail, kunden aner ikke om det er bestilt, og
-                  verkstedet bruker tid på oppfølging som burde gått av seg
-                  selv.
+                  Solide verktøy for selve driften, men laget før kundene
+                  forventet å booke på mobilen. Bileiere oppfører seg annerledes
+                  i dag.
                 </p>
               </div>
               <div className="pain-mini">
-                <h4>Nettsiden gir kunden ingenting</h4>
+                <h4>Beskjeder som forsvinner</h4>
                 <p>
-                  Små og mellomstore verksteder har nettsider som knapt viser
-                  åpningstider. Ingen booking, ingen grunn til å komme tilbake.
+                  Når systemet ikke binder sammen mottak, mekaniker og kunde blir
+                  det lapper, telefoner og e-post — og ingen vet hvem som gjør
+                  hva.
                 </p>
               </div>
               <div className="pain-mini">
-                <h4>For mange systemer</h4>
+                <h4>Tapte inntekter</h4>
                 <p>
-                  Utdatert programvare, gammel tankegang, papirlapper overalt —
-                  og lite snakker sammen.
+                  Fragmenterte løsninger gjør at utført arbeid og deler ikke
+                  alltid faktureres. Penger forsvinner i sprekkene.
                 </p>
               </div>
               <div className="pain-mini">
                 <h4>Flyr blind på tallene</h4>
                 <p>
-                  Uten oversikt over omsetning, produktivitet og kapasitet er
-                  det vanskelig å vite hvor pengene lekker — eller hvor dere
-                  kan vokse.
+                  Uten oversikt over omsetning, produktivitet og kapasitet er det
+                  vanskelig å vite hvor pengene lekker — eller hvor dere kan
+                  vokse.
                 </p>
               </div>
             </div>

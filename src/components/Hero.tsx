@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { PRICE_LABEL, PRICE_HERO_SUFFIX } from "@/lib/pricing";
+import { SIGNUP_URL } from "@/lib/links";
 
 export default function Hero() {
   return (
@@ -6,32 +8,36 @@ export default function Hero() {
       <div className="wrap">
         <div className="hero-grid">
           <div className="hero-left">
-            <span className="hero-eyebrow">For alle typer verksteder</span>
+            <span className="hero-eyebrow">Laget i 2026, ikke 2006.</span>
             <h1 className="hero-h1">
               Bygget fra <em>verkstedgulvet.</em>
             </h1>
             <p className="hero-sub">
-              Ett system for ordre, kundechat, deler, timer og egen nettside.
-              Bygget etter 6 år på verkstedgulvet, for verksteder som vil vokse
-              uten å drukne i papirarbeid.
+              Booking, ordre, deler, timer og kundeportal — samlet i ett
+              system, fra første henvendelse til ferdig faktura. Ingen
+              oppstartskostnad, ingen skjulte moduler. Bygget etter 6 år på
+              verkstedgulvet.
             </p>
             <div className="hero-ctas">
-              <a className="btn btn-primary btn-lg btn-arrow" href="#interesse">
-                Meld interesse
+              <a className="btn btn-primary btn-lg btn-arrow" href={SIGNUP_URL}>
+                Start gratis prøveperiode
               </a>
-              <a className="btn btn-secondary btn-lg" href="#produkt">
-                Se produktet
+              <a className="btn btn-secondary btn-lg" href="#interesse">
+                Book demo
               </a>
             </div>
+            <p className="cta-reassure">
+              14 dager gratis · ingen betalingskort · ingen binding.
+            </p>
             <div className="hero-meta">
               <div>
-                <b>Ett</b>system — hele driften
+                <b>{PRICE_LABEL}</b> {PRICE_HERO_SUFFIX}
               </div>
               <div>
-                <b>3</b>roller tilpasset hver hverdag
+                <b>0 kr</b> i oppstartskostnad
               </div>
               <div>
-                <b>2 uker</b>fra signert til i gang
+                <b>Online booking</b> inkludert i prisen
               </div>
             </div>
           </div>

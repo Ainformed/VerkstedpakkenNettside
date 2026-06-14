@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Bricolage_Grotesque, Inter, Manrope } from "next/font/google";
+import { Geist_Mono, Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import ScrollReset from "@/components/ScrollReset";
 
@@ -21,19 +21,13 @@ const bricolage = Bricolage_Grotesque({
   weight: ["400", "500", "600", "700"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f5efe7" },
-    { media: "(prefers-color-scheme: dark)", color: "#0c005a" },
+    { media: "(prefers-color-scheme: dark)", color: "#241d44" },
   ],
   colorScheme: "light",
 };
@@ -190,17 +184,17 @@ function JsonLd() {
       legalName: "Verkstedpakken",
       url: SITE,
       logo: `${SITE}/icon-512.png`,
-      email: "x@verkstedpakken.no",
+      email: "hei@verkstedpakken.no",
       description:
         "Utvikler av SaaS-løsninger for verksteder i Norge. Bygget etter 6 år på verkstedgulvet.",
-      foundingDate: "2024",
+      foundingDate: "2026",
       areaServed: { "@type": "Country", name: "Norway" },
       knowsLanguage: ["nb-NO", "no"],
       sameAs: [],
       contactPoint: [
         {
           "@type": "ContactPoint",
-          email: "x@verkstedpakken.no",
+          email: "hei@verkstedpakken.no",
           contactType: "customer support",
           areaServed: "NO",
           availableLanguage: ["Norwegian", "Bokmål"],
@@ -250,7 +244,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body
-        className={`${inter.variable} ${geistMono.variable} ${bricolage.variable} ${manrope.variable} antialiased`}
+        className={`${inter.variable} ${geistMono.variable} ${bricolage.variable} antialiased`}
       >
         <ScrollReset />
         {children}
