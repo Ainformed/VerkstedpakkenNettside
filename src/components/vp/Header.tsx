@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 import { APP_URL, SIGNUP_URL } from "@/lib/links";
@@ -14,6 +14,8 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -28,9 +30,60 @@ export default function Header() {
     };
   }, [menuOpen]);
 
+  // Skjul ved scroll ned, vis ved scroll opp. Alltid synlig nær toppen og
+  // så lenge footeren er i bildet.
+  const footerVisible = useRef(false);
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const THRESHOLD = 8; // ignorer småbevegelser (touch-jitter)
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setScrolled(y > 4);
+        const diff = y - lastY;
+        if (y < 80 || footerVisible.current) {
+          setHidden(false);
+        } else if (diff > THRESHOLD) {
+          setHidden(true);
+        } else if (diff < -THRESHOLD) {
+          setHidden(false);
+        }
+        if (Math.abs(diff) > THRESHOLD) lastY = y;
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Footer i viewport -> menyen frem igjen
+    const foot = document.querySelector(".site-foot");
+    let io: IntersectionObserver | undefined;
+    if (foot) {
+      io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            footerVisible.current = entry.isIntersecting;
+            if (entry.isIntersecting) setHidden(false);
+          }
+        },
+        { threshold: 0 },
+      );
+      io.observe(foot);
+    }
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      io?.disconnect();
+    };
+  }, []);
+
   return (
     <>
-      <header className="nav">
+      <header
+        className={`nav${hidden ? " nav-hidden" : ""}${scrolled ? " nav-scrolled" : ""}`}
+      >
         <div className="nav-inner">
           <Link className="brand" href="/" aria-label="Verkstedpakken">
             <Logo />
