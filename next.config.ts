@@ -40,6 +40,13 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // Gamle indekserte URL-er fra forrige design → nye ruter
+  async redirects() {
+    return [
+      { source: "/om-oss", destination: "/", permanent: true },
+      { source: "/demo", destination: "/interesse", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

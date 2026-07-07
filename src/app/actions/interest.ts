@@ -98,27 +98,27 @@ const emailLayout = (preview: string, body: string) => `<!DOCTYPE html>
 <meta name="x-apple-disable-message-reformatting">
 <title>Verkstedpakken</title>
 </head>
-<body style="margin:0;padding:0;background:#f6f1e7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#241d44;-webkit-font-smoothing:antialiased;">
+<body style="margin:0;padding:0;background:#F2F7FF;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#0C005A;-webkit-font-smoothing:antialiased;">
   <span style="display:none!important;visibility:hidden;font-size:0;color:transparent;line-height:0;max-height:0;overflow:hidden;mso-hide:all;">${preview}</span>
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f6f1e7;padding:48px 16px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F2F7FF;padding:48px 16px;">
     <tr><td align="center">
       <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;">
         <tr><td style="padding:0 4px 28px;">
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
             <tr>
-              <td style="background:#241d44;color:#ffffff;font-weight:700;font-size:16px;width:32px;height:32px;text-align:center;vertical-align:middle;border-radius:8px;font-family:Helvetica,Arial,sans-serif;">V</td>
-              <td style="padding-left:10px;font-family:Helvetica,Arial,sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;color:#241d44;vertical-align:middle;">Verkstedpakken</td>
+              <td style="background:#0C005A;color:#ffffff;font-weight:700;font-size:16px;width:32px;height:32px;text-align:center;vertical-align:middle;border-radius:8px;font-family:Helvetica,Arial,sans-serif;">V</td>
+              <td style="padding-left:10px;font-family:Helvetica,Arial,sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;color:#0C005A;vertical-align:middle;">Verkstedpakken</td>
             </tr>
           </table>
         </td></tr>
-        <tr><td style="background:#ffffff;border:1px solid rgba(36,29,68,0.08);border-radius:20px;padding:40px 36px;box-shadow:0 1px 2px rgba(36,29,68,0.04),0 8px 24px rgba(36,29,68,0.05);">
+        <tr><td style="background:#ffffff;border:1px solid rgba(12,0,90,0.08);border-radius:20px;padding:40px 36px;box-shadow:0 1px 2px rgba(12,0,90,0.04),0 8px 24px rgba(12,0,90,0.05);">
           ${body}
         </td></tr>
-        <tr><td style="padding:24px 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:12px;color:rgba(36,29,68,0.55);line-height:1.6;">
+        <tr><td style="padding:24px 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:12px;color:rgba(12,0,90,0.55);line-height:1.6;">
           Verkstedpakken AS · Tordenskiolds gate 2, Oslo · Org.nr 937 000 847<br>
-          <a href="mailto:hei@verkstedpakken.no" style="color:rgba(36,29,68,0.7);text-decoration:none;">hei@verkstedpakken.no</a>
+          <a href="mailto:hei@verkstedpakken.no" style="color:rgba(12,0,90,0.7);text-decoration:none;">hei@verkstedpakken.no</a>
           &nbsp;·&nbsp;
-          <a href="tel:+4793484220" style="color:rgba(36,29,68,0.7);text-decoration:none;">934 84 220</a>
+          <a href="tel:+4793484220" style="color:rgba(12,0,90,0.7);text-decoration:none;">934 84 220</a>
         </td></tr>
       </table>
     </td></tr>
@@ -140,14 +140,14 @@ const internalEmail = (data: {
 }) => {
   const row = (label: string, value: string, href?: string) => `
     <tr>
-      <td style="padding:14px 0;border-top:1px solid rgba(36,29,68,0.08);font-family:Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;color:rgba(36,29,68,0.55);text-transform:uppercase;letter-spacing:0.08em;width:130px;vertical-align:top;">${label}</td>
-      <td style="padding:14px 0;border-top:1px solid rgba(36,29,68,0.08);font-family:Helvetica,Arial,sans-serif;font-size:15px;color:#241d44;font-weight:500;">${href ? `<a href="${href}" style="color:#241d44;text-decoration:none;">${value}</a>` : value}</td>
+      <td style="padding:14px 0;border-top:1px solid rgba(12,0,90,0.08);font-family:Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;color:rgba(12,0,90,0.55);text-transform:uppercase;letter-spacing:0.08em;width:130px;vertical-align:top;">${label}</td>
+      <td style="padding:14px 0;border-top:1px solid rgba(12,0,90,0.08);font-family:Helvetica,Arial,sans-serif;font-size:15px;color:#0C005A;font-weight:500;">${href ? `<a href="${href}" style="color:#0C005A;text-decoration:none;">${value}</a>` : value}</td>
     </tr>`;
 
   const body = `
-    <h1 style="font-family:Helvetica,Arial,sans-serif;font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin:0 0 8px;color:#241d44;">Ny interessemelding</h1>
-    <p style="margin:0 0 24px;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:rgba(36,29,68,0.72);">
-      <b style="color:#241d44;font-weight:600;">${escape(data.workshop)}</b> har meldt interesse for Verkstedpakken.
+    <h1 style="font-family:Helvetica,Arial,sans-serif;font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin:0 0 8px;color:#0C005A;">Ny interessemelding</h1>
+    <p style="margin:0 0 24px;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:rgba(12,0,90,0.72);">
+      <b style="color:#0C005A;font-weight:600;">${escape(data.workshop)}</b> har meldt interesse for Verkstedpakken.
     </p>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin-bottom:28px;">
       ${row("Verksted", escape(data.workshop))}
@@ -156,7 +156,7 @@ const internalEmail = (data: {
       ${row("Telefon", escape(data.phone), `tel:${data.phone.replace(/\s/g, "")}`)}
       ${row("Antall ansatte", escape(data.employeeLabel))}
     </table>
-    <a href="mailto:${data.email}?subject=Hei%20fra%20Verkstedpakken" style="display:inline-block;padding:14px 24px;background:#241d44;color:#ffffff;border-radius:12px;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;text-decoration:none;letter-spacing:-0.005em;">Svar ${escape(data.contact.split(" ")[0])} →</a>
+    <a href="mailto:${data.email}?subject=Hei%20fra%20Verkstedpakken" style="display:inline-block;padding:14px 24px;background:#0C005A;color:#ffffff;border-radius:12px;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;text-decoration:none;letter-spacing:-0.005em;">Svar ${escape(data.contact.split(" ")[0])} →</a>
   `;
   return emailLayout(`${data.workshop} har meldt interesse`, body);
 };
@@ -164,26 +164,26 @@ const internalEmail = (data: {
 const customerEmail = (data: { contact: string }) => {
   const firstName = data.contact.split(" ")[0];
   const body = `
-    <h1 style="font-family:Helvetica,Arial,sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.025em;line-height:1.15;margin:0 0 14px;color:#241d44;">Takk for din interesse, ${escape(firstName)}.</h1>
-    <p style="margin:0 0 18px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:rgba(36,29,68,0.78);">
+    <h1 style="font-family:Helvetica,Arial,sans-serif;font-size:26px;font-weight:700;letter-spacing:-0.025em;line-height:1.15;margin:0 0 14px;color:#0C005A;">Takk for din interesse, ${escape(firstName)}.</h1>
+    <p style="margin:0 0 18px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:rgba(12,0,90,0.78);">
       Vi har mottatt informasjonen din og tar kontakt så snart vi kan.
     </p>
-    <p style="margin:0 0 24px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:rgba(36,29,68,0.78);">
-      Verkstedpakken er en komplett løsning med verkstedsystem, mekanikerportal, custom nettside og booking-moduler — bygget fra verkstedgulvet for verksteder som vil vokse uten å drukne i papirarbeid.
+    <p style="margin:0 0 24px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:rgba(12,0,90,0.78);">
+      Verkstedpakken er et superenkelt verkstedsystem — ordre, nettside og booking, mekanikerportal og faktura i ett system, laget for verksteder som vil bruke mindre tid på papirarbeid.
     </p>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px;border-collapse:collapse;">
-      <tr><td style="background:#f6f1e7;border-radius:14px;padding:18px 20px;font-family:Helvetica,Arial,sans-serif;">
-        <div style="font-size:11px;font-weight:700;color:rgba(36,29,68,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Spørsmål i mellomtiden?</div>
-        <div style="font-size:15px;color:#241d44;">
-          <a href="mailto:hei@verkstedpakken.no" style="color:#241d44;text-decoration:underline;font-weight:500;">hei@verkstedpakken.no</a>
+      <tr><td style="background:#F2F7FF;border-radius:14px;padding:18px 20px;font-family:Helvetica,Arial,sans-serif;">
+        <div style="font-size:11px;font-weight:700;color:rgba(12,0,90,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Spørsmål i mellomtiden?</div>
+        <div style="font-size:15px;color:#0C005A;">
+          <a href="mailto:hei@verkstedpakken.no" style="color:#0C005A;text-decoration:underline;font-weight:500;">hei@verkstedpakken.no</a>
           &nbsp;&nbsp;·&nbsp;&nbsp;
-          <a href="tel:+4793484220" style="color:#241d44;text-decoration:underline;font-weight:500;">934 84 220</a>
+          <a href="tel:+4793484220" style="color:#0C005A;text-decoration:underline;font-weight:500;">934 84 220</a>
         </div>
       </td></tr>
     </table>
-    <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:rgba(36,29,68,0.78);">
+    <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:rgba(12,0,90,0.78);">
       Hilsen,<br>
-      <strong style="color:#241d44;font-weight:600;">Teamet i Verkstedpakken</strong>
+      <strong style="color:#0C005A;font-weight:600;">Teamet i Verkstedpakken</strong>
     </p>
   `;
   return emailLayout(

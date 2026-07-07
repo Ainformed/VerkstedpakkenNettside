@@ -5,13 +5,13 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Verkstedpakken",
     short_name: "Verkstedpakken",
     description:
-      "Alt-i-ett SaaS-løsning for verksteder. Ordre, kundechat, deler, timer og egen nettside i ett system.",
+      "Et superenkelt verkstedsystem. Ordre, nettside og booking, mekanikerportal og faktura i ett system.",
     start_url: "/",
     scope: "/",
     display: "standalone",
     orientation: "portrait",
-    background_color: "#f5efe7",
-    theme_color: "#241d44",
+    background_color: "#ffffff",
+    theme_color: "#0C005A",
     lang: "nb-NO",
     categories: ["business", "productivity"],
     icons: [

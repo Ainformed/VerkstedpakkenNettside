@@ -1,26 +1,38 @@
 # Verkstedpakken
 
-> Alt-i-ett SaaS-løsning for bilverksteder i Norge.
+> Et superenkelt verkstedsystem for verksteder i Norge. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert, ingen bindingstid.
 
-## Om Verkstedpakken
+## Sider
 
-Verkstedpakken er et komplett skybasert verktøy utviklet spesielt for bilverksteder. Løsningen samler bilhåndtering, kundeoppfølging, fakturering og delebestilling i én plattform, slik at verksteder kan drive mer effektivt.
+- Forside: https://verkstedpakken.no/
+- Ordresystem: https://verkstedpakken.no/ordresystem
+- Nettside og booking: https://verkstedpakken.no/nettside-og-booking
+- Integrasjoner: https://verkstedpakken.no/integrasjoner
+- Pris: https://verkstedpakken.no/pris
+- Book demo: https://verkstedpakken.no/interesse
+- Prøv gratis (14 dager): https://app.verkstedpakken.no/kom-i-gang
 
 ## Hovedfunksjoner
 
-- Bilhåndtering og oversikt: Registrer biler, servicehistorikk og planlegg arbeid.
-- Kundeoppfølging: Automatiske påminnelser, kommunikasjonslogg og kontakthåndtering.
-- Fakturering og økonomi: Opprett fakturaer fra arbeidsordre, synkroniser med regnskap.
-- Lager og deler: Lageroversikt, delebestilling og kobling til jobber.
+- Verkstedordre og planlegging: Kunden booker på nett, eller du legger inn ordren når telefonen ringer. Hver jobb får kunde, bil og status fra start.
+- Mekanikerportal: Hele arbeidsdagen på mobilen — stemple inn og ut, legg til deler, ta bilder og skriv kommentarer rett på ordren.
+- Nettside og booking: Ferdig nettside der kunden sender forespørsel når det passer dem, og får et tilbud tilbake. Kunden godtar med ett trykk via SMS eller e-post.
+- Faktura og betaling: Når jobben er ferdig sendes ordren til fakturakontroll, og fakturaen sendes fra regnskapsprogrammet dere bruker.
+- Deler og lager, dekkhotell, kjøretøyoppslag, kiosk og innstempling, timer og lønnsgrunnlag — alt inkludert i prisen.
 
 ## Integrasjoner
 
-- Fiken: Automatisk synkronisering av fakturaer og bilag med Fiken regnskap.
-- Tripletex: Sømløs overføring av fakturaer, kunder og økonomiske data til Tripletex.
-- MEKO: Bestill bildeler direkte fra MEKO sin varekatalog.
-- Stripe: Sikker kortbetaling både på verkstedet og online.
+- Regnskap: Fiken, PowerOffice GO, Tripletex, Visma eAccounting, 24SevenOffice
+- Betaling: Vipps, Stripe
+- Deler: BilXtra, MECA, MEKO
+- Kjøretøydata: Statens vegvesen
+
+## Pris
+
+1 295,- per bruker per måned (ekskl. mva). Alt inkludert, ingen etableringskostnad, ingen bindingstid. 14 dager gratis prøveperiode uten automatisk abonnement etterpå. Se https://verkstedpakken.no/pris
 
 ## Kontakt
 
 - Nettside: https://verkstedpakken.no
-- E-post: salg@verkstedpakken.no
+- E-post: hei@verkstedpakken.no
+- Telefon: +47 93 48 42 20

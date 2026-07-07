@@ -1,0 +1,50 @@
+/* Ordresystem — sidespesifikk CSS.
+   Kun regler som ikke finnes i vp-site.css. Nestet under sidens rotklasse
+   for å unngå kollisjoner. */
+
+.page-ordresystem {
+  /* Fiken-lik hero: tekst venstre, maskot høyre */
+  .vo-hero-split { text-align: left; padding: 116px 0 60px; }
+  .vo-hero-grid {
+    max-width: var(--maxw); margin: 0 auto; padding: 0 28px;
+    display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: clamp(32px, 6vw, 80px);
+  }
+  .vo-hero-grid > * { min-width: 0; }
+  .vo-hero-copy .lead { margin: 26px 0 0; max-width: 560px; color: var(--ink); }
+  .vo-hero-copy .cta-row { margin-top: 40px; }
+  .vo-hero-art { display: grid; place-items: center; }
+  .vo-hero-art .fig { position: relative; display: grid; place-items: center; }
+  .vo-hero-art .m-order { display: block; width: auto; max-width: 100%; max-height: 340px; overflow: visible; }
+  /* Mellomstore skjermer: behold to kolonner i heroen (som Fiken) */
+  @media (max-width: 900px) {
+    .vo-hero-split { padding-top: 84px; }
+    .vo-hero-art .m-order { max-height: 260px; }
+  }
+  /* Mobil: maskoten øverst, sentrert hero (som Fiken) */
+  @media (max-width: 600px) {
+    .vo-hero-split { padding-top: 48px; text-align: center; }
+    .vo-hero-grid { grid-template-columns: 1fr; gap: 30px; }
+    .vo-hero-art { order: -1; }
+    .vo-hero-copy .lead { margin: 22px auto 0; }
+    .vo-hero-copy .cta-row { margin-top: 34px; }
+    .vo-hero-art .m-order { max-height: 220px; }
+  }
+
+  /* Tilbudsliste (Fiken-aktig) */
+  .ill-quotes { height: 210px; flex-direction: column; gap: 10px; }
+  .ill-quotes .qrow {
+    width: 100%; max-width: 340px; background: #fff; border: 1px solid var(--line);
+    border-radius: 14px; box-shadow: 0 14px 30px -18px rgba(12, 0, 90, 0.3); padding: 13px 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .ill-quotes .q-num { font-family: var(--mono); font-size: 10.5px; font-weight: 600; color: var(--ink-3); white-space: nowrap; }
+  .ill-quotes .q-name {
+    flex: 1; font-size: 12.5px; font-weight: 600; color: var(--ink);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .ill-quotes .q-price { font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .ill-quotes .q-chip { font-size: 9.5px; font-weight: 700; border-radius: 999px; padding: 4px 9px; white-space: nowrap; }
+  .ill-quotes .q-chip.venter { color: #B58A1A; background: #FBF3DC; }
+  .ill-quotes .q-chip.ok { color: #2F7D4E; background: #E7F2EC; }
+  .ill-quotes .q-chip.fakt { color: var(--navy); background: #E7EEFB; }
+}

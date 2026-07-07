@@ -1,22 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Bricolage_Grotesque, Inter } from "next/font/google";
+import { Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollReset from "@/components/ScrollReset";
 
-const inter = Inter({
-  variable: "--font-inter",
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
-
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -26,8 +20,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5efe7" },
-    { media: "(prefers-color-scheme: dark)", color: "#241d44" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0C005A" },
   ],
   colorScheme: "light",
 };
@@ -35,12 +29,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://verkstedpakken.no"),
   title: {
-    default:
-      "Verkstedpakken — Komplett verkstedsystem bygget fra verkstedgulvet",
+    default: "Verkstedpakken — Et superenkelt verkstedsystem",
     template: "%s | Verkstedpakken",
   },
   description:
-    "Verkstedpakken samler ordre, kundechat, deler, timer og egen nettside i ett system. Bygget etter 6 år på verkstedgulvet, for bil, båt, lastebil og anleggsverksteder i Norge. Integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
+    "Et superenkelt verkstedsystem. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert. Ingen bindingstid. Prøv gratis i 14 dager.",
   applicationName: "Verkstedpakken",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
@@ -78,9 +71,9 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     url: "https://verkstedpakken.no",
     siteName: "Verkstedpakken",
-    title: "Verkstedpakken — Komplett verkstedsystem bygget fra verkstedgulvet",
+    title: "Verkstedpakken — Et superenkelt verkstedsystem",
     description:
-      "Ordre, kundechat, deler, timer og egen nettside i ett system. Bygget etter 6 år på verkstedgulvet, for alle typer verksteder.",
+      "Ordre, nettside og booking, mekanikerportal og faktura i ett system. Alt inkludert, ingen bindingstid. Prøv gratis i 14 dager.",
     images: [
       {
         url: "/og-image.png",
@@ -95,9 +88,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@verkstedpakken",
     creator: "@verkstedpakken",
-    title: "Verkstedpakken — Komplett verkstedsystem",
+    title: "Verkstedpakken — Et superenkelt verkstedsystem",
     description:
-      "Ordre, kundechat, deler, timer og egen nettside i ett system. Bygget fra verkstedgulvet.",
+      "Ordre, nettside og booking, mekanikerportal og faktura i ett system. Prøv gratis i 14 dager.",
     images: ["/og-image.png"],
   },
   alternates: {
@@ -146,7 +139,7 @@ function JsonLd() {
       applicationSubCategory: "Workshop Management Software",
       operatingSystem: "Web, iOS, Android",
       description:
-        "Alt-i-ett SaaS-løsning for verksteder. Ordre, kundechat, deler, timer, mekanikerportal og egen nettside i ett system. Integrasjoner med Fiken, Tripletex, MEKO og Stripe.",
+        "Et superenkelt verkstedsystem. Ordre, nettside og booking, mekanikerportal og faktura i ett system. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Vipps, Stripe, BilXtra, MECA, MEKO og Statens vegvesen.",
       url: SITE,
       image: `${SITE}/og-image.png`,
       screenshot: `${SITE}/og-image.png`,
@@ -157,23 +150,24 @@ function JsonLd() {
         "@type": "Offer",
         availability: "https://schema.org/InStock",
         priceCurrency: "NOK",
+        price: "1295",
         category: "SaaS subscription",
-        url: `${SITE}/#interesse`,
+        url: `${SITE}/pris`,
       },
       aggregateRating: undefined,
       provider: { "@id": `${SITE}/#org` },
       featureList: [
-        "Ordrehåndtering",
-        "Kundechat og oppfølging",
-        "Deler og lager",
-        "Timeregistrering",
+        "Verkstedordre og planlegging",
         "Mekanikerportal",
-        "Egen verkstednettside",
-        "Booking-moduler",
-        "Fiken-integrasjon",
-        "Tripletex-integrasjon",
-        "MEKO-integrasjon",
-        "Stripe-betaling",
+        "Booking på nett",
+        "Kiosk og innstempling",
+        "Kunder og kjøretøy",
+        "Kjøretøyoppslag",
+        "Deler og lager",
+        "Dekkhotell",
+        "Faktura og betaling",
+        "Regnskapsintegrasjon",
+        "Timer og lønnsgrunnlag",
       ],
     },
     {
@@ -186,7 +180,7 @@ function JsonLd() {
       logo: `${SITE}/icon-512.png`,
       email: "hei@verkstedpakken.no",
       description:
-        "Utvikler av SaaS-løsninger for verksteder i Norge. Bygget etter 6 år på verkstedgulvet.",
+        "Utvikler av Verkstedpakken — et superenkelt verkstedsystem for verksteder i Norge.",
       foundingDate: "2026",
       areaServed: { "@type": "Country", name: "Norway" },
       knowsLanguage: ["nb-NO", "no"],
@@ -244,7 +238,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body
-        className={`${inter.variable} ${geistMono.variable} ${bricolage.variable} antialiased`}
+        className={`${interTight.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <ScrollReset />
         {children}
