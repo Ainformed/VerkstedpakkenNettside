@@ -15,7 +15,6 @@ const NAV_LINKS = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -43,7 +42,6 @@ export default function Header() {
       ticking = true;
       requestAnimationFrame(() => {
         const y = window.scrollY;
-        setScrolled(y > 4);
         const diff = y - lastY;
         if (y < 80 || footerVisible.current) {
           setHidden(false);
@@ -81,9 +79,7 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={`nav${hidden ? " nav-hidden" : ""}${scrolled ? " nav-scrolled" : ""}`}
-      >
+      <header className={`nav${hidden ? " nav-hidden" : ""}`}>
         <div className="nav-inner">
           <Link className="brand" href="/" aria-label="Verkstedpakken">
             <Logo />

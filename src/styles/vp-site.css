@@ -46,10 +46,9 @@
     padding: 26px 0 8px;
     position: sticky; top: 0; z-index: 120;
     background: var(--bg);
-    transition: transform 300ms ease, box-shadow 200ms ease;
+    transition: transform 300ms ease;
   }
   header.nav.nav-hidden { transform: translateY(-100%); }
-  header.nav.nav-scrolled { box-shadow: 0 1px 0 var(--line), 0 8px 24px -18px rgba(12, 0, 90, 0.18); }
   @media (prefers-reduced-motion: reduce) {
     header.nav { transition: none; }
   }
