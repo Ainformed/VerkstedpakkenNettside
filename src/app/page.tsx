@@ -34,7 +34,10 @@ export default function Home() {
 
         {/* ─────────────── TRE KOLONNER ─────────────── */}
         <section className="cols-sec">
-          <InView className="cols">
+          {/* Lav terskel: på mobil er kolonnestabelen ~1800px høy, så en høy
+              terskel (referansens 0.3) trigges først langt ned i scrollingen —
+              figurene sto usynlige (opacity 0) til da. */}
+          <InView className="cols" threshold={0.05}>
             <div className="col">
               <div className="art">
                 <div className="fig">

@@ -641,14 +641,16 @@
     .panel { padding: 56px 28px 44px; border-radius: 24px; }
     .panel-cards { grid-template-columns: 1fr; }
     .cols { grid-template-columns: 1fr; gap: 56px; }
-    .cols-sec { padding: 64px 0 110px; }
+    .cols-sec { padding: 40px 0 110px; }
   }
   @media (max-width: 760px) {
     .cta-banner { flex-direction: column; align-items: flex-start; padding: 28px clamp(110px, 32vw, 160px) 28px 28px; gap: 14px; }
     .cta-mascot { right: clamp(6px, 2vw, 16px); top: -52px; bottom: auto; transform: none; }
   }
   @media (max-width: 560px) {
-    .hero { padding: 56px 0 24px; }
+    /* Mer luft over hero-innholdet på mobil, og strammere gap ned til
+       maskotene slik at første Muttern rekker inn i første skjermbilde. */
+    .hero { padding: 100px 0 24px; }
     .hero .cta-row { margin-top: 40px; }
     .nav-cta .login { display: none; }
     .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
