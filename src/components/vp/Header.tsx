@@ -15,6 +15,9 @@ const NAV_LINKS = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  // Helt på toppen skjules «Prøv gratis» i nav på mobil — heroen har alt en
+  // stor CTA der. Knappen vises igjen når menyen glir inn under scrolling.
+  const [atTop, setAtTop] = useState(true);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -43,6 +46,7 @@ export default function Header() {
       requestAnimationFrame(() => {
         const y = window.scrollY;
         const diff = y - lastY;
+        setAtTop(y < 80);
         if (y < 80 || footerVisible.current) {
           setHidden(false);
         } else if (diff > THRESHOLD) {
@@ -55,6 +59,7 @@ export default function Header() {
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // riktig starttilstand ved reload midt på siden
 
     // Footer i viewport -> menyen frem igjen
     const foot = document.querySelector(".site-foot");
@@ -79,7 +84,9 @@ export default function Header() {
 
   return (
     <>
-      <header className={`nav${hidden ? " nav-hidden" : ""}`}>
+      <header
+        className={`nav${hidden ? " nav-hidden" : ""}${atTop ? " nav-at-top" : ""}`}
+      >
         <div className="nav-inner">
           <Link className="brand" href="/" aria-label="Verkstedpakken">
             <Logo />

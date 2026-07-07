@@ -639,6 +639,9 @@
     .brand .logo-svg { height: 18px; }
     .nav-cta { gap: 6px; }
     .nav-cta .btn { padding: 10px 16px; font-size: 14px; }
+    /* Helt på toppen: heroen har allerede stor «Prøv gratis»-CTA,
+       så nav-knappen skjules til menyen glir inn under scrolling. */
+    header.nav.nav-at-top .nav-cta .primary-cta { display: none; }
   }
   @media (max-width: 390px) {
     .brand .logo-svg { height: 16px; }
