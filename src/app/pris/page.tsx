@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Pris",
   description:
     "Alt inkludert i en fast pris: 1 295,- per bruker per måned (ekskl. mva). Ingen bindingstid, ingen etableringskostnad. Prøv gratis i 14 dager.",
+  alternates: { canonical: "/pris" },
 };
 
 export default function Pris() {
@@ -140,7 +141,7 @@ export default function Pris() {
                 </div>
                 <div className="prow-flat">
                   <span className="pname">
-                    Bytter du fra et annet system? <small>få 3 måneder gratis</small>
+                    Bytter du fra et annet system? <small>gratis i hele oppsigelsestiden</small>
                   </span>
                   <span className="pill pill-inc">Inkludert</span>
                 </div>
@@ -241,9 +242,10 @@ export default function Pris() {
             <details className="faq">
               <summary>Kan vi få hjelp til å flytte fra systemet vi har i dag?</summary>
               <div className="faq-body">
-                Ja. Vi henter kunder, kjøretøy og historikk fra det gamle systemet, og setter opp
-                verkstedet klart til bruk. Bytter du fra et annet system, er de tre første månedene
-                med Verkstedpakken gratis.
+                Ja. Vi hjelper deg med å få over kunder, kjøretøy og historikk, og setter opp
+                verkstedet klart til bruk. Bytter du fra et annet system, er Verkstedpakken gratis
+                til oppsigelsestiden hos det gamle er over – du betaler aldri for to systemer
+                samtidig.
               </div>
             </details>
           </div>

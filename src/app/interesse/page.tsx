@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Book demo",
   description:
     "Book en kort demo — ca. 20 minutter der vi viser Verkstedpakken på en ekte jobb, ingen presentasjon.",
+  alternates: { canonical: "/interesse" },
 };
 
 export default function InteressePage() {

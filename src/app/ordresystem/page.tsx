@@ -8,7 +8,8 @@ import "./ordresystem.css";
 export const metadata: Metadata = {
   title: "Ordresystem",
   description:
-    "Verkstedpakken gjør det enkelt å lage ordre og tilbud, eller motta forespørsler rett fra nettsiden. Alt om jobben er samlet på ett sted, fra forespørsel til ferdig faktura.",
+    "Lag ordre og tilbud på sekunder, eller ta imot forespørsler fra nettsiden. Alt om jobben er samlet på ett sted, fra forespørsel til ferdig faktura.",
+  alternates: { canonical: "/ordresystem" },
 };
 
 export default function Ordresystem() {
@@ -19,11 +20,11 @@ export default function Ordresystem() {
         <section className="hero feat-hero vo-hero-split">
           <div className="vo-hero-grid">
             <div className="vo-hero-copy">
-              <h1>Superenkel ordrehåndtering</h1>
+              <h1>Hele jobben på én ordre</h1>
               <p className="lead">
-                Verkstedpakken gjør det enkelt å lage ordre og tilbud, eller
-                motta forespørsler rett fra nettsiden. Alt om jobben er samlet
-                på ett sted, fra forespørsel til ferdig faktura.
+                Lag ordre og tilbud på sekunder, eller ta imot forespørsler
+                fra nettsiden. Alt om jobben er samlet på ett sted, fra
+                forespørsel til ferdig faktura.
               </p>
               <div className="cta-row">
                 <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
@@ -49,8 +50,8 @@ export default function Ordresystem() {
             <div className="split-text">
               <h2>Alt starter med en ny ordre</h2>
               <p>
-                Kunden booker på nett, eller du legger inn ordren når telefonen
-                ringer.
+                Kunden sender forespørsel på nett, eller du legger inn ordren
+                når telefonen ringer.
               </p>
               <p>
                 Ingen gule lapper og ingen løse e-poster. Hver jobb får kunde,
@@ -60,8 +61,8 @@ export default function Ordresystem() {
             <div className="split-art">
               <img
                 className="mock-photo"
-                src="/design/mekaniker-laptop.png"
-                alt="Ansatt ved PC-en med ordreoversikten på skjermen"
+                src="/design/ordreoversikt-laptop.jpg"
+                alt="Laptop med ordreoversikten i Verkstedpakken på skjermen"
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -69,11 +70,10 @@ export default function Ordresystem() {
 
           <div className="split-row">
             <div className="split-text">
-              <h2>Oversikt over tilbud for deg og kunden</h2>
+              <h2>Send tilbud rett fra ordren</h2>
               <p>
-                Send tilbud med pris og dato rett fra ordren. Kunden får en
-                lenke på SMS eller e-post og godkjenner med ett trykk, uten
-                innlogging.
+                Sett pris og dato, så får kunden en lenke på SMS eller e-post.
+                Der godkjenner de med ett trykk, uten innlogging.
               </p>
               <p>
                 Sier kunden ja, er både pris og tid bekreftet, og jobben ligger
@@ -114,7 +114,7 @@ export default function Ordresystem() {
               </p>
               <p>
                 Timene rundes av slik dere selv har valgt, og interne notater
-                blir hos dere. Det kunden skal se, havner på ordrelinja.
+                blir hos dere. Det kunden skal se, havner på ordrelinjen.
               </p>
             </div>
             <div className="split-art">
@@ -157,7 +157,7 @@ export default function Ordresystem() {
             <a className="btn btn-primary" href={SIGNUP_URL}>
               Prøv gratis i 14 dager
             </a>
-            <p>Blir ikke til automatisk abonnement. Du velger selv.</p>
+            <p>I gang på fem minutter. Ingen binding.</p>
             <div className="cta-mascot">
               <ZenMascot />
             </div>

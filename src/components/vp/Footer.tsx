@@ -16,7 +16,7 @@ export default function Footer() {
             <a className="btn btn-primary" href={SIGNUP_URL}>
               Prøv gratis i 14 dager
             </a>
-            <p>Helt uten stress. Ikke noe automatisk abonnement etterpå.</p>
+            <p>Prøveperioden stopper av seg selv. Vi sender aldri faktura uten at du har sagt ja.</p>
           </div>
           <div className="foot-cta-mascot">
             <ZenMascot />
@@ -30,7 +30,7 @@ export default function Footer() {
             <Link href="/" aria-label="Verkstedpakken">
               <Logo />
             </Link>
-            <p>Laget for verksteder som vil bruke mindre tid på papirarbeid.</p>
+            <p>Bygget for at du enkelt skal ha full kontroll.</p>
           </div>
           <div className="foot-col">
             <h4>Produkt</h4>

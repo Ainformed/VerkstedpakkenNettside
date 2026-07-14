@@ -24,11 +24,11 @@ export default function Home() {
         {/* ─────────────── HERO ─────────────── */}
         <section className="hero">
           <div className="wrap">
-            <h1>Et superenkelt verkstedsystem</h1>
+            <h1>Verkstedsystemet uten dobbeltarbeid</h1>
             <div className="cta-row">
               <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>Prøv gratis i 14 dager</a>
             </div>
-            <p className="subnote">Allerede et system? Vi hjelper deg med byttet – helt gratis.</p>
+            <p className="subnote">Bytter du fra et annet system? Du betaler ikke før oppsigelsestiden er ute.</p>
           </div>
         </section>
 
@@ -44,8 +44,8 @@ export default function Home() {
                   <RawSvg html={M_ORDER_NY_SVG} />
                 </div>
               </div>
-              <h3>Enkelt å bruke</h3>
-              <p>Å drive verksted skal være enkelt, mener vi.<br />Så kan du bruke tiden på det som betyr mest.</p>
+              <h3>Lett å lære</h3>
+              <p>Nye systemer pleier å bety kurs og frustrasjon. Her er du i gang med en gang.</p>
             </div>
             <div className="col">
               <div className="art">
@@ -53,8 +53,8 @@ export default function Home() {
                   <RawSvg html={M_ZEN_FIG_SVG} />
                 </div>
               </div>
-              <h3>Ro i sjelen</h3>
-              <p>Ro i verkstedet, i alle fall. Du har full oversikt,<br />og ingen ubehagelige overraskelser.</p>
+              <h3>Full kontroll</h3>
+              <p>Ordre, timer, deler og status på ett sted. Du vet alltid hvor jobbene står.</p>
             </div>
             <div className="col">
               <div className="art">
@@ -62,8 +62,8 @@ export default function Home() {
                   <RawSvg html={M_SUPPORT_SVG} />
                 </div>
               </div>
-              <h3>Hjelp når du trenger det</h3>
-              <p>Vi svarer deg raskt, og forklarer ting<br />med helt vanlige ord.</p>
+              <h3>Hjelp koster ikke</h3>
+              <p>Ring eller skriv, så svarer en som kan både systemet og verkstedhverdagen.</p>
             </div>
           </InView>
         </section>
@@ -71,11 +71,11 @@ export default function Home() {
         {/* ─────────────── FEATURE PANEL ─────────────── */}
         <section className="panel-sec">
           <div className="panel">
-            <h2>Hele verkstedet henger<br />sammen i ett system</h2>
+            <h2>Hele verkstedet<br />i ett system</h2>
             <div className="panel-cards">
               <div className="pcard">
-                <h3>Du styrer hele verkstedet</h3>
-                <p>Tildel jobber, følg status og kapasitet, alt på en skjerm, uten å gå runden. Når jobben lukkes, går den rett til regnskapet.</p>
+                <h3>Du styrer verkstedet</h3>
+                <p>Tildel jobber, følg status og kapasitet på én skjerm, uten å gå runden. Når jobben lukkes, ligger fakturagrunnlaget klart for regnskapet.</p>
                 <div className="illo">
                   <div className="ill ill-orders">
                     <div className="oc oc3"></div>
@@ -90,7 +90,7 @@ export default function Home() {
               </div>
               <div className="pcard">
                 <h3>Laget for mekanikeren</h3>
-                <p>Ledige jobber på mobilen eller felles enhet, plukk selv eller få tildelt. Tid stemples der og da. Alt havner på ordrelinjen.</p>
+                <p>Ledige jobber på mobilen eller felles skjerm. Plukk selv eller få tildelt. Tiden stemples der og da og havner rett på ordrelinjen.</p>
                 <div className="illo">
                   <div className="ill ill-phone2">
                     <div className="frame">
@@ -106,7 +106,7 @@ export default function Home() {
               </div>
               <div className="pcard">
                 <h3>Kunden sender forespørsel</h3>
-                <p>Via telefon eller nett. Du foreslår pris og dato, så bekrefter kunden. De får status på bilen underveis og slipper å ringe.</p>
+                <p>På telefon eller nett. Du foreslår pris og dato, kunden bekrefter. De følger bilen underveis og slipper å ringe.</p>
                 <div className="illo">
                   <div className="ill ill-bubble">
                     <div className="bub">
@@ -127,12 +127,12 @@ export default function Home() {
         <section className="help-sec">
           <div className="help-grid">
             <div className="help-media">
-              <img className="help-photo" src="/design/verkstedordre-skjerm.png" alt="Kundebehandler smiler mot laptopen" />
+              <img className="help-photo" src="/design/support-svarer-telefon.jpg" alt="Supportmedarbeider svarer en kunde ved laptopen" />
             </div>
             <div className="help-copy">
-              <h2>Flinke folk hjelper deg helt gratis</h2>
-              <p>Når du spør Verkstedpakken om noe, får du raskt svar fra et ekte menneske – en som kjenner verkstedhverdagen og sørger for at systemet fungerer som det skal.</p>
-              <p>Ingen chatboter. Bare folk som hjelper deg å finne løsningen. Helt gratis.</p>
+              <h2>Support som kan verksted</h2>
+              <p>Spør om stort eller smått. Det er alltid et menneske som svarer.</p>
+              <p>Oppsett, opplæring og spørsmål underveis er inkludert. Du får aldri faktura for hjelp.</p>
             </div>
           </div>
         </section>
@@ -141,7 +141,7 @@ export default function Home() {
         <section className="cta-sec">
           <div className="cta-banner">
             <a className="btn btn-primary" href={SIGNUP_URL}>Prøv gratis i 14 dager</a>
-            <p>Kom i gang på fem minutter – helt uten binding.</p>
+            <p>I gang på fem minutter. Ingen binding.</p>
             <div className="cta-mascot">
               <div className="fig zen-fig">
                 <RawSvg html={M_ZEN_FIG_SVG} />
@@ -154,8 +154,8 @@ export default function Home() {
         <section className="split-sec">
           <div className="split-row">
             <div className="split-text">
-              <h2>Laget for alle typer verksteder</h2>
-              <p>Bil, anleggsmaskin, MC, båt eller landbruk. Verkstedpakken former seg etter bransjen din med egne ordremaler, prislister og felt. Arbeidsordre, timeføring, delelager og fakturering samlet på ett sted.</p>
+              <h2>Formet etter driften din</h2>
+              <p>Bil, anleggsmaskin, MC, båt eller landbruk. Du får egne ordremaler, prislister og felt for din bransje. Arbeidsordre, timeføring, delelager og fakturering samlet på ett sted.</p>
               <Link className="split-link" href="/ordresystem">Slik fungerer ordresystemet
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
@@ -174,8 +174,8 @@ export default function Home() {
               </div>
             </div>
             <div className="split-text">
-              <h2>Bytt til<br />Verkstedpakken</h2>
-              <p>Vi hjelper deg gjennom hele byttet – helt gratis. Sitter du i oppsigelsestid, får du Verkstedpakken gratis i perioden, med full oppsett og alle data flyttet for deg. Smertefri overgang, klar fra dag en.</p>
+              <h2>Lei av systemet<br />dere har?</h2>
+              <p>Å bytte system skal være trygt. Derfor er Verkstedpakken gratis til oppsigelsestiden på det gamle systemet er over. Du betaler aldri for to systemer samtidig. Vi hjelper deg hele veien, og verkstedet går som normalt.</p>
               <Link className="split-link" href="/pris">Se priser
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
@@ -187,8 +187,8 @@ export default function Home() {
         <section className="split-sec">
           <div className="split-row">
             <div className="split-text">
-              <h2>Koble på det<br />du allerede bruker</h2>
-              <p>Verkstedpakken snakker med regnskapet, deler og kjøretøyoppslag, så du registrerer alt en gang – ikke to.</p>
+              <h2>Integrasjoner</h2>
+              <p>Regnskap, deler og kjøretøydata. Verkstedpakken sender tallene dit de skal, så ingenting føres to ganger.</p>
               <Link className="split-link" href="/integrasjoner">Tjenester du kan koble til
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
@@ -218,7 +218,7 @@ export default function Home() {
             <div className="panel-cards">
               <div className="pcard">
                 <h3>Vær synlig</h3>
-                <p>Dukk opp når kunder søker etter verksted på nett – og styr selv inntrykket de får. Vis hvem dere er, slik dere vil.</p>
+                <p>Dukk opp når kunder søker etter verksted på nett, og styr selv inntrykket de får. Vis hvem dere er, slik dere vil.</p>
                 <div className="illo">
                   <div className="ill ill-site">
                     <div className="win">

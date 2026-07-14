@@ -29,11 +29,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://verkstedpakken.no"),
   title: {
-    default: "Verkstedpakken — Et superenkelt verkstedsystem",
+    default: "Verkstedpakken — Verkstedsystemet uten dobbeltarbeid",
     template: "%s | Verkstedpakken",
   },
   description:
-    "Et superenkelt verkstedsystem. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert. Ingen bindingstid. Prøv gratis i 14 dager.",
+    "Verkstedsystemet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert. Ingen bindingstid. Prøv gratis i 14 dager.",
   applicationName: "Verkstedpakken",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     url: "https://verkstedpakken.no",
     siteName: "Verkstedpakken",
-    title: "Verkstedpakken — Et superenkelt verkstedsystem",
+    title: "Verkstedpakken — Verkstedsystemet uten dobbeltarbeid",
     description:
       "Ordre, nettside og booking, mekanikerportal og faktura i ett system. Alt inkludert, ingen bindingstid. Prøv gratis i 14 dager.",
     images: [
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@verkstedpakken",
     creator: "@verkstedpakken",
-    title: "Verkstedpakken — Et superenkelt verkstedsystem",
+    title: "Verkstedpakken — Verkstedsystemet uten dobbeltarbeid",
     description:
       "Ordre, nettside og booking, mekanikerportal og faktura i ett system. Prøv gratis i 14 dager.",
     images: ["/og-image.png"],
@@ -139,7 +139,7 @@ function JsonLd() {
       applicationSubCategory: "Workshop Management Software",
       operatingSystem: "Web, iOS, Android",
       description:
-        "Et superenkelt verkstedsystem. Ordre, nettside og booking, mekanikerportal og faktura i ett system. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Vipps, Stripe, BilXtra, MECA, MEKO og Statens vegvesen.",
+        "Verkstedsystemet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Vipps, Stripe, BilXtra, MECA, MEKO og Statens vegvesen.",
       url: SITE,
       image: `${SITE}/og-image.png`,
       screenshot: `${SITE}/og-image.png`,
@@ -180,7 +180,7 @@ function JsonLd() {
       logo: `${SITE}/icon-512.png`,
       email: "hei@verkstedpakken.no",
       description:
-        "Utvikler av Verkstedpakken — et superenkelt verkstedsystem for verksteder i Norge.",
+        "Utvikler av Verkstedpakken — verkstedsystemet uten dobbeltarbeid, for verksteder i Norge.",
       foundingDate: "2026",
       areaServed: { "@type": "Country", name: "Norway" },
       knowsLanguage: ["nb-NO", "no"],

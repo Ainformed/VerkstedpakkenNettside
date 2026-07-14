@@ -7,6 +7,7 @@ export const metadata = {
   title: "Nettside og booking",
   description:
     "Ferdig nettside der kunden sender forespørsel når det passer dem, og får et tilbud tilbake. Dere svarer når det passer dere.",
+  alternates: { canonical: "/nettside-og-booking" },
 };
 
 export default function NettsideOgBookingPage() {
@@ -58,8 +59,8 @@ export default function NettsideOgBookingPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="mock-photo"
-                src="/design/nettside-pa-mac.png"
-                alt="Verkstedets ferdige nettside på laptopen"
+                src="/design/kundenettside-laptop.jpg"
+                alt="Bolli Motors ferdige nettside på laptopen"
               />
             </div>
           </div>
@@ -83,8 +84,8 @@ export default function NettsideOgBookingPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="mock-photo"
-                src="/design/mobil-booking.png"
-                alt="Kunden booker time i bookingportalen på mobilen"
+                src="/design/forespoersel-mobil.jpg"
+                alt="Kunden sender forespørsel i bookingportalen på mobilen"
               />
             </div>
           </div>
@@ -180,7 +181,7 @@ export default function NettsideOgBookingPage() {
                     <path d="m5 12 5 5L20 7" />
                   </svg>
                 </span>
-                <p>Booking hele døgnet, også utenom åpningstid.</p>
+                <p>Forespørsler hele døgnet, også utenom åpningstid.</p>
               </div>
               <div className="less-point">
                 <span className="lp-check">
