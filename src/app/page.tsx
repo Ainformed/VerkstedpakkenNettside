@@ -185,7 +185,7 @@ export default function Home() {
 
         {/* ─────────────── INTEGRASJONER ─────────────── */}
         <section className="split-sec">
-          <div className="split-row">
+          <div className="split-row integ-row">
             <div className="split-text">
               <h2>Integrasjoner</h2>
               <p>Regnskap, deler og kjøretøydata. Verkstedpakken sender tallene dit de skal, så ingenting føres to ganger.</p>

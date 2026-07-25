@@ -263,6 +263,10 @@
   .logo-card .wordmark { font-family: var(--serif); font-weight: 700; font-size: 19px; letter-spacing: -0.5px; color: var(--ink); }
   .logo-card .wordmark.sm { font-size: 16px; }
   @media (max-width: 560px) { .logo-grid { grid-template-columns: repeat(2, 1fr); } }
+  /* Mobil: logo-gridet skal ligge ETTER teksten (motsatt av figur-radene) */
+  @media (max-width: 600px) {
+    .split-row.integ-row .split-art { order: 0; }
+  }
 
   /* ── Flagg-figur ─────────────────────── */
   .flag-art { position: relative; }
