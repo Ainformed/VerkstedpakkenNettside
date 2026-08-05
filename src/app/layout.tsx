@@ -29,20 +29,20 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://verkstedpakken.no"),
   title: {
-    default: "Verkstedpakken — Verkstedsystemet uten dobbeltarbeid",
+    default: "Verkstedpakken — Verkstedprogrammet uten dobbeltarbeid",
     template: "%s | Verkstedpakken",
   },
   description:
-    "Verkstedsystemet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert. Ingen bindingstid. Prøv gratis i 14 dager.",
+    "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert. Ingen bindingstid. Prøv gratis i 14 dager.",
   applicationName: "Verkstedpakken",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   keywords: [
-    "verkstedsystem",
+    "verkstedprogram",
     "bilverksted programvare",
     "bilverksted system",
     "verksted SaaS",
-    "verkstedsystem Norge",
+    "verkstedprogram Norge",
     "ordresystem verksted",
     "fakturering bilverksted",
     "kundeoppfølging verksted",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     url: "https://verkstedpakken.no",
     siteName: "Verkstedpakken",
-    title: "Verkstedpakken — Verkstedsystemet uten dobbeltarbeid",
+    title: "Verkstedpakken — Verkstedprogrammet uten dobbeltarbeid",
     description:
       "Ordre, nettside og booking, mekanikerportal og faktura i ett system. Alt inkludert, ingen bindingstid. Prøv gratis i 14 dager.",
     images: [
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@verkstedpakken",
     creator: "@verkstedpakken",
-    title: "Verkstedpakken — Verkstedsystemet uten dobbeltarbeid",
+    title: "Verkstedpakken — Verkstedprogrammet uten dobbeltarbeid",
     description:
       "Ordre, nettside og booking, mekanikerportal og faktura i ett system. Prøv gratis i 14 dager.",
     images: ["/og-image.png"],
@@ -139,7 +139,7 @@ function JsonLd() {
       applicationSubCategory: "Workshop Management Software",
       operatingSystem: "Web, iOS, Android",
       description:
-        "Verkstedsystemet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Vipps, Stripe, BilXtra, MECA, MEKO og Statens vegvesen.",
+        "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Vipps, Stripe, BilXtra, MECA, MEKO og Statens vegvesen.",
       url: SITE,
       image: `${SITE}/og-image.png`,
       screenshot: `${SITE}/og-image.png`,
@@ -180,7 +180,7 @@ function JsonLd() {
       logo: `${SITE}/icon-512.png`,
       email: "hei@verkstedpakken.no",
       description:
-        "Utvikler av Verkstedpakken — verkstedsystemet uten dobbeltarbeid, for verksteder i Norge.",
+        "Utvikler av Verkstedpakken — verkstedprogrammet uten dobbeltarbeid, for verksteder i Norge.",
       foundingDate: "2026",
       areaServed: { "@type": "Country", name: "Norway" },
       knowsLanguage: ["nb-NO", "no"],

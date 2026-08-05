@@ -24,7 +24,7 @@ export default function Home() {
         {/* ─────────────── HERO ─────────────── */}
         <section className="hero">
           <div className="wrap">
-            <h1>Verkstedsystemet uten dobbeltarbeid</h1>
+            <h1>Verkstedprogrammet uten dobbeltarbeid</h1>
             <div className="cta-row">
               <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>Prøv gratis i 14 dager</a>
             </div>

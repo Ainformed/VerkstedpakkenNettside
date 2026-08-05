@@ -159,11 +159,11 @@
   .hero .wrap { max-width: 940px; margin: 0 auto; padding: 0 28px; }
   .hero h1 {
     font-family: var(--serif); font-weight: 600; color: var(--ink);
-    font-size: clamp(2.4rem, 6.6vw, 78px); line-height: 1.08; letter-spacing: -1.8px;
+    font-size: clamp(2.2rem, 6.6vw, 78px); line-height: 1.08; letter-spacing: -1.8px;
     text-wrap: balance;
   }
-  /* «Verkstedsystemet» (16 tegn) må få plass uten orddeling på de smaleste skjermene */
-  @media (max-width: 374px) { .hero h1 { font-size: 2rem; letter-spacing: -1.2px; } }
+  /* «Verkstedprogrammet» (18 tegn) må få plass uten orddeling på de smaleste skjermene */
+  @media (max-width: 374px) { .hero h1 { font-size: 1.8rem; letter-spacing: -1.2px; } }
   .hero .cta-row { margin-top: 64px; }
   .hero .subnote { margin-top: 26px; font-size: 17px; color: var(--ink); }
   .hero .subnote a { font-weight: 500; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }

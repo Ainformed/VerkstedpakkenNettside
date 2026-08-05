@@ -169,7 +169,7 @@ const customerEmail = (data: { contact: string }) => {
       Vi har mottatt informasjonen din og tar kontakt så snart vi kan.
     </p>
     <p style="margin:0 0 24px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:rgba(12,0,90,0.78);">
-      Verkstedpakken er verkstedsystemet uten dobbeltarbeid — ordre, nettside og booking, mekanikerportal og faktura i ett system, for verksteder som vil bruke mindre tid på papirarbeid.
+      Verkstedpakken er verkstedprogrammet uten dobbeltarbeid — ordre, nettside og booking, mekanikerportal og faktura i ett system, for verksteder som vil bruke mindre tid på papirarbeid.
     </p>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px;border-collapse:collapse;">
       <tr><td style="background:#F2F7FF;border-radius:14px;padding:18px 20px;font-family:Helvetica,Arial,sans-serif;">

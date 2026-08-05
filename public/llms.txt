@@ -1,6 +1,6 @@
 # Verkstedpakken
 
-> Et superenkelt verkstedsystem for verksteder i Norge. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert, ingen bindingstid.
+> Et superenkelt verkstedprogram for verksteder i Norge. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert, ingen bindingstid.
 
 ## Sider
 
