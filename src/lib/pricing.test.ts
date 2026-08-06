@@ -61,6 +61,10 @@ describe("finnPris", () => {
     expect(finnPris(FALLBACK_TRINN, 21)).toBe(895);
     expect(finnPris(FALLBACK_TRINN, 51)).toBe(795);
   });
+
+  it("kaster på tom trapp — det betyr at kalleren hoppet over fallback", () => {
+    expect(() => finnPris([], 5)).toThrow(/tom pristrapp/);
+  });
 });
 
 describe("sorterTrinn", () => {
@@ -94,6 +98,12 @@ describe("formaterKr", () => {
     expect(formaterKr(4780)).toBe("4 780,-");
     expect(formaterKr(159000)).toBe("159 000,-");
     expect(formaterKr(795)).toBe("795,-");
+  });
+
+
+  it("bruker hardt mellomrom, uansett hva Intl gir oss", () => {
+    expect(formaterKr(4780).charCodeAt(1)).toBe(0x00a0);
+    expect(formaterKr(4780)).not.toMatch(/ /);
   });
 });
 

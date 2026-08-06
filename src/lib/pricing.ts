@@ -41,11 +41,18 @@ export function sorterTrinn(trinn: Pristrinn[]): Pristrinn[] {
 }
 
 /**
- * Pris per bruker ved gitt antall. Skal alltid returnere et tall:
- * hull eller rare grenser i trappa gir nærmeste lavere trinn, ikke
- * undefined.
+ * Pris per bruker ved gitt antall. Returnerer alltid et tall for en
+ * ikke-tom trapp. Hull eller rare grenser gir nærmeste lavere trinn, ikke
+ * undefined. Tom trapp er en programmeringsfeil — kalleren skal garantere
+ * at trappas data kom fra parseTrinn (som avviser tom liste), eller bruke
+ * FALLBACK_TRINN.
  */
 export function finnPris(trinn: Pristrinn[], antall: number): number {
+  if (trinn.length === 0) {
+    throw new Error(
+      "finnPris: tom pristrapp — kalleren skal falle tilbake på FALLBACK_TRINN",
+    );
+  }
   const sortert = sorterTrinn(trinn);
   const treff = sortert.find(
     (t) => antall >= t.min && (t.max === null || antall <= t.max),
