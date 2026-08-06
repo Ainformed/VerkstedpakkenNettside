@@ -27,6 +27,9 @@
     .phero-mascot { order: -1; }
     .phero-mascot svg, .phero-mascot img { max-width: 190px; }
     .phero-bubble { margin-top: 48px; }
+    /* .teller er en flex-container, så text-align: center på .phero-grid
+       sentrerer ikke innholdet i den — det må justify-content gjøre. */
+    .teller { justify-content: center; }
   }
 
   /* ── Farget bånd rundt prisseksjonene ── */
@@ -102,6 +105,13 @@
   font-weight: 400;
   letter-spacing: 0;
   color: var(--ink-2);
+}
+/* Holder plassen ved 1–3 brukere, der det ikke er noe å spare. Uten dette
+   hopper teller, CTA og boble 70px nedover idet rabatten slår inn ved
+   fjerde bruker. visibility (ikke display) er det som reserverer høyden,
+   og den tar samtidig teksten ut av tilgjengelighetstreet. */
+.sparing-skjult {
+  visibility: hidden;
 }
 
 .teller {

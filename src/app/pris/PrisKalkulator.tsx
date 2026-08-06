@@ -89,12 +89,15 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
         <p className="per">
           Per måned (ekskl. mva). <b>Ingen bindingstid.</b>
         </p>
-        {sparing > 0 && (
-          <p className="sparing">
-            Du sparer {formaterKr(sparing * 12)} i året{" "}
-            <span>{formaterKr(sparing)} per måned</span>
-          </p>
-        )}
+        {/* Alltid rendret, også når det ikke er noe å spare. Betinget
+            montering fikk hele seksjonen — teller, CTA og boble — til å hoppe
+            70px idet rabatten slo inn ved fjerde bruker. visibility: hidden
+            holder plassen og tar den samtidig ut av tilgjengelighetstreet,
+            så «Du sparer 0,-» ikke leses opp. */}
+        <p className={sparing > 0 ? "sparing" : "sparing sparing-skjult"}>
+          Du sparer {formaterKr(sparing * 12)} i året{" "}
+          <span>{formaterKr(sparing)} per måned</span>
+        </p>
       </div>
 
       <div className="teller">

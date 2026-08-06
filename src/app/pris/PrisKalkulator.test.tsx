@@ -255,9 +255,22 @@ describe("PrisKalkulator — tilgjengelighet", () => {
 });
 
 describe("PrisKalkulator — besparelse", () => {
-  it("skjuler besparelsen ved én bruker", () => {
-    render(<PrisKalkulator trinn={TRAPP} />);
-    expect(screen.queryByText(/Du sparer/)).toBeNull();
+  it("skjuler besparelsen ved én bruker, men beholder plassen den tar", () => {
+    const { container } = render(<PrisKalkulator trinn={TRAPP} />);
+    const sp = container.querySelector(".sparing")!;
+    // Avsnittet MÅ finnes i DOM-en: fjernes det, hopper teller, CTA og boble
+    // 70px nedover idet rabatten slår inn ved fjerde bruker.
+    expect(sp).not.toBeNull();
+    expect(sp.className).toContain("sparing-skjult");
+  });
+
+  it("viser besparelsen fra fjerde bruker, uten skjult-klassen", () => {
+    const { container } = render(<PrisKalkulator trinn={TRAPP} />);
+    fireEvent.change(felt(), { target: { value: "4" } });
+    fireEvent.blur(felt());
+    expect(container.querySelector(".sparing")!.className).not.toContain(
+      "sparing-skjult",
+    );
   });
 
   it("viser besparelse per måned og per år ved fire brukere", () => {
