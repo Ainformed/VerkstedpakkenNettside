@@ -16,7 +16,9 @@
 - **Ingen `NEXT_PUBLIC_`-prefiks på noen ny miljøvariabel.** Priser leses på server; klienten får ferdige tall som props, aldri en nøkkel.
 - **`SUPABASE_SERVICE_ROLE_KEY` skal ikke settes på nettsidens Vercel-prosjekt.** Den omgår all RLS. Ny kode skal ikke referere den, og ikke importere `src/lib/supabase-admin.ts`.
 - Prod-prosjektet `xrpqminsdtgktxschnci` er eneste priskilde. Testmiljøet `yijucnotjhxxphpuvkpl` har utdatert trapp (`1290 / 1090 / 890`) og skal aldri være `SUPABASE_URL` på nettsiden.
-- Pengeformat: `Intl.NumberFormat("nb-NO")` + `,-` — «1 295,-» med hardt mellomrom (U+00A0), som siden skriver det i dag.
+- Pengeformat: `Intl.NumberFormat("nb-NO")` + `,-` — «1 295,-» med hardt mellomrom (U+00A0).
+
+  **Rettelse 2026-08-06:** planen påsto opprinnelig at siden skriver det med hardt mellomrom i dag. Det er feil — de hardkodede «1 295,-»-strengene i `src/app/pris/page.tsx` og `src/app/layout.tsx` bruker vanlig mellomrom (U+0020). Vi velger likevel U+00A0 i kalkulatoren, av en annen grunn enn den planen først ga: en pris skal ikke kunne brytes over to linjer midt i tallet. Utdata fra `Intl` normaliseres derfor eksplisitt, siden ulike ICU-versjoner har brukt både U+0020 og U+202F som tusenskille for `nb-NO`.
 - Antall brukere: minimum `1`, maksimum `200`, steglengde alltid `1`.
 - Git-forfatter må være `x@ainformed.com`. Annen forfatter gir BLOCKED deploy på Vercel.
 - Repoet har ingen tester i dag. Vitest settes opp som del av Task 2.
@@ -70,22 +72,24 @@ Forventet: `skal_vaere_1 = 1`, og eneste `setting_key` er `pricing_tiers`. Ser d
 Prosjektet `ainformed/verkstedpakkennettside` har i dag kun `RESEND_API_KEY`. Kjør disse selv — anon-nøkkelen hentes fra Supabase-dashboardet (Project Settings → API Keys → `anon` / publishable):
 
 ```bash
-vercel env add SUPABASE_URL production
+vercel env add SUPABASE_PRICING_URL production
 # lim inn: https://xrpqminsdtgktxschnci.supabase.co
 
-vercel env add SUPABASE_ANON_KEY production
+vercel env add SUPABASE_PRICING_ANON_KEY production
 # lim inn anon-nøkkelen til SAMME prosjekt
 ```
 
 Gjenta for `preview` hvis forhåndsvisninger skal vise ekte priser.
 
-**Ikke legg inn `SUPABASE_SERVICE_ROLE_KEY`.** `src/lib/supabase-admin.ts:12-14` krever både URL og service-role for å bygge admin-klienten, så URL-en alene aktiverer ingenting. Legger noen inn service-role senere for å fikse interesse-skjemaet, får markedssiden plutselig en nøkkel med full databasetilgang.
+**Merk navnene — de er med vilje ikke `SUPABASE_URL`/`SUPABASE_ANON_KEY`.** Sluttreviewen fant at `src/lib/supabase-admin.ts:12-14` leser `SUPABASE_URL` sammen med `SUPABASE_SERVICE_ROLE_KEY`, og at `src/app/actions/interest.ts:281-291` har et ferdigskrevet databaseskriv som venter bak den null-sjekken. Setter vi `SUPABASE_URL` for kalkulatoren, står admin-klienten kun én miljøvariabel fra å være i live mot produksjonsdatabasen — og neste person som limer inn en service-role-nøkkel for å fikse interesse-skjemaet gir en offentlig markedsside en klient som omgår all RLS. Egne variabelnavn gjør at ingen enkelt variabel kan bevæpne begge veier.
+
+**Ikke legg inn `SUPABASE_SERVICE_ROLE_KEY` i noe tilfelle.**
 
 - [ ] **Step 5: Verifiser at URL-en peker på prod**
 
 ```bash
 vercel env pull .env.check --environment=production
-grep SUPABASE_URL .env.check
+grep SUPABASE_PRICING_URL .env.check
 rm .env.check
 ```
 
@@ -425,6 +429,15 @@ Expected: ingen utskrift.
 git add src/lib/pricing.ts src/lib/pricing.test.ts vitest.config.ts package.json package-lock.json
 git commit -m "Prislogikk for /pris: finnPris, parseTrinn og vitest-oppsett"
 ```
+
+---
+
+### Godkjente avvik i Task 2 (lagt til under kjøring 2026-08-06)
+
+Review-loopen avdekket to ting som ble rettet i en fix-runde. Koden i repoet avviker derfor med hensikt fra stegene over:
+
+- **`formaterKr` normaliserer tusenskillet** til U+00A0 med `.replace(/\p{Zs}/gu, " ")`. Ikke i planen opprinnelig. Godkjent fordi `Intl` ikke gir samme tegn på alle ICU-versjoner, og prisen ikke skal brytes over to linjer.
+- **`finnPris` kaster på tom trapp** i stedet for å feile med en uforståelig `TypeError`. Planens `sortert[0]!` løy til typesjekkeren om en liste som kan være tom. En tom trapp betyr at kalleren hoppet over fallback — det er en programmeringsfeil, ikke et datatilfelle, og skal si det tydelig.
 
 ---
 
