@@ -3,6 +3,7 @@ import {
   FALLBACK_TRINN,
   finnPris,
   formaterKr,
+  hardtMellomrom,
   klemAntall,
   parseTrinn,
   sorterTrinn,
@@ -111,6 +112,21 @@ describe("formaterKr", () => {
     // U+202F er det CLDR i perioder har brukt som tusenskille for nb-NO.
     const somNarrow = "1 295";
     expect(somNarrow.replace(/\p{Zs}/gu, "\xa0")).toBe("1 295");
+  });
+});
+
+describe("hardtMellomrom", () => {
+  it("gjør vanlig mellomrom om til hardt", () => {
+    expect(hardtMellomrom("1 295")).toBe("1\u00a0295");
+  });
+
+  it("gjør smalt hardt mellomrom om til hardt", () => {
+    // U+202F er det CLDR i perioder har brukt som tusenskille for nb-NO.
+    expect(hardtMellomrom("1\u202f295")).toBe("1\u00a0295");
+  });
+
+  it("lar hardt mellomrom stå", () => {
+    expect(hardtMellomrom("1\u00a0295")).toBe("1\u00a0295");
   });
 });
 
