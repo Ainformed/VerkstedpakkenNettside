@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Header from "@/components/vp/Header";
 import Footer from "@/components/vp/Footer";
 import { SIGNUP_URL } from "@/lib/links";
+import PrisKalkulator from "./PrisKalkulator";
+import { hentPristrinn } from "@/lib/pricing-server";
 import "./pris.css";
 
 export const metadata: Metadata = {
@@ -11,7 +13,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/pris" },
 };
 
-export default function Pris() {
+/** Prisene leses fra prod. En endring i superadmin slår gjennom innen en time. */
+export const revalidate = 3600;
+
+export default async function Pris() {
+  const trinn = await hentPristrinn();
   return (
     <>
       <Header />
@@ -20,10 +26,7 @@ export default function Pris() {
         <section className="price-hero">
           <div className="phero-grid">
             <div className="phero-copy">
-              <div className="amt">1 295,-</div>
-              <p className="per">
-                Per bruker per måned (ekskl. mva). <b>Ingen bindingstid.</b>
-              </p>
+              <PrisKalkulator trinn={trinn} />
               <div className="cta-row">
                 <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
                   Prøv gratis i 14 dager
@@ -41,8 +44,8 @@ export default function Pris() {
           </div>
           <div className="phero-bubble">
             <span>
-              Inkluderer alt verkstedet trenger i hverdagen og support uten timepris. Fra 4 ansatte
-              får du lavere pris per bruker.
+              Inkluderer alt verkstedet trenger i hverdagen og support uten timepris. Still inn
+              antall ansatte — prisen per bruker faller når dere blir flere.
             </span>
           </div>
         </section>
