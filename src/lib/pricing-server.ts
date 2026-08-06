@@ -1,3 +1,5 @@
+import "server-only";
+
 import { createClient } from "@supabase/supabase-js";
 import { FALLBACK_TRINN, parseTrinn, type Pristrinn } from "./pricing";
 
@@ -18,8 +20,11 @@ export async function hentPristrinn(): Promise<Pristrinn[]> {
   const anonNokkel = process.env.SUPABASE_ANON_KEY;
 
   if (!url || !anonNokkel) {
+    const mangler = [!url && "SUPABASE_URL", !anonNokkel && "SUPABASE_ANON_KEY"]
+      .filter(Boolean)
+      .join(" og ");
     console.error(
-      "Priskalkulator: SUPABASE_URL eller SUPABASE_ANON_KEY mangler — viser fallback-trappa.",
+      `Priskalkulator: ${mangler} mangler — viser fallback-trappa.`,
     );
     return FALLBACK_TRINN;
   }
