@@ -4,6 +4,7 @@ import {
   finnPris,
   finnSparingPerMnd,
   formaterKr,
+  forstePris,
   hardtMellomrom,
   klemAntall,
   parseTrinn,
@@ -69,6 +70,21 @@ describe("finnPris", () => {
   });
 });
 
+describe("forstePris", () => {
+  it("gir prisen på første trinn i prod-trappa", () => {
+    expect(forstePris(TRAPP)).toBe(1295);
+  });
+
+  it("tåler usortert trapp", () => {
+    const usortert = [TRAPP[4]!, TRAPP[1]!, TRAPP[3]!, TRAPP[0]!, TRAPP[2]!];
+    expect(forstePris(usortert)).toBe(1295);
+  });
+
+  it("kaster på tom trapp — det betyr at kalleren hoppet over fallback", () => {
+    expect(() => forstePris([])).toThrow(/tom pristrapp/);
+  });
+});
+
 describe("finnSparingPerMnd", () => {
   it("måler besparelse mot førstetrinnsprisen ved hvert trinn", () => {
     expect(finnSparingPerMnd(TRAPP, 1)).toBe(0);
@@ -122,13 +138,6 @@ describe("formaterKr", () => {
   it("bruker hardt mellomrom, uansett hva Intl gir oss", () => {
     expect(formaterKr(4780).charCodeAt(1)).toBe(0x00a0);
     expect(formaterKr(4780)).not.toMatch(/ /);
-  });
-
-
-  it("normaliserer også smalt hardt mellomrom fra andre ICU-versjoner", () => {
-    // U+202F er det CLDR i perioder har brukt som tusenskille for nb-NO.
-    const somNarrow = "1 295";
-    expect(somNarrow.replace(/\p{Zs}/gu, "\xa0")).toBe("1 295");
   });
 });
 

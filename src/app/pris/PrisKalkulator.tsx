@@ -7,6 +7,7 @@ import {
   finnPris,
   finnSparingPerMnd,
   formaterKr,
+  forstePris,
   klemAntall,
   type Pristrinn,
 } from "@/lib/pricing";
@@ -93,13 +94,16 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
         </p>
         {flere && (
           <p className="per-bruker">
-            {antall} brukere × {formaterKr(prisPerBruker)} per bruker
+            {antall} brukere × <b>{formaterKr(prisPerBruker)}</b> per bruker
           </p>
         )}
         {sparing > 0 && (
           <p className="sparing">
             Du sparer {formaterKr(sparing)} per måned{" "}
-            <span>— {formaterKr(sparing * 12)} i året</span>
+            <span>
+              — {formaterKr(sparing * 12)} i året, mot{" "}
+              {formaterKr(forstePris(trinn))} per bruker
+            </span>
           </p>
         )}
       </div>
@@ -130,7 +134,13 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
             inputMode="numeric"
             autoComplete="off"
             value={utkast ?? String(antall)}
-            onChange={(e) => setUtkast(e.target.value.replace(/[^0-9]/g, ""))}
+            onChange={(e) => {
+              const tekst = e.target.value.replace(/[^0-9]/g, "");
+              setUtkast(tekst);
+              // Prisen skal følge tallet mens man skriver. Utkastet finnes bare
+              // for at feltet skal kunne tømmes og skrives om uten å klemme til 1.
+              if (tekst !== "") setAntall(klemAntall(Number(tekst)));
+            }}
             onBlur={commitUtkast}
             onKeyDown={(e) => {
               if (e.key === "Enter") {

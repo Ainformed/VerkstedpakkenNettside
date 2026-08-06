@@ -66,13 +66,18 @@ export function finnPris(trinn: Pristrinn[], antall: number): number {
   return (naermeste ?? sortert[0]!).pris;
 }
 
+/** Prisen på første trinn — grunnlaget besparelsen måles mot. */
+export function forstePris(trinn: Pristrinn[]): number {
+  finnPris(trinn, MIN_BRUKERE); // kaster på tom trapp
+  return sorterTrinn(trinn)[0]!.pris;
+}
+
 /** Besparelse i kroner per måned, målt mot førstetrinnsprisen.
  *  0 på første trinn. Math.max verner mot en feilkonfigurert trapp der et
  *  senere trinn er dyrere enn det første. */
 export function finnSparingPerMnd(trinn: Pristrinn[], antall: number): number {
   const pris = finnPris(trinn, antall); // kaster på tom trapp
-  const forstePris = sorterTrinn(trinn)[0]!.pris;
-  return Math.max(0, (forstePris - pris) * antall);
+  return Math.max(0, (forstePris(trinn) - pris) * antall);
 }
 
 export function klemAntall(n: number): number {

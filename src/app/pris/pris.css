@@ -89,8 +89,11 @@
 /* ── Priskalkulator ─────────────────────── */
 .per-bruker {
   margin-top: 8px;
-  font-size: 17px;
-  color: var(--ink-2);
+  font-size: 19px;
+  color: var(--ink);
+}
+.per-bruker b {
+  font-weight: 600;
 }
 
 .sparing {

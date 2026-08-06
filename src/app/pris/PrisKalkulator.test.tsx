@@ -41,9 +41,10 @@ describe("PrisKalkulator ved flere brukere", () => {
     fireEvent.pointerDown(pluss());
     fireEvent.pointerUp(pluss());
     expect(screen.getByText("2 590,-")).toBeDefined();
-    expect(
-      screen.getByText("2 brukere × 1 295,- per bruker"),
-    ).toBeDefined();
+    // Prisen per bruker er nå fet (<b>), så «X brukere × pris per bruker»
+    // splittes på to noder: teksten rundt, og selve prisen inni <b>.
+    expect(screen.getByText("2 brukere × per bruker")).toBeDefined();
+    expect(screen.getByText("1 295,-")).toBeDefined();
     expect(screen.getByText(/^Per måned/)).toBeDefined();
   });
 
@@ -52,9 +53,8 @@ describe("PrisKalkulator ved flere brukere", () => {
     fireEvent.change(felt(), { target: { value: "4" } });
     fireEvent.blur(felt());
     expect(screen.getByText("4 780,-")).toBeDefined();
-    expect(
-      screen.getByText("4 brukere × 1 195,- per bruker"),
-    ).toBeDefined();
+    expect(screen.getByText("4 brukere × per bruker")).toBeDefined();
+    expect(screen.getByText("1 195,-")).toBeDefined();
   });
 
   it.each([
@@ -66,13 +66,25 @@ describe("PrisKalkulator ved flere brukere", () => {
     fireEvent.change(felt(), { target: { value: String(antall) } });
     fireEvent.blur(felt());
     expect(screen.getByText(total)).toBeDefined();
-    expect(
-      screen.getByText(`${antall} brukere × ${perBruker} per bruker`),
-    ).toBeDefined();
+    expect(screen.getByText(`${antall} brukere × per bruker`)).toBeDefined();
+    expect(screen.getByText(perBruker)).toBeDefined();
   });
 });
 
 describe("PrisKalkulator — redigering av feltet", () => {
+  it("oppdaterer totalen mens man skriver, uten å blure", () => {
+    render(<PrisKalkulator trinn={TRAPP} />);
+    fireEvent.change(felt(), { target: { value: "10" } });
+    // 10 × 1195, ingen blur/Enter — prisen skal likevel følge tallet.
+    expect(screen.getByText("11 950,-")).toBeDefined();
+  });
+
+  it("aktiverer «−» med en gang man skriver et tall over 1", () => {
+    render(<PrisKalkulator trinn={TRAPP} />);
+    fireEvent.change(felt(), { target: { value: "50" } });
+    expect(minus().hasAttribute("disabled")).toBe(false);
+  });
+
   it("godtar innskrevet tall", () => {
     render(<PrisKalkulator trinn={TRAPP} />);
     fireEvent.change(felt(), { target: { value: "25" } });
@@ -239,6 +251,8 @@ describe("PrisKalkulator — besparelse", () => {
     fireEvent.blur(felt());
     // sparing = (1295 - 1195) × 4 = 400,-; per år = 400 × 12 = 4 800,-
     expect(screen.getByText("Du sparer 400,- per måned")).toBeDefined();
-    expect(screen.getByText("— 4 800,- i året")).toBeDefined();
+    expect(
+      screen.getByText("— 4 800,- i året, mot 1 295,- per bruker"),
+    ).toBeDefined();
   });
 });
