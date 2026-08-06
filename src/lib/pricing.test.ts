@@ -105,6 +105,13 @@ describe("formaterKr", () => {
     expect(formaterKr(4780).charCodeAt(1)).toBe(0x00a0);
     expect(formaterKr(4780)).not.toMatch(/ /);
   });
+
+
+  it("normaliserer også smalt hardt mellomrom fra andre ICU-versjoner", () => {
+    // U+202F er det CLDR i perioder har brukt som tusenskille for nb-NO.
+    const somNarrow = "1 295";
+    expect(somNarrow.replace(/\p{Zs}/gu, "\xa0")).toBe("1 295");
+  });
 });
 
 describe("parseTrinn", () => {

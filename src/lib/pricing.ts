@@ -73,9 +73,12 @@ export function klemAntall(n: number): number {
 
 const kroner = new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 0 });
 
-/** «4 780,-» — samme form som resten av prissiden. */
+/** «4 780,-» — samme form som resten av prissiden.
+ *  Intl-utdata normaliseres til hardt mellomrom (U+00A0): ulike ICU-versjoner
+ *  har brukt både vanlig mellomrom og smalt hardt mellomrom (U+202F) som
+ *  tusenskille for nb-NO, og prisen skal aldri brytes over to linjer. */
 export function formaterKr(belop: number): string {
-  return `${kroner.format(belop).replace(/ /g, " ")},-`;
+  return `${kroner.format(belop).replace(/\p{Zs}/gu, "\xa0")},-`;
 }
 
 /**
