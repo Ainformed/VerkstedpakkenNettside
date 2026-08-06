@@ -164,8 +164,9 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
           +
         </button>
 
+        {/* Antallet står i feltet til venstre. Etiketten oppgir bare
+            enhetsprisen, så den ikke gjentar tallet ved siden av seg. */}
         <span className="teller-tekst">
-          {antall} {antall === 1 ? "bruker" : "brukere"} ×{" "}
           <b>{formaterKr(prisPerBruker)}</b> per bruker
         </span>
       </div>

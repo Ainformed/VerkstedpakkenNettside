@@ -15,6 +15,7 @@ afterEach(cleanup);
 
 const pluss = () => screen.getByRole("button", { name: "Én bruker mer" });
 const minus = () => screen.getByRole("button", { name: "Én bruker mindre" });
+const etikett = () => document.querySelector(".teller-tekst")!.textContent;
 const felt = () => screen.getByLabelText("Antall brukere") as HTMLInputElement;
 
 describe("PrisKalkulator i ro", () => {
@@ -29,9 +30,13 @@ describe("PrisKalkulator i ro", () => {
     expect(screen.getByText(/^Per måned/)).toBeDefined();
   });
 
-  it("viser stepperens etikett i entall ved én bruker, ikke flertall", () => {
+  it("viser enhetsprisen ved telleren, uten å gjenta antallet", () => {
     const { container } = render(<PrisKalkulator trinn={TRAPP} />);
-    expect(screen.getByText("1 bruker × per bruker")).toBeDefined();
+    // Antallet står i feltet til venstre, ikke i etiketten. Etiketten skal
+    // derfor ikke inneholde andre tall enn selve enhetsprisen.
+    expect(container.querySelector(".teller-tekst")?.textContent).toBe(
+      "1\u00A0295,- per bruker",
+    );
     expect(container.querySelector(".teller-tekst b")?.textContent).toContain(
       "1\u00A0295,-",
     );
@@ -49,9 +54,7 @@ describe("PrisKalkulator ved flere brukere", () => {
     fireEvent.pointerDown(pluss());
     fireEvent.pointerUp(pluss());
     expect(screen.getByText("2 590,-")).toBeDefined();
-    // Prisen per bruker er nå fet (<b>), så «X brukere × pris per bruker»
-    // splittes på to noder: teksten rundt, og selve prisen inni <b>.
-    expect(screen.getByText("2 brukere × per bruker")).toBeDefined();
+    expect(etikett()).toBe("1\u00A0295,- per bruker");
     expect(screen.getByText("1 295,-")).toBeDefined();
     expect(screen.getByText(/^Per måned/)).toBeDefined();
   });
@@ -61,7 +64,7 @@ describe("PrisKalkulator ved flere brukere", () => {
     fireEvent.change(felt(), { target: { value: "4" } });
     fireEvent.blur(felt());
     expect(screen.getByText("4 780,-")).toBeDefined();
-    expect(screen.getByText("4 brukere × per bruker")).toBeDefined();
+    expect(etikett()).toBe("1\u00A0195,- per bruker");
     expect(screen.getByText("1 195,-")).toBeDefined();
   });
 
@@ -74,7 +77,7 @@ describe("PrisKalkulator ved flere brukere", () => {
     fireEvent.change(felt(), { target: { value: String(antall) } });
     fireEvent.blur(felt());
     expect(screen.getByText(total)).toBeDefined();
-    expect(screen.getByText(`${antall} brukere × per bruker`)).toBeDefined();
+    expect(etikett()).toBe(`${perBruker.replace(" ", "\u00A0")} per bruker`);
     expect(screen.getByText(perBruker)).toBeDefined();
   });
 });
@@ -247,7 +250,7 @@ describe("PrisKalkulator — tilgjengelighet", () => {
     expect(regioner[0]!.textContent).toContain("1\u00A0295,-");
     // ... og stepperens etikett (fra .teller) - begge i samme region, siden
     // wrapperen na ligger pa .pris-omrade og omslutter begge blokkene.
-    expect(regioner[0]!.textContent).toContain("bruker ×");
+    expect(regioner[0]!.textContent).toContain("per bruker");
   });
 });
 
