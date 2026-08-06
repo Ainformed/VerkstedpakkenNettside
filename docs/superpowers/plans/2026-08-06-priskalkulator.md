@@ -72,22 +72,24 @@ Forventet: `skal_vaere_1 = 1`, og eneste `setting_key` er `pricing_tiers`. Ser d
 Prosjektet `ainformed/verkstedpakkennettside` har i dag kun `RESEND_API_KEY`. Kjør disse selv — anon-nøkkelen hentes fra Supabase-dashboardet (Project Settings → API Keys → `anon` / publishable):
 
 ```bash
-vercel env add SUPABASE_URL production
+vercel env add SUPABASE_PRICING_URL production
 # lim inn: https://xrpqminsdtgktxschnci.supabase.co
 
-vercel env add SUPABASE_ANON_KEY production
+vercel env add SUPABASE_PRICING_ANON_KEY production
 # lim inn anon-nøkkelen til SAMME prosjekt
 ```
 
 Gjenta for `preview` hvis forhåndsvisninger skal vise ekte priser.
 
-**Ikke legg inn `SUPABASE_SERVICE_ROLE_KEY`.** `src/lib/supabase-admin.ts:12-14` krever både URL og service-role for å bygge admin-klienten, så URL-en alene aktiverer ingenting. Legger noen inn service-role senere for å fikse interesse-skjemaet, får markedssiden plutselig en nøkkel med full databasetilgang.
+**Merk navnene — de er med vilje ikke `SUPABASE_URL`/`SUPABASE_ANON_KEY`.** Sluttreviewen fant at `src/lib/supabase-admin.ts:12-14` leser `SUPABASE_URL` sammen med `SUPABASE_SERVICE_ROLE_KEY`, og at `src/app/actions/interest.ts:281-291` har et ferdigskrevet databaseskriv som venter bak den null-sjekken. Setter vi `SUPABASE_URL` for kalkulatoren, står admin-klienten kun én miljøvariabel fra å være i live mot produksjonsdatabasen — og neste person som limer inn en service-role-nøkkel for å fikse interesse-skjemaet gir en offentlig markedsside en klient som omgår all RLS. Egne variabelnavn gjør at ingen enkelt variabel kan bevæpne begge veier.
+
+**Ikke legg inn `SUPABASE_SERVICE_ROLE_KEY` i noe tilfelle.**
 
 - [ ] **Step 5: Verifiser at URL-en peker på prod**
 
 ```bash
 vercel env pull .env.check --environment=production
-grep SUPABASE_URL .env.check
+grep SUPABASE_PRICING_URL .env.check
 rm .env.check
 ```
 
