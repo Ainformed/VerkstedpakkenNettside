@@ -98,6 +98,12 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
           onPointerDown={() => startGjenta(-1)}
           onPointerUp={stopp}
           onPointerLeave={stopp}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault(); // hindrer at nettleseren også utløser click
+              endre(-1);
+            }
+          }}
         >
           −
         </button>
@@ -136,6 +142,12 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
           onPointerDown={() => startGjenta(1)}
           onPointerUp={stopp}
           onPointerLeave={stopp}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault(); // hindrer at nettleseren også utløser click
+              endre(1);
+            }
+          }}
         >
           +
         </button>

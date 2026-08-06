@@ -56,6 +56,20 @@ describe("PrisKalkulator ved flere brukere", () => {
       screen.getByText("4 brukere × 1 195,- per bruker"),
     ).toBeDefined();
   });
+
+  it.each([
+    [11, "10 945,-", "995,-"],
+    [21, "18 795,-", "895,-"],
+    [51, "40 545,-", "795,-"],
+  ])("viser riktig trinn og pris per bruker ved %i brukere", (antall, total, perBruker) => {
+    render(<PrisKalkulator trinn={TRAPP} />);
+    fireEvent.change(felt(), { target: { value: String(antall) } });
+    fireEvent.blur(felt());
+    expect(screen.getByText(total)).toBeDefined();
+    expect(
+      screen.getByText(`${antall} brukere × ${perBruker} per bruker`),
+    ).toBeDefined();
+  });
 });
 
 describe("PrisKalkulator — redigering av feltet", () => {
@@ -144,6 +158,37 @@ describe("PrisKalkulator — hold inne", () => {
     } finally {
       vi.useRealTimers();
     }
+  });
+
+  it("stopper repetisjonen også når pekeren slippes utenfor knappen", () => {
+    vi.useFakeTimers();
+    try {
+      render(<PrisKalkulator trinn={TRAPP} />);
+      fireEvent.pointerDown(pluss());
+      act(() => {
+        vi.advanceTimersByTime(400 + 120 * 3);
+      });
+      const etterHold = Number(felt().value);
+      fireEvent.pointerUp(window);
+      act(() => {
+        vi.advanceTimersByTime(2000);
+      });
+      expect(Number(felt().value)).toBe(etterHold);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+});
+
+describe("PrisKalkulator — tastatur", () => {
+  it("kan betjenes med tastatur", () => {
+    render(<PrisKalkulator trinn={TRAPP} />);
+    fireEvent.keyDown(pluss(), { key: "Enter" });
+    expect(felt().value).toBe("2");
+    fireEvent.keyDown(pluss(), { key: " " });
+    expect(felt().value).toBe("3");
+    fireEvent.keyDown(minus(), { key: "Enter" });
+    expect(felt().value).toBe("2");
   });
 });
 
