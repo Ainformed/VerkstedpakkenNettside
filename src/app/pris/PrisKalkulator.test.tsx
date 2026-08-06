@@ -120,6 +120,30 @@ describe("PrisKalkulator — redigering av feltet", () => {
     fireEvent.keyDown(felt(), { key: "ArrowDown" });
     expect(felt().value).toBe("1");
   });
+
+  it("committer utkastet når man klikker seg videre", () => {
+    render(<PrisKalkulator trinn={TRAPP} />);
+    fireEvent.change(felt(), { target: { value: "7" } });
+    fireEvent.pointerDown(pluss());
+    fireEvent.pointerUp(pluss());
+    expect(felt().value).toBe("8");
+  });
+
+  it("holder seg til ren delta under hold, selv etter et utkast", () => {
+    vi.useFakeTimers();
+    try {
+      render(<PrisKalkulator trinn={TRAPP} />);
+      fireEvent.change(felt(), { target: { value: "7" } });
+      fireEvent.pointerDown(pluss());
+      act(() => {
+        vi.advanceTimersByTime(400 + 120 * 2);
+      });
+      fireEvent.pointerUp(pluss());
+      expect(Number(felt().value)).toBeGreaterThan(9);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });
 
 describe("PrisKalkulator — hold inne", () => {
@@ -200,5 +224,21 @@ describe("PrisKalkulator — tilgjengelighet", () => {
     const regioner = container.querySelectorAll("[aria-live]");
     expect(regioner.length).toBe(1);
     expect(regioner[0]!.textContent).toContain("1\u00A0295,-");
+  });
+});
+
+describe("PrisKalkulator — besparelse", () => {
+  it("skjuler besparelsen ved én bruker", () => {
+    render(<PrisKalkulator trinn={TRAPP} />);
+    expect(screen.queryByText(/Du sparer/)).toBeNull();
+  });
+
+  it("viser besparelse per måned og per år ved fire brukere", () => {
+    render(<PrisKalkulator trinn={TRAPP} />);
+    fireEvent.change(felt(), { target: { value: "4" } });
+    fireEvent.blur(felt());
+    // sparing = (1295 - 1195) × 4 = 400,-; per år = 400 × 12 = 4 800,-
+    expect(screen.getByText("Du sparer 400,- per måned")).toBeDefined();
+    expect(screen.getByText("— 4 800,- i året")).toBeDefined();
   });
 });

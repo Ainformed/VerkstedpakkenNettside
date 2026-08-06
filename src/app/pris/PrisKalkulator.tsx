@@ -5,6 +5,7 @@ import {
   MAKS_BRUKERE,
   MIN_BRUKERE,
   finnPris,
+  finnSparingPerMnd,
   formaterKr,
   klemAntall,
   type Pristrinn,
@@ -30,19 +31,26 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
     }
   }, []);
 
-  const endre = useCallback((delta: number) => {
-    setAntall((n) => klemAntall(n + delta));
-  }, []);
+  const endre = useCallback(
+    (delta: number) => {
+      const fraUtkast =
+        utkast !== null && utkast !== "" ? klemAntall(Number(utkast)) : null;
+      setUtkast(null);
+      setAntall((n) => klemAntall((fraUtkast ?? n) + delta));
+    },
+    [utkast],
+  );
 
   const startGjenta = useCallback(
     (delta: number) => {
       stopp();
-      endre(delta);
+      endre(delta); // første steg tar hensyn til et pågående utkast
       let gaatt = 0;
       const planlegg = (om: number) => {
         timerRef.current = window.setTimeout(() => {
           gaatt += om;
-          endre(delta);
+          // Repetisjon går på ren delta: utkastet er alt committet av kallet over.
+          setAntall((n) => klemAntall(n + delta));
           planlegg(gaatt > RASK_ETTER_MS ? RASK_TAKT_MS : TAKT_MS);
         }, om);
       };
@@ -73,6 +81,7 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
   const prisPerBruker = finnPris(trinn, antall);
   const total = prisPerBruker * antall;
   const flere = antall > 1;
+  const sparing = finnSparingPerMnd(trinn, antall);
 
   return (
     <>
@@ -85,6 +94,12 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
         {flere && (
           <p className="per-bruker">
             {antall} brukere × {formaterKr(prisPerBruker)} per bruker
+          </p>
+        )}
+        {sparing > 0 && (
+          <p className="sparing">
+            Du sparer {formaterKr(sparing)} per måned{" "}
+            <span>— {formaterKr(sparing * 12)} i året</span>
           </p>
         )}
       </div>
@@ -123,11 +138,9 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
                 commitUtkast();
               } else if (e.key === "ArrowUp") {
                 e.preventDefault();
-                setUtkast(null);
                 endre(1);
               } else if (e.key === "ArrowDown") {
                 e.preventDefault();
-                setUtkast(null);
                 endre(-1);
               }
             }}

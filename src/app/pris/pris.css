@@ -93,6 +93,17 @@
   color: var(--ink-2);
 }
 
+.sparing {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.sparing span {
+  color: var(--ink-2);
+  font-weight: 400;
+}
+
 .teller {
   display: flex;
   align-items: center;

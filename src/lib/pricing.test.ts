@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   FALLBACK_TRINN,
   finnPris,
+  finnSparingPerMnd,
   formaterKr,
   hardtMellomrom,
   klemAntall,
@@ -65,6 +66,22 @@ describe("finnPris", () => {
 
   it("kaster på tom trapp — det betyr at kalleren hoppet over fallback", () => {
     expect(() => finnPris([], 5)).toThrow(/tom pristrapp/);
+  });
+});
+
+describe("finnSparingPerMnd", () => {
+  it("måler besparelse mot førstetrinnsprisen ved hvert trinn", () => {
+    expect(finnSparingPerMnd(TRAPP, 1)).toBe(0);
+    expect(finnSparingPerMnd(TRAPP, 3)).toBe(0);
+    expect(finnSparingPerMnd(TRAPP, 4)).toBe(400);
+    expect(finnSparingPerMnd(TRAPP, 11)).toBe(3300);
+    expect(finnSparingPerMnd(TRAPP, 21)).toBe(8400);
+    expect(finnSparingPerMnd(TRAPP, 51)).toBe(25500);
+    expect(finnSparingPerMnd(TRAPP, 200)).toBe(100000);
+  });
+
+  it("kaster på tom trapp — det betyr at kalleren hoppet over fallback", () => {
+    expect(() => finnSparingPerMnd([], 5)).toThrow(/tom pristrapp/);
   });
 });
 
