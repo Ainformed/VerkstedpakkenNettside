@@ -263,8 +263,6 @@ describe("PrisKalkulator — besparelse", () => {
     fireEvent.blur(felt());
     // sparing = (1295 - 1195) × 4 = 400,-; per år = 400 × 12 = 4 800,-
     expect(screen.getByText("Du sparer 400,- per måned")).toBeDefined();
-    expect(
-      screen.getByText("— 4 800,- i året, mot 1 295,- per bruker"),
-    ).toBeDefined();
+    expect(screen.getByText("— 4 800,- i året")).toBeDefined();
   });
 });

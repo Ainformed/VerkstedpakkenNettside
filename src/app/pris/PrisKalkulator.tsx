@@ -7,7 +7,6 @@ import {
   finnPris,
   finnSparingPerMnd,
   formaterKr,
-  forstePris,
   klemAntall,
   type Pristrinn,
 } from "@/lib/pricing";
@@ -93,10 +92,7 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
         {sparing > 0 && (
           <p className="sparing">
             Du sparer {formaterKr(sparing)} per måned{" "}
-            <span>
-              — {formaterKr(sparing * 12)} i året, mot{" "}
-              {formaterKr(forstePris(trinn))} per bruker
-            </span>
+            <span>— {formaterKr(sparing * 12)} i året</span>
           </p>
         )}
       </div>
