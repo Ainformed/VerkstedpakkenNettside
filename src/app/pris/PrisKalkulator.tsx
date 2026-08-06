@@ -91,8 +91,8 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
         </p>
         {sparing > 0 && (
           <p className="sparing">
-            Du sparer {formaterKr(sparing)} per måned{" "}
-            <span>— {formaterKr(sparing * 12)} i året</span>
+            Du sparer {formaterKr(sparing * 12)} i året{" "}
+            <span>{formaterKr(sparing)} per måned</span>
           </p>
         )}
       </div>

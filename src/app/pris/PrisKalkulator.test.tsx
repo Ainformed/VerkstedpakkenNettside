@@ -261,8 +261,9 @@ describe("PrisKalkulator — besparelse", () => {
     render(<PrisKalkulator trinn={TRAPP} />);
     fireEvent.change(felt(), { target: { value: "4" } });
     fireEvent.blur(felt());
-    // sparing = (1295 - 1195) × 4 = 400,-; per år = 400 × 12 = 4 800,-
-    expect(screen.getByText("Du sparer 400,- per måned")).toBeDefined();
-    expect(screen.getByText("— 4 800,- i året")).toBeDefined();
+    // sparing = (1295 - 1195) × 4 = 400,- per mnd; per år = 400 × 12 = 4 800,-
+    // Året er overskriften, måneden står under den.
+    expect(screen.getByText("Du sparer 4 800,- i året")).toBeDefined();
+    expect(screen.getByText("400,- per måned")).toBeDefined();
   });
 });
