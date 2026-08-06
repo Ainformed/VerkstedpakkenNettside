@@ -189,6 +189,8 @@ describe("PrisKalkulator — tastatur", () => {
     expect(felt().value).toBe("3");
     fireEvent.keyDown(minus(), { key: "Enter" });
     expect(felt().value).toBe("2");
+    fireEvent.keyDown(minus(), { key: " " });
+    expect(felt().value).toBe("1");
   });
 });
 
