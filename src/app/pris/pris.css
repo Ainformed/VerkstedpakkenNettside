@@ -88,20 +88,22 @@
 
 /* ── Priskalkulator ─────────────────────── */
 .per-bruker {
-  margin-top: 6px;
-  font-size: 16px;
+  margin-top: 8px;
+  font-size: 17px;
   color: var(--ink-2);
 }
 
 .sparing {
-  margin-top: 10px;
-  font-size: 16px;
+  margin-top: 14px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
   color: var(--ink);
-  font-weight: 500;
 }
 .sparing span {
-  color: var(--ink-2);
+  font-size: 18px;
   font-weight: 400;
+  color: var(--ink-2);
 }
 
 .teller {
