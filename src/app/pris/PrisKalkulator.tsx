@@ -81,22 +81,15 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
 
   const prisPerBruker = finnPris(trinn, antall);
   const total = prisPerBruker * antall;
-  const flere = antall > 1;
   const sparing = finnSparingPerMnd(trinn, antall);
 
   return (
-    <>
-      <div className="pris-blokk" aria-live="polite">
+    <div className="pris-omrade" aria-live="polite">
+      <div className="pris-blokk">
         <div className="amt">{formaterKr(total)}</div>
         <p className="per">
-          {flere ? "Per måned" : "Per bruker per måned"} (ekskl. mva).{" "}
-          <b>Ingen bindingstid.</b>
+          Per måned (ekskl. mva). <b>Ingen bindingstid.</b>
         </p>
-        {flere && (
-          <p className="per-bruker">
-            {antall} brukere × <b>{formaterKr(prisPerBruker)}</b> per bruker
-          </p>
-        )}
         {sparing > 0 && (
           <p className="sparing">
             Du sparer {formaterKr(sparing)} per måned{" "}
@@ -175,8 +168,11 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
           +
         </button>
 
-        <span className="teller-tekst">brukere</span>
+        <span className="teller-tekst">
+          {antall} {antall === 1 ? "bruker" : "brukere"} ×{" "}
+          <b>{formaterKr(prisPerBruker)}</b> per bruker
+        </span>
       </div>
-    </>
+    </div>
   );
 }

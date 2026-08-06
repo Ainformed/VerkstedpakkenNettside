@@ -87,32 +87,28 @@
 }
 
 /* ── Priskalkulator ─────────────────────── */
-.per-bruker {
-  margin-top: 8px;
-  font-size: 19px;
-  color: var(--ink);
-}
-.per-bruker b {
-  font-weight: 600;
-}
-
 .sparing {
-  margin-top: 14px;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.2px;
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
   color: var(--ink);
 }
 .sparing span {
+  display: block;
+  margin-top: 2px;
   font-size: 18px;
   font-weight: 400;
+  letter-spacing: 0;
   color: var(--ink-2);
 }
 
 .teller {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 10px 12px;
   margin-top: 22px;
 }
 
@@ -163,8 +159,11 @@
 
 .teller-tekst {
   font-family: var(--sans);
-  font-size: 17px;
-  color: var(--ink-2);
+  font-size: 18px;
+  color: var(--ink);
+}
+.teller-tekst b {
+  font-weight: 600;
 }
 
 .sr-only {

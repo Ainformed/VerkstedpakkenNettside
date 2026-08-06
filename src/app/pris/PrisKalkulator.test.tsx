@@ -19,14 +19,22 @@ const felt = () => screen.getByLabelText("Antall brukere") as HTMLInputElement;
 
 describe("PrisKalkulator i ro", () => {
   it("viser dagens pris og dagens ledetekst ved én bruker", () => {
-    render(<PrisKalkulator trinn={TRAPP} />);
-    expect(screen.getByText("1 295,-")).toBeDefined();
-    expect(screen.getByText(/Per bruker per måned/)).toBeDefined();
+    const { container } = render(<PrisKalkulator trinn={TRAPP} />);
+    // Totalen og prisen inni stepperens etikett er identiske tall ved én
+    // bruker («1 295,-» to steder), så vi skoper til .amt for å unngå at
+    // getByText finner to treff.
+    expect(container.querySelector(".amt")?.textContent).toContain(
+      "1\u00A0295,-",
+    );
+    expect(screen.getByText(/^Per måned/)).toBeDefined();
   });
 
-  it("skjuler per-bruker-linja ved én bruker", () => {
-    render(<PrisKalkulator trinn={TRAPP} />);
-    expect(screen.queryByText(/per bruker$/)).toBeNull();
+  it("viser stepperens etikett i entall ved én bruker, ikke flertall", () => {
+    const { container } = render(<PrisKalkulator trinn={TRAPP} />);
+    expect(screen.getByText("1 bruker × per bruker")).toBeDefined();
+    expect(container.querySelector(".teller-tekst b")?.textContent).toContain(
+      "1\u00A0295,-",
+    );
   });
 
   it("har «−» avslått ved én bruker", () => {
@@ -231,11 +239,15 @@ describe("PrisKalkulator — tastatur", () => {
 });
 
 describe("PrisKalkulator — tilgjengelighet", () => {
-  it("melder prisendringer i én aria-live-region", () => {
+  it("melder totalen og stepperens etikett i én og samme aria-live-region", () => {
     const { container } = render(<PrisKalkulator trinn={TRAPP} />);
     const regioner = container.querySelectorAll("[aria-live]");
     expect(regioner.length).toBe(1);
+    // Totalen (fra .pris-blokk) ...
     expect(regioner[0]!.textContent).toContain("1\u00A0295,-");
+    // ... og stepperens etikett (fra .teller) - begge i samme region, siden
+    // wrapperen na ligger pa .pris-omrade og omslutter begge blokkene.
+    expect(regioner[0]!.textContent).toContain("bruker ×");
   });
 });
 
