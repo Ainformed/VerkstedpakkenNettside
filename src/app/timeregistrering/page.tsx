@@ -124,6 +124,7 @@ export default function Timeregistrering() {
             </div>
             <div className="split-art">
               <img
+                loading="lazy"
                 className="mock-photo"
                 src="/design/mekaniker-med-telefon.png"
                 alt="Mekaniker stempler inn timer på mobilen ved motorrommet"
@@ -148,6 +149,7 @@ export default function Timeregistrering() {
             </div>
             <div className="split-art">
               <img
+                loading="lazy"
                 className="mock-photo"
                 src="/design/verksted-paa-monitor.png"
                 alt="Ordre med registrerte timer og priser på skjermen"
@@ -171,6 +173,7 @@ export default function Timeregistrering() {
             </div>
             <div className="split-art">
               <img
+                loading="lazy"
                 className="mock-photo"
                 src="/design/ordreoversikt-laptop.jpg"
                 alt="Oversikt over registrerte timer i Verkstedpakken på laptop"

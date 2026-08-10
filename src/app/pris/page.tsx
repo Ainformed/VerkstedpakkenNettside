@@ -7,7 +7,7 @@ import { hentPristrinn } from "@/lib/pricing-server";
 import "./pris.css";
 
 export const metadata: Metadata = {
-  title: "Pris",
+  title: "Pris på verkstedprogrammet",
   description:
     "Alt inkludert i en fast pris: 1 295,- per bruker per måned (ekskl. mva). Ingen bindingstid, ingen etableringskostnad. Prøv gratis i 14 dager.",
   alternates: { canonical: "/pris" },
@@ -26,6 +26,7 @@ export default async function Pris() {
         <section className="price-hero">
           <div className="phero-grid">
             <div className="phero-copy">
+              <h1 className="phero-title">Pris på verkstedprogrammet</h1>
               <PrisKalkulator trinn={trinn} />
               <div className="cta-row">
                 <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Verkstedpakken",
   },
   description:
-    "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert. Ingen bindingstid. Prøv gratis i 14 dager.",
+    "Verkstedprogrammet uten dobbeltarbeid. Ordre, booking, mekanikerportal og faktura i ett system. 1 295 kr per bruker per mnd. Prøv gratis i 14 dager.",
   applicationName: "Verkstedpakken",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
@@ -138,7 +138,7 @@ function JsonLd() {
       name: "Verkstedpakken",
       applicationCategory: "BusinessApplication",
       applicationSubCategory: "Workshop Management Software",
-      operatingSystem: "Web, iOS, Android",
+      operatingSystem: "Web",
       description:
         "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Vipps, Stripe, BilXtra, MECA, MEKO og Statens vegvesen.",
       url: SITE,
@@ -152,10 +152,16 @@ function JsonLd() {
         availability: "https://schema.org/InStock",
         priceCurrency: "NOK",
         price: "1295",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "1295",
+          priceCurrency: "NOK",
+          unitText: "per bruker per måned",
+          valueAddedTaxIncluded: false,
+        },
         category: "SaaS subscription",
         url: `${SITE}/pris`,
       },
-      aggregateRating: undefined,
       provider: { "@id": `${SITE}/#org` },
       featureList: [
         "Verkstedordre og planlegging",
@@ -176,16 +182,17 @@ function JsonLd() {
       "@type": "Organization",
       "@id": `${SITE}/#org`,
       name: "Verkstedpakken",
-      legalName: "Verkstedpakken",
+      legalName: "Verkstedpakken AS",
       url: SITE,
       logo: `${SITE}/icon-512.png`,
       email: "hei@verkstedpakken.no",
+      telephone: "+4793484220",
+      vatID: "937000847",
       description:
         "Utvikler av Verkstedpakken — verkstedprogrammet uten dobbeltarbeid, for verksteder i Norge.",
       foundingDate: "2026",
       areaServed: { "@type": "Country", name: "Norway" },
       knowsLanguage: ["nb-NO", "no"],
-      sameAs: [],
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -204,14 +211,6 @@ function JsonLd() {
       url: SITE,
       inLanguage: "nb-NO",
       publisher: { "@id": `${SITE}/#org` },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${SITE}/?q={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
     },
   ];
 

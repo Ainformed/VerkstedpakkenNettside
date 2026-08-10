@@ -25,6 +25,11 @@ export default function Home() {
         <section className="hero">
           <div className="wrap">
             <h1>Verkstedprogrammet uten dobbeltarbeid</h1>
+            <p className="lead">
+              Verkstedpakken er verkstedprogrammet for norske bilverksteder.
+              Arbeidsordre, timeregistrering, delelager, booking og faktura i
+              ett system. 1 295 kr per bruker per måned, alt inkludert.
+            </p>
             <div className="cta-row">
               <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>Prøv gratis i 14 dager</a>
             </div>
@@ -127,7 +132,7 @@ export default function Home() {
         <section className="help-sec">
           <div className="help-grid">
             <div className="help-media">
-              <img className="help-photo" src="/design/support-svarer-telefon.jpg" alt="Supportmedarbeider svarer en kunde ved laptopen" />
+              <img loading="lazy" className="help-photo" src="/design/support-svarer-telefon.jpg" alt="Supportmedarbeider svarer en kunde ved laptopen" />
             </div>
             <div className="help-copy">
               <h2>Support som kan verksted</h2>
@@ -155,7 +160,7 @@ export default function Home() {
           <div className="split-row">
             <div className="split-text">
               <h2>Formet etter driften din</h2>
-              <p>Bil, anleggsmaskin, MC, båt eller landbruk. Du får egne ordremaler, prislister og felt for din bransje. Arbeidsordre, timeføring, delelager og fakturering samlet på ett sted.</p>
+              <p>Bil, anleggsmaskin, MC, båt eller landbruk. Du får egne ordremaler, prislister og felt for din bransje. Arbeidsordre, <Link href="/timeregistrering">timeregistrering</Link>, delelager og fakturering samlet på ett sted.</p>
               <Link className="split-link" href="/ordresystem">Slik fungerer ordresystemet
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
@@ -196,15 +201,15 @@ export default function Home() {
             <div className="split-art" style={{ justifyItems: "end" }}>
               <div className="integ-groups">
                 <div className="logo-grid">
-                  <div className="logo-card"><img className="logo-pad" src="/design/logos/fiken.png" alt="Fiken" /></div>
-                  <div className="logo-card"><img src="/design/logos/poweroffice.png" alt="PowerOffice GO" /></div>
-                  <div className="logo-card"><img src="/design/logos/tripletex.png" alt="Tripletex" /></div>
-                  <div className="logo-card"><img src="/design/logos/visma-eaccounting.png" alt="Visma eAccounting" /></div>
-                  <div className="logo-card"><img src="/design/logos/finago.png" alt="Finago (24SevenOffice)" /></div>
-                  <div className="logo-card"><img src="/design/logos/bilxtra.svg" alt="BilXtra" /></div>
-                  <div className="logo-card"><img src="/design/logos/meca.png" alt="MECA" /></div>
-                  <div className="logo-card"><img src="/design/logos/meko.png" alt="MEKO" /></div>
-                  <div className="logo-card"><img className="logo-tall" src="/design/logos/statens-vegvesen.png" alt="Statens vegvesen" /></div>
+                  <div className="logo-card"><img loading="lazy" className="logo-pad" src="/design/logos/fiken.png" alt="Fiken" /></div>
+                  <div className="logo-card"><img loading="lazy" src="/design/logos/poweroffice.png" alt="PowerOffice GO" /></div>
+                  <div className="logo-card"><img loading="lazy" src="/design/logos/tripletex.png" alt="Tripletex" /></div>
+                  <div className="logo-card"><img loading="lazy" src="/design/logos/visma-eaccounting.png" alt="Visma eAccounting" /></div>
+                  <div className="logo-card"><img loading="lazy" src="/design/logos/finago.png" alt="Finago (24SevenOffice)" /></div>
+                  <div className="logo-card"><img loading="lazy" src="/design/logos/bilxtra.svg" alt="BilXtra" /></div>
+                  <div className="logo-card"><img loading="lazy" src="/design/logos/meca.png" alt="MECA" /></div>
+                  <div className="logo-card"><img loading="lazy" src="/design/logos/meko.png" alt="MEKO" /></div>
+                  <div className="logo-card"><img loading="lazy" className="logo-tall" src="/design/logos/statens-vegvesen.png" alt="Statens vegvesen" /></div>
                 </div>
               </div>
             </div>

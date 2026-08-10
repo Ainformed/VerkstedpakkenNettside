@@ -58,6 +58,7 @@ export default function NettsideOgBookingPage() {
             <div className="split-art">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
+                loading="lazy"
                 className="mock-photo"
                 src="/design/kundenettside-laptop.jpg"
                 alt="Bolli Motors ferdige nettside på laptopen"
@@ -83,6 +84,7 @@ export default function NettsideOgBookingPage() {
             <div className="split-art">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
+                loading="lazy"
                 className="mock-photo"
                 src="/design/forespoersel-mobil.jpg"
                 alt="Kunden sender forespørsel i bookingportalen på mobilen"

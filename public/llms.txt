@@ -1,14 +1,16 @@
 # Verkstedpakken
 
-> Et superenkelt verkstedprogram for verksteder i Norge. Ordre, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert, ingen bindingstid.
+> Et superenkelt verkstedprogram for verksteder i Norge. Ordre, timeregistrering, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert, ingen bindingstid. Alle integrasjoner er bygget og driftet av Verkstedpakken selv, uten tredjepartsløsninger.
 
 ## Sider
 
 - Forside: https://verkstedpakken.no/
 - Ordresystem: https://verkstedpakken.no/ordresystem
+- Timeregistrering: https://verkstedpakken.no/timeregistrering
 - Nettside og booking: https://verkstedpakken.no/nettside-og-booking
 - Integrasjoner: https://verkstedpakken.no/integrasjoner
 - Pris: https://verkstedpakken.no/pris
+- Ofte stilte spørsmål: https://verkstedpakken.no/faq
 - Book demo: https://verkstedpakken.no/interesse
 - Prøv gratis (14 dager): https://app.verkstedpakken.no/kom-i-gang
 
@@ -16,11 +18,14 @@
 
 - Verkstedordre og planlegging: Kunden booker på nett, eller du legger inn ordren når telefonen ringer. Hver jobb får kunde, bil og status fra start.
 - Mekanikerportal: Hele arbeidsdagen på mobilen — stemple inn og ut, legg til deler, ta bilder og skriv kommentarer rett på ordren.
+- Timeregistrering: Elektronisk timeregistrering rett på ordren, fra mobil eller kiosk-skjerm. Timene blir til lønnsgrunnlag og fakturagrunnlag automatisk. Oppfyller kravene i arbeidsmiljøloven § 10-7 og bokføringsforskriften § 5-14.
 - Nettside og booking: Ferdig nettside der kunden sender forespørsel når det passer dem, og får et tilbud tilbake. Kunden godtar med ett trykk via SMS eller e-post.
 - Faktura og betaling: Når jobben er ferdig sendes ordren til fakturakontroll, og fakturaen sendes fra regnskapsprogrammet dere bruker.
 - Deler og lager, dekkhotell, kjøretøyoppslag, kiosk og innstempling, timer og lønnsgrunnlag — alt inkludert i prisen.
 
 ## Integrasjoner
+
+Alle integrasjoner er bygget og driftet av Verkstedpakken selv (in house), uten tredjepartsløsninger mellom verkstedet og systemene.
 
 - Regnskap: Fiken, PowerOffice GO, Tripletex, Visma eAccounting, 24SevenOffice
 - Betaling: Vipps, Stripe
@@ -29,10 +34,13 @@
 
 ## Pris
 
-1 295,- per bruker per måned (ekskl. mva). Alt inkludert, ingen etableringskostnad, ingen bindingstid. 14 dager gratis prøveperiode uten automatisk abonnement etterpå. Se https://verkstedpakken.no/pris
+1 295,- per bruker per måned (ekskl. mva). Prisen per bruker blir lavere fra fjerde ansatt. Alt inkludert: oppsett, opplæring, support, flytting fra andre systemer og regnskapsintegrasjon. Ingen etableringskostnad, ingen bindingstid. 14 dager gratis prøveperiode uten automatisk abonnement etterpå. Bytter du fra et annet system er Verkstedpakken gratis til oppsigelsestiden hos det gamle er over. Se https://verkstedpakken.no/pris
+
+Valgfrie tillegg: nettside for verkstedet 495 kr/mnd, kjøretøyoppslag med eieropplysninger fra Statens vegvesen 995 kr/mnd, Muttern AI-assistent (betal per bruk), SMS til kunder 2 kr per melding.
 
 ## Kontakt
 
+- Selskap: Verkstedpakken AS, org.nr 937 000 847
 - Nettside: https://verkstedpakken.no
 - E-post: hei@verkstedpakken.no
 - Telefon: +47 93 48 42 20

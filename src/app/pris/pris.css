@@ -3,6 +3,11 @@
    ligger allerede globalt i vp-site.css. */
 
 .page-pris {
+  .phero-title {
+    font-family: var(--serif); font-weight: 600; color: var(--ink);
+    font-size: clamp(24px, 3.2vw, 30px); letter-spacing: -0.5px; margin-bottom: 20px;
+  }
+
   /* ── Pris-hero: to kolonner med maskot ── */
   .phero-grid {
     max-width: 880px; margin: 0 auto; padding: 0 28px; display: grid;

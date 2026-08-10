@@ -6,9 +6,9 @@ import { SIGNUP_URL } from "@/lib/links";
 import "./ordresystem.css";
 
 export const metadata: Metadata = {
-  title: "Ordresystem",
+  title: "Ordresystem for verksted",
   description:
-    "Lag ordre og tilbud på sekunder, eller ta imot forespørsler fra nettsiden. Alt om jobben er samlet på ett sted, fra forespørsel til ferdig faktura.",
+    "Ordresystemet for bilverksted: lag ordre og tilbud på sekunder, eller ta imot forespørsler fra nettsiden. Alt om jobben samlet, fra forespørsel til faktura.",
   alternates: { canonical: "/ordresystem" },
 };
 
@@ -20,7 +20,7 @@ export default function Ordresystem() {
         <section className="hero feat-hero vo-hero-split">
           <div className="vo-hero-grid">
             <div className="vo-hero-copy">
-              <h1>Hele jobben på én ordre</h1>
+              <h1>Ordresystemet som samler hele jobben</h1>
               <p className="lead">
                 Lag ordre og tilbud på sekunder, eller ta imot forespørsler
                 fra nettsiden. Alt om jobben er samlet på ett sted, fra
@@ -54,12 +54,13 @@ export default function Ordresystem() {
                 når telefonen ringer.
               </p>
               <p>
-                Ingen gule lapper og ingen løse e-poster. Hver jobb får kunde,
-                bil og status fra start.
+                Ingen gule lapper og ingen løse e-poster. Hver arbeidsordre får
+                kunde, bil og status fra start.
               </p>
             </div>
             <div className="split-art">
               <img
+                loading="lazy"
                 className="mock-photo"
                 src="/design/ordreoversikt-laptop.jpg"
                 alt="Laptop med ordreoversikten i Verkstedpakken på skjermen"
@@ -121,6 +122,7 @@ export default function Ordresystem() {
             </div>
             <div className="split-art">
               <img
+                loading="lazy"
                 className="mock-photo"
                 src="/design/mekaniker-med-telefon.png"
                 alt="Mekaniker registrerer jobben på mobilen ved motorrommet"
@@ -144,6 +146,7 @@ export default function Ordresystem() {
             </div>
             <div className="split-art">
               <img
+                loading="lazy"
                 className="mock-photo"
                 src="/design/verksted-paa-monitor.png"
                 alt="Ordren med ordrelinjer og priser på skjermen, klar til fakturakontroll"
