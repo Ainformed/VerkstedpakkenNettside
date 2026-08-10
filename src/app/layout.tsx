@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollReset from "@/components/ScrollReset";
@@ -242,6 +243,18 @@ export default function RootLayout({
       >
         <ScrollReset />
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18381801939"
+          strategy="afterInteractive"
+        />
+        <Script id="google-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18381801939');
+          `}
+        </Script>
       </body>
     </html>
   );
