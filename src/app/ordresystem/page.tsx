@@ -113,8 +113,10 @@ export default function Ordresystem() {
                 verkstedet.
               </p>
               <p>
-                Timene rundes av slik dere selv har valgt, og interne notater
-                blir hos dere. Det kunden skal se, havner på ordrelinjen.
+                <a href="/timeregistrering">Timeregistreringen</a> skjer rett på
+                ordren. Timene rundes av slik dere selv har valgt, og interne
+                notater blir hos dere. Det kunden skal se, havner på
+                ordrelinjen.
               </p>
             </div>
             <div className="split-art">

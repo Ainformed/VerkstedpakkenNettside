@@ -44,6 +44,17 @@ export default function Footer() {
               <li>
                 <Link href="/integrasjoner">Integrasjoner</Link>
               </li>
+              <li>
+                <Link href="/timeregistrering">Timeregistrering</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="foot-col">
+            <h4>Hjelp</h4>
+            <ul>
+              <li>
+                <Link href="/faq">Ofte stilte spørsmål</Link>
+              </li>
             </ul>
           </div>
         </div>
