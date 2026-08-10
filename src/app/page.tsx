@@ -25,11 +25,6 @@ export default function Home() {
         <section className="hero">
           <div className="wrap">
             <h1>Verkstedprogrammet uten dobbeltarbeid</h1>
-            <p className="lead">
-              Verkstedpakken er verkstedprogrammet for norske bilverksteder.
-              Arbeidsordre, timeregistrering, delelager, booking og faktura i
-              ett system. 1 295 kr per bruker per måned, alt inkludert.
-            </p>
             <div className="cta-row">
               <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>Prøv gratis i 14 dager</a>
             </div>

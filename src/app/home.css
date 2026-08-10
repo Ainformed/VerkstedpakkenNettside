@@ -5,12 +5,6 @@
    Nestet under sidens rotklasse for a unnga kollisjoner. */
 
 .page-home {
-  /* Lead-avsnittet i heroen er der for søkemotorene, men blir for mye tekst
-     på små skjermer — skjules under 600px, heroen forblir ren. */
-  @media (max-width: 600px) {
-    .hero .lead { display: none; }
-  }
-
   @media (max-width: 900px) and (min-width: 601px) {
     .integ-groups { max-width: none; }
     .logo-grid { gap: 10px; }
