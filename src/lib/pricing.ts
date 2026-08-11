@@ -30,10 +30,11 @@ export const FALLBACK_TRINN: Pristrinn[] = [
 export const MIN_BRUKERE = 1;
 
 /**
- * Taket er ikke en prisgrense, bare vern mot at et fastlåst «+» gir
- * 5 000 brukere. Ingen norsk verkstedkjede er i nærheten.
+ * Kalkulatoren stopper på 20 brukere — siste trinn i småverksted-trappa.
+ * Verksteder med flere enn 20 skal ta kontakt og få tilbud: åpne priser
+ * over dette gir bort forhandlingsrommet på kjedeavtaler.
  */
-export const MAKS_BRUKERE = 200;
+export const MAKS_BRUKERE = 20;
 
 /** Databasens JSON garanterer ingen rekkefølge. Sorter alltid før oppslag. */
 export function sorterTrinn(trinn: Pristrinn[]): Pristrinn[] {

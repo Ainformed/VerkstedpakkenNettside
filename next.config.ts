@@ -44,7 +44,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/om-oss", destination: "/", permanent: true },
-      { source: "/demo", destination: "/interesse", permanent: true },
+      { source: "/demo", destination: "/", permanent: true },
+      // Demo-/interessesiden er fjernet (aug 2026) — prøv gratis-løpet tar over.
+      { source: "/interesse", destination: "/", permanent: true },
     ];
   },
 };

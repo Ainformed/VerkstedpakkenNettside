@@ -12,7 +12,6 @@
 - Integrasjoner: https://verkstedpakken.no/integrasjoner
 - Pris: https://verkstedpakken.no/pris
 - Ofte stilte spørsmål: https://verkstedpakken.no/faq
-- Book demo: https://verkstedpakken.no/interesse
 - Prøv gratis (14 dager): https://app.verkstedpakken.no/kom-i-gang
 
 ## Hovedfunksjoner

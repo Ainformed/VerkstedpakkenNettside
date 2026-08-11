@@ -10,6 +10,7 @@ import {
   klemAntall,
   type Pristrinn,
 } from "@/lib/pricing";
+import { SIGNUP_URL } from "@/lib/links";
 
 /** Hold inne: pause før repetisjonen starter, så jevn takt, så raskere. */
 const FORSINKELSE_MS = 400;
@@ -173,6 +174,18 @@ export default function PrisKalkulator({ trinn }: { trinn: Pristrinn[] }) {
           <b>{formaterKr(prisPerBruker)}</b> per bruker
         </span>
       </div>
+
+      {/* Samme mønster som sparing-linjen: alltid rendret så layouten ikke
+          hopper når taket nås. */}
+      <p
+        className={
+          antall >= MAKS_BRUKERE ? "teller-tak" : "teller-tak teller-tak-skjult"
+        }
+      >
+        Flere enn {MAKS_BRUKERE} brukere? Da gir vi dere en bedre pris.{" "}
+        <a href={SIGNUP_URL}>Prøv gratis i 14 dager</a>, så tar vi resten
+        derfra.
+      </p>
     </div>
   );
 }

@@ -70,8 +70,7 @@ describe("PrisKalkulator ved flere brukere", () => {
 
   it.each([
     [11, "10 945,-", "995,-"],
-    [21, "18 795,-", "895,-"],
-    [51, "40 545,-", "795,-"],
+    [20, "19 900,-", "995,-"],
   ])("viser riktig trinn og pris per bruker ved %i brukere", (antall, total, perBruker) => {
     render(<PrisKalkulator trinn={TRAPP} />);
     fireEvent.change(felt(), { target: { value: String(antall) } });
@@ -79,6 +78,17 @@ describe("PrisKalkulator ved flere brukere", () => {
     expect(screen.getByText(total)).toBeDefined();
     expect(etikett()).toBe(`${perBruker.replace(" ", "\u00A0")} per bruker`);
     expect(screen.getByText(perBruker)).toBeDefined();
+  });
+
+  it("viser kontakt-linjen f\u00F8rst n\u00E5r taket er n\u00E5dd", () => {
+    render(<PrisKalkulator trinn={TRAPP} />);
+    const linje = () =>
+      screen.getByText(/Flere enn 20 brukere/).closest("p") as HTMLElement;
+    // Under taket: rendret men skjult, s\u00E5 layouten ikke hopper.
+    expect(linje().className).toContain("teller-tak-skjult");
+    fireEvent.change(felt(), { target: { value: "20" } });
+    fireEvent.blur(felt());
+    expect(linje().className).not.toContain("teller-tak-skjult");
   });
 });
 
@@ -98,19 +108,19 @@ describe("PrisKalkulator — redigering av feltet", () => {
 
   it("godtar innskrevet tall", () => {
     render(<PrisKalkulator trinn={TRAPP} />);
-    fireEvent.change(felt(), { target: { value: "25" } });
+    fireEvent.change(felt(), { target: { value: "15" } });
     fireEvent.blur(felt());
-    // 25 × 895
-    expect(screen.getByText("22 375,-")).toBeDefined();
+    // 15 × 995
+    expect(screen.getByText("14 925,-")).toBeDefined();
   });
 
   it("klemmer for store tall ned til taket", () => {
     render(<PrisKalkulator trinn={TRAPP} />);
     fireEvent.change(felt(), { target: { value: "999" } });
     fireEvent.blur(felt());
-    expect(felt().value).toBe("200");
-    // 200 × 795
-    expect(screen.getByText("159 000,-")).toBeDefined();
+    expect(felt().value).toBe("20");
+    // 20 × 995
+    expect(screen.getByText("19 900,-")).toBeDefined();
   });
 
   it("ignorerer bokstaver", () => {
@@ -201,7 +211,7 @@ describe("PrisKalkulator — hold inne", () => {
       act(() => {
         vi.advanceTimersByTime(60_000);
       });
-      expect(felt().value).toBe("200");
+      expect(felt().value).toBe("20");
     } finally {
       vi.useRealTimers();
     }

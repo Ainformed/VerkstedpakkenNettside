@@ -115,8 +115,9 @@ describe("klemAntall", () => {
     expect(klemAntall(0)).toBe(1);
     expect(klemAntall(-5)).toBe(1);
     expect(klemAntall(1)).toBe(1);
-    expect(klemAntall(200)).toBe(200);
-    expect(klemAntall(999)).toBe(200);
+    expect(klemAntall(20)).toBe(20);
+    expect(klemAntall(21)).toBe(20);
+    expect(klemAntall(999)).toBe(20);
   });
 
   it("kutter desimaler og håndterer NaN", () => {

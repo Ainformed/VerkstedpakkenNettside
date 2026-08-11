@@ -131,6 +131,10 @@ const GROUPS: FaqGroup[] = [
         a: "Ja. Booking på nett er inkludert. Kunden får også Min garasje, en egen side med status og historikk på bilen sin.",
       },
       {
+        q: "Hva er Min garasje?",
+        a: "Min garasje er kundens egen side hos verkstedet. Der har kunden komplett oversikt over bilene sine: full historikk på alt som er gjort, status på jobber som pågår, og alt samlet på ett sted. Kunden slipper å ringe for å spørre, og verkstedet slipper avbrytelsene. Min garasje er inkludert i prisen.",
+      },
+      {
         q: "Kan vi sende SMS til kundene?",
         a: "Ja. Påminnelser og «bilen er klar»-meldinger koster 2 kroner per melding, uten månedsavgift. E-postvarsler og chat er inkludert.",
       },
