@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/vp/Header";
 import Footer from "@/components/vp/Footer";
+import { SIGNUP_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Ofte stilte spørsmål",
@@ -11,6 +12,41 @@ export const metadata: Metadata = {
 
 type Faq = { q: string; a: string };
 type FaqGroup = { title: string; items: Faq[] };
+
+/* Svar kan inneholde [tekst](url)-lenker. På siden vises de som lenker,
+   i FAQPage-schemaet strippes de til ren tekst. */
+const LENKE_RE = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+function utenLenker(s: string) {
+  return s.replace(LENKE_RE, "$1");
+}
+
+function MedLenker({ tekst }: { tekst: string }) {
+  const deler: React.ReactNode[] = [];
+  let sist = 0;
+  const re = new RegExp(LENKE_RE);
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(tekst)) !== null) {
+    if (m.index > sist) deler.push(tekst.slice(sist, m.index));
+    deler.push(
+      <a
+        key={m.index}
+        href={m[2]}
+        style={{
+          color: "var(--purple-2)",
+          fontWeight: 500,
+          textDecoration: "underline",
+          textUnderlineOffset: "3px",
+        }}
+      >
+        {m[1]}
+      </a>
+    );
+    sist = m.index + m[0].length;
+  }
+  if (sist < tekst.length) deler.push(tekst.slice(sist));
+  return <>{deler}</>;
+}
 
 /* Én kilde for både synlig FAQ og FAQPage-schema. Endres et svar her,
    oppdateres begge. */
@@ -33,11 +69,11 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hvilket verkstedprogram er best?",
-        a: "Det finnes ikke ett verkstedprogram som er best for alle verksteder. Sjekk fem ting: om prisen vises åpent, hva som er inkludert, om det er bindingstid, hvilke integrasjoner som følger med, og om support koster ekstra. Verkstedpakken viser prisen åpent: 1 295 kr per bruker per måned eks mva, alt inkludert, uten bindingstid.\n\nHelios og Norbits viste ikke prisen for verkstedsystemet på nettsidene sine da vi sjekket i august 2026. Test selv med 14 dager gratis prøve, uten automatisk abonnement.",
+        a: `Det finnes ikke ett verkstedprogram som er best for alle verksteder. Sjekk fem ting: om prisen vises åpent, hva som er inkludert, om det er bindingstid, hvilke integrasjoner som følger med, og om support koster ekstra. Verkstedpakken viser prisen åpent: 1 295 kr per bruker per måned eks mva, alt inkludert, uten bindingstid.\n\nHelios og Norbits viste ikke prisen for verkstedsystemet på nettsidene sine da vi sjekket i august 2026. Test selv med [14 dager gratis prøve](${SIGNUP_URL}), uten automatisk abonnement.`,
       },
       {
         q: "Hvordan velge verkstedprogram?",
-        a: "Velg etter hverdagen og totalkostnaden, ikke etter demoen. Sjekk fem ting: om prisen vises åpent, hva som er inkludert i prisen, bindingstid og etableringskostnad, hvilke integrasjoner som følger med, og om du kan teste systemet i egen drift før du bestemmer deg.\n\n1. Åpen pris. Får du ikke prisen før demo, kan du ikke sammenligne.\n\n2. Hva som er inkludert. Support, opplæring, oppsett og dataflytting kan koste ekstra. Spør om totalprisen.\n\n3. Bindingstid og etableringskostnad. Begge gjør det dyrere å velge feil.\n\n4. Integrasjoner. Regnskap, betaling og delekataloger må henge sammen med ordre og faktura.\n\n5. Test i egen drift. En demo viser det leverandøren vil vise. En prøveperiode viser hverdagen din.\n\nHos Verkstedpakken står prisen på nettsiden, med kalkulator. Support, opplæring, oppsett, dataflytting og alle integrasjoner er inkludert. Integrasjonene er bygget og driftet av oss, uten tredjepart. Ingen bindingstid, ingen etableringskostnad. Prøv gratis i 14 dager, uten automatisk abonnement.",
+        a: `Velg etter hverdagen og totalkostnaden, ikke etter demoen. Sjekk fem ting: om prisen vises åpent, hva som er inkludert i prisen, bindingstid og etableringskostnad, hvilke integrasjoner som følger med, og om du kan teste systemet i egen drift før du bestemmer deg.\n\n1. Åpen pris. Får du ikke prisen før demo, kan du ikke sammenligne.\n\n2. Hva som er inkludert. Support, opplæring, oppsett og dataflytting kan koste ekstra. Spør om totalprisen.\n\n3. Bindingstid og etableringskostnad. Begge gjør det dyrere å velge feil.\n\n4. Integrasjoner. Regnskap, betaling og delekataloger må henge sammen med ordre og faktura.\n\n5. Test i egen drift. En demo viser det leverandøren vil vise. En prøveperiode viser hverdagen din.\n\nHos Verkstedpakken står prisen på nettsiden, med kalkulator. Support, opplæring, oppsett, dataflytting og alle integrasjoner er inkludert. Integrasjonene er bygget og driftet av oss, uten tredjepart. Ingen bindingstid, ingen etableringskostnad. [Prøv gratis i 14 dager](${SIGNUP_URL}), uten automatisk abonnement.`,
       },
     ],
   },
@@ -46,7 +82,7 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hva koster et verkstedprogram?",
-        a: "Mange leverandører oppgir ikke pris. Du må ofte booke demo for å få et tilbud. Verkstedpakken koster 1 295 kr per bruker per måned eks mva. Alt er inkludert: support, opplæring, oppsett, dataflytting og alle integrasjoner. Prisen per bruker faller fra fjerde ansatt.\n\nIngen etableringskostnad, ingen bindingstid. Regn ut prisen for ditt verksted med kalkulatoren på prissiden.",
+        a: "Mange leverandører oppgir ikke pris. Du må ofte booke demo for å få et tilbud. Verkstedpakken koster 1 295 kr per bruker per måned eks mva. Alt er inkludert: support, opplæring, oppsett, dataflytting og alle integrasjoner. Prisen per bruker faller fra fjerde ansatt.\n\nIngen etableringskostnad, ingen bindingstid. Regn ut prisen for ditt verksted med [kalkulatoren på prissiden](/pris).",
       },
       {
         q: "Hva koster Verkstedpakken?",
@@ -139,7 +175,7 @@ function FaqJsonLd() {
       g.items.map((f) => ({
         "@type": "Question",
         name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
+        acceptedAnswer: { "@type": "Answer", text: utenLenker(f.a) },
       }))
     ),
   };
@@ -190,7 +226,7 @@ export default function FaqPage() {
                   <div className="faq-body">
                     {f.a.split("\n\n").map((avsnitt, i) => (
                       <p key={i} style={{ margin: i === 0 ? 0 : "10px 0 0" }}>
-                        {avsnitt}
+                        <MedLenker tekst={avsnitt} />
                       </p>
                     ))}
                   </div>
