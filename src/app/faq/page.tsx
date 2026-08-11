@@ -16,8 +16,38 @@ type FaqGroup = { title: string; items: Faq[] };
    oppdateres begge. */
 const GROUPS: FaqGroup[] = [
   {
+    title: "Om Verkstedpakken",
+    items: [
+      {
+        q: "Hva er Verkstedpakken?",
+        a: "Verkstedpakken er et norsk verkstedprogram som samler hele driften i ett system. Verkstedordre og planlegging, timeregistrering, mekanikerportal på mobil, deler og lager, dekkhotell, booking på nett og faktura via regnskapssystemet ditt. Prisen er 1 295 kroner per bruker per måned eks. mva, alt inkludert, uten bindingstid.",
+      },
+      {
+        q: "Hvem passer Verkstedpakken for?",
+        a: "Så å si alle typer verksteder. Bil, MC, båt, anleggsmaskiner, transport og landbruk. Du får egne ordremaler, prislister og felt for din bransje, så systemet passer jobben dere faktisk gjør.",
+      },
+    ],
+  },
+  {
+    title: "Velge verkstedprogram",
+    items: [
+      {
+        q: "Hvilket verkstedprogram er best?",
+        a: "Det finnes ikke ett verkstedprogram som er best for alle verksteder. Sjekk fem ting: om prisen vises åpent, hva som er inkludert, om det er bindingstid, hvilke integrasjoner som følger med, og om support koster ekstra. Verkstedpakken viser prisen åpent: 1 295 kr per bruker per måned eks mva, alt inkludert, uten bindingstid.\n\nQuick3, Helios og Norbits viste ikke prisen for verkstedsystemet på nettsidene sine da vi sjekket i august 2026. Test selv med 14 dager gratis prøve, uten automatisk abonnement.",
+      },
+      {
+        q: "Hvordan velge verkstedprogram?",
+        a: "Velg etter hverdagen og totalkostnaden, ikke etter demoen. Sjekk fem ting: om prisen vises åpent, hva som er inkludert i prisen, bindingstid og etableringskostnad, hvilke integrasjoner som følger med, og om du kan teste systemet i egen drift før du bestemmer deg.\n\n1. Åpen pris. Får du ikke prisen før demo, kan du ikke sammenligne.\n\n2. Hva som er inkludert. Support, opplæring, oppsett og dataflytting kan koste ekstra. Spør om totalprisen.\n\n3. Bindingstid og etableringskostnad. Begge gjør det dyrere å velge feil.\n\n4. Integrasjoner. Regnskap, betaling og delekataloger må henge sammen med ordre og faktura.\n\n5. Test i egen drift. En demo viser det leverandøren vil vise. En prøveperiode viser hverdagen din.\n\nHos Verkstedpakken står prisen på nettsiden, med kalkulator. Support, opplæring, oppsett, dataflytting og alle integrasjoner er inkludert. Integrasjonene er bygget og driftet av oss, uten tredjepart. Ingen bindingstid, ingen etableringskostnad. Prøv gratis i 14 dager, uten automatisk abonnement.",
+      },
+    ],
+  },
+  {
     title: "Pris og betingelser",
     items: [
+      {
+        q: "Hva koster et verkstedprogram?",
+        a: "Mange leverandører oppgir ikke pris. Du må ofte booke demo for å få et tilbud. Verkstedpakken koster 1 295 kr per bruker per måned eks mva. Alt er inkludert: support, opplæring, oppsett, dataflytting og alle integrasjoner. Prisen per bruker faller fra fjerde ansatt.\n\nIngen etableringskostnad, ingen bindingstid. Regn ut prisen for ditt verksted med kalkulatoren på prissiden.",
+      },
       {
         q: "Hva koster Verkstedpakken?",
         a: "1 295 kroner per bruker per måned, eks. mva. Alt er inkludert i prisen, og prisen per bruker blir lavere fra fjerde ansatt.",
@@ -157,7 +187,13 @@ export default function FaqPage() {
               {group.items.map((f) => (
                 <details key={f.q} className="faq">
                   <summary>{f.q}</summary>
-                  <div className="faq-body">{f.a}</div>
+                  <div className="faq-body">
+                    {f.a.split("\n\n").map((avsnitt, i) => (
+                      <p key={i} style={{ margin: i === 0 ? 0 : "10px 0 0" }}>
+                        {avsnitt}
+                      </p>
+                    ))}
+                  </div>
                 </details>
               ))}
             </div>

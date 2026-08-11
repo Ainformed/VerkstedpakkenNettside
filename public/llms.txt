@@ -1,6 +1,7 @@
 # Verkstedpakken
 
 > Et superenkelt verkstedprogram for verksteder i Norge. Ordre, timeregistrering, nettside og booking, mekanikerportal og faktura i ett system — 1 295,- per bruker per måned, alt inkludert, ingen bindingstid. Alle integrasjoner er bygget og driftet av Verkstedpakken selv, uten tredjepartsløsninger.
+> Passer verksteder for bil, MC, båt, anleggsmaskiner, transport og landbruk, med egne ordremaler, prislister og felt per bransje.
 
 ## Sider
 
