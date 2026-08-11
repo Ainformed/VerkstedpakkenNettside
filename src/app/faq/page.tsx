@@ -33,7 +33,7 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hvilket verkstedprogram er best?",
-        a: "Det finnes ikke ett verkstedprogram som er best for alle verksteder. Sjekk fem ting: om prisen vises åpent, hva som er inkludert, om det er bindingstid, hvilke integrasjoner som følger med, og om support koster ekstra. Verkstedpakken viser prisen åpent: 1 295 kr per bruker per måned eks mva, alt inkludert, uten bindingstid.\n\nQuick3, Helios og Norbits viste ikke prisen for verkstedsystemet på nettsidene sine da vi sjekket i august 2026. Test selv med 14 dager gratis prøve, uten automatisk abonnement.",
+        a: "Det finnes ikke ett verkstedprogram som er best for alle verksteder. Sjekk fem ting: om prisen vises åpent, hva som er inkludert, om det er bindingstid, hvilke integrasjoner som følger med, og om support koster ekstra. Verkstedpakken viser prisen åpent: 1 295 kr per bruker per måned eks mva, alt inkludert, uten bindingstid.\n\nHelios og Norbits viste ikke prisen for verkstedsystemet på nettsidene sine da vi sjekket i august 2026. Test selv med 14 dager gratis prøve, uten automatisk abonnement.",
       },
       {
         q: "Hvordan velge verkstedprogram?",
