@@ -196,7 +196,7 @@ export default function Home() {
             <div className="split-art" style={{ justifyItems: "end" }}>
               <div className="integ-groups">
                 <div className="logo-grid">
-                  <div className="logo-card"><img loading="lazy" className="logo-pad" src="/design/logos/fiken.png" alt="Fiken" /></div>
+                  <div className="logo-card"><img loading="lazy" src="/design/logos/fiken.png" alt="Fiken" /></div>
                   <div className="logo-card"><img loading="lazy" src="/design/logos/poweroffice.png" alt="PowerOffice GO" /></div>
                   <div className="logo-card"><img loading="lazy" src="/design/logos/tripletex.png" alt="Tripletex" /></div>
                   <div className="logo-card"><img loading="lazy" src="/design/logos/visma-eaccounting.png" alt="Visma eAccounting" /></div>

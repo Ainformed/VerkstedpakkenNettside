@@ -24,14 +24,14 @@ const INTEGRATIONS: Integration[] = [
     name: "Fiken",
     cat: "regnskap",
     catLabel: "Regnskap",
-    logo: { src: "/design/logos/fiken.png", alt: "Fiken" },
+    logo: { src: "/design/logos/fiken.png", alt: "Fiken", className: "logo-compact" },
     desc: "Fakturaer og betalinger går rett inn i regnskapet. Perfekt for verksteder som fører regnskapet selv.",
   },
   {
     name: "PowerOffice GO",
     cat: "regnskap",
     catLabel: "Regnskap",
-    logo: { src: "/design/logos/poweroffice.png", alt: "PowerOffice GO" },
+    logo: { src: "/design/logos/poweroffice.png", alt: "PowerOffice GO", className: "logo-wide" },
     desc: "Automatisk overføring av fakturagrunnlag og betalingsstatus til regnskapsføreren deres.",
   },
   {
@@ -73,7 +73,7 @@ const INTEGRATIONS: Integration[] = [
     name: "BilXtra",
     cat: "deler",
     catLabel: "Deler",
-    logo: { src: "/design/logos/bilxtra.svg", alt: "BilXtra" },
+    logo: { src: "/design/logos/bilxtra.svg", alt: "BilXtra", className: "logo-wide" },
     desc: "Søk på skiltnummer, se pris og lagerstatus, og bestill deler rett fra ordren.",
   },
   {
@@ -87,7 +87,7 @@ const INTEGRATIONS: Integration[] = [
     name: "MEKO",
     cat: "deler",
     catLabel: "Deler",
-    logo: { src: "/design/logos/meko.png", alt: "MEKO" },
+    logo: { src: "/design/logos/meko.png", alt: "MEKO", className: "logo-wide" },
     desc: "Bestill fra MEKO-nettverket med leveringstid synlig i ordrebildet.",
   },
   {
