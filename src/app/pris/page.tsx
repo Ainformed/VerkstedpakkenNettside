@@ -127,7 +127,7 @@ export default function Pris() {
           </section>
 
           {/* ── Tilleggstjenester ── */}
-          <section className="page-sec">
+          <section className="page-sec" style={{ paddingTop: "20px" }}>
             <div className="plist-wrap">
               <div className="sec-title-c">
                 <h2>Legg til hvis du vil</h2>
