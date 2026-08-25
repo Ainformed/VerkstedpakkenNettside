@@ -164,9 +164,21 @@ export default function Pris() {
                   <span className="pname">SMS til kunder</span>
                   <span className="pill pill-price">2 kr / stk</span>
                 </div>
+
+                <div className="pgroup-label">Kommer</div>
+                <div className="prow-flat">
+                  <span className="pname">
+                    Teknisk kjøretøydata
+                    <small>
+                      HaynesPro med flere · Reparasjonstider, koblingsskjemaer og servicedata rett
+                      i ordren. Prisene publiseres her før tjenestene kan skrus på.
+                    </small>
+                  </span>
+                  <span className="pill pill-soon">Pris kommer</span>
+                </div>
               </div>
               <div className="pnote">
-                <span>Utover dette er det ingenting i Verkstedpakken som koster noe.</span>
+                <span>Utover det som står her, er det ingenting i Verkstedpakken som koster noe.</span>
               </div>
               <p className="pfine">Alle priser er eks. mva.</p>
             </div>

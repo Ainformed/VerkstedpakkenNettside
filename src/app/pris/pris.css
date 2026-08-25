@@ -156,6 +156,7 @@
   }
   .pill-inc { background: #E7F2EC; color: #2F7D4E; }
   .pill-price { background: #E7EEFB; color: var(--navy); font-family: var(--mono); font-weight: 500; font-size: 13.5px; }
+  .pill-soon { background: #EFEDF3; color: var(--ink-2); }
 
   .psum { margin-top: 40px; background: var(--navy); border-radius: 18px; padding: 26px 28px; text-align: center; }
   .psum p { font-size: 16.5px; color: #E8E6F4; line-height: 1.55; }
