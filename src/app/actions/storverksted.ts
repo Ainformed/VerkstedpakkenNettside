@@ -204,7 +204,7 @@ export async function submitStorverksted(
   try {
     await resend.emails.send({
       from: "Verkstedpakken <hei@verkstedpakken.no>",
-      to: "hei@verkstedpakken.no",
+      to: ["hei@verkstedpakken.no", "x@verkstedpakken.no"],
       ...(erEpost ? { replyTo: kontakt } : {}),
       subject: `Storverksted-lead — ${antall} personer`,
       html: internEpost({
