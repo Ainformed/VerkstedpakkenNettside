@@ -261,9 +261,11 @@ export default function PrisKalkulator() {
             </div>
           </div>
           <div className="panel-cta">
-            <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
-              Prøv gratis i 14 dager
-            </a>
+            <div className="panel-cta-knapp">
+              <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
+                Prøv gratis i 14 dager
+              </a>
+            </div>
             <p className="per">
               <b>Ingen bindingstid</b> · Ingen etableringskostnad · Eks. mva.
             </p>

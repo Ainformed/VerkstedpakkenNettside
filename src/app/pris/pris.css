@@ -32,15 +32,14 @@
   .panel-topp {
     background: #FAFAFE; border-bottom: 1.5px solid var(--line);
     padding: 34px 38px; display: flex;
-    /* Bunnjustert: «Per måned»-raden i kvitteringen og betingelseslinjen
-       under CTA-en skal stå på samme linje. */
-    align-items: flex-end;
+    /* Kolonnene strekkes: totalen pinnes i bunn av venstre kolonne og
+       betingelseslinjen i bunn av høyre, så «Per måned»-raden og
+       betingelsene står på samme linje — mens knappen sentreres i
+       rommet over, midt på kvitteringsradene. */
+    align-items: stretch;
     justify-content: space-between; gap: 32px;
-    /* Plass til kvitteringens høyde fra start, så panelet ikke vokser
-       idet første mekaniker legges til. */
-    min-height: 196px;
   }
-  .panel-total { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  .panel-total { display: flex; flex-direction: column; justify-content: flex-end; flex: 1; min-width: 0; }
 
   /* Desktop: stor total med regnestykket på én linje. */
   .total-klassisk { display: flex; flex-direction: column; gap: 4px; }
@@ -67,6 +66,7 @@
   /* Knappen spenner nøyaktig over betingelseslinjen under, midtstilt —
      høyrejustert kolonne så de to ulike breddene ikke ser ragget ut. */
   .panel-cta { display: flex; flex-direction: column; align-items: stretch; gap: 18px; }
+  .panel-cta-knapp { flex: 1 1 auto; display: flex; align-items: center; }
   .panel-cta .btn { width: 100%; }
   .panel-cta .per { margin: 0; font-size: 16.5px; color: var(--ink); text-align: center; white-space: nowrap; }
 
