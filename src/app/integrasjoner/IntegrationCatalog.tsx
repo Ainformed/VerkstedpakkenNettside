@@ -75,8 +75,7 @@ const INTEGRATIONS: Integration[] = [
     name: "Vipps",
     cat: "betaling",
     catLabel: "Betaling",
-    logoText: "vipps",
-    logoColor: "#FF5B24",
+    logo: { src: "/design/logos/vipps.png", alt: "Vipps", className: "logo-wide" },
     desc: "Kunden betaler med Vipps når bilen hentes.",
   },
   {
