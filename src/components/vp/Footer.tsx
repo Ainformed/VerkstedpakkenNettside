@@ -46,14 +46,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="foot-col">
-            <h4>Hjelp</h4>
-            <ul>
-              <li>
-                <Link href="/faq">Ofte stilte spørsmål</Link>
-              </li>
-            </ul>
-          </div>
         </div>
         <div className="foot-bottom">
           <span>Verkstedpakken AS&nbsp;&nbsp;·&nbsp;&nbsp;Org.nr 937 000 847</span>
