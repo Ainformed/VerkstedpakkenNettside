@@ -153,21 +153,21 @@ const INTEGRATIONS: Integration[] = [
     cat: "ki",
     catLabel: "AI",
     logo: { src: "/design/logos/claude.svg", alt: "Claude" },
-    desc: "Anthropics AI-assistent — hjelp til tekst, oppsummeringer og svar rett i programmet.",
+    desc: "Anthropics språkmodell — en av modellene bak Muttern, brukt til tekst, oppsummeringer og svar.",
   },
   {
     name: "ChatGPT",
     cat: "ki",
     catLabel: "AI",
     logo: { src: "/design/logos/chatgpt.png", alt: "ChatGPT" },
-    desc: "OpenAIs AI-assistent — utkast til meldinger og svar på spørsmål i hverdagen.",
+    desc: "OpenAIs språkmodell — driver deler av Muttern, som utkast til meldinger og svar på spørsmål.",
   },
   {
     name: "Gemini",
     cat: "ki",
     catLabel: "AI",
     logo: { src: "/design/logos/gemini.png", alt: "Gemini" },
-    desc: "Googles AI-modell — hjelp til tekst og søk der du jobber.",
+    desc: "Googles språkmodell — Muttern velger den når den løser oppgaven best.",
   },
 ];
 
