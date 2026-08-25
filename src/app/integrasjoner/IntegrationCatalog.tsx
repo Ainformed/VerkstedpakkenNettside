@@ -160,7 +160,7 @@ const INTEGRATIONS: Integration[] = [
     name: "ChatGPT",
     cat: "ki",
     catLabel: "AI",
-    logo: { src: "/design/logos/chatgpt.svg", alt: "ChatGPT" },
+    logo: { src: "/design/logos/chatgpt.png", alt: "ChatGPT" },
     desc: "OpenAIs AI-assistent — utkast til meldinger og svar på spørsmål i hverdagen.",
   },
   {
