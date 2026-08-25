@@ -62,11 +62,11 @@
   .kvitt-total { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
   .kvitt-total-navn { font-size: 17px; font-weight: 600; color: var(--ink); }
   .amt-rad { display: flex; align-items: baseline; gap: 8px; }
-  .amt-mva { font-size: 15.5px; color: var(--ink); }
+  .amt-mva { font-size: 16.5px; color: var(--ink); }
   /* Kun på PC: den enkle totalen får «eks. mva» under tallet, i litt
      større skrift. På mobil (og i kvitteringen) står det etter tallet. */
   .total-klassisk .amt-rad { flex-direction: column; align-items: flex-start; gap: 2px; }
-  .total-klassisk .amt-mva { font-size: 16.5px; }
+  .total-klassisk .amt-mva { font-size: 17.5px; }
   .total-kvittering .amt { font-size: 34px; letter-spacing: -1px; line-height: 1.15; }
 
   .panel-cta { flex-shrink: 0; }
@@ -112,7 +112,7 @@
     .panel-total.kun-admin .total-ledetekst { font-size: 17px; font-weight: 600; }
     .panel-total.kun-admin .total-klassisk .amt { font-size: 30px; letter-spacing: -1px; }
     .total-klassisk .amt-rad { flex-direction: row; align-items: baseline; gap: 8px; }
-    .total-klassisk .amt-mva { font-size: 15.5px; }
+    .total-klassisk .amt-mva { font-size: 16.5px; }
     .pkort-rad { grid-template-columns: 1fr; }
     .pkort { padding: 24px 20px; }
     .pkort-admin { border-right: none; border-bottom: 1.5px solid var(--line); }
