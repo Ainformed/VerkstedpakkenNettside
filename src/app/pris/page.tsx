@@ -168,10 +168,10 @@ export default function Pris() {
                     Kjøretøyoppslag med eieropplysninger
                     <small>
                       Statens vegvesen · Slå opp regnr og få bil- og eierdata rett inn i ordren.
-                      Inntil 1 000 oppslag per måned.
+                      Inntil 500 oppslag per dag.
                     </small>
                   </span>
-                  <span className="pill pill-price">995 kr / mnd</span>
+                  <span className="pill pill-price">235 kr / mnd</span>
                 </div>
 
                 <div className="pgroup-label">Pris per bruk</div>
