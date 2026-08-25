@@ -117,8 +117,7 @@ const INTEGRATIONS: Integration[] = [
     name: "Romnes",
     cat: "deler",
     catLabel: "Deler",
-    logoText: "Romnes",
-    logoColor: "#0C005A",
+    logo: { src: "/design/logos/romnes.png", alt: "Romnes", className: "logo-wide" },
     desc: "Deler og rekvisita fra Romnes, med pris og tilgjengelighet i ordrebildet.",
   },
   {
