@@ -28,7 +28,7 @@ export default function Home() {
             <div className="cta-row">
               <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>Prøv gratis i 14 dager</a>
             </div>
-            <p className="subnote">Bytter du fra et annet system? Du betaler ikke før oppsigelsestiden er ute.</p>
+            <p className="subnote">Bytter du fra et annet program? Du betaler ikke før oppsigelsestiden er ute.</p>
           </div>
         </section>
 
@@ -45,7 +45,7 @@ export default function Home() {
                 </div>
               </div>
               <h3>Lett å lære</h3>
-              <p>Nye systemer pleier å bety kurs og frustrasjon. Her er du i gang med en gang.</p>
+              <p>Nye programmer pleier å bety kurs og frustrasjon. Her er du i gang med en gang.</p>
             </div>
             <div className="col">
               <div className="art">
@@ -63,7 +63,7 @@ export default function Home() {
                 </div>
               </div>
               <h3>Hjelp koster ikke</h3>
-              <p>Ring eller skriv, så svarer en som kan både systemet og verkstedhverdagen.</p>
+              <p>Ring eller skriv, så svarer en som kan både programmet og verkstedhverdagen.</p>
             </div>
           </InView>
         </section>
@@ -71,7 +71,7 @@ export default function Home() {
         {/* ─────────────── FEATURE PANEL ─────────────── */}
         <section className="panel-sec">
           <div className="panel">
-            <h2>Hele verkstedet<br />i ett system</h2>
+            <h2>Hele verkstedet<br />i ett program</h2>
             <div className="panel-cards">
               <div className="pcard">
                 <h3>Du styrer verkstedet</h3>
@@ -156,7 +156,7 @@ export default function Home() {
             <div className="split-text">
               <h2>Formet etter driften din</h2>
               <p>Bil, anleggsmaskin, MC, båt eller landbruk. Du får egne ordremaler, prislister og felt for din bransje. Arbeidsordre, <Link href="/timeregistrering">timeregistrering</Link>, delelager og fakturering samlet på ett sted.</p>
-              <Link className="split-link" href="/ordresystem">Slik fungerer ordresystemet
+              <Link className="split-link" href="/ordresystem">Slik fungerer ordreprogrammet
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
             </div>
@@ -174,8 +174,8 @@ export default function Home() {
               </div>
             </div>
             <div className="split-text">
-              <h2>Lei av systemet<br />dere har?</h2>
-              <p>Å bytte system skal være trygt. Derfor er Verkstedpakken gratis til oppsigelsestiden på det gamle systemet er over. Du betaler aldri for to systemer samtidig. Vi hjelper deg hele veien, og verkstedet går som normalt.</p>
+              <h2>Lei av programmet<br />dere har?</h2>
+              <p>Å bytte program skal være trygt. Derfor er Verkstedpakken gratis til oppsigelsestiden på det gamle programmet er over. Du betaler aldri for to programmer samtidig. Vi hjelper deg hele veien, og verkstedet går som normalt.</p>
               <Link className="split-link" href="/pris">Se priser
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
@@ -196,7 +196,7 @@ export default function Home() {
             <div className="split-art" style={{ justifyItems: "end" }}>
               <div className="integ-groups">
                 <div className="logo-grid">
-                  <div className="logo-card"><img loading="lazy" src="/design/logos/fiken.png" alt="Fiken" /></div>
+                  <div className="logo-card"><img loading="lazy" src="/design/logos/fiken.svg" alt="Fiken" /></div>
                   <div className="logo-card"><img loading="lazy" src="/design/logos/poweroffice.png" alt="PowerOffice GO" /></div>
                   <div className="logo-card"><img loading="lazy" src="/design/logos/tripletex.png" alt="Tripletex" /></div>
                   <div className="logo-card"><img loading="lazy" src="/design/logos/visma-eaccounting.png" alt="Visma eAccounting" /></div>

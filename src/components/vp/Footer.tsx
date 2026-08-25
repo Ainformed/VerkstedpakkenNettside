@@ -36,7 +36,7 @@ export default function Footer() {
             <h4>Produkt</h4>
             <ul>
               <li>
-                <Link href="/ordresystem">Ordresystem</Link>
+                <Link href="/ordresystem">Ordreprogram</Link>
               </li>
               <li>
                 <Link href="/nettside-og-booking">Nettside og booking</Link>

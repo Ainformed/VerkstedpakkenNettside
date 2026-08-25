@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Verkstedpakken",
   },
   description:
-    "Verkstedprogrammet uten dobbeltarbeid. Ordre, booking, mekanikerportal og faktura i ett system. 1 295 kr per bruker per mnd. Prøv gratis i 14 dager.",
+    "Verkstedprogrammet uten dobbeltarbeid. Ordre, booking, mekanikerportal og faktura i ett program. 1 295 kr per bruker per mnd. Prøv gratis i 14 dager.",
   applicationName: "Verkstedpakken",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
@@ -74,13 +74,13 @@ export const metadata: Metadata = {
     siteName: "Verkstedpakken",
     title: "Verkstedpakken — Verkstedprogrammet uten dobbeltarbeid",
     description:
-      "Ordre, nettside og booking, mekanikerportal og faktura i ett system. Alt inkludert, ingen bindingstid. Prøv gratis i 14 dager.",
+      "Ordre, nettside og booking, mekanikerportal og faktura i ett program. Alt inkludert, ingen bindingstid. Prøv gratis i 14 dager.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Verkstedpakken — komplett system for verksteder",
+        alt: "Verkstedpakken — komplett program for verksteder",
         type: "image/png",
       },
     ],
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     creator: "@verkstedpakken",
     title: "Verkstedpakken — Verkstedprogrammet uten dobbeltarbeid",
     description:
-      "Ordre, nettside og booking, mekanikerportal og faktura i ett system. Prøv gratis i 14 dager.",
+      "Ordre, nettside og booking, mekanikerportal og faktura i ett program. Prøv gratis i 14 dager.",
     images: ["/og-image.png"],
   },
   alternates: {
@@ -140,7 +140,7 @@ function JsonLd() {
       applicationSubCategory: "Workshop Management Software",
       operatingSystem: "Web",
       description:
-        "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Vipps, Stripe, BilXtra, MECA, MEKO og Statens vegvesen.",
+        "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett program. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Vipps, Stripe, BilXtra, MECA, MEKO og Statens vegvesen.",
       url: SITE,
       image: `${SITE}/og-image.png`,
       screenshot: `${SITE}/og-image.png`,

@@ -104,7 +104,7 @@ export default function NettsideOgBookingPage() {
               <div className="nb-step">
                 <span className="nb-dot">1</span>
                 <h3>Dere foreslår tid og pris</h3>
-                <p>Svar rett fra ordren i systemet.</p>
+                <p>Svar rett fra ordren i programmet.</p>
               </div>
               <div className="nb-step">
                 <span className="nb-dot">2</span>

@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Verkstedpakken",
     short_name: "Verkstedpakken",
     description:
-      "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett system.",
+      "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett program.",
     start_url: "/",
     scope: "/",
     display: "standalone",

@@ -6,7 +6,7 @@ import { SIGNUP_URL } from "@/lib/links";
 export const metadata: Metadata = {
   title: "Ofte stilte spørsmål",
   description:
-    "Svar på det verksteder oftest lurer på om Verkstedpakken. Pris, bindingstid, bytte av system, integrasjoner og support.",
+    "Svar på det verksteder oftest lurer på om Verkstedpakken. Pris, bindingstid, bytte av program, integrasjoner og support.",
   alternates: { canonical: "/faq" },
 };
 
@@ -56,11 +56,11 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hva er Verkstedpakken?",
-        a: "Verkstedpakken er et norsk verkstedprogram som samler hele driften i ett system. Verkstedordre og planlegging, timeregistrering, mekanikerportal på mobil, deler og lager, dekkhotell, booking på nett og faktura via regnskapssystemet ditt. Prisen er 1 295 kroner per bruker per måned eks. mva, alt inkludert, uten bindingstid.",
+        a: "Verkstedpakken er et norsk verkstedprogram som samler hele driften i ett program. Verkstedordre og planlegging, timeregistrering, mekanikerportal på mobil, deler og lager, dekkhotell, booking på nett og faktura via regnskapsprogrammet ditt. Prisen er 1 295 kroner per bruker per måned eks. mva, alt inkludert, uten bindingstid.",
       },
       {
         q: "Hvem passer Verkstedpakken for?",
-        a: "Så å si alle typer verksteder. Bil, MC, båt, anleggsmaskiner, transport og landbruk. Du får egne ordremaler, prislister og felt for din bransje, så systemet passer jobben dere faktisk gjør.",
+        a: "Så å si alle typer verksteder. Bil, MC, båt, anleggsmaskiner, transport og landbruk. Du får egne ordremaler, prislister og felt for din bransje, så programmet passer jobben dere faktisk gjør.",
       },
     ],
   },
@@ -69,11 +69,11 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hvilket verkstedprogram er best?",
-        a: `Det finnes ikke ett verkstedprogram som er best for alle verksteder. Sjekk fem ting: om prisen vises åpent, hva som er inkludert, om det er bindingstid, hvilke integrasjoner som følger med, og om support koster ekstra. Verkstedpakken viser prisen åpent: 1 295 kr per bruker per måned eks mva, alt inkludert, uten bindingstid.\n\nHelios og Norbits viste ikke prisen for verkstedsystemet på nettsidene sine da vi sjekket i august 2026. Test selv med [14 dager gratis prøve](${SIGNUP_URL}), uten automatisk abonnement.`,
+        a: `Det finnes ikke ett verkstedprogram som er best for alle verksteder. Sjekk fem ting: om prisen vises åpent, hva som er inkludert, om det er bindingstid, hvilke integrasjoner som følger med, og om support koster ekstra. Verkstedpakken viser prisen åpent: 1 295 kr per bruker per måned eks mva, alt inkludert, uten bindingstid.\n\nHelios og Norbits viste ikke prisen for verkstedprogrammet på nettsidene sine da vi sjekket i august 2026. Test selv med [14 dager gratis prøve](${SIGNUP_URL}), uten automatisk abonnement.`,
       },
       {
         q: "Hvordan velge verkstedprogram?",
-        a: `Velg etter hverdagen og totalkostnaden, ikke etter demoen. Sjekk fem ting: om prisen vises åpent, hva som er inkludert i prisen, bindingstid og etableringskostnad, hvilke integrasjoner som følger med, og om du kan teste systemet i egen drift før du bestemmer deg.\n\n1. Åpen pris. Får du ikke prisen før demo, kan du ikke sammenligne.\n\n2. Hva som er inkludert. Support, opplæring, oppsett og dataflytting kan koste ekstra. Spør om totalprisen.\n\n3. Bindingstid og etableringskostnad. Begge gjør det dyrere å velge feil.\n\n4. Integrasjoner. Regnskap, betaling og delekataloger må henge sammen med ordre og faktura.\n\n5. Test i egen drift. En demo viser det leverandøren vil vise. En prøveperiode viser hverdagen din.\n\nHos Verkstedpakken står prisen på nettsiden, med kalkulator. Support, opplæring, oppsett, dataflytting og alle integrasjoner er inkludert. Integrasjonene er bygget og driftet av oss, uten tredjepart. Ingen bindingstid, ingen etableringskostnad. [Prøv gratis i 14 dager](${SIGNUP_URL}), uten automatisk abonnement.`,
+        a: `Velg etter hverdagen og totalkostnaden, ikke etter demoen. Sjekk fem ting: om prisen vises åpent, hva som er inkludert i prisen, bindingstid og etableringskostnad, hvilke integrasjoner som følger med, og om du kan teste programmet i egen drift før du bestemmer deg.\n\n1. Åpen pris. Får du ikke prisen før demo, kan du ikke sammenligne.\n\n2. Hva som er inkludert. Support, opplæring, oppsett og dataflytting kan koste ekstra. Spør om totalprisen.\n\n3. Bindingstid og etableringskostnad. Begge gjør det dyrere å velge feil.\n\n4. Integrasjoner. Regnskap, betaling og delekataloger må henge sammen med ordre og faktura.\n\n5. Test i egen drift. En demo viser det leverandøren vil vise. En prøveperiode viser hverdagen din.\n\nHos Verkstedpakken står prisen på nettsiden, med kalkulator. Support, opplæring, oppsett, dataflytting og alle integrasjoner er inkludert. Integrasjonene er bygget og driftet av oss, uten tredjepart. Ingen bindingstid, ingen etableringskostnad. [Prøv gratis i 14 dager](${SIGNUP_URL}), uten automatisk abonnement.`,
       },
     ],
   },
@@ -94,7 +94,7 @@ const GROUPS: FaqGroup[] = [
       },
       {
         q: "Er det noen etableringskostnad?",
-        a: "Nei. Oppsett av programvaren, regnskapsintegrasjonen og flytting av innhold fra andre systemer er inkludert.",
+        a: "Nei. Oppsett av programvaren, regnskapsintegrasjonen og flytting av innhold fra andre programmer er inkludert.",
       },
       {
         q: "Hva skjer etter prøveperioden?",
@@ -110,12 +110,12 @@ const GROUPS: FaqGroup[] = [
     title: "Kom i gang",
     items: [
       {
-        q: "Kan vi flytte data fra systemet vi har i dag?",
+        q: "Kan vi flytte data fra programmet vi har i dag?",
         a: "Ja. Vi hjelper deg med å få over kunder, kjøretøy og historikk, og setter opp verkstedet klart til bruk.",
       },
       {
-        q: "Må vi betale for to systemer mens vi bytter?",
-        a: "Nei. Bytter du fra et annet system, er Verkstedpakken gratis til oppsigelsestiden hos det gamle er over.",
+        q: "Må vi betale for to programmer mens vi bytter?",
+        a: "Nei. Bytter du fra et annet program, er Verkstedpakken gratis til oppsigelsestiden hos det gamle er over.",
       },
     ],
   },
@@ -149,10 +149,10 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hvem lager og drifter integrasjonene?",
-        a: "Vi gjør det selv. Alle integrasjonene i Verkstedpakken er bygget og driftet in house, uten tredjepartsløsninger mellom deg og systemene dine. Får du et problem, fikser vi det selv i stedet for å vente på en leverandør.",
+        a: "Vi gjør det selv. Alle integrasjonene i Verkstedpakken er bygget og driftet in house, uten tredjepartsløsninger mellom deg og programmene dine. Får du et problem, fikser vi det selv i stedet for å vente på en leverandør.",
       },
       {
-        q: "Hvilke regnskapssystemer kan vi koble til?",
+        q: "Hvilke regnskapsprogrammer kan vi koble til?",
         a: "Fiken, PowerOffice, Tripletex, Visma eAccounting og 24SevenOffice. Etablering av regnskapsintegrasjonen er inkludert.",
       },
       {
@@ -160,7 +160,7 @@ const GROUPS: FaqGroup[] = [
         a: "Ja. Skriv inn skiltet, så fyller bilen seg selv med data fra Statens vegvesen. Oppslag med eieropplysninger kan legges til som tilleggstjeneste.",
       },
       {
-        q: "Kan vi bestille deler i systemet?",
+        q: "Kan vi bestille deler i programmet?",
         a: "Ja. Verkstedpakken er koblet til BilXtra, MECA og MEKO, så delene kommer rett inn i ordren.",
       },
       {

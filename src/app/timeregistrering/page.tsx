@@ -31,7 +31,7 @@ const FAQS: Faq[] = [
   },
   {
     q: "Hva er elektronisk timeregistrering?",
-    a: "At timene føres digitalt i stedet for på papir eller i regneark. De ansatte stempler inn og ut selv, og systemet regner sammen timer, overtid og lønnsgrunnlag. Du slipper å tyde håndskrevne lapper og taste alt inn på nytt.",
+    a: "At timene føres digitalt i stedet for på papir eller i regneark. De ansatte stempler inn og ut selv, og programmet regner sammen timer, overtid og lønnsgrunnlag. Du slipper å tyde håndskrevne lapper og taste alt inn på nytt.",
   },
   {
     q: "Finnes det en app for timeregistrering?",
@@ -162,7 +162,7 @@ export default function Timeregistrering() {
             <div className="split-text">
               <h2>Fra timer til lønnsgrunnlag</h2>
               <p>
-                Systemet holder oversikt over hvor mye hver ansatt har jobbet,
+                Programmet holder oversikt over hvor mye hver ansatt har jobbet,
                 slik arbeidsmiljøloven krever. Ved lønnskjøring ligger
                 grunnlaget klart.
               </p>
@@ -246,7 +246,7 @@ export default function Timeregistrering() {
               ikke for kontoret
             </h2>
             <p className="less-sub">
-              Generelle timeregistrering-systemer stopper ved timelisten. I et
+              Generelle timeregistrering-programmer stopper ved timelisten. I et
               verksted er timene bare halve jobben. De skal også bli til
               faktura.
             </p>
@@ -264,7 +264,7 @@ export default function Timeregistrering() {
                     <path d="m5 12 5 5L20 7" />
                   </svg>
                 </span>
-                <p>Timene stemples rett på ordren, ikke i et eget system.</p>
+                <p>Timene stemples rett på ordren, ikke i et eget program.</p>
               </div>
               <div className="less-point">
                 <span className="lp-check">
