@@ -44,8 +44,6 @@ export default function Footer() {
               <li>
                 <Link href="/integrasjoner">Integrasjoner</Link>
               </li>
-              <li>
-              </li>
             </ul>
           </div>
           <div className="foot-col">
@@ -53,8 +51,6 @@ export default function Footer() {
             <ul>
               <li>
                 <Link href="/faq">Ofte stilte spørsmål</Link>
-              </li>
-              <li>
               </li>
             </ul>
           </div>
