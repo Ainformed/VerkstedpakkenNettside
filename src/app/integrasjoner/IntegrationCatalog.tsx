@@ -167,7 +167,7 @@ const INTEGRATIONS: Integration[] = [
     name: "Gemini",
     cat: "ki",
     catLabel: "AI",
-    logo: { src: "/design/logos/gemini.svg", alt: "Gemini" },
+    logo: { src: "/design/logos/gemini.png", alt: "Gemini" },
     desc: "Googles AI-modell — hjelp til tekst og søk der du jobber.",
   },
 ];
