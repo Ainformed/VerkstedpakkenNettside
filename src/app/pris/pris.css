@@ -39,7 +39,11 @@
     align-items: stretch;
     justify-content: space-between; gap: 32px;
   }
-  .panel-total { display: flex; flex-direction: column; justify-content: flex-end; flex: 1; min-width: 0; }
+  /* Med kvittering pinnes totalen i bunn (på linje med betingelsene);
+     med kun admin sentreres den enkle totalen mot CTA-kolonnen. */
+  .panel-total { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  .panel-total.har-mekanikere { justify-content: flex-end; }
+  .panel-total.kun-admin { justify-content: center; }
 
   /* Desktop: stor total med regnestykket på én linje. */
   .total-klassisk { display: flex; flex-direction: column; gap: 4px; }
