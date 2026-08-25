@@ -45,7 +45,6 @@ export default function Footer() {
                 <Link href="/integrasjoner">Integrasjoner</Link>
               </li>
               <li>
-                <Link href="/timeregistrering">Timeregistrering</Link>
               </li>
             </ul>
           </div>

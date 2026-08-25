@@ -114,7 +114,7 @@ export default function Ordresystem() {
                 verkstedet.
               </p>
               <p>
-                <a href="/timeregistrering">Timeregistreringen</a> skjer rett på
+                Timeregistreringen skjer rett på
                 ordren. Timene rundes av slik dere selv har valgt, og interne
                 notater blir hos dere. Det kunden skal se, havner på
                 ordrelinjen.
@@ -169,67 +169,6 @@ export default function Ordresystem() {
           </div>
         </section>
 
-        {/* ── Mindre papirarbeid ── */}
-        <section className="less-sec">
-          <div className="less-inner">
-            <h2>
-              Mindre papirarbeid,
-              <br />
-              mer verksted
-            </h2>
-            <p className="less-sub">
-              Når alt henger sammen i ordren, forsvinner dobbeltføringen, og
-              tiden går til bilene i stedet.
-            </p>
-            <div className="less-points">
-              <div className="less-point">
-                <span className="lp-check">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m5 12 5 5L20 7" />
-                  </svg>
-                </span>
-                <p>Timer og deler telles automatisk med på jobben.</p>
-              </div>
-              <div className="less-point">
-                <span className="lp-check">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m5 12 5 5L20 7" />
-                  </svg>
-                </span>
-                <p>Ingen tall skrives inn to ganger. Ordren blir til faktura.</p>
-              </div>
-              <div className="less-point">
-                <span className="lp-check">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m5 12 5 5L20 7" />
-                  </svg>
-                </span>
-                <p>Full oversikt over hva som er gjort, og hva som gjenstår.</p>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>

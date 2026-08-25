@@ -155,7 +155,7 @@ export default function Home() {
           <div className="split-row">
             <div className="split-text">
               <h2>Formet etter driften din</h2>
-              <p>Bil, anleggsmaskin, MC, båt eller landbruk. Du får egne ordremaler, prislister og felt for din bransje. Arbeidsordre, <Link href="/timeregistrering">timeregistrering</Link>, delelager og fakturering samlet på ett sted.</p>
+              <p>Bil, anleggsmaskin, MC, båt eller landbruk. Du får egne ordremaler, prislister og felt for din bransje. Arbeidsordre, timeregistrering, delelager og fakturering samlet på ett sted.</p>
               <Link className="split-link" href="/ordresystem">Slik fungerer ordreprogrammet
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>

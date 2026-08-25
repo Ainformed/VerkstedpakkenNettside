@@ -47,6 +47,8 @@ const nextConfig: NextConfig = {
       { source: "/demo", destination: "/", permanent: true },
       // Demo-/interessesiden er fjernet (aug 2026) — prøv gratis-løpet tar over.
       { source: "/interesse", destination: "/", permanent: true },
+      // Timeregistrering-pilarsiden er fjernet (25. aug 2026).
+      { source: "/timeregistrering", destination: "/", permanent: true },
     ];
   },
 };

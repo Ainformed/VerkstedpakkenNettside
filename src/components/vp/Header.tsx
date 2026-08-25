@@ -7,7 +7,6 @@ import { APP_URL, SIGNUP_URL } from "@/lib/links";
 
 const NAV_LINKS = [
   { href: "/ordresystem", label: "Ordreprogram" },
-  { href: "/timeregistrering", label: "Timeregistrering" },
   { href: "/nettside-og-booking", label: "Nettside og booking" },
   { href: "/integrasjoner", label: "Integrasjoner" },
   { href: "/pris", label: "Pris" },

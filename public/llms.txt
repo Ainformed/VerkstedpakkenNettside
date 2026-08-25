@@ -7,7 +7,6 @@
 
 - Forside: https://verkstedpakken.no/
 - Ordresystem: https://verkstedpakken.no/ordresystem
-- Timeregistrering: https://verkstedpakken.no/timeregistrering
 - Nettside og booking: https://verkstedpakken.no/nettside-og-booking
 - Integrasjoner: https://verkstedpakken.no/integrasjoner
 - Pris: https://verkstedpakken.no/pris
