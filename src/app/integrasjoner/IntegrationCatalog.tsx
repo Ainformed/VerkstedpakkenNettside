@@ -110,8 +110,7 @@ const INTEGRATIONS: Integration[] = [
     name: "Flak",
     cat: "deler",
     catLabel: "Deler",
-    logoText: "FLAK",
-    logoColor: "#0C005A",
+    logo: { src: "/design/logos/flak.png", alt: "Flak", className: "logo-compact" },
     desc: "Verkstedutstyr og rekvisita fra Flak — bestill med jobben som referanse.",
   },
   {
@@ -141,16 +140,14 @@ const INTEGRATIONS: Integration[] = [
     name: "HaynesPro",
     cat: "kjoretoy",
     catLabel: "Kjøretøydata",
-    logoText: "HaynesPro",
-    logoColor: "#0C005A",
+    logo: { src: "/design/logos/haynespro.png", alt: "HaynesPro" },
     desc: "Tekniske data, reparasjonstider og servicedata for jobben på løfteren.",
   },
   {
     name: "BUS",
     cat: "kjoretoy",
     catLabel: "Kjøretøydata",
-    logoText: "BUS",
-    logoColor: "#0C005A",
+    logo: { src: "/design/logos/bus.png", alt: "B.U.S.", className: "logo-wide" },
     desc: "EU-kontroll: hent kjøretøydata og send kontrollresultatet rett fra ordren.",
   },
 ];
