@@ -55,7 +55,6 @@ export default function Footer() {
                 <Link href="/faq">Ofte stilte spørsmål</Link>
               </li>
               <li>
-                <Link href="/eu-kontroll">EU-kontroll: frist, pris og tid</Link>
               </li>
             </ul>
           </div>

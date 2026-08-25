@@ -41,11 +41,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
-    {
-      url: `${SITE}/eu-kontroll`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
   ];
 }
