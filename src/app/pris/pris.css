@@ -9,36 +9,61 @@
 
   .phero-title {
     font-family: var(--serif); font-weight: 600; color: var(--ink);
-    font-size: clamp(24px, 3.2vw, 30px); letter-spacing: -0.5px; margin-bottom: 20px;
+    font-size: clamp(24px, 3.2vw, 30px); letter-spacing: -0.5px; margin-bottom: 28px;
   }
 
-  /* ── Pris-hero: to kolonner med maskot ── */
-  .phero-grid {
-    max-width: 880px; margin: 0 auto; padding: 0 28px; display: grid;
-    grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 44px; text-align: left;
+  /* ── Pris-hero: to lisenskort og totalen under ── */
+  .phero-innhold { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  .pkort-rad {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    max-width: 780px; margin: 0 auto; text-align: left;
   }
-  .phero-mascot { display: grid; place-items: center; }
-  .phero-mascot svg,
-  .phero-mascot img {
-    width: 100%; max-width: 270px; height: auto; overflow: visible;
+  .pkort {
+    background: #fff; border: 1.5px solid var(--line); border-radius: 18px;
+    padding: 26px 28px; display: flex; flex-direction: column;
+  }
+  .pkort-navn {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .pkort-pris { margin-top: 10px; color: var(--ink); }
+  .pkort-pris b {
+    font-family: var(--serif); font-weight: 600; font-size: 36px; letter-spacing: -1px;
+  }
+  .pkort-til { font-family: var(--serif); font-weight: 600; font-size: 26px; color: var(--ink-2); }
+  .pkort-per { display: block; margin-top: 4px; font-size: 16px; color: var(--ink-2); }
+  .pkort-tekst { margin-top: 14px; font-size: 16.5px; color: var(--ink-2); line-height: 1.55; flex: 1; }
+  .pkort .teller { margin-top: 20px; }
+
+  /* Totalen: mindre enn den gamle kjempeprisen — kortene over har hovedrollen. */
+  .pris-blokk { margin-top: 44px; }
+  .total-ledetekst { font-size: 17px; color: var(--ink-2); margin-bottom: 6px; }
+  .amt { font-size: clamp(3rem, 8vw, 76px); letter-spacing: -2.5px; }
+  .total-detalj { margin-top: 10px; font-size: 16px; color: var(--ink-2); }
+  .per { margin-top: 10px; }
+
+  /* Boblen er Mutterns replikk — maskoten står ved siden av. */
+  .phero-bubble {
+    max-width: 720px; margin: 64px auto 0; padding: 0 28px;
+    display: flex; align-items: center; gap: 26px;
+  }
+  .phero-bubble img {
+    width: 108px; flex-shrink: 0; height: auto; overflow: visible;
     animation: pheroFloat 5s ease-in-out infinite;
   }
-  @media (prefers-reduced-motion: reduce) { .phero-mascot svg, .phero-mascot img { animation: none; } }
-
-  .phero-bubble { max-width: 880px; margin: 72px auto 0; padding: 0 28px; }
+  @media (prefers-reduced-motion: reduce) { .phero-bubble img { animation: none; } }
   .phero-bubble span {
-    display: block; background: #F5F3FC; border-radius: 20px; text-align: center;
-    padding: 20px 36px; font-size: 17.5px; color: var(--ink); line-height: 1.55; text-wrap: balance;
+    flex: 1; background: #F5F3FC; border-radius: 20px; text-align: left;
+    padding: 20px 30px; font-size: 17px; color: var(--ink); line-height: 1.55; text-wrap: pretty;
   }
   .phero-bubble b { font-weight: 650; }
+
   @media (max-width: 720px) {
-    .phero-grid { grid-template-columns: 1fr; text-align: center; gap: 28px; }
-    .phero-mascot { order: -1; }
-    .phero-mascot svg, .phero-mascot img { max-width: 190px; }
-    .phero-bubble { margin-top: 48px; }
-    /* .teller er en flex-container, så text-align: center på .phero-grid
-       sentrerer ikke innholdet i den — det må justify-content gjøre. */
-    .teller { justify-content: center; }
+    .pkort-rad { grid-template-columns: 1fr; }
+    .phero-bubble { flex-direction: column; gap: 18px; }
+    .phero-bubble img { width: 130px; }
+    .phero-bubble span { text-align: center; }
   }
 
   /* ── Farget bånd rundt prisseksjonene ── */
@@ -85,37 +110,12 @@
   50% { transform: translateY(-8px); }
 }
 
-/* ── Priskalkulator ─────────────────────── */
-.sparing {
-  margin-top: 16px;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.4px;
-  line-height: 1.25;
-  color: var(--ink);
-}
-.sparing span {
-  display: block;
-  margin-top: 2px;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0;
-  color: var(--ink-2);
-}
-/* Holder plassen ved 1–3 brukere, der det ikke er noe å spare. Uten dette
-   hopper teller, CTA og boble 70px nedover idet rabatten slår inn ved
-   fjerde bruker. visibility (ikke display) er det som reserverer høyden,
-   og den tar samtidig teksten ut av tilgjengelighetstreet. */
-.sparing-skjult {
-  visibility: hidden;
-}
-
+/* ── Priskalkulator: tellerne i lisenskortene ─────────────────────── */
 .teller {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px 12px;
-  margin-top: 22px;
 }
 
 .teller-btn {
@@ -163,13 +163,10 @@
   outline-offset: 1px;
 }
 
-.teller-tekst {
+.teller-enhet {
   font-family: var(--sans);
-  font-size: 18px;
-  color: var(--ink);
-}
-.teller-tekst b {
-  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink-2);
 }
 
 .sr-only {

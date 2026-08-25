@@ -1,140 +1,121 @@
 import { describe, expect, it } from "vitest";
 import {
-  FALLBACK_TRINN,
+  ADMIN_TRINN,
+  MAKS_LISENSER,
+  MEKANIKER_PRIS,
+  MIN_ADMIN,
+  MIN_MEKANIKERE,
+  beregnManedspris,
   finnPris,
-  finnSparingPerMnd,
   formaterKr,
-  forstePris,
   hardtMellomrom,
   klemAntall,
-  parseTrinn,
-  sorterTrinn,
-  type Pristrinn,
 } from "./pricing";
 
-// Prod-trappa per 2026-08-06. Testene her er fasit for trinnovergangene.
-const TRAPP: Pristrinn[] = [
-  { min: 1, max: 3, pris: 1295 },
-  { min: 4, max: 10, pris: 1195 },
-  { min: 11, max: 20, pris: 995 },
-  { min: 21, max: 50, pris: 895 },
-  { min: 51, max: null, pris: 795 },
-];
+describe("ADMIN_TRINN", () => {
+  it("er trappa fra superadmin per 2026-08-25", () => {
+    expect(ADMIN_TRINN).toEqual([
+      { min: 1, max: 3, pris: 1295 },
+      { min: 4, max: 6, pris: 1095 },
+      { min: 7, max: null, pris: 995 },
+    ]);
+  });
+});
 
 describe("finnPris", () => {
   it("treffer riktig trinn på hver overgang", () => {
-    expect(finnPris(TRAPP, 1)).toBe(1295);
-    expect(finnPris(TRAPP, 3)).toBe(1295);
-    expect(finnPris(TRAPP, 4)).toBe(1195);
-    expect(finnPris(TRAPP, 10)).toBe(1195);
-    expect(finnPris(TRAPP, 11)).toBe(995);
-    expect(finnPris(TRAPP, 20)).toBe(995);
-    expect(finnPris(TRAPP, 21)).toBe(895);
-    expect(finnPris(TRAPP, 50)).toBe(895);
-    expect(finnPris(TRAPP, 51)).toBe(795);
-    expect(finnPris(TRAPP, 200)).toBe(795);
-  });
-
-  it("tåler usorterte trinn fra databasen", () => {
-    const usortert = [TRAPP[4]!, TRAPP[1]!, TRAPP[3]!, TRAPP[0]!, TRAPP[2]!];
-    expect(finnPris(usortert, 4)).toBe(1195);
-    expect(finnPris(usortert, 51)).toBe(795);
-  });
-
-  it("faller på nærmeste lavere trinn når trappa har hull", () => {
-    const medHull: Pristrinn[] = [
-      { min: 1, max: 3, pris: 1295 },
-      { min: 6, max: null, pris: 995 },
-    ];
-    // 4 og 5 er ikke dekket av noe trinn — skal aldri gi «ingen pris».
-    expect(finnPris(medHull, 4)).toBe(1295);
-    expect(finnPris(medHull, 5)).toBe(1295);
-    expect(finnPris(medHull, 6)).toBe(995);
-  });
-
-  it("bruker første trinn når antallet er under trappas start", () => {
-    const fraTo: Pristrinn[] = [{ min: 2, max: null, pris: 995 }];
-    expect(finnPris(fraTo, 1)).toBe(995);
-  });
-
-  it("fallback-trappa gir samme priser som prod", () => {
-    expect(finnPris(FALLBACK_TRINN, 1)).toBe(1295);
-    expect(finnPris(FALLBACK_TRINN, 4)).toBe(1195);
-    expect(finnPris(FALLBACK_TRINN, 11)).toBe(995);
-    expect(finnPris(FALLBACK_TRINN, 21)).toBe(895);
-    expect(finnPris(FALLBACK_TRINN, 51)).toBe(795);
-  });
-
-  it("kaster på tom trapp — det betyr at kalleren hoppet over fallback", () => {
-    expect(() => finnPris([], 5)).toThrow(/tom pristrapp/);
-  });
-});
-
-describe("forstePris", () => {
-  it("gir prisen på første trinn i prod-trappa", () => {
-    expect(forstePris(TRAPP)).toBe(1295);
+    expect(finnPris(ADMIN_TRINN, 1)).toBe(1295);
+    expect(finnPris(ADMIN_TRINN, 3)).toBe(1295);
+    expect(finnPris(ADMIN_TRINN, 4)).toBe(1095);
+    expect(finnPris(ADMIN_TRINN, 6)).toBe(1095);
+    expect(finnPris(ADMIN_TRINN, 7)).toBe(995);
+    expect(finnPris(ADMIN_TRINN, 200)).toBe(995);
   });
 
   it("tåler usortert trapp", () => {
-    const usortert = [TRAPP[4]!, TRAPP[1]!, TRAPP[3]!, TRAPP[0]!, TRAPP[2]!];
-    expect(forstePris(usortert)).toBe(1295);
-  });
-
-  it("kaster på tom trapp — det betyr at kalleren hoppet over fallback", () => {
-    expect(() => forstePris([])).toThrow(/tom pristrapp/);
+    const usortert = [ADMIN_TRINN[2]!, ADMIN_TRINN[0]!, ADMIN_TRINN[1]!];
+    expect(finnPris(usortert, 4)).toBe(1095);
+    expect(finnPris(usortert, 7)).toBe(995);
   });
 });
 
-describe("finnSparingPerMnd", () => {
-  it("måler besparelse mot førstetrinnsprisen ved hvert trinn", () => {
-    expect(finnSparingPerMnd(TRAPP, 1)).toBe(0);
-    expect(finnSparingPerMnd(TRAPP, 3)).toBe(0);
-    expect(finnSparingPerMnd(TRAPP, 4)).toBe(400);
-    expect(finnSparingPerMnd(TRAPP, 11)).toBe(3300);
-    expect(finnSparingPerMnd(TRAPP, 21)).toBe(8400);
-    expect(finnSparingPerMnd(TRAPP, 51)).toBe(25500);
-    expect(finnSparingPerMnd(TRAPP, 200)).toBe(100000);
+describe("beregnManedspris", () => {
+  it("gir startprisen for én admin uten mekanikere", () => {
+    expect(beregnManedspris(1, 0)).toEqual({ perAdmin: 1295, total: 1295 });
   });
 
-  it("kaster på tom trapp — det betyr at kalleren hoppet over fallback", () => {
-    expect(() => finnSparingPerMnd([], 5)).toThrow(/tom pristrapp/);
+  it("legger mekanikere til med flat pris", () => {
+    // 1 + 1 = 2 lisenser — fortsatt første trinn.
+    expect(beregnManedspris(1, 1)).toEqual({
+      perAdmin: 1295,
+      total: 1295 + 595,
+    });
+  });
+
+  it("lar mekaniker-lisenser telle mot trinnene, slik superadmin gjør", () => {
+    // 2 admin + 3 mekanikere = 5 lisenser → trinn 4–6 → 1 095 per admin.
+    expect(beregnManedspris(2, 3)).toEqual({
+      perAdmin: 1095,
+      total: 2 * 1095 + 3 * 595,
+    });
+    // 3 admin + 1 mekaniker = 4 lisenser — trinnet slår inn på totalen.
+    expect(beregnManedspris(3, 1)).toEqual({
+      perAdmin: 1095,
+      total: 3 * 1095 + 595,
+    });
+  });
+
+  it("når nederste trinn ved sju lisenser totalt", () => {
+    expect(beregnManedspris(4, 3)).toEqual({
+      perAdmin: 995,
+      total: 4 * 995 + 3 * 595,
+    });
+    expect(beregnManedspris(1, 6)).toEqual({
+      perAdmin: 995,
+      total: 995 + 6 * 595,
+    });
+  });
+
+  it("regner taket riktig", () => {
+    expect(beregnManedspris(20, 0)).toEqual({ perAdmin: 995, total: 19900 });
   });
 });
 
-describe("sorterTrinn", () => {
-  it("muterer ikke inndata", () => {
-    const inn: Pristrinn[] = [TRAPP[2]!, TRAPP[0]!];
-    const ut = sorterTrinn(inn);
-    expect(inn[0]).toBe(TRAPP[2]);
-    expect(ut[0]).toBe(TRAPP[0]);
+describe("MEKANIKER_PRIS og grenser", () => {
+  it("holder tallene siden er bygget rundt", () => {
+    expect(MEKANIKER_PRIS).toBe(595);
+    expect(MIN_ADMIN).toBe(1);
+    expect(MIN_MEKANIKERE).toBe(0);
+    expect(MAKS_LISENSER).toBe(20);
   });
 });
 
 describe("klemAntall", () => {
-  it("klemmer til gyldig område", () => {
-    expect(klemAntall(0)).toBe(1);
-    expect(klemAntall(-5)).toBe(1);
-    expect(klemAntall(1)).toBe(1);
-    expect(klemAntall(20)).toBe(20);
-    expect(klemAntall(21)).toBe(20);
-    expect(klemAntall(999)).toBe(20);
+  it("klemmer til oppgitt område", () => {
+    expect(klemAntall(0, 1, 20)).toBe(1);
+    expect(klemAntall(-5, 0, 20)).toBe(0);
+    expect(klemAntall(1, 1, 20)).toBe(1);
+    expect(klemAntall(20, 1, 20)).toBe(20);
+    expect(klemAntall(21, 1, 20)).toBe(20);
+    // Mekaniker-telleren kan gå til null …
+    expect(klemAntall(-1, 0, 19)).toBe(0);
+    // … og taket avhenger av den andre telleren.
+    expect(klemAntall(999, 0, 17)).toBe(17);
   });
 
   it("kutter desimaler og håndterer NaN", () => {
-    expect(klemAntall(4.9)).toBe(4);
-    expect(klemAntall(Number.NaN)).toBe(1);
-    expect(klemAntall(Number.POSITIVE_INFINITY)).toBe(1);
+    expect(klemAntall(4.9, 1, 20)).toBe(4);
+    expect(klemAntall(Number.NaN, 1, 20)).toBe(1);
+    expect(klemAntall(Number.POSITIVE_INFINITY, 1, 20)).toBe(1);
   });
 });
 
 describe("formaterKr", () => {
   it("skriver beløp som siden gjør i dag, med hardt mellomrom", () => {
     expect(formaterKr(1295)).toBe("1 295,-");
-    expect(formaterKr(4780)).toBe("4 780,-");
-    expect(formaterKr(159000)).toBe("159 000,-");
-    expect(formaterKr(795)).toBe("795,-");
+    expect(formaterKr(3975)).toBe("3 975,-");
+    expect(formaterKr(595)).toBe("595,-");
   });
-
 
   it("bruker hardt mellomrom, uansett hva Intl gir oss", () => {
     expect(formaterKr(4780).charCodeAt(1)).toBe(0x00a0);
@@ -144,47 +125,15 @@ describe("formaterKr", () => {
 
 describe("hardtMellomrom", () => {
   it("gjør vanlig mellomrom om til hardt", () => {
-    expect(hardtMellomrom("1 295")).toBe("1\u00a0295");
+    expect(hardtMellomrom("1 295")).toBe("1 295");
   });
 
   it("gjør smalt hardt mellomrom om til hardt", () => {
     // U+202F er det CLDR i perioder har brukt som tusenskille for nb-NO.
-    expect(hardtMellomrom("1\u202f295")).toBe("1\u00a0295");
+    expect(hardtMellomrom("1 295")).toBe("1 295");
   });
 
   it("lar hardt mellomrom stå", () => {
-    expect(hardtMellomrom("1\u00a0295")).toBe("1\u00a0295");
-  });
-});
-
-describe("parseTrinn", () => {
-  it("oversetter databasens price-felt til pris", () => {
-    const raa = [{ min: 1, max: 3, price: 1295 }];
-    expect(parseTrinn(raa)).toEqual([{ min: 1, max: 3, pris: 1295 }]);
-  });
-
-  it("sorterer resultatet", () => {
-    const raa = [
-      { min: 4, max: null, price: 1195 },
-      { min: 1, max: 3, price: 1295 },
-    ];
-    expect(parseTrinn(raa)?.map((t) => t.min)).toEqual([1, 4]);
-  });
-
-  it("avviser tom liste — manglende RLS-policy gir tomt svar, ikke feil", () => {
-    expect(parseTrinn([])).toBeNull();
-  });
-
-  it("avviser alt som ikke er en gyldig trapp", () => {
-    expect(parseTrinn(null)).toBeNull();
-    expect(parseTrinn("[]")).toBeNull();
-    expect(parseTrinn({ min: 1, price: 1295 })).toBeNull();
-    expect(parseTrinn([null])).toBeNull();
-    expect(parseTrinn([{ min: 1, max: 3 }])).toBeNull();
-    expect(parseTrinn([{ min: 1, max: 3, price: "1295" }])).toBeNull();
-    expect(parseTrinn([{ min: 0, max: 3, price: 1295 }])).toBeNull();
-    expect(parseTrinn([{ min: 1, max: 3, price: 0 }])).toBeNull();
-    expect(parseTrinn([{ min: 1, max: 3, price: -100 }])).toBeNull();
-    expect(parseTrinn([{ min: 5, max: 3, price: 1295 }])).toBeNull();
+    expect(hardtMellomrom("1 295")).toBe("1 295");
   });
 });

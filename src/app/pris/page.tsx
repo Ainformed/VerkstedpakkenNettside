@@ -3,50 +3,38 @@ import Header from "@/components/vp/Header";
 import Footer from "@/components/vp/Footer";
 import { SIGNUP_URL } from "@/lib/links";
 import PrisKalkulator from "./PrisKalkulator";
-import { hentPristrinn } from "@/lib/pricing-server";
 import "./pris.css";
 
 export const metadata: Metadata = {
   title: "Pris på verkstedprogrammet",
   description:
-    "Alt inkludert i en fast pris: 1 295,- per bruker per måned (ekskl. mva). Ingen bindingstid, ingen etableringskostnad. Prøv gratis i 14 dager.",
+    "Admin-lisens 1 295,- og mekaniker-lisens 595,- per måned (ekskl. mva). Alt inkludert, ingen bindingstid, ingen etableringskostnad. Prøv gratis i 14 dager.",
   alternates: { canonical: "/pris" },
 };
 
-/** Prisene leses fra prod. En endring i superadmin slår gjennom innen en time. */
-export const revalidate = 3600;
-
-export default async function Pris() {
-  const trinn = await hentPristrinn();
+export default function Pris() {
   return (
     <>
       <Header />
       <main className="page-pris">
-        {/* ── Pris-hero ── */}
+        {/* ── Pris-hero: to lisenstyper, sett opp bedriften og se prisen ── */}
         <section className="price-hero">
-          <div className="phero-grid">
-            <div className="phero-copy">
-              <h1 className="phero-title">Pris på verkstedprogrammet</h1>
-              <PrisKalkulator trinn={trinn} />
-              <div className="cta-row">
-                <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
-                  Prøv gratis i 14 dager
-                </a>
-              </div>
-              <p className="subnote">Alt inkludert. Ingen etableringskostnad.</p>
+          <div className="phero-innhold">
+            <h1 className="phero-title">Pris på verkstedprogrammet</h1>
+            <PrisKalkulator />
+            <div className="cta-row">
+              <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
+                Prøv gratis i 14 dager
+              </a>
             </div>
-            <div className="phero-mascot">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/design/muttern-zen-grunnposisjon.svg"
-                alt="Muttern i ro"
-              />
-            </div>
+            <p className="subnote">Ingen etableringskostnad.</p>
           </div>
           <div className="phero-bubble">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/design/muttern-zen-grunnposisjon.svg" alt="Muttern i ro" />
             <span>
-              Inkluderer alt verkstedet trenger i hverdagen og support uten timepris. Still inn
-              antall ansatte — prisen per bruker faller når dere blir flere.
+              Velg antall admin og mekanikere, så ser du prisen for verkstedet ditt med en gang.
+              Prisen per admin faller når dere blir flere.
             </span>
           </div>
         </section>
@@ -213,9 +201,20 @@ export default async function Pris() {
               </div>
             </details>
             <details className="faq">
-              <summary>Hvordan regnes prisen per bruker?</summary>
+              <summary>Hvordan regnes prisen?</summary>
               <div className="faq-body">
-                Du betaler per bruker, og prisen per bruker blir lavere fra fjerde ansatt.
+                Du betaler 1 295,- per admin og 595,- per mekaniker per måned. Prisen per admin
+                blir lavere når dere har flere lisenser totalt: 1 095,- fra fjerde lisens og
+                995,- fra sjuende. Mekaniker-lisensen koster det samme uansett antall.
+              </div>
+            </details>
+            <details className="faq">
+              <summary>Hva er forskjellen på admin og mekaniker?</summary>
+              <div className="faq-body">
+                En admin har tilgang til hele programmet — og kan selvsagt også jobbe som
+                mekaniker. En mekaniker-lisens er for mekanikere som utfører og registrerer
+                arbeid i mekanikerportalen, på egen enhet eller innlogget på en felles enhet i
+                verkstedet.
               </div>
             </details>
             <details className="faq">

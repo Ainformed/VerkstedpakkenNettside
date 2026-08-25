@@ -39,11 +39,11 @@ const FAQS: Faq[] = [
   },
   {
     q: "Hva koster timeregistrering?",
-    a: "Timeregistrering er inkludert i Verkstedpakken, som koster 1 295 kroner per bruker per måned, eks. mva. Du kan prøve alt gratis i 14 dager, uten bindingstid.",
+    a: "Timeregistrering er inkludert i Verkstedpakken, som koster 1 295 kroner per admin og 595 kroner per mekaniker per måned, eks. mva. Du kan prøve alt gratis i 14 dager, uten bindingstid.",
   },
   {
     q: "Passer det for små bedrifter?",
-    a: "Ja. Du betaler per bruker, så et lite verksted betaler bare for de som faktisk jobber der. Oppsett og opplæring er inkludert, og det er ingen etableringskostnad eller bindingstid.",
+    a: "Ja. Du betaler per lisens — admin eller mekaniker — så et lite verksted betaler bare for de som faktisk jobber der. Oppsett og opplæring er inkludert, og det er ingen etableringskostnad eller bindingstid.",
   },
 ];
 

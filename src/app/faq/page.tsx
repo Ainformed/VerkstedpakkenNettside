@@ -56,7 +56,7 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hva er Verkstedpakken?",
-        a: "Verkstedpakken er et norsk verkstedprogram som samler hele driften i ett program. Verkstedordre og planlegging, timeregistrering, mekanikerportal på mobil, deler og lager, dekkhotell, booking på nett og faktura via regnskapsprogrammet ditt. Prisen er 1 295 kroner per bruker per måned eks. mva, alt inkludert, uten bindingstid.",
+        a: "Verkstedpakken er et norsk verkstedprogram som samler hele driften i ett program. Verkstedordre og planlegging, timeregistrering, mekanikerportal på mobil, deler og lager, dekkhotell, booking på nett og faktura via regnskapsprogrammet ditt. Prisen er 1 295 kroner per admin og 595 kroner per mekaniker per måned eks. mva, alt inkludert, uten bindingstid.",
       },
       {
         q: "Hvem passer Verkstedpakken for?",
@@ -69,7 +69,7 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hvilket verkstedprogram er best?",
-        a: `Det finnes ikke ett verkstedprogram som er best for alle verksteder. Sjekk fem ting: om prisen vises åpent, hva som er inkludert, om det er bindingstid, hvilke integrasjoner som følger med, og om support koster ekstra. Verkstedpakken viser prisen åpent: 1 295 kr per bruker per måned eks mva, alt inkludert, uten bindingstid.\n\nHelios og Norbits viste ikke prisen for verkstedprogrammet på nettsidene sine da vi sjekket i august 2026. Test selv med [14 dager gratis prøve](${SIGNUP_URL}), uten automatisk abonnement.`,
+        a: `Det finnes ikke ett verkstedprogram som er best for alle verksteder. Sjekk fem ting: om prisen vises åpent, hva som er inkludert, om det er bindingstid, hvilke integrasjoner som følger med, og om support koster ekstra. Verkstedpakken viser prisen åpent: 1 295 kr per admin og 595 kr per mekaniker per måned eks mva, alt inkludert, uten bindingstid.\n\nHelios og Norbits viste ikke prisen for verkstedprogrammet på nettsidene sine da vi sjekket i august 2026. Test selv med [14 dager gratis prøve](${SIGNUP_URL}), uten automatisk abonnement.`,
       },
       {
         q: "Hvordan velge verkstedprogram?",
@@ -82,11 +82,11 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hva koster et verkstedprogram?",
-        a: "Mange leverandører oppgir ikke pris. Du må ofte booke demo for å få et tilbud. Verkstedpakken koster 1 295 kr per bruker per måned eks mva. Alt er inkludert: support, opplæring, oppsett, dataflytting og alle integrasjoner. Prisen per bruker faller fra fjerde ansatt.\n\nIngen etableringskostnad, ingen bindingstid. Regn ut prisen for ditt verksted med [kalkulatoren på prissiden](/pris).",
+        a: "Mange leverandører oppgir ikke pris. Du må ofte booke demo for å få et tilbud. Verkstedpakken koster 1 295 kr per admin og 595 kr per mekaniker per måned eks mva. Alt er inkludert: support, opplæring, oppsett, dataflytting og alle integrasjoner. Prisen per admin faller fra fjerde lisens.\n\nIngen etableringskostnad, ingen bindingstid. Regn ut prisen for ditt verksted med [kalkulatoren på prissiden](/pris).",
       },
       {
         q: "Hva koster Verkstedpakken?",
-        a: "1 295 kroner per bruker per måned, eks. mva. Alt er inkludert i prisen, og prisen per bruker blir lavere fra fjerde ansatt.",
+        a: "1 295 kroner per admin og 595 kroner per mekaniker per måned, eks. mva. Alt er inkludert i prisen, og prisen per admin blir lavere fra fjerde lisens.",
       },
       {
         q: "Er det bindingstid?",

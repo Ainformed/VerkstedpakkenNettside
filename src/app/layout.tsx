@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Verkstedpakken",
   },
   description:
-    "Verkstedprogrammet uten dobbeltarbeid. Ordre, booking, mekanikerportal og faktura i ett program. 1 295 kr per bruker per mnd. Prøv gratis i 14 dager.",
+    "Verkstedprogrammet uten dobbeltarbeid. Ordre, booking, mekanikerportal og faktura i ett program. Admin 1 295 kr og mekaniker 595 kr per mnd. Prøv gratis i 14 dager.",
   applicationName: "Verkstedpakken",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
@@ -156,7 +156,7 @@ function JsonLd() {
           "@type": "UnitPriceSpecification",
           price: "1295",
           priceCurrency: "NOK",
-          unitText: "per bruker per måned",
+          unitText: "per admin per måned",
           valueAddedTaxIncluded: false,
         },
         category: "SaaS subscription",
