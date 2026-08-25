@@ -214,33 +214,58 @@ export default function PrisKalkulator() {
   const { perAdmin, total } = beregnManedspris(antall.admin, antall.mekanikere);
   const paaTaket = antall.admin + antall.mekanikere >= MAKS_LISENSER;
 
-  const adminLedd = `${antall.admin} admin × ${formaterKr(perAdmin)}`;
-  const mekanikerLedd =
-    antall.mekanikere > 0
-      ? ` + ${antall.mekanikere} ${
-          antall.mekanikere === 1 ? "mekaniker" : "mekanikere"
-        } × ${formaterKr(MEKANIKER_PRIS)}`
-      : "";
-
   return (
     <div className="pris-omrade" aria-live="polite">
       <div className="pris-panel">
-        {/* Totalen øverst: prisen er svaret, konfiguratoren under er spørsmålet. */}
+        {/* Totalen rendres i to varianter og CSS velger etter bredde:
+            desktop viser stor total med regnestykket på én linje,
+            telefon viser kvittering (rad per lisenstype, delelinje, sum). */}
         <div className="panel-topp">
-          <div className="panel-total">
-            <p className="total-ledetekst">Din pris per måned</p>
-            <div className="amt">{formaterKr(total)}</div>
-            <p className="total-detalj">
-              {adminLedd}
-              {mekanikerLedd}
-            </p>
+          <div
+            className={`panel-total ${
+              antall.mekanikere > 0 ? "har-mekanikere" : "kun-admin"
+            }`}
+          >
+            <div className="total-klassisk">
+              <p className="total-ledetekst">Din pris per måned</p>
+              <div className="amt">{formaterKr(total)}</div>
+            </div>
+            <div className="total-kvittering">
+              <div className="kvitt-rad kvitt-admin">
+                <span>
+                  {antall.admin} admin × {formaterKr(perAdmin)}
+                </span>
+                <span>{formaterKr(antall.admin * perAdmin)}</span>
+              </div>
+              {/* Alltid rendret — skjult med visibility ved null mekanikere,
+                  så panelet ikke hopper når første legges til. */}
+              <div
+                className={
+                  antall.mekanikere > 0
+                    ? "kvitt-rad kvitt-mek"
+                    : "kvitt-rad kvitt-mek kvitt-rad-skjult"
+                }
+              >
+                <span>
+                  {antall.mekanikere}{" "}
+                  {antall.mekanikere === 1 ? "mekaniker" : "mekanikere"} ×{" "}
+                  {formaterKr(MEKANIKER_PRIS)}
+                </span>
+                <span>{formaterKr(antall.mekanikere * MEKANIKER_PRIS)}</span>
+              </div>
+              <div className="kvitt-strek" />
+              <div className="kvitt-total">
+                <span className="kvitt-total-navn">Per måned</span>
+                <div className="amt">{formaterKr(total)}</div>
+              </div>
+            </div>
           </div>
           <div className="panel-cta">
             <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
               Prøv gratis i 14 dager
             </a>
             <p className="per">
-              <b>Ingen bindingstid.</b> Ingen etableringskostnad. Eks. mva.
+              <b>Ingen bindingstid</b> · Ingen etableringskostnad · Eks. mva.
             </p>
           </div>
         </div>

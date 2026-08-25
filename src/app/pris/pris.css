@@ -28,10 +28,25 @@
     padding: 34px 38px; display: flex; align-items: center;
     justify-content: space-between; gap: 32px;
   }
-  .panel-total { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+  .panel-total { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+
+  /* Desktop: stor total med regnestykket på én linje. */
+  .total-klassisk { display: flex; flex-direction: column; gap: 4px; }
   .total-ledetekst { font-size: 17px; color: var(--ink); }
-  .amt { font-size: clamp(38px, 5vw, 48px); letter-spacing: -1.5px; line-height: 1.1; }
-  .total-detalj { font-size: 16.5px; color: var(--ink); white-space: nowrap; }
+  .total-klassisk .amt { font-size: clamp(38px, 5vw, 48px); letter-spacing: -1.5px; line-height: 1.1; }
+
+  /* Telefon: kvittering — rad per lisenstype, delelinje, sum. */
+  .total-kvittering { display: none; flex-direction: column; }
+  .kvitt-rad {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    padding: 4px 0; font-size: 16.5px; color: var(--ink); white-space: nowrap;
+  }
+  .kvitt-rad-skjult { visibility: hidden; }
+  .kvitt-strek { height: 1.5px; background: var(--line); margin: 8px 0; }
+  .kvitt-total { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .kvitt-total-navn { font-size: 17px; font-weight: 600; color: var(--ink); }
+  .total-kvittering .amt { font-size: 30px; letter-spacing: -1px; line-height: 1.15; }
+
   .panel-cta { flex-shrink: 0; }
   /* Knappen spenner nøyaktig over betingelseslinjen under, midtstilt —
      høyrejustert kolonne så de to ulike breddene ikke ser ragget ut. */
@@ -65,8 +80,12 @@
     }
     .panel-cta { align-self: stretch; }
     .panel-cta .per { white-space: normal; }
-    .panel-total { flex: initial; }
-    .total-detalj { white-space: normal; }
+    .panel-total { flex: initial; align-self: stretch; }
+    /* Kvitteringen har bare noe for seg med to lisenstyper i regnestykket.
+       Kun admin: den enkle totalen, midtstilt. */
+    .panel-total.har-mekanikere .total-klassisk { display: none; }
+    .panel-total.har-mekanikere .total-kvittering { display: flex; }
+    .panel-total.kun-admin .total-klassisk { align-items: center; text-align: center; }
     .pkort-rad { grid-template-columns: 1fr; }
     .pkort { padding: 24px 20px; }
     .pkort-admin { border-right: none; border-bottom: 1.5px solid var(--line); }

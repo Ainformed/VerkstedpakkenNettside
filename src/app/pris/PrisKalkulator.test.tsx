@@ -18,7 +18,15 @@ const adminFelt = () =>
 const mekFelt = () =>
   screen.getByLabelText("Antall mekanikere") as HTMLInputElement;
 const total = () => document.querySelector(".amt")!.textContent;
-const detalj = () => document.querySelector(".total-detalj")!.textContent;
+/** Kvitteringsradene: [venstretekst, høyrebeløp]. */
+const adminRad = () => {
+  const celler = document.querySelectorAll(".kvitt-admin span");
+  return [celler[0]!.textContent, celler[1]!.textContent];
+};
+const mekRad = () => {
+  const celler = document.querySelectorAll(".kvitt-mek span");
+  return [celler[0]!.textContent, celler[1]!.textContent];
+};
 
 /** Setter begge tellerne via feltene, med commit. */
 function sett(admin: number, mekanikere: number) {
@@ -57,8 +65,8 @@ describe("PrisKalkulator i ro", () => {
   it("samler betingelsene ved totalen — uten «Alt inkludert»", () => {
     render(<PrisKalkulator />);
     const per = document.querySelector(".per")!;
-    expect(per.textContent).toContain("Ingen bindingstid.");
-    expect(per.textContent).toContain("Ingen etableringskostnad.");
+    expect(per.textContent).toContain("Ingen bindingstid");
+    expect(per.textContent).toContain("Ingen etableringskostnad");
     expect(per.textContent).toContain("Eks. mva.");
     expect(per.textContent).not.toContain("Alt inkludert");
   });
@@ -76,9 +84,13 @@ describe("PrisKalkulator i ro", () => {
     expect(mekMinus().hasAttribute("disabled")).toBe(true);
   });
 
-  it("viser bare admin-leddet i regnestykket når det ikke er mekanikere", () => {
+  it("skjuler mekaniker-raden i kvitteringen ved null mekanikere, men holder plassen", () => {
     render(<PrisKalkulator />);
-    expect(detalj()).toBe(`1 admin × 1${NBSP}295,-`);
+    expect(adminRad()).toEqual([`1 admin × 1${NBSP}295,-`, `1${NBSP}295,-`]);
+    // Rendret men usynlig: fjernes raden, hopper CTA og kort når første
+    // mekaniker legges til.
+    const rad = document.querySelector(".kvitt-mek")!;
+    expect(rad.className).toContain("kvitt-rad-skjult");
   });
 });
 
@@ -88,16 +100,19 @@ describe("PrisKalkulator — trappa og totalen", () => {
     fireEvent.pointerDown(adminPluss());
     fireEvent.pointerUp(adminPluss());
     expect(total()).toBe(`2${NBSP}590,-`);
-    expect(detalj()).toBe(`2 admin × 1${NBSP}295,-`);
+    expect(adminRad()).toEqual([`2 admin × 1${NBSP}295,-`, `2${NBSP}590,-`]);
   });
 
-  it("legger mekanikere til flatt, med entall i regnestykket", () => {
+  it("legger mekanikere til flatt, med entall i kvitteringen", () => {
     render(<PrisKalkulator />);
     fireEvent.pointerDown(mekPluss());
     fireEvent.pointerUp(mekPluss());
     // 1 295 + 595 = 1 890
     expect(total()).toBe(`1${NBSP}890,-`);
-    expect(detalj()).toBe(`1 admin × 1${NBSP}295,- + 1 mekaniker × 595,-`);
+    expect(mekRad()).toEqual([`1 mekaniker × 595,-`, `595,-`]);
+    expect(document.querySelector(".kvitt-mek")!.className).not.toContain(
+      "kvitt-rad-skjult",
+    );
   });
 
   it("lar ikke mekanikere påvirke admin-prisen: 2 admin + 3 mekanikere gir fortsatt 1 295", () => {
@@ -105,9 +120,8 @@ describe("PrisKalkulator — trappa og totalen", () => {
     sett(2, 3);
     // 2 × 1 295 + 3 × 595 = 4 375
     expect(total()).toBe(`4${NBSP}375,-`);
-    expect(detalj()).toBe(
-      `2 admin × 1${NBSP}295,- + 3 mekanikere × 595,-`,
-    );
+    expect(adminRad()).toEqual([`2 admin × 1${NBSP}295,-`, `2${NBSP}590,-`]);
+    expect(mekRad()).toEqual([`3 mekanikere × 595,-`, `1${NBSP}785,-`]);
   });
 
   it("treffer trinnene på antall admin alene", () => {
@@ -115,7 +129,7 @@ describe("PrisKalkulator — trappa og totalen", () => {
     sett(4, 3);
     // 4 × 1 095 + 3 × 595 = 6 165
     expect(total()).toBe(`6${NBSP}165,-`);
-    expect(detalj()).toBe(`4 admin × 1${NBSP}095,- + 3 mekanikere × 595,-`);
+    expect(adminRad()).toEqual([`4 admin × 1${NBSP}095,-`, `4${NBSP}380,-`]);
   });
 });
 
