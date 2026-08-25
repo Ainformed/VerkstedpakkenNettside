@@ -19,7 +19,7 @@ export default function Pris() {
         {/* ── Pris-hero: to lisenstyper, sett opp bedriften og se prisen ── */}
         <section className="price-hero">
           <div className="phero-innhold">
-            <h1 className="phero-title">Pris på verkstedprogrammet</h1>
+            <h1 className="phero-title">Pris for Verkstedpakken</h1>
             <PrisKalkulator />
           </div>
         </section>
