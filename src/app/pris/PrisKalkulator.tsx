@@ -317,8 +317,6 @@ export default function PrisKalkulator() {
         </div>
       </div>
 
-      <p className="panel-fot">Prisen per admin faller når dere blir flere.</p>
-
       {/* Alltid rendret så layouten ikke hopper når taket nås. */}
       <p
         className={paaTaket ? "teller-tak" : "teller-tak teller-tak-skjult"}

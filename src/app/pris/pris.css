@@ -75,16 +75,14 @@
   .pkort-tekst { font-size: 16.5px; color: var(--ink); line-height: 1.55; flex: 1; }
   .pkort .teller { margin-top: 6px; }
 
-  .panel-fot { margin-top: 36px; font-size: 18.5px; color: var(--ink); }
-
   @media (max-width: 760px) {
     .phero-innhold { padding: 0 16px; }
     /* Kortene først, totalen og CTA-en nederst — man velger, så ser man prisen. */
     .panel-topp {
       order: 2; border-bottom: none; border-top: 1.5px solid var(--line);
-      flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 24px 20px;
+      flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 30px 22px 28px;
     }
-    .panel-cta { align-self: stretch; }
+    .panel-cta { align-self: stretch; gap: 20px; }
     .panel-cta .per { white-space: normal; }
     .panel-total { flex: initial; align-self: stretch; }
     /* Kvitteringen har bare noe for seg med to lisenstyper i regnestykket.
