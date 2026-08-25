@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <!-- Dybde: lysere indigo øverst, dyp brand-blå nederst -->
+    <linearGradient id="hex" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241699"/>
+      <stop offset="0.55" stop-color="#0C005A"/>
+      <stop offset="1" stop-color="#080040"/>
+    </linearGradient>
+    <!-- Topp-glans for 3D-effekt -->
+    <radialGradient id="gloss" cx="0.5" cy="0.26" r="0.65">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.38"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Hvit rim/bakplate: gir 3D-kant og løfter den mørke blå frem i dark mode -->
+  <polygon points="100,3 184,49 184,151 100,197 16,151 16,49" fill="#FFFFFF"/>
+
+  <!-- Sekskant med dybde-gradient -->
+  <polygon points="100,12 176,54 176,146 100,188 24,146 24,54" fill="url(#hex)"/>
+
+  <!-- Topp-glans (3D) -->
+  <polygon points="100,12 176,54 176,146 100,188 24,146 24,54" fill="url(#gloss)"/>
+
+  <!-- Kremfarget midtsirkel -->
+  <circle cx="100" cy="92" r="30" fill="#FAF7F2"/>
+</svg>
