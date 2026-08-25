@@ -3,6 +3,7 @@ import Header from "@/components/vp/Header";
 import Footer from "@/components/vp/Footer";
 import ZenMascot from "@/components/vp/ZenMascot";
 import { SIGNUP_URL } from "@/lib/links";
+import "./timereg.css";
 
 export const metadata: Metadata = {
   title: "Timeregistrering for verksted og små bedrifter",
@@ -91,18 +92,28 @@ export default function Timeregistrering() {
       <Header />
       <main className="page-timeregistrering">
         <JsonLd />
-        <section className="hero feat-hero">
-          <div className="wrap">
-            <h1>Timeregistrering uten ekstra arbeid</h1>
-            <p className="lead">
-              Mekanikeren stempler inn på mobilen eller kiosken. Timene havner
-              rett på ordren, og lønnsgrunnlaget lager seg selv. Ingen lapper,
-              ingen regneark, ingenting som føres to ganger.
-            </p>
-            <div className="cta-row">
-              <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
-                Prøv gratis i 14 dager
-              </a>
+        <section className="hero feat-hero tr-hero-split">
+          <div className="tr-hero-grid">
+            <div className="tr-hero-copy">
+              <h1>Timeregistrering uten ekstra arbeid</h1>
+              <p className="lead">
+                Mekanikeren stempler inn på mobilen eller kiosken. Timene havner
+                rett på ordren, og lønnsgrunnlaget lager seg selv. Ingen lapper,
+                ingen regneark, ingenting som føres to ganger.
+              </p>
+              <div className="cta-row">
+                <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
+                  Prøv gratis i 14 dager
+                </a>
+              </div>
+            </div>
+            <div className="tr-hero-art">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="m-fig"
+                src="/design/muttern-hilser.svg"
+                alt="Muttern hilser"
+              />
             </div>
           </div>
         </section>
