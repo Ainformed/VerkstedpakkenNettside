@@ -633,7 +633,18 @@
   .ill-track .tk-foot-lbl { font-size: 11.5px; color: var(--ink-3); }
 
   /* ── Responsive ───────────────────────── */
-  @media (max-width: 1140px) {
+  /* Mellomsjiktet (~1200–1460px): full meny trenger ~1320px med de store
+     lenkene, mer enn maxw-innholdet på 1124px — da skled «Prøv gratis» ut
+     av skjermen og ga hele siden sidescroll. Strammere gap/padding/fonter
+     her gjør at alt faktisk får plass. */
+  @media (max-width: 1460px) {
+    .nav-inner { gap: 16px; }
+    .nav-links { gap: 4px; }
+    .nav-links a { font-size: 16.5px; padding: 9px 11px; }
+    .nav-cta { gap: 10px; }
+    .nav-cta .btn { padding: 11px 20px; font-size: 15px; }
+  }
+  @media (max-width: 1200px) {
     .nav-links { display: none; }
     .nav-burger { display: inline-flex; }
     .nav-inner { display: flex; justify-content: space-between; gap: 16px; }
