@@ -10,6 +10,7 @@ import {
 import { submitStorverksted } from "@/app/actions/storverksted";
 import {
   MAKS_LISENSER,
+  MAKS_TELLER,
   MEKANIKER_PRIS,
   MIN_ADMIN,
   MIN_MEKANIKERE,
@@ -191,14 +192,14 @@ export default function PrisKalkulator() {
       admin: klemAntall(
         (basis ?? a.admin) + delta,
         MIN_ADMIN,
-        MAKS_LISENSER - a.mekanikere,
+        MAKS_TELLER - a.mekanikere,
       ),
     }));
   }, []);
   const settAdmin = useCallback((n: number) => {
     setAntall((a) => ({
       ...a,
-      admin: klemAntall(n, MIN_ADMIN, MAKS_LISENSER - a.mekanikere),
+      admin: klemAntall(n, MIN_ADMIN, MAKS_TELLER - a.mekanikere),
     }));
   }, []);
   const endreMekanikere = useCallback((delta: number, basis?: number) => {
@@ -207,19 +208,23 @@ export default function PrisKalkulator() {
       mekanikere: klemAntall(
         (basis ?? a.mekanikere) + delta,
         MIN_MEKANIKERE,
-        MAKS_LISENSER - a.admin,
+        MAKS_TELLER - a.admin,
       ),
     }));
   }, []);
   const settMekanikere = useCallback((n: number) => {
     setAntall((a) => ({
       ...a,
-      mekanikere: klemAntall(n, MIN_MEKANIKERE, MAKS_LISENSER - a.admin),
+      mekanikere: klemAntall(n, MIN_MEKANIKERE, MAKS_TELLER - a.admin),
     }));
   }, []);
 
   const { perAdmin, total } = beregnManedspris(antall.admin, antall.mekanikere);
-  const paaTaket = antall.admin + antall.mekanikere >= MAKS_LISENSER;
+  const totalLisenser = antall.admin + antall.mekanikere;
+  // Over 20 lisenser stopper prisen: panelet viser antall-kvittering og
+  // kontaktskjema i stedet for pris og prøveperiode.
+  const overTaket = totalLisenser > MAKS_LISENSER;
+  const paaTelleTaket = totalLisenser >= MAKS_TELLER;
 
   // Storverksted-skjemaet ved taket.
   const [skjema, skjemaAction, sender] = useActionState(submitStorverksted, {
@@ -236,7 +241,11 @@ export default function PrisKalkulator() {
         <div className="panel-topp">
           <div
             className={`panel-total ${
-              antall.mekanikere > 0 ? "har-mekanikere" : "kun-admin"
+              overTaket
+                ? "har-mekanikere har-tilbud"
+                : antall.mekanikere > 0
+                  ? "har-mekanikere"
+                  : "kun-admin"
             }`}
           >
             <div className="total-klassisk">
@@ -249,9 +258,12 @@ export default function PrisKalkulator() {
             <div className="total-kvittering">
               <div className="kvitt-rad kvitt-admin">
                 <span>
-                  {antall.admin} admin × {formaterKr(perAdmin)}
+                  {antall.admin} admin
+                  {overTaket ? "" : ` × ${formaterKr(perAdmin)}`}
                 </span>
-                <span>{formaterKr(antall.admin * perAdmin)}</span>
+                <span>
+                  {overTaket ? "" : formaterKr(antall.admin * perAdmin)}
+                </span>
               </div>
               {/* Alltid rendret — skjult med visibility ved null mekanikere,
                   så panelet ikke hopper når første legges til. */}
@@ -264,30 +276,102 @@ export default function PrisKalkulator() {
               >
                 <span>
                   {antall.mekanikere}{" "}
-                  {antall.mekanikere === 1 ? "mekaniker" : "mekanikere"} ×{" "}
-                  {formaterKr(MEKANIKER_PRIS)}
+                  {antall.mekanikere === 1 ? "mekaniker" : "mekanikere"}
+                  {overTaket ? "" : ` × ${formaterKr(MEKANIKER_PRIS)}`}
                 </span>
-                <span>{formaterKr(antall.mekanikere * MEKANIKER_PRIS)}</span>
+                <span>
+                  {overTaket
+                    ? ""
+                    : formaterKr(antall.mekanikere * MEKANIKER_PRIS)}
+                </span>
               </div>
               <div className="kvitt-strek" />
               <div className="kvitt-total">
                 <span className="kvitt-total-navn">Per måned</span>
-                <div className="amt-rad">
-                  <div className="amt">{formaterKr(total)}</div>
-                  <span className="amt-mva">eks. mva</span>
-                </div>
+                {overTaket ? (
+                  <span className="kvitt-tilbud">Etter avtale</span>
+                ) : (
+                  <div className="amt-rad">
+                    <div className="amt">{formaterKr(total)}</div>
+                    <span className="amt-mva">eks. mva</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
           <div className="panel-cta">
-            <div className="panel-cta-knapp">
-              <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
-                Prøv gratis i 14 dager
-              </a>
-            </div>
-            <p className="per">
-              <b>Ingen bindingstid</b> · Ingen etableringskostnad
-            </p>
+            {overTaket ? (
+              skjema.success ? (
+                <p className="tilbud-takk">
+                  Takk! Vi tar kontakt og setter opp et tilbud til dere.
+                </p>
+              ) : (
+                <form action={skjemaAction} className="tilbud-skjema">
+                  {/* Honeypot for boter — skjult for folk. */}
+                  <input
+                    type="text"
+                    name="company_website"
+                    className="tak-hp"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                  />
+                  {/* Tidsstempelet settes i ref-callbacken: SSR-html-en får
+                      tom verdi, klienten fyller inn ved mount. */}
+                  <input
+                    type="hidden"
+                    name="form_loaded_at"
+                    defaultValue=""
+                    ref={(el) => {
+                      if (el && !el.value) el.value = String(Date.now());
+                    }}
+                  />
+                  <input type="hidden" name="antall" value={totalLisenser} />
+                  <input
+                    type="hidden"
+                    name="antall_admin"
+                    value={antall.admin}
+                  />
+                  <input
+                    type="hidden"
+                    name="antall_mekanikere"
+                    value={antall.mekanikere}
+                  />
+                  <p className="tilbud-tekst">
+                    Legg igjen telefon eller e-post, så setter vi opp et tilbud
+                    til verkstedet deres.
+                  </p>
+                  <input
+                    type="text"
+                    name="kontakt"
+                    aria-label="Telefon eller e-post"
+                    placeholder="Telefon eller e-post"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-lg"
+                    disabled={sender}
+                  >
+                    {sender ? "Sender …" : "Send"}
+                  </button>
+                  {skjema.error ? (
+                    <span className="tilbud-feil">{skjema.error}</span>
+                  ) : null}
+                </form>
+              )
+            ) : (
+              <>
+                <div className="panel-cta-knapp">
+                  <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
+                    Prøv gratis i 14 dager
+                  </a>
+                </div>
+                <p className="per">
+                  <b>Ingen bindingstid</b> · Ingen etableringskostnad
+                </p>
+              </>
+            )}
           </div>
         </div>
 
@@ -308,7 +392,7 @@ export default function PrisKalkulator() {
               mindreLabel="Én admin mindre"
               merLabel="Én admin mer"
               mindreDeaktivert={antall.admin <= MIN_ADMIN}
-              merDeaktivert={paaTaket}
+              merDeaktivert={paaTelleTaket}
               onEndre={endreAdmin}
               onSett={settAdmin}
             />
@@ -330,7 +414,7 @@ export default function PrisKalkulator() {
               mindreLabel="Én mekaniker mindre"
               merLabel="Én mekaniker mer"
               mindreDeaktivert={antall.mekanikere <= MIN_MEKANIKERE}
-              merDeaktivert={paaTaket}
+              merDeaktivert={paaTelleTaket}
               onEndre={endreMekanikere}
               onSett={settMekanikere}
             />
@@ -338,84 +422,6 @@ export default function PrisKalkulator() {
         </div>
       </div>
 
-      {/* Storverksted-skjemaet: dukker opp når taket nås. Over 20 lisenser
-          er det tilbud og dialog som gjelder — vi ber om kontaktinfo i
-          stedet for å sende dem videre til prøveperioden. */}
-      <div
-        className={paaTaket ? "teller-tak" : "teller-tak teller-tak-skjult"}
-      >
-        {skjema.success ? (
-          <p className="tak-takk">
-            Takk! Vi tar kontakt og setter opp et tilbud til dere.
-          </p>
-        ) : (
-          <>
-            <p className="tak-tittel">
-              Flere enn {MAKS_LISENSER} lisenser? Legg igjen kontaktinfo, så
-              setter vi opp et tilbud som passer verkstedet deres.
-            </p>
-            <form action={skjemaAction} className="tak-skjema">
-              {/* Honeypot for boter — skjult for folk. */}
-              <input
-                type="text"
-                name="company_website"
-                className="tak-hp"
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-              />
-              {/* Tidsstempelet settes i ref-callbacken: SSR-html-en får tom
-                  verdi, klienten fyller inn ved mount — ingen hydration-avvik. */}
-              <input
-                type="hidden"
-                name="form_loaded_at"
-                defaultValue=""
-                ref={(el) => {
-                  if (el && !el.value) el.value = String(Date.now());
-                }}
-              />
-              <input type="hidden" name="antall_admin" value={antall.admin} />
-              <input
-                type="hidden"
-                name="antall_mekanikere"
-                value={antall.mekanikere}
-              />
-              <div className="tak-rad">
-                <label className="tak-felt tak-felt-antall">
-                  <span>Antall personer</span>
-                  <input
-                    type="text"
-                    inputMode="numeric"
-                    name="antall"
-                    placeholder="F.eks. 25"
-                    required
-                  />
-                </label>
-                <label className="tak-felt">
-                  <span>Telefon eller e-post</span>
-                  <input type="text" name="kontakt" required />
-                </label>
-              </div>
-              <label className="tak-felt">
-                <span>Kommentar (valgfritt)</span>
-                <textarea name="kommentar" rows={2} />
-              </label>
-              <div className="tak-send">
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  disabled={sender}
-                >
-                  {sender ? "Sender …" : "Bli kontaktet"}
-                </button>
-                {skjema.error ? (
-                  <span className="tak-feil">{skjema.error}</span>
-                ) : null}
-              </div>
-            </form>
-          </>
-        )}
-      </div>
     </div>
   );
 }

@@ -32,11 +32,13 @@ export const MIN_ADMIN = 1;
 export const MIN_MEKANIKERE = 0;
 
 /**
- * Kalkulatoren stopper på 20 lisenser totalt — verksteder med flere skal ta
- * kontakt og få tilbud: åpne priser over dette gir bort forhandlingsrommet
- * på kjedeavtaler.
+ * Prisene gjelder opp til 20 lisenser totalt — over det skal verkstedet ha
+ * eget tilbud: åpne priser over dette gir bort forhandlingsrommet på
+ * kjedeavtaler. Tellerne fortsetter forbi 20 (opp til MAKS_TELLER), men da
+ * bytter panelet til antall-kvittering og kontaktskjema.
  */
 export const MAKS_LISENSER = 20;
+export const MAKS_TELLER = 99;
 
 /** Trappa garanterer ingen rekkefølge der den brukes. Sorter før oppslag. */
 function sorterTrinn(trinn: Pristrinn[]): Pristrinn[] {

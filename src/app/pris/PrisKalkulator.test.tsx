@@ -140,51 +140,46 @@ describe("PrisKalkulator — trappa og totalen", () => {
   });
 });
 
-describe("PrisKalkulator — taket på 20 lisenser", () => {
-  it("viser storverksted-skjemaet først når taket er nådd", () => {
+describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
+  it("lar tellerne fortsette forbi 20 — pluss stopper først på 99 totalt", () => {
     render(<PrisKalkulator />);
-    const omraade = () =>
-      screen
-        .getByText(/Flere enn 20 lisenser/)
-        .closest(".teller-tak") as HTMLElement;
-    // Under taket: rendret men skjult, så layouten ikke hopper.
-    expect(omraade().className).toContain("teller-tak-skjult");
-    sett(20, 0);
-    expect(omraade().className).not.toContain("teller-tak-skjult");
-  });
-
-  it("har felt for antall, kontaktinfo og kommentar i skjemaet", () => {
-    render(<PrisKalkulator />);
-    sett(20, 0);
-    expect(screen.getByLabelText("Antall personer")).toBeDefined();
-    expect(screen.getByLabelText("Telefon eller e-post")).toBeDefined();
-    expect(screen.getByLabelText("Kommentar (valgfritt)")).toBeDefined();
-    expect(
-      screen.getByRole("button", { name: "Bli kontaktet" }),
-    ).toBeDefined();
-  });
-
-  it("slår av begge pluss-knappene på taket", () => {
-    render(<PrisKalkulator />);
-    sett(17, 3);
+    sett(21, 0);
+    expect(adminFelt().value).toBe("21");
+    expect(adminPluss().hasAttribute("disabled")).toBe(false);
+    sett(96, 3);
     expect(adminPluss().hasAttribute("disabled")).toBe(true);
     expect(mekPluss().hasAttribute("disabled")).toBe(true);
   });
 
-  it("klemmer innskrevet admin-antall mot det mekanikerne har tatt", () => {
+  it("klemmer innskrevet antall mot 99 totalt", () => {
     render(<PrisKalkulator />);
     sett(1, 3);
     fireEvent.change(adminFelt(), { target: { value: "999" } });
     fireEvent.blur(adminFelt());
-    expect(adminFelt().value).toBe("17");
+    expect(adminFelt().value).toBe("96");
   });
 
-  it("klemmer innskrevet mekaniker-antall mot det admin har tatt", () => {
+  it("bytter til antall-kvittering og tilbudsskjema over 20", () => {
     render(<PrisKalkulator />);
-    sett(5, 0);
-    fireEvent.change(mekFelt(), { target: { value: "999" } });
-    fireEvent.blur(mekFelt());
-    expect(mekFelt().value).toBe("15");
+    sett(21, 4);
+    // Kvitteringen viser antallene uten priser — prisen stopper på 20.
+    expect(adminRad()[0]).toBe("21 admin");
+    expect(mekRad()[0]).toBe("4 mekanikere");
+    expect(document.querySelector(".kvitt-tilbud")!.textContent).toBe(
+      "Etter avtale",
+    );
+    // «Prøv gratis» er byttet ut med kontaktfelt og Send-knapp.
+    expect(document.querySelector(".panel-topp a.btn")).toBeNull();
+    expect(screen.getByLabelText("Telefon eller e-post")).toBeDefined();
+    expect(screen.getByRole("button", { name: "Send" })).toBeDefined();
+  });
+
+  it("viser vanlig pris og CTA igjen når man går under taket", () => {
+    render(<PrisKalkulator />);
+    sett(21, 0);
+    sett(20, 0);
+    expect(document.querySelector(".panel-topp a.btn")).not.toBeNull();
+    expect(total()).toBe(`19${NBSP}900,-`);
   });
 });
 
@@ -260,7 +255,7 @@ describe("PrisKalkulator — hold inne", () => {
     }
   });
 
-  it("stanser på taket selv om knappen holdes lenge", () => {
+  it("stanser på 99 selv om knappen holdes lenge", () => {
     vi.useFakeTimers();
     try {
       render(<PrisKalkulator />);
@@ -268,7 +263,7 @@ describe("PrisKalkulator — hold inne", () => {
       act(() => {
         vi.advanceTimersByTime(60_000);
       });
-      expect(adminFelt().value).toBe("20");
+      expect(adminFelt().value).toBe("99");
     } finally {
       vi.useRealTimers();
     }

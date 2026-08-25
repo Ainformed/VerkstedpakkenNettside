@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   ADMIN_TRINN,
   MAKS_LISENSER,
+  MAKS_TELLER,
   MEKANIKER_PRIS,
   MIN_ADMIN,
   MIN_MEKANIKERE,
@@ -86,6 +87,7 @@ describe("MEKANIKER_PRIS og grenser", () => {
     expect(MIN_ADMIN).toBe(1);
     expect(MIN_MEKANIKERE).toBe(0);
     expect(MAKS_LISENSER).toBe(20);
+    expect(MAKS_TELLER).toBe(99);
   });
 });
 
