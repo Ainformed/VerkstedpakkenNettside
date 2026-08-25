@@ -124,8 +124,7 @@ const INTEGRATIONS: Integration[] = [
     name: "Autofrontal",
     cat: "deler",
     catLabel: "Deler",
-    logoText: "Autofrontal",
-    logoColor: "#0C005A",
+    logo: { src: "/design/logos/autofrontal.png", alt: "Autofrontal", className: "logo-compact" },
     desc: "Bilglass fra Autofrontal — søk på skiltnummer og bestill riktig rute første gang.",
   },
   {
