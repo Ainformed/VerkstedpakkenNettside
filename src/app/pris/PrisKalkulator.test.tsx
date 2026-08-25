@@ -141,14 +141,27 @@ describe("PrisKalkulator — trappa og totalen", () => {
 });
 
 describe("PrisKalkulator — taket på 20 lisenser", () => {
-  it("viser kontakt-linjen først når taket er nådd", () => {
+  it("viser storverksted-skjemaet først når taket er nådd", () => {
     render(<PrisKalkulator />);
-    const linje = () =>
-      screen.getByText(/Flere enn 20 lisenser/).closest("p") as HTMLElement;
+    const omraade = () =>
+      screen
+        .getByText(/Flere enn 20 lisenser/)
+        .closest(".teller-tak") as HTMLElement;
     // Under taket: rendret men skjult, så layouten ikke hopper.
-    expect(linje().className).toContain("teller-tak-skjult");
+    expect(omraade().className).toContain("teller-tak-skjult");
     sett(20, 0);
-    expect(linje().className).not.toContain("teller-tak-skjult");
+    expect(omraade().className).not.toContain("teller-tak-skjult");
+  });
+
+  it("har felt for antall, kontaktinfo og kommentar i skjemaet", () => {
+    render(<PrisKalkulator />);
+    sett(20, 0);
+    expect(screen.getByLabelText("Antall personer")).toBeDefined();
+    expect(screen.getByLabelText("Telefon eller e-post")).toBeDefined();
+    expect(screen.getByLabelText("Kommentar (valgfritt)")).toBeDefined();
+    expect(
+      screen.getByRole("button", { name: "Bli kontaktet" }),
+    ).toBeDefined();
   });
 
   it("slår av begge pluss-knappene på taket", () => {

@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useActionState,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { submitStorverksted } from "@/app/actions/storverksted";
 import {
   MAKS_LISENSER,
   MEKANIKER_PRIS,
@@ -214,6 +221,12 @@ export default function PrisKalkulator() {
   const { perAdmin, total } = beregnManedspris(antall.admin, antall.mekanikere);
   const paaTaket = antall.admin + antall.mekanikere >= MAKS_LISENSER;
 
+  // Storverksted-skjemaet ved taket.
+  const [skjema, skjemaAction, sender] = useActionState(submitStorverksted, {
+    success: false,
+    error: "",
+  });
+
   return (
     <div className="pris-omrade" aria-live="polite">
       <div className="pris-panel">
@@ -325,14 +338,84 @@ export default function PrisKalkulator() {
         </div>
       </div>
 
-      {/* Alltid rendret så layouten ikke hopper når taket nås. */}
-      <p
+      {/* Storverksted-skjemaet: dukker opp når taket nås. Over 20 lisenser
+          er det tilbud og dialog som gjelder — vi ber om kontaktinfo i
+          stedet for å sende dem videre til prøveperioden. */}
+      <div
         className={paaTaket ? "teller-tak" : "teller-tak teller-tak-skjult"}
       >
-        Flere enn {MAKS_LISENSER} lisenser?{" "}
-        <a href={SIGNUP_URL}>Prøv gratis i 14 dager</a>, så tar vi resten
-        derfra.
-      </p>
+        {skjema.success ? (
+          <p className="tak-takk">
+            Takk! Vi tar kontakt og setter opp et tilbud til dere.
+          </p>
+        ) : (
+          <>
+            <p className="tak-tittel">
+              Flere enn {MAKS_LISENSER} lisenser? Legg igjen kontaktinfo, så
+              setter vi opp et tilbud som passer verkstedet deres.
+            </p>
+            <form action={skjemaAction} className="tak-skjema">
+              {/* Honeypot for boter — skjult for folk. */}
+              <input
+                type="text"
+                name="company_website"
+                className="tak-hp"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+              {/* Tidsstempelet settes i ref-callbacken: SSR-html-en får tom
+                  verdi, klienten fyller inn ved mount — ingen hydration-avvik. */}
+              <input
+                type="hidden"
+                name="form_loaded_at"
+                defaultValue=""
+                ref={(el) => {
+                  if (el && !el.value) el.value = String(Date.now());
+                }}
+              />
+              <input type="hidden" name="antall_admin" value={antall.admin} />
+              <input
+                type="hidden"
+                name="antall_mekanikere"
+                value={antall.mekanikere}
+              />
+              <div className="tak-rad">
+                <label className="tak-felt tak-felt-antall">
+                  <span>Antall personer</span>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    name="antall"
+                    placeholder="F.eks. 25"
+                    required
+                  />
+                </label>
+                <label className="tak-felt">
+                  <span>Telefon eller e-post</span>
+                  <input type="text" name="kontakt" required />
+                </label>
+              </div>
+              <label className="tak-felt">
+                <span>Kommentar (valgfritt)</span>
+                <textarea name="kommentar" rows={2} />
+              </label>
+              <div className="tak-send">
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  disabled={sender}
+                >
+                  {sender ? "Sender …" : "Bli kontaktet"}
+                </button>
+                {skjema.error ? (
+                  <span className="tak-feil">{skjema.error}</span>
+                ) : null}
+              </div>
+            </form>
+          </>
+        )}
+      </div>
     </div>
   );
 }
