@@ -3,8 +3,14 @@
    ligger allerede globalt i vp-site.css. */
 
 .page-pris {
-  .teller-tak { margin-top: 12px; font-size: 15px; color: var(--ink-2); }
-  .teller-tak a { color: var(--purple-2); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+  /* Tak-meldingen skal synes godt når den slår inn: pille med farge, mørk
+     tekst i full størrelse. Skjult holder den fortsatt plassen sin. */
+  .teller-tak {
+    display: inline-block; margin-top: 16px; padding: 12px 24px;
+    background: #F5F3FC; border-radius: 999px;
+    font-size: 16.5px; color: var(--ink);
+  }
+  .teller-tak a { color: var(--purple-2); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
   .teller-tak-skjult { visibility: hidden; }
 
   .phero-title {
@@ -82,10 +88,15 @@
     .panel-cta .per { white-space: normal; }
     .panel-total { flex: initial; align-self: stretch; }
     /* Kvitteringen har bare noe for seg med to lisenstyper i regnestykket.
-       Kun admin: den enkle totalen, midtstilt. */
+       Kun admin: samme oppsett som kvitteringens sumrad — tekst til
+       venstre, tallet til høyre. */
     .panel-total.har-mekanikere .total-klassisk { display: none; }
     .panel-total.har-mekanikere .total-kvittering { display: flex; }
-    .panel-total.kun-admin .total-klassisk { align-items: center; text-align: center; }
+    .panel-total.kun-admin .total-klassisk {
+      flex-direction: row; justify-content: space-between; align-items: baseline; gap: 16px;
+    }
+    .panel-total.kun-admin .total-ledetekst { font-size: 17px; font-weight: 600; }
+    .panel-total.kun-admin .total-klassisk .amt { font-size: 30px; letter-spacing: -1px; }
     .pkort-rad { grid-template-columns: 1fr; }
     .pkort { padding: 24px 20px; }
     .pkort-admin { border-right: none; border-bottom: 1.5px solid var(--line); }
