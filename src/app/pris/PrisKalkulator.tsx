@@ -229,10 +229,7 @@ export default function PrisKalkulator() {
         <div className="panel-topp">
           <div className="panel-total">
             <p className="total-ledetekst">Din pris per måned</p>
-            <div className="amt-rad">
-              <div className="amt">{formaterKr(total)}</div>
-              <span className="amt-mva">eks. mva</span>
-            </div>
+            <div className="amt">{formaterKr(total)}</div>
             <p className="total-detalj">
               {adminLedd}
               {mekanikerLedd}
