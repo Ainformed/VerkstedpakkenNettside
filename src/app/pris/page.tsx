@@ -165,16 +165,17 @@ export default function Pris() {
                   <span className="pill pill-price">2 kr / stk</span>
                 </div>
 
-                <div className="pgroup-label">Kommer</div>
+                <div className="pgroup-label">Fra andre leverandører</div>
                 <div className="prow-flat">
                   <span className="pname">
                     Teknisk kjøretøydata
                     <small>
-                      HaynesPro med flere · Reparasjonstider, koblingsskjemaer og servicedata rett
-                      i ordren. Prisene publiseres her før tjenestene kan skrus på.
+                      HaynesPro med flere · Kjøretøydata utover oppslaget fra Statens vegvesen.
+                      Har du egen avtale med leverandøren, kan du bruke den i Verkstedpakken i
+                      dag.
                     </small>
                   </span>
-                  <span className="pill pill-soon">Pris kommer</span>
+                  <span className="pill pill-soon">Etter avtale</span>
                 </div>
               </div>
               <div className="pnote">
