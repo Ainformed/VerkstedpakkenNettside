@@ -36,13 +36,13 @@ describe("PrisKalkulator i ro", () => {
     expect(total()).toBe(`1${NBSP}295,-`);
   });
 
-  it("viser gjeldende enhetspris i admin-kortet, som følger trinnene", () => {
+  it("viser gjeldende enhetspris i admin-kortet, som følger admin-antallet", () => {
     render(<PrisKalkulator />);
     const pris = () => document.querySelector(".pkort-admin .pkort-pris")!;
     expect(pris().textContent).toContain(`1${NBSP}295,-`);
     expect(pris().textContent).toContain("per bruker/mnd");
-    sett(2, 3);
-    // 5 lisenser → trinn 4–6 → kortet viser 1 095, ikke startprisen.
+    sett(4, 1);
+    // 4 admin → trinn 4–6 → kortet viser 1 095, ikke startprisen.
     expect(pris().textContent).toContain(`1${NBSP}095,-`);
     expect(pris().textContent).not.toContain(`1${NBSP}295,-`);
   });
@@ -100,21 +100,22 @@ describe("PrisKalkulator — trappa og totalen", () => {
     expect(detalj()).toBe(`1 admin × 1${NBSP}295,- + 1 mekaniker × 595,-`);
   });
 
-  it("lar mekanikere telle mot trinnene: 2 admin + 3 mekanikere gir 1 095 per admin", () => {
+  it("lar ikke mekanikere påvirke admin-prisen: 2 admin + 3 mekanikere gir fortsatt 1 295", () => {
     render(<PrisKalkulator />);
     sett(2, 3);
-    expect(total()).toBe(`3${NBSP}975,-`);
+    // 2 × 1 295 + 3 × 595 = 4 375
+    expect(total()).toBe(`4${NBSP}375,-`);
     expect(detalj()).toBe(
-      `2 admin × 1${NBSP}095,- + 3 mekanikere × 595,-`,
+      `2 admin × 1${NBSP}295,- + 3 mekanikere × 595,-`,
     );
   });
 
-  it("når nederste trinn ved sju lisenser", () => {
+  it("treffer trinnene på antall admin alene", () => {
     render(<PrisKalkulator />);
     sett(4, 3);
-    // 4 × 995 + 3 × 595 = 5 765
-    expect(total()).toBe(`5${NBSP}765,-`);
-    expect(detalj()).toBe(`4 admin × 995,- + 3 mekanikere × 595,-`);
+    // 4 × 1 095 + 3 × 595 = 6 165
+    expect(total()).toBe(`6${NBSP}165,-`);
+    expect(detalj()).toBe(`4 admin × 1${NBSP}095,- + 3 mekanikere × 595,-`);
   });
 });
 

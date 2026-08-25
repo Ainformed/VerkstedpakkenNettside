@@ -52,27 +52,26 @@ describe("beregnManedspris", () => {
     });
   });
 
-  it("lar mekaniker-lisenser telle mot trinnene, slik superadmin gjør", () => {
-    // 2 admin + 3 mekanikere = 5 lisenser → trinn 4–6 → 1 095 per admin.
+  it("lar IKKE mekanikere telle mot trinnene — rabatten gjelder kun admin", () => {
+    // 2 admin + 3 mekanikere: fortsatt bare 2 admin → første trinn.
     expect(beregnManedspris(2, 3)).toEqual({
-      perAdmin: 1095,
-      total: 2 * 1095 + 3 * 595,
+      perAdmin: 1295,
+      total: 2 * 1295 + 3 * 595,
     });
-    // 3 admin + 1 mekaniker = 4 lisenser — trinnet slår inn på totalen.
-    expect(beregnManedspris(3, 1)).toEqual({
-      perAdmin: 1095,
-      total: 3 * 1095 + 595,
+    expect(beregnManedspris(1, 6)).toEqual({
+      perAdmin: 1295,
+      total: 1295 + 6 * 595,
     });
   });
 
-  it("når nederste trinn ved sju lisenser totalt", () => {
+  it("treffer trinnene på antall admin alene", () => {
     expect(beregnManedspris(4, 3)).toEqual({
-      perAdmin: 995,
-      total: 4 * 995 + 3 * 595,
+      perAdmin: 1095,
+      total: 4 * 1095 + 3 * 595,
     });
-    expect(beregnManedspris(1, 6)).toEqual({
+    expect(beregnManedspris(7, 2)).toEqual({
       perAdmin: 995,
-      total: 995 + 6 * 595,
+      total: 7 * 995 + 2 * 595,
     });
   });
 

@@ -189,8 +189,8 @@ export default function Pris() {
               <summary>Hvordan regnes prisen?</summary>
               <div className="faq-body">
                 Du betaler 1 295,- per admin og 595,- per mekaniker per måned. Prisen per admin
-                blir lavere når dere har flere lisenser totalt: 1 095,- fra fjerde lisens og
-                995,- fra sjuende. Mekaniker-lisensen koster det samme uansett antall.
+                blir lavere når dere er flere admin: 1 095,- fra den fjerde og 995,- fra den
+                sjuende. Mekaniker-lisensen koster det samme uansett antall.
               </div>
             </details>
             <details className="faq">

@@ -82,11 +82,11 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Hva koster et verkstedprogram?",
-        a: "Mange leverandører oppgir ikke pris. Du må ofte booke demo for å få et tilbud. Verkstedpakken koster 1 295 kr per admin og 595 kr per mekaniker per måned eks mva. Alt er inkludert: support, opplæring, oppsett, dataflytting og alle integrasjoner. Prisen per admin faller fra fjerde lisens.\n\nIngen etableringskostnad, ingen bindingstid. Regn ut prisen for ditt verksted med [kalkulatoren på prissiden](/pris).",
+        a: "Mange leverandører oppgir ikke pris. Du må ofte booke demo for å få et tilbud. Verkstedpakken koster 1 295 kr per admin og 595 kr per mekaniker per måned eks mva. Alt er inkludert: support, opplæring, oppsett, dataflytting og alle integrasjoner. Prisen per admin faller fra fjerde admin.\n\nIngen etableringskostnad, ingen bindingstid. Regn ut prisen for ditt verksted med [kalkulatoren på prissiden](/pris).",
       },
       {
         q: "Hva koster Verkstedpakken?",
-        a: "1 295 kroner per admin og 595 kroner per mekaniker per måned, eks. mva. Alt er inkludert i prisen, og prisen per admin blir lavere fra fjerde lisens.",
+        a: "1 295 kroner per admin og 595 kroner per mekaniker per måned, eks. mva. Alt er inkludert i prisen, og prisen per admin blir lavere fra fjerde admin.",
       },
       {
         q: "Er det bindingstid?",

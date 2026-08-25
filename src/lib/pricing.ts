@@ -14,8 +14,10 @@ export type Pristrinn = {
 };
 
 /**
- * Admin-lisensens trapp. Trinnet bestemmes av TOTALT antall lisenser
- * (admin + mekanikere), slik superadmin regner det.
+ * Admin-lisensens trapp. Trinnet bestemmes av antall ADMIN alene —
+ * mekaniker-lisenser gir ingen rabatt og teller ikke mot trinnene
+ * (besluttet 25.08; superadmin-skjermen sa «totalt antall lisenser»,
+ * men Henrik overstyrte: rabatt kun på admin).
  */
 export const ADMIN_TRINN: Pristrinn[] = [
   { min: 1, max: 3, pris: 1295 },
@@ -60,14 +62,14 @@ export function finnPris(trinn: Pristrinn[], antall: number): number {
 }
 
 /**
- * Månedsprisen for en bedrift: admin-prisen følger trappa målt mot totalt
- * antall lisenser, mekanikere legges til flatt.
+ * Månedsprisen for en bedrift: admin-prisen følger trappa målt mot antall
+ * admin alene, mekanikere legges til flatt uten å påvirke trinnet.
  */
 export function beregnManedspris(
   antallAdmin: number,
   antallMekanikere: number,
 ): { perAdmin: number; total: number } {
-  const perAdmin = finnPris(ADMIN_TRINN, antallAdmin + antallMekanikere);
+  const perAdmin = finnPris(ADMIN_TRINN, antallAdmin);
   return {
     perAdmin,
     total: antallAdmin * perAdmin + antallMekanikere * MEKANIKER_PRIS,
