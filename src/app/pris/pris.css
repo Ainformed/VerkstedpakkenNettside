@@ -43,7 +43,8 @@
      med kun admin sentreres den enkle totalen mot CTA-kolonnen. */
   .panel-total { display: flex; flex-direction: column; flex: 1; min-width: 0; }
   .panel-total.har-mekanikere { justify-content: flex-end; }
-  .panel-total.kun-admin { justify-content: center; }
+  /* Litt over midten — optisk senter, ikke geometrisk. */
+  .panel-total.kun-admin { justify-content: center; padding-bottom: 22px; }
 
   /* Desktop: stor total med regnestykket på én linje. */
   .total-klassisk { display: flex; flex-direction: column; gap: 4px; }
