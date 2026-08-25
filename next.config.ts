@@ -50,6 +50,8 @@ const nextConfig: NextConfig = {
       // Timeregistrering- og EU-kontroll-pilarsidene er fjernet (25. aug 2026).
       { source: "/timeregistrering", destination: "/", permanent: true },
       { source: "/eu-kontroll", destination: "/", permanent: true },
+      // FAQ-siden er fjernet (25. aug 2026) — prissidens FAQ tar over.
+      { source: "/faq", destination: "/pris", permanent: true },
     ];
   },
 };

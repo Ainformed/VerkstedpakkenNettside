@@ -10,7 +10,6 @@
 - Nettside og booking: https://verkstedpakken.no/nettside-og-booking
 - Integrasjoner: https://verkstedpakken.no/integrasjoner
 - Pris: https://verkstedpakken.no/pris
-- Ofte stilte spørsmål: https://verkstedpakken.no/faq
 - Prøv gratis (14 dager): https://app.verkstedpakken.no/kom-i-gang
 
 ## Hovedfunksjoner
