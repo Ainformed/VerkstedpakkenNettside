@@ -31,7 +31,10 @@
      ned under prisen — panelet skal ikke hoppe når tellerne endres. */
   .panel-topp {
     background: #FAFAFE; border-bottom: 1.5px solid var(--line);
-    padding: 34px 38px; display: flex; align-items: center;
+    padding: 34px 38px; display: flex;
+    /* Bunnjustert: «Per måned»-raden i kvitteringen og betingelseslinjen
+       under CTA-en skal stå på samme linje. */
+    align-items: flex-end;
     justify-content: space-between; gap: 32px;
     /* Plass til kvitteringens høyde fra start, så panelet ikke vokser
        idet første mekaniker legges til. */
