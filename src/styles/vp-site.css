@@ -259,6 +259,8 @@
   }
   .logo-card img { max-width: 86%; max-height: 34px; width: auto; object-fit: contain; }
   .logo-card img.logo-tall { max-height: 50px; }
+  /* PNG-er med mye innebygd luft (kun ~60 % av høyden er synlig logo) trenger større boks */
+  .logo-card img.logo-compact { max-height: 58px; }
   .logo-card .wordmark { font-family: var(--serif); font-weight: 700; font-size: 19px; letter-spacing: -0.5px; color: var(--ink); }
   .logo-card .wordmark.sm { font-size: 16px; }
   @media (max-width: 560px) { .logo-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -840,7 +842,7 @@ details.faq .faq-body { padding: 0 2px 24px; font-size: 16.5px; color: var(--ink
    Brede ordmerker litt lavere, kompakte/stående litt høyere. */
 .integ-card .ic-logo img { height: 30px; width: auto; max-width: 82%; object-fit: contain; object-position: left center; }
 .integ-card .ic-logo img.logo-wide { height: 24px; }
-.integ-card .ic-logo img.logo-compact { height: 40px; }
+.integ-card .ic-logo img.logo-compact { height: 50px; }
 .integ-card .ic-logo img.logo-tall { height: 44px; }
 .integ-card .ic-cat { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .7px; text-transform: uppercase; color: var(--ink-3); }
 .integ-card h3 { font-family: var(--serif); font-size: 19px; font-weight: 600; letter-spacing: -.2px; }
