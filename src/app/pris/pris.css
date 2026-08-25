@@ -30,7 +30,9 @@
   }
   .panel-total { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
   .total-ledetekst { font-size: 17px; color: var(--ink); }
+  .amt-rad { display: flex; align-items: baseline; gap: 10px; }
   .amt { font-size: clamp(38px, 5vw, 48px); letter-spacing: -1.5px; line-height: 1.1; }
+  .amt-mva { font-size: 17px; color: var(--ink); }
   .total-detalj { font-size: 16.5px; color: var(--ink); white-space: nowrap; }
   .panel-cta { flex-shrink: 0; }
   /* Knappen spenner nøyaktig over betingelseslinjen under, midtstilt —
@@ -67,6 +69,7 @@
     .panel-cta .per { white-space: normal; }
     .panel-total { flex: initial; }
     .total-detalj { white-space: normal; }
+    .amt-rad { justify-content: center; }
     .pkort-rad { grid-template-columns: 1fr; }
     .pkort { padding: 24px 20px; }
     .pkort-admin { border-right: none; border-bottom: 1.5px solid var(--line); }
