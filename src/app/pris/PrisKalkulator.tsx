@@ -228,7 +228,10 @@ export default function PrisKalkulator() {
           >
             <div className="total-klassisk">
               <p className="total-ledetekst">Din pris per måned</p>
-              <div className="amt">{formaterKr(total)}</div>
+              <div className="amt-rad">
+                <div className="amt">{formaterKr(total)}</div>
+                <span className="amt-mva">eks. mva</span>
+              </div>
             </div>
             <div className="total-kvittering">
               <div className="kvitt-rad kvitt-admin">
@@ -256,7 +259,10 @@ export default function PrisKalkulator() {
               <div className="kvitt-strek" />
               <div className="kvitt-total">
                 <span className="kvitt-total-navn">Per måned</span>
-                <div className="amt">{formaterKr(total)}</div>
+                <div className="amt-rad">
+                  <div className="amt">{formaterKr(total)}</div>
+                  <span className="amt-mva">eks. mva</span>
+                </div>
               </div>
             </div>
           </div>
@@ -267,7 +273,7 @@ export default function PrisKalkulator() {
               </a>
             </div>
             <p className="per">
-              <b>Ingen bindingstid</b> · Ingen etableringskostnad · Eks. mva.
+              <b>Ingen bindingstid</b> · Ingen etableringskostnad
             </p>
           </div>
         </div>

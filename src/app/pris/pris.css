@@ -3,13 +3,9 @@
    ligger allerede globalt i vp-site.css. */
 
 .page-pris {
-  /* Tak-meldingen skal synes godt når den slår inn: pille med farge, mørk
-     tekst i full størrelse. Skjult holder den fortsatt plassen sin. */
-  .teller-tak {
-    display: inline-block; margin-top: 16px; padding: 12px 24px;
-    background: #F5F3FC; border-radius: 999px;
-    font-size: 16.5px; color: var(--ink);
-  }
+  /* Tak-meldingen: ren tekst, mørk og i full størrelse. Skjult holder den
+     fortsatt plassen sin så layouten ikke hopper. */
+  .teller-tak { margin-top: 18px; font-size: 16.5px; color: var(--ink); }
   .teller-tak a { color: var(--purple-2); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
   .teller-tak-skjult { visibility: hidden; }
 
@@ -65,6 +61,12 @@
   .kvitt-strek { height: 1.5px; background: var(--line); margin: 8px 0; }
   .kvitt-total { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
   .kvitt-total-navn { font-size: 17px; font-weight: 600; color: var(--ink); }
+  .amt-rad { display: flex; align-items: baseline; gap: 8px; }
+  .amt-mva { font-size: 15.5px; color: var(--ink); }
+  /* Kun på PC: den enkle totalen får «eks. mva» under tallet, i litt
+     større skrift. På mobil (og i kvitteringen) står det etter tallet. */
+  .total-klassisk .amt-rad { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .total-klassisk .amt-mva { font-size: 16.5px; }
   .total-kvittering .amt { font-size: 34px; letter-spacing: -1px; line-height: 1.15; }
 
   .panel-cta { flex-shrink: 0; }
@@ -109,6 +111,8 @@
     }
     .panel-total.kun-admin .total-ledetekst { font-size: 17px; font-weight: 600; }
     .panel-total.kun-admin .total-klassisk .amt { font-size: 30px; letter-spacing: -1px; }
+    .total-klassisk .amt-rad { flex-direction: row; align-items: baseline; gap: 8px; }
+    .total-klassisk .amt-mva { font-size: 15.5px; }
     .pkort-rad { grid-template-columns: 1fr; }
     .pkort { padding: 24px 20px; }
     .pkort-admin { border-right: none; border-bottom: 1.5px solid var(--line); }

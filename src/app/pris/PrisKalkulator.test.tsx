@@ -62,13 +62,20 @@ describe("PrisKalkulator i ro", () => {
     expect(pris.textContent).toContain("per mekaniker/mnd");
   });
 
-  it("samler betingelsene ved totalen — uten «Alt inkludert»", () => {
+  it("viser betingelsene ved CTA-en og «eks. mva» etter prisen", () => {
     render(<PrisKalkulator />);
     const per = document.querySelector(".per")!;
     expect(per.textContent).toContain("Ingen bindingstid");
     expect(per.textContent).toContain("Ingen etableringskostnad");
-    expect(per.textContent).toContain("Eks. mva.");
-    expect(per.textContent).not.toContain("Alt inkludert");
+    // mva står ved selve prisen, ikke i betingelseslinjen — da holder
+    // linjen seg på én linje også på mobil.
+    expect(per.textContent).not.toContain("mva");
+    expect(
+      document.querySelector(".total-klassisk .amt-mva")!.textContent,
+    ).toBe("eks. mva");
+    expect(
+      document.querySelector(".total-kvittering .amt-mva")!.textContent,
+    ).toBe("eks. mva");
   });
 
   it("har CTA-en inne i panelet", () => {
