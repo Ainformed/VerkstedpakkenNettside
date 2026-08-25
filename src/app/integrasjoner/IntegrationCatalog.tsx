@@ -9,6 +9,7 @@ type Integration = {
   desc: string;
   logo?: { src: string; alt: string; className?: string };
   logoText?: string;
+  logoColor?: string;
 };
 
 const CATEGORIES = [
@@ -24,14 +25,14 @@ const INTEGRATIONS: Integration[] = [
     name: "Fiken",
     cat: "regnskap",
     catLabel: "Regnskap",
-    logo: { src: "/design/logos/fiken.png", alt: "Fiken", className: "logo-compact" },
+    logo: { src: "/design/logos/fiken.png", alt: "Fiken" },
     desc: "Fakturaer og betalinger går rett inn i regnskapet. Perfekt for verksteder som fører regnskapet selv.",
   },
   {
     name: "PowerOffice GO",
     cat: "regnskap",
     catLabel: "Regnskap",
-    logo: { src: "/design/logos/poweroffice.png", alt: "PowerOffice GO", className: "logo-wide" },
+    logo: { src: "/design/logos/poweroffice.png", alt: "PowerOffice GO" },
     desc: "Automatisk overføring av fakturagrunnlag og betalingsstatus til regnskapsføreren deres.",
   },
   {
@@ -56,10 +57,25 @@ const INTEGRATIONS: Integration[] = [
     desc: "Overfør salg og betalinger automatisk til regnskapet.",
   },
   {
+    name: "Systima",
+    cat: "regnskap",
+    catLabel: "Regnskap",
+    logo: { src: "/design/logos/systima.png", alt: "Systima" },
+    desc: "Fakturagrunnlag og betalinger går automatisk til bokføring i Systima.",
+  },
+  {
+    name: "Conta",
+    cat: "regnskap",
+    catLabel: "Regnskap",
+    logoText: "Conta",
+    desc: "Koble til på minuttet med API-nøkkel — salg og betalingsstatus havner rett i Conta.",
+  },
+  {
     name: "Vipps",
     cat: "betaling",
     catLabel: "Betaling",
     logoText: "vipps",
+    logoColor: "#FF5B24",
     desc: "Kunden betaler med Vipps når bilen hentes.",
   },
   {
@@ -73,7 +89,7 @@ const INTEGRATIONS: Integration[] = [
     name: "BilXtra",
     cat: "deler",
     catLabel: "Deler",
-    logo: { src: "/design/logos/bilxtra.svg", alt: "BilXtra", className: "logo-wide" },
+    logo: { src: "/design/logos/bilxtra.svg", alt: "BilXtra" },
     desc: "Søk på skiltnummer, se pris og lagerstatus, og bestill deler rett fra ordren.",
   },
   {
@@ -87,7 +103,7 @@ const INTEGRATIONS: Integration[] = [
     name: "MEKO",
     cat: "deler",
     catLabel: "Deler",
-    logo: { src: "/design/logos/meko.png", alt: "MEKO", className: "logo-wide" },
+    logo: { src: "/design/logos/meko.png", alt: "MEKO" },
     desc: "Bestill fra MEKO-nettverket med leveringstid synlig i ordrebildet.",
   },
   {
@@ -138,7 +154,7 @@ export default function IntegrationCatalog() {
                       fontWeight: 700,
                       fontSize: "24px",
                       letterSpacing: "-0.5px",
-                      color: "#FF5B24",
+                      color: card.logoColor ?? "var(--ink)",
                     }}
                   >
                     {card.logoText}
