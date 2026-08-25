@@ -20,7 +20,7 @@ export default function Ordresystem() {
         <section className="hero feat-hero vo-hero-split">
           <div className="vo-hero-grid">
             <div className="vo-hero-copy">
-              <h1>Ordresystemet som samler hele jobben</h1>
+              <h1>Ordreprogrammet som samler hele jobben</h1>
               <p className="lead">
                 Lag ordre og tilbud på sekunder, eller ta imot forespørsler
                 fra nettsiden. Alt om jobben er samlet på ett sted, fra
