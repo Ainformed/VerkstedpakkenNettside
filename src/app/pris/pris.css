@@ -33,6 +33,9 @@
     background: #FAFAFE; border-bottom: 1.5px solid var(--line);
     padding: 34px 38px; display: flex; align-items: center;
     justify-content: space-between; gap: 32px;
+    /* Plass til kvitteringens høyde fra start, så panelet ikke vokser
+       idet første mekaniker legges til. */
+    min-height: 196px;
   }
   .panel-total { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 
@@ -41,8 +44,12 @@
   .total-ledetekst { font-size: 17px; color: var(--ink); }
   .total-klassisk .amt { font-size: clamp(38px, 5vw, 48px); letter-spacing: -1.5px; line-height: 1.1; }
 
-  /* Telefon: kvittering — rad per lisenstype, delelinje, sum. */
-  .total-kvittering { display: none; flex-direction: column; }
+  /* Kvittering — rad per lisenstype, delelinje, sum. Vises på alle
+     skjermer, men bare når regnestykket har to lisenstyper; med kun
+     admin er den unødvendig og den enkle totalen vises i stedet. */
+  .total-kvittering { display: none; flex-direction: column; max-width: 430px; }
+  .panel-total.har-mekanikere .total-klassisk { display: none; }
+  .panel-total.har-mekanikere .total-kvittering { display: flex; }
   .kvitt-rad {
     display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
     padding: 4px 0; font-size: 16.5px; color: var(--ink); white-space: nowrap;
@@ -51,7 +58,7 @@
   .kvitt-strek { height: 1.5px; background: var(--line); margin: 8px 0; }
   .kvitt-total { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
   .kvitt-total-navn { font-size: 17px; font-weight: 600; color: var(--ink); }
-  .total-kvittering .amt { font-size: 30px; letter-spacing: -1px; line-height: 1.15; }
+  .total-kvittering .amt { font-size: 34px; letter-spacing: -1px; line-height: 1.15; }
 
   .panel-cta { flex-shrink: 0; }
   /* Knappen spenner nøyaktig over betingelseslinjen under, midtstilt —
@@ -85,11 +92,10 @@
     .panel-cta { align-self: stretch; gap: 20px; }
     .panel-cta .per { white-space: normal; }
     .panel-total { flex: initial; align-self: stretch; }
-    /* Kvitteringen har bare noe for seg med to lisenstyper i regnestykket.
-       Kun admin: samme oppsett som kvitteringens sumrad — tekst til
+    .total-kvittering { max-width: none; }
+    .total-kvittering .amt { font-size: 30px; }
+    /* Kun admin: samme oppsett som kvitteringens sumrad — tekst til
        venstre, tallet til høyre. */
-    .panel-total.har-mekanikere .total-klassisk { display: none; }
-    .panel-total.har-mekanikere .total-kvittering { display: flex; }
     .panel-total.kun-admin .total-klassisk {
       flex-direction: row; justify-content: space-between; align-items: baseline; gap: 16px;
     }
