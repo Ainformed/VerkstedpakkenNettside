@@ -12,58 +12,62 @@
     font-size: clamp(24px, 3.2vw, 30px); letter-spacing: -0.5px; margin-bottom: 28px;
   }
 
-  /* ── Pris-hero: to lisenskort og totalen under ── */
+  /* ── Pris-hero: ett samlet panel — total øverst, lisenskortene under ── */
   .phero-innhold { max-width: 880px; margin: 0 auto; padding: 0 28px; }
 
-  .pkort-rad {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
-    max-width: 780px; margin: 0 auto; text-align: left;
+  .pris-panel {
+    background: #fff; border: 1.5px solid var(--line); border-radius: 22px;
+    box-shadow: 0 14px 40px rgba(12, 0, 90, 0.07); overflow: hidden; text-align: left;
+    display: flex; flex-direction: column;
   }
-  .pkort {
-    background: #fff; border: 1.5px solid var(--line); border-radius: 18px;
-    padding: 26px 28px; display: flex; flex-direction: column;
+
+  .panel-topp {
+    background: #FAFAFE; border-bottom: 1.5px solid var(--line);
+    padding: 34px 38px; display: flex; align-items: center;
+    justify-content: space-between; gap: 32px; flex-wrap: wrap;
   }
+  .panel-total { display: flex; flex-direction: column; gap: 4px; }
+  .total-ledetekst { font-size: 17px; color: var(--ink); }
+  .amt { font-size: clamp(38px, 5vw, 48px); letter-spacing: -1.5px; line-height: 1.1; }
+  .total-detalj { font-size: 16.5px; color: var(--ink); }
+  /* Knappen spenner nøyaktig over betingelseslinjen under, midtstilt —
+     høyrejustert kolonne så de to ulike breddene ikke ser ragget ut. */
+  .panel-cta { display: flex; flex-direction: column; align-items: stretch; gap: 18px; }
+  .panel-cta .btn { width: 100%; }
+  .panel-cta .per { margin: 0; font-size: 16.5px; color: var(--ink); text-align: center; white-space: nowrap; }
+
+  .pkort-rad { display: grid; grid-template-columns: 1fr 1fr; }
+  .pkort { padding: 32px 38px; display: flex; flex-direction: column; gap: 13px; }
+  .pkort-admin { border-right: 1.5px solid var(--line); }
   .pkort-navn {
-    font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--ink-2);
+    font-size: 14.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink);
   }
-  .pkort-pris { margin-top: 10px; color: var(--ink); }
+  .pkort-pris { color: var(--ink); }
   .pkort-pris b {
-    font-family: var(--serif); font-weight: 600; font-size: 36px; letter-spacing: -1px;
+    font-family: var(--serif); font-weight: 600; font-size: 34px; letter-spacing: -1px;
   }
-  .pkort-til { font-family: var(--serif); font-weight: 600; font-size: 26px; color: var(--ink-2); }
-  .pkort-per { display: block; margin-top: 4px; font-size: 16px; color: var(--ink-2); }
-  .pkort-tekst { margin-top: 14px; font-size: 16.5px; color: var(--ink-2); line-height: 1.55; flex: 1; }
-  .pkort .teller { margin-top: 20px; }
+  .pkort-per { font-size: 16.5px; color: var(--ink); }
+  .pkort-tekst { font-size: 16.5px; color: var(--ink); line-height: 1.55; flex: 1; }
+  .pkort .teller { margin-top: 6px; }
 
-  /* Totalen: mindre enn den gamle kjempeprisen — kortene over har hovedrollen. */
-  .pris-blokk { margin-top: 44px; }
-  .total-ledetekst { font-size: 17px; color: var(--ink-2); margin-bottom: 6px; }
-  .amt { font-size: clamp(3rem, 8vw, 76px); letter-spacing: -2.5px; }
-  .total-detalj { margin-top: 10px; font-size: 16px; color: var(--ink-2); }
-  .per { margin-top: 10px; }
+  .panel-fot { margin-top: 22px; font-size: 17px; color: var(--ink); }
 
-  /* Boblen er Mutterns replikk — maskoten står ved siden av. */
-  .phero-bubble {
-    max-width: 720px; margin: 64px auto 0; padding: 0 28px;
-    display: flex; align-items: center; gap: 26px;
-  }
-  .phero-bubble img {
-    width: 108px; flex-shrink: 0; height: auto; overflow: visible;
-    animation: pheroFloat 5s ease-in-out infinite;
-  }
-  @media (prefers-reduced-motion: reduce) { .phero-bubble img { animation: none; } }
-  .phero-bubble span {
-    flex: 1; background: #F5F3FC; border-radius: 20px; text-align: left;
-    padding: 20px 30px; font-size: 17px; color: var(--ink); line-height: 1.55; text-wrap: pretty;
-  }
-  .phero-bubble b { font-weight: 650; }
-
-  @media (max-width: 720px) {
+  @media (max-width: 760px) {
+    .phero-innhold { padding: 0 16px; }
+    /* Kortene først, totalen og CTA-en nederst — man velger, så ser man prisen. */
+    .panel-topp {
+      order: 2; border-bottom: none; border-top: 1.5px solid var(--line);
+      flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 24px 20px;
+    }
+    .panel-cta { align-self: stretch; }
+    .panel-cta .per { white-space: normal; }
     .pkort-rad { grid-template-columns: 1fr; }
-    .phero-bubble { flex-direction: column; gap: 18px; }
-    .phero-bubble img { width: 130px; }
-    .phero-bubble span { text-align: center; }
+    .pkort { padding: 24px 20px; }
+    .pkort-admin { border-right: none; border-bottom: 1.5px solid var(--line); }
+  }
+  @media (max-width: 380px) {
+    .panel-cta .btn { padding: 16px 26px; font-size: 16px; }
   }
 
   /* ── Farget bånd rundt prisseksjonene ── */
@@ -103,11 +107,6 @@
 
   /* «Alle priser er eks. mva.» skal leses like tydelig som resten — ikke fine print. */
   .pfine { margin-top: 24px; text-align: center; font-size: 16px; color: var(--ink); line-height: 1.6; }
-}
-
-@keyframes pheroFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
 }
 
 /* ── Priskalkulator: tellerne i lisenskortene ─────────────────────── */
@@ -163,11 +162,6 @@
   outline-offset: 1px;
 }
 
-.teller-enhet {
-  font-family: var(--sans);
-  font-size: 17px;
-  color: var(--ink-2);
-}
 
 .sr-only {
   position: absolute;

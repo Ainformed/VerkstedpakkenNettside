@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  ADMIN_TRINN,
   MAKS_LISENSER,
   MEKANIKER_PRIS,
   MIN_ADMIN,
@@ -21,8 +20,6 @@ const RASK_ETTER_MS = 2000;
 
 type TellerProps = {
   verdi: number;
-  /** «admin» / «mekanikere» — teksten etter tallet. */
-  enhet: string;
   feltLabel: string;
   mindreLabel: string;
   merLabel: string;
@@ -36,7 +33,6 @@ type TellerProps = {
 
 function Teller({
   verdi,
-  enhet,
   feltLabel,
   mindreLabel,
   merLabel,
@@ -169,14 +165,9 @@ function Teller({
       >
         +
       </button>
-
-      <span className="teller-enhet">{enhet}</span>
     </div>
   );
 }
-
-const START_PRIS = ADMIN_TRINN[0]!.pris;
-const BUNN_PRIS = ADMIN_TRINN[ADMIN_TRINN.length - 1]!.pris;
 
 export default function PrisKalkulator() {
   const [antall, setAntall] = useState({
@@ -233,72 +224,81 @@ export default function PrisKalkulator() {
 
   return (
     <div className="pris-omrade" aria-live="polite">
-      <div className="pkort-rad">
-        <div className="pkort pkort-admin">
-          <p className="pkort-navn">Admin</p>
-          <p className="pkort-pris">
-            <b>{formaterKr(START_PRIS)}</b>
-            <span className="pkort-til"> – {formaterKr(BUNN_PRIS)}</span>{" "}
-            <span className="pkort-per">per bruker/mnd</span>
-          </p>
-          <p className="pkort-tekst">
-            Alt inkludert: ordre, planlegging, kunder, faktura, booking, deler
-            og lager. En admin kan også jobbe som mekaniker.
-          </p>
-          <Teller
-            verdi={antall.admin}
-            enhet="admin"
-            feltLabel="Antall admin"
-            mindreLabel="Én admin mindre"
-            merLabel="Én admin mer"
-            mindreDeaktivert={antall.admin <= MIN_ADMIN}
-            merDeaktivert={paaTaket}
-            onEndre={endreAdmin}
-            onSett={settAdmin}
-          />
+      <div className="pris-panel">
+        {/* Totalen øverst: prisen er svaret, konfiguratoren under er spørsmålet. */}
+        <div className="panel-topp">
+          <div className="panel-total">
+            <p className="total-ledetekst">Din pris per måned</p>
+            <div className="amt">{formaterKr(total)}</div>
+            <p className="total-detalj">
+              {adminLedd}
+              {mekanikerLedd}
+            </p>
+          </div>
+          <div className="panel-cta">
+            <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
+              Prøv gratis i 14 dager
+            </a>
+            <p className="per">
+              <b>Ingen bindingstid.</b> Ingen etableringskostnad. Eks. mva.
+            </p>
+          </div>
         </div>
 
-        <div className="pkort pkort-mek">
-          <p className="pkort-navn">Mekaniker</p>
-          <p className="pkort-pris">
-            <b>{formaterKr(MEKANIKER_PRIS)}</b>{" "}
-            <span className="pkort-per">per mekaniker/mnd</span>
-          </p>
-          <p className="pkort-tekst">
-            Utfører og registrerer arbeid i mekanikerportalen — på egen enhet
-            eller innlogget på felles enhet i verkstedet.
-          </p>
-          <Teller
-            verdi={antall.mekanikere}
-            enhet={antall.mekanikere === 1 ? "mekaniker" : "mekanikere"}
-            feltLabel="Antall mekanikere"
-            mindreLabel="Én mekaniker mindre"
-            merLabel="Én mekaniker mer"
-            mindreDeaktivert={antall.mekanikere <= MIN_MEKANIKERE}
-            merDeaktivert={paaTaket}
-            onEndre={endreMekanikere}
-            onSett={settMekanikere}
-          />
+        <div className="pkort-rad">
+          <div className="pkort pkort-admin">
+            <p className="pkort-navn">Admin / kundemottaker</p>
+            <p className="pkort-pris">
+              <b>{formaterKr(perAdmin)}</b>{" "}
+              <span className="pkort-per">per bruker/mnd</span>
+            </p>
+            <p className="pkort-tekst">
+              Alt inkludert: ordre, planlegging, kunder, faktura, booking, deler
+              og lager. En admin kan også jobbe som mekaniker.
+            </p>
+            <Teller
+              verdi={antall.admin}
+              feltLabel="Antall admin"
+              mindreLabel="Én admin mindre"
+              merLabel="Én admin mer"
+              mindreDeaktivert={antall.admin <= MIN_ADMIN}
+              merDeaktivert={paaTaket}
+              onEndre={endreAdmin}
+              onSett={settAdmin}
+            />
+          </div>
+
+          <div className="pkort pkort-mek">
+            <p className="pkort-navn">Mekaniker</p>
+            <p className="pkort-pris">
+              <b>{formaterKr(MEKANIKER_PRIS)}</b>{" "}
+              <span className="pkort-per">per mekaniker/mnd</span>
+            </p>
+            <p className="pkort-tekst">
+              Utfører og registrerer arbeid i mekanikerportalen. På egen enhet
+              eller innlogget på felles enhet i verkstedet.
+            </p>
+            <Teller
+              verdi={antall.mekanikere}
+              feltLabel="Antall mekanikere"
+              mindreLabel="Én mekaniker mindre"
+              merLabel="Én mekaniker mer"
+              mindreDeaktivert={antall.mekanikere <= MIN_MEKANIKERE}
+              merDeaktivert={paaTaket}
+              onEndre={endreMekanikere}
+              onSett={settMekanikere}
+            />
+          </div>
         </div>
       </div>
 
-      <div className="pris-blokk">
-        <p className="total-ledetekst">Din pris per måned</p>
-        <div className="amt">{formaterKr(total)}</div>
-        <p className="total-detalj">
-          {adminLedd}
-          {mekanikerLedd}
-        </p>
-        <p className="per">
-          <b>Ingen bindingstid.</b> Eks. mva.
-        </p>
-      </div>
+      <p className="panel-fot">Prisen per admin faller når dere blir flere.</p>
 
       {/* Alltid rendret så layouten ikke hopper når taket nås. */}
       <p
         className={paaTaket ? "teller-tak" : "teller-tak teller-tak-skjult"}
       >
-        Flere enn {MAKS_LISENSER} lisenser? Da gir vi dere en bedre pris.{" "}
+        Flere enn {MAKS_LISENSER} lisenser?{" "}
         <a href={SIGNUP_URL}>Prøv gratis i 14 dager</a>, så tar vi resten
         derfra.
       </p>

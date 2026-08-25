@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/vp/Header";
 import Footer from "@/components/vp/Footer";
-import { SIGNUP_URL } from "@/lib/links";
 import PrisKalkulator from "./PrisKalkulator";
 import "./pris.css";
 
@@ -22,20 +21,6 @@ export default function Pris() {
           <div className="phero-innhold">
             <h1 className="phero-title">Pris på verkstedprogrammet</h1>
             <PrisKalkulator />
-            <div className="cta-row">
-              <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
-                Prøv gratis i 14 dager
-              </a>
-            </div>
-            <p className="subnote">Ingen etableringskostnad.</p>
-          </div>
-          <div className="phero-bubble">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/design/muttern-zen-grunnposisjon.svg" alt="Muttern i ro" />
-            <span>
-              Velg antall admin og mekanikere, så ser du prisen for verkstedet ditt med en gang.
-              Prisen per admin faller når dere blir flere.
-            </span>
           </div>
         </section>
 
@@ -211,8 +196,8 @@ export default function Pris() {
             <details className="faq">
               <summary>Hva er forskjellen på admin og mekaniker?</summary>
               <div className="faq-body">
-                En admin har tilgang til hele programmet — og kan selvsagt også jobbe som
-                mekaniker. En mekaniker-lisens er for mekanikere som utfører og registrerer
+                En admin — typisk kundemottakeren — har tilgang til hele programmet, og kan
+                selvsagt også jobbe som mekaniker. En mekaniker-lisens er for mekanikere som utfører og registrerer
                 arbeid i mekanikerportalen, på egen enhet eller innlogget på en felles enhet i
                 verkstedet.
               </div>

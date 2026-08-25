@@ -36,12 +36,15 @@ describe("PrisKalkulator i ro", () => {
     expect(total()).toBe(`1${NBSP}295,-`);
   });
 
-  it("viser fra–til-prisen i toppen av admin-kortet", () => {
+  it("viser gjeldende enhetspris i admin-kortet, som følger trinnene", () => {
     render(<PrisKalkulator />);
-    const pris = document.querySelector(".pkort-admin .pkort-pris")!;
-    expect(pris.textContent).toContain(`1${NBSP}295,-`);
-    expect(pris.textContent).toContain("995,-");
-    expect(pris.textContent).toContain("per bruker/mnd");
+    const pris = () => document.querySelector(".pkort-admin .pkort-pris")!;
+    expect(pris().textContent).toContain(`1${NBSP}295,-`);
+    expect(pris().textContent).toContain("per bruker/mnd");
+    sett(2, 3);
+    // 5 lisenser → trinn 4–6 → kortet viser 1 095, ikke startprisen.
+    expect(pris().textContent).toContain(`1${NBSP}095,-`);
+    expect(pris().textContent).not.toContain(`1${NBSP}295,-`);
   });
 
   it("viser flat mekaniker-pris i toppen av mekaniker-kortet", () => {
@@ -51,12 +54,20 @@ describe("PrisKalkulator i ro", () => {
     expect(pris.textContent).toContain("per mekaniker/mnd");
   });
 
-  it("sier «Ingen bindingstid. Eks. mva.» under totalen — uten «Alt inkludert»", () => {
+  it("samler betingelsene ved totalen — uten «Alt inkludert»", () => {
     render(<PrisKalkulator />);
     const per = document.querySelector(".per")!;
     expect(per.textContent).toContain("Ingen bindingstid.");
+    expect(per.textContent).toContain("Ingen etableringskostnad.");
     expect(per.textContent).toContain("Eks. mva.");
     expect(per.textContent).not.toContain("Alt inkludert");
+  });
+
+  it("har CTA-en inne i panelet", () => {
+    render(<PrisKalkulator />);
+    const cta = document.querySelector(".panel-topp a.btn")!;
+    expect(cta).not.toBeNull();
+    expect(cta.textContent).toBe("Prøv gratis i 14 dager");
   });
 
   it("har «−» avslått ved én admin og null mekanikere", () => {
