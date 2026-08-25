@@ -168,12 +168,22 @@ export default function Pris() {
                 <div className="pgroup-label">Fra andre leverandører</div>
                 <div className="prow-flat">
                   <span className="pname">
-                    Teknisk kjøretøydata
-                    <small>
-                      HaynesPro med flere · Kjøretøydata utover oppslaget fra Statens vegvesen.
-                      Har du egen avtale med leverandøren, kan du bruke den i Verkstedpakken i
-                      dag.
-                    </small>
+                    HaynesPro
+                    <small>Tekniske data og reparasjonstider</small>
+                  </span>
+                  <span className="pill pill-soon">Etter avtale</span>
+                </div>
+                <div className="prow-flat">
+                  <span className="pname">
+                    AutoFrontal
+                    <small>Reparasjonsbulletiner og feilkoder</small>
+                  </span>
+                  <span className="pill pill-soon">Etter avtale</span>
+                </div>
+                <div className="prow-flat">
+                  <span className="pname">
+                    B.U.S.
+                    <small>EU-kontroll</small>
                   </span>
                   <span className="pill pill-soon">Etter avtale</span>
                 </div>
