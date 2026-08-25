@@ -51,7 +51,7 @@
   .pkort-tekst { font-size: 16.5px; color: var(--ink); line-height: 1.55; flex: 1; }
   .pkort .teller { margin-top: 6px; }
 
-  .panel-fot { margin-top: 22px; font-size: 17px; color: var(--ink); }
+  .panel-fot { margin-top: 36px; font-size: 18.5px; color: var(--ink); }
 
   @media (max-width: 760px) {
     .phero-innhold { padding: 0 16px; }
