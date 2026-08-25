@@ -121,13 +121,6 @@ const INTEGRATIONS: Integration[] = [
     desc: "Deler og rekvisita fra Romnes, med pris og tilgjengelighet i ordrebildet.",
   },
   {
-    name: "Autofrontal",
-    cat: "deler",
-    catLabel: "Deler",
-    logo: { src: "/design/logos/autofrontal.png", alt: "Autofrontal", className: "logo-compact" },
-    desc: "Bilglass fra Autofrontal — søk på skiltnummer og bestill riktig rute første gang.",
-  },
-  {
     name: "Statens vegvesen",
     cat: "kjoretoy",
     catLabel: "Kjøretøydata",
@@ -138,14 +131,21 @@ const INTEGRATIONS: Integration[] = [
     name: "HaynesPro",
     cat: "kjoretoy",
     catLabel: "Kjøretøydata",
-    logo: { src: "/design/logos/haynespro.png", alt: "HaynesPro" },
+    logo: { src: "/design/logos/haynespro.png", alt: "HaynesPro", className: "logo-compact" },
     desc: "Tekniske data, reparasjonstider og servicedata for jobben på løfteren.",
+  },
+  {
+    name: "AutoFrontal",
+    cat: "kjoretoy",
+    catLabel: "Kjøretøydata",
+    logo: { src: "/design/logos/autofrontal.png", alt: "AutoFrontal", className: "logo-compact" },
+    desc: "Reparasjonsbulletiner og feilkoder med løsninger på kjente feil, samlet fra tusenvis av verksteder.",
   },
   {
     name: "BUS",
     cat: "kjoretoy",
     catLabel: "Kjøretøydata",
-    logo: { src: "/design/logos/bus.png", alt: "B.U.S.", className: "logo-wide" },
+    logo: { src: "/design/logos/bus.png", alt: "B.U.S." },
     desc: "EU-kontroll: hent kjøretøydata og send kontrollresultatet rett fra ordren.",
   },
 ];
