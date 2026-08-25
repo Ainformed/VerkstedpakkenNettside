@@ -9,6 +9,7 @@ type Integration = {
   desc: string;
   logo?: { src: string; alt: string; className?: string };
   logoText?: string;
+  logoColor?: string;
 };
 
 const CATEGORIES = [
@@ -56,10 +57,25 @@ const INTEGRATIONS: Integration[] = [
     desc: "Overfør salg og betalinger automatisk til regnskapet.",
   },
   {
+    name: "Systima",
+    cat: "regnskap",
+    catLabel: "Regnskap",
+    logoText: "Systima",
+    desc: "Fakturagrunnlag og betalinger går automatisk til bokføring i Systima.",
+  },
+  {
+    name: "Conta",
+    cat: "regnskap",
+    catLabel: "Regnskap",
+    logo: { src: "/design/logos/conta.png", alt: "Conta" },
+    desc: "Koble til på minuttet med API-nøkkel — salg og betalingsstatus havner rett i Conta.",
+  },
+  {
     name: "Vipps",
     cat: "betaling",
     catLabel: "Betaling",
     logoText: "vipps",
+    logoColor: "#FF5B24",
     desc: "Kunden betaler med Vipps når bilen hentes.",
   },
   {
@@ -138,7 +154,7 @@ export default function IntegrationCatalog() {
                       fontWeight: 700,
                       fontSize: "24px",
                       letterSpacing: "-0.5px",
-                      color: "#FF5B24",
+                      color: card.logoColor ?? "var(--ink)",
                     }}
                   >
                     {card.logoText}
