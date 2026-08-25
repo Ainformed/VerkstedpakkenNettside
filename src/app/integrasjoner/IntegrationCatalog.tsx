@@ -18,6 +18,7 @@ const CATEGORIES = [
   { key: "betaling", label: "Betaling" },
   { key: "deler", label: "Deler" },
   { key: "kjoretoy", label: "Kjøretøydata" },
+  { key: "ki", label: "AI" },
 ] as const;
 
 const INTEGRATIONS: Integration[] = [
@@ -147,6 +148,27 @@ const INTEGRATIONS: Integration[] = [
     catLabel: "Kjøretøydata",
     logo: { src: "/design/logos/bus.png", alt: "B.U.S." },
     desc: "EU-kontroll: hent kjøretøydata og send kontrollresultatet rett fra ordren.",
+  },
+  {
+    name: "Claude",
+    cat: "ki",
+    catLabel: "AI",
+    logo: { src: "/design/logos/claude.svg", alt: "Claude" },
+    desc: "Anthropics AI-assistent — hjelp til tekst, oppsummeringer og svar rett i programmet.",
+  },
+  {
+    name: "ChatGPT",
+    cat: "ki",
+    catLabel: "AI",
+    logo: { src: "/design/logos/chatgpt.svg", alt: "ChatGPT" },
+    desc: "OpenAIs AI-assistent — utkast til meldinger og svar på spørsmål i hverdagen.",
+  },
+  {
+    name: "Gemini",
+    cat: "ki",
+    catLabel: "AI",
+    logo: { src: "/design/logos/gemini.svg", alt: "Gemini" },
+    desc: "Googles AI-modell — hjelp til tekst og søk der du jobber.",
   },
 ];
 

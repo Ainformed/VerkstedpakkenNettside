@@ -6,7 +6,7 @@ import IntegrationCatalog from "./IntegrationCatalog";
 export const metadata: Metadata = {
   title: "Integrasjoner",
   description:
-    "Regnskap, betaling, deleleverandører og kjøretøydata — Verkstedpakken snakker med programmene rundt verkstedet, så dere slipper å taste ting to ganger.",
+    "Verkstedpakken er koblet til regnskap, betaling, deleleverandører, kjøretøydata og AI. Alt føres én gang — så er det på plass overalt.",
   alternates: { canonical: "/integrasjoner" },
 };
 
@@ -19,9 +19,9 @@ export default function Integrasjoner() {
           <div className="wrap">
             <h1>Ett program som snakker med resten</h1>
             <p className="lead">
-              Regnskap, betaling, deleleverandører og kjøretøydata —
-              Verkstedpakken snakker med programmene rundt verkstedet, så dere
-              slipper å taste ting to ganger.
+              Verkstedpakken er koblet til programmene verkstedet allerede
+              bruker: regnskap, betaling, deler, kjøretøydata og AI. Alt føres
+              én gang — så er det på plass overalt.
             </p>
           </div>
         </section>
