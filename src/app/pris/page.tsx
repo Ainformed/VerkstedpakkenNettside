@@ -136,7 +136,7 @@ export default async function Pris() {
                   <span className="pill pill-inc">Inkludert</span>
                 </div>
                 <div className="prow-flat">
-                  <span className="pname">Flytting av innhold fra andre systemer</span>
+                  <span className="pname">Flytting av innhold fra andre programmer</span>
                   <span className="pill pill-inc">Inkludert</span>
                 </div>
                 <div className="prow-flat">
@@ -145,7 +145,7 @@ export default async function Pris() {
                 </div>
                 <div className="prow-flat">
                   <span className="pname">
-                    Bytter du fra et annet system? <small>gratis i hele oppsigelsestiden</small>
+                    Bytter du fra et annet program? <small>gratis i hele oppsigelsestiden</small>
                   </span>
                   <span className="pill pill-inc">Inkludert</span>
                 </div>
@@ -165,50 +165,32 @@ export default async function Pris() {
               </div>
               <div className="plist">
                 <div className="pgroup-label">Pris per måned</div>
-                <details className="prow">
-                  <summary>
-                    <span className="pname">Nettside</span>
-                    <span className="pill pill-price">495 kr / mnd</span>
-                  </summary>
-                  <div className="prow-body">
-                    Ferdig nettside for verkstedet, med booking innebygd. Vi setter den opp og holder
-                    den oppdatert.
-                  </div>
-                </details>
-                <details className="prow">
-                  <summary>
-                    <span className="pname">
-                      Kjøretøyoppslag med eieropplysninger <small>Statens vegvesen</small>
-                    </span>
-                    <span className="pill pill-price">995 kr / mnd</span>
-                  </summary>
-                  <div className="prow-body">
-                    Slå opp regnr og få bil- og eierdata rett inn i ordren. Inntil 1 000 oppslag per
-                    måned.
-                  </div>
-                </details>
+                <div className="prow-flat">
+                  <span className="pname">
+                    Nettside
+                    <small>
+                      Ferdig nettside for verkstedet, med booking innebygd. Vi setter den opp og
+                      holder den oppdatert.
+                    </small>
+                  </span>
+                  <span className="pill pill-price">495 kr / mnd</span>
+                </div>
+                <div className="prow-flat">
+                  <span className="pname">
+                    Kjøretøyoppslag med eieropplysninger
+                    <small>
+                      Statens vegvesen · Slå opp regnr og få bil- og eierdata rett inn i ordren.
+                      Inntil 1 000 oppslag per måned.
+                    </small>
+                  </span>
+                  <span className="pill pill-price">995 kr / mnd</span>
+                </div>
 
                 <div className="pgroup-label">Pris per bruk</div>
-                <details className="prow">
-                  <summary>
-                    <span className="pname">Muttern — AI-assistent</span>
-                    <span className="pill pill-price">Betal kun for bruk</span>
-                  </summary>
-                  <div className="prow-body">
-                    Svarer på spørsmål og hjelper til i systemet. Du betaler bare for det du bruker,
-                    med et månedstak du setter selv.
-                  </div>
-                </details>
-                <details className="prow">
-                  <summary>
-                    <span className="pname">SMS til kunder</span>
-                    <span className="pill pill-price">2 kr / stk</span>
-                  </summary>
-                  <div className="prow-body">
-                    Send påminnelser og «bilen er klar»-meldinger. Ingen månedsavgift — du betaler
-                    bare per melding.
-                  </div>
-                </details>
+                <div className="prow-flat">
+                  <span className="pname">SMS til kunder</span>
+                  <span className="pill pill-price">2 kr / stk</span>
+                </div>
               </div>
               <div className="pnote">
                 <span>Utover dette er det ingenting i Verkstedpakken som koster noe.</span>
@@ -244,11 +226,11 @@ export default async function Pris() {
               </div>
             </details>
             <details className="faq">
-              <summary>Kan vi få hjelp til å flytte fra systemet vi har i dag?</summary>
+              <summary>Kan vi få hjelp til å flytte fra programmet vi har i dag?</summary>
               <div className="faq-body">
                 Ja. Vi hjelper deg med å få over kunder, kjøretøy og historikk, og setter opp
-                verkstedet klart til bruk. Bytter du fra et annet system, er Verkstedpakken gratis
-                til oppsigelsestiden hos det gamle er over – du betaler aldri for to systemer
+                verkstedet klart til bruk. Bytter du fra et annet program, er Verkstedpakken gratis
+                til oppsigelsestiden hos det gamle er over – du betaler aldri for to programmer
                 samtidig.
               </div>
             </details>
