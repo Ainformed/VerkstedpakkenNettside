@@ -60,7 +60,7 @@ export default function NettsideOgBookingPage() {
               <img
                 loading="lazy"
                 className="mock-photo"
-                src="/design/kundenettside-laptop.jpg"
+                src="/design/kundenettside-laptop-2.jpg"
                 alt="Bolli Motors ferdige nettside på laptopen"
               />
             </div>
