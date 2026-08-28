@@ -71,10 +71,6 @@ export default function Pris() {
 
                 <div className="pgroup-label">For kundene dine</div>
                 <div className="prow-flat">
-                  <span className="pname">Booking på nett</span>
-                  <span className="pill pill-inc">Inkludert</span>
-                </div>
-                <div className="prow-flat">
                   <span className="pname">
                     Min garasje <small>kundens egen side med status og historikk</small>
                   </span>

@@ -167,7 +167,6 @@ function JsonLd() {
       featureList: [
         "Verkstedordre og planlegging",
         "Mekanikerportal",
-        "Booking på nett",
         "Kiosk og innstempling",
         "Kunder og kjøretøy",
         "Kjøretøyoppslag",

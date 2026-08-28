@@ -383,8 +383,8 @@ export default function PrisKalkulator() {
               <span className="pkort-per">per bruker/mnd</span>
             </p>
             <p className="pkort-tekst">
-              Alt inkludert: ordre, planlegging, kunder, faktura, booking, deler
-              og lager. En admin kan også jobbe som mekaniker.
+              Alt inkludert: ordre, planlegging, kunder, faktura, deler og
+              lager. En admin kan også jobbe som mekaniker.
             </p>
             <Teller
               verdi={antall.admin}
