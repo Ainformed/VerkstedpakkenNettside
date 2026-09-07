@@ -1,22 +1,25 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import ZenMascot from "./ZenMascot";
+import LangSwitcher from "./LangSwitcher";
 import { SIGNUP_URL } from "@/lib/links";
+import { localePath, type Locale } from "@/i18n/config";
+import type { CommonDict } from "@/i18n/dictionaries/nb";
 
 /* Footer-CTA («Prøv gratis i 14 dager» + zen-maskot) og mørkeblå footer.
    NB: designreferansen oppga org.nr 913 412 354, men det reelle org.nr-et
    fra dagens side (937 000 847) beholdes — juridiske fakta følger ikke
    design-copy. */
-export default function Footer() {
+export default function Footer({ lang, t }: { lang: Locale; t: CommonDict }) {
   return (
     <>
       <section className="foot-cta-sec">
         <div className="foot-cta-inner">
           <div className="foot-cta-card">
             <a className="btn btn-primary" href={SIGNUP_URL}>
-              Prøv gratis i 14 dager
+              {t.footer.ctaButton}
             </a>
-            <p>Prøveperioden stopper av seg selv. Vi sender aldri faktura uten at du har sagt ja.</p>
+            <p>{t.footer.ctaNote}</p>
           </div>
           <div className="foot-cta-mascot">
             <ZenMascot />
@@ -27,32 +30,36 @@ export default function Footer() {
       <footer className="site-foot">
         <div className="foot-inner">
           <div className="foot-brand">
-            <Link href="/" aria-label="Verkstedpakken">
+            <Link href={localePath(lang, "/")} aria-label="Verkstedpakken">
               <Logo />
             </Link>
-            <p>Bygget for at du enkelt skal ha full kontroll.</p>
+            <p>{t.footer.tagline}</p>
           </div>
           <div className="foot-col">
-            <h4>Produkt</h4>
+            <h4>{t.footer.product}</h4>
             <ul>
               <li>
-                <Link href="/ordresystem">Ordreprogram</Link>
+                <Link href={localePath(lang, "/ordresystem")}>{t.nav.ordresystem}</Link>
               </li>
               <li>
-                <Link href="/nettside-og-booking">Nettside og booking</Link>
+                <Link href={localePath(lang, "/nettside-og-booking")}>{t.nav.booking}</Link>
               </li>
               <li>
-                <Link href="/integrasjoner">Integrasjoner</Link>
+                <Link href={localePath(lang, "/integrasjoner")}>{t.nav.integrasjoner}</Link>
               </li>
             </ul>
           </div>
+          <div className="foot-col">
+            <h4>{t.nav.language}</h4>
+            <LangSwitcher lang={lang} label={t.nav.language} className="lang-switch-foot" />
+          </div>
         </div>
         <div className="foot-bottom">
-          <span>Verkstedpakken AS&nbsp;&nbsp;·&nbsp;&nbsp;Org.nr 937 000 847</span>
+          <span>{t.footer.orgLine}</span>
           <span>
-            Send e-post til{" "}
-            <a href="mailto:hei@verkstedpakken.no">hei@verkstedpakken.no</a>,
-            eller ring oss på <a href="tel:+4793484220">93 48 42 20</a>
+            {t.footer.contactPrefix}{" "}
+            <a href="mailto:hei@verkstedpakken.no">hei@verkstedpakken.no</a>
+            {t.footer.contactMiddle} <a href="tel:+4793484220">93 48 42 20</a>
           </span>
         </div>
       </footer>

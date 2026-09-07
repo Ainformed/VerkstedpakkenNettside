@@ -99,3 +99,13 @@ export function hardtMellomrom(tekst: string): string {
 export function formaterKr(belop: number): string {
   return `${hardtMellomrom(kroner.format(belop))},-`;
 }
+
+export type Belopsformat = { locale: string; prefix: string; suffix: string };
+
+/** Språkstyrt variant av formaterKr: «NOK 1,295» / «1.295 NOK» osv. */
+export function formaterBelop(belop: number, f: Belopsformat): string {
+  const tall = hardtMellomrom(
+    new Intl.NumberFormat(f.locale, { maximumFractionDigits: 0 }).format(belop),
+  );
+  return `${f.prefix}${tall}${f.suffix}`;
+}

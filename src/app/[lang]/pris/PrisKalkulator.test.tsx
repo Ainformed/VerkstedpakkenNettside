@@ -1,6 +1,9 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import PrisKalkulator from "./PrisKalkulator";
+import nbPris from "@/i18n/dictionaries/nb/pris";
+
+const Kalk = () => <PrisKalkulator lang="nb" t={nbPris} />;
 
 afterEach(cleanup);
 
@@ -38,14 +41,14 @@ function sett(admin: number, mekanikere: number) {
 
 describe("PrisKalkulator i ro", () => {
   it("starter med én admin, null mekanikere og startprisen som total", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     expect(adminFelt().value).toBe("1");
     expect(mekFelt().value).toBe("0");
     expect(total()).toBe(`1${NBSP}295,-`);
   });
 
   it("viser gjeldende enhetspris i admin-kortet, som følger admin-antallet", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     const pris = () => document.querySelector(".pkort-admin .pkort-pris")!;
     expect(pris().textContent).toContain(`1${NBSP}295,-`);
     expect(pris().textContent).toContain("per bruker/mnd");
@@ -56,14 +59,14 @@ describe("PrisKalkulator i ro", () => {
   });
 
   it("viser flat mekaniker-pris i toppen av mekaniker-kortet", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     const pris = document.querySelector(".pkort-mek .pkort-pris")!;
     expect(pris.textContent).toContain("595,-");
     expect(pris.textContent).toContain("per mekaniker/mnd");
   });
 
   it("viser betingelsene ved CTA-en og «eks. mva» etter prisen", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     const per = document.querySelector(".per")!;
     expect(per.textContent).toContain("Ingen bindingstid");
     expect(per.textContent).toContain("Ingen etableringskostnad");
@@ -79,20 +82,20 @@ describe("PrisKalkulator i ro", () => {
   });
 
   it("har CTA-en inne i panelet", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     const cta = document.querySelector(".panel-topp a.btn")!;
     expect(cta).not.toBeNull();
     expect(cta.textContent).toBe("Prøv gratis i 14 dager");
   });
 
   it("har «−» avslått ved én admin og null mekanikere", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     expect(adminMinus().hasAttribute("disabled")).toBe(true);
     expect(mekMinus().hasAttribute("disabled")).toBe(true);
   });
 
   it("skjuler mekaniker-raden i kvitteringen ved null mekanikere, men holder plassen", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     expect(adminRad()).toEqual([`1 admin × 1${NBSP}295,-`, `1${NBSP}295,-`]);
     // Rendret men usynlig: fjernes raden, hopper CTA og kort når første
     // mekaniker legges til.
@@ -103,7 +106,7 @@ describe("PrisKalkulator i ro", () => {
 
 describe("PrisKalkulator — trappa og totalen", () => {
   it("regner totalen for admin alene", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     fireEvent.pointerDown(adminPluss());
     fireEvent.pointerUp(adminPluss());
     expect(total()).toBe(`2${NBSP}590,-`);
@@ -111,7 +114,7 @@ describe("PrisKalkulator — trappa og totalen", () => {
   });
 
   it("legger mekanikere til flatt, med entall i kvitteringen", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     fireEvent.pointerDown(mekPluss());
     fireEvent.pointerUp(mekPluss());
     // 1 295 + 595 = 1 890
@@ -123,7 +126,7 @@ describe("PrisKalkulator — trappa og totalen", () => {
   });
 
   it("lar ikke mekanikere påvirke admin-prisen: 2 admin + 3 mekanikere gir fortsatt 1 295", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     sett(2, 3);
     // 2 × 1 295 + 3 × 595 = 4 375
     expect(total()).toBe(`4${NBSP}375,-`);
@@ -132,7 +135,7 @@ describe("PrisKalkulator — trappa og totalen", () => {
   });
 
   it("treffer trinnene på antall admin alene", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     sett(4, 3);
     // 4 × 1 095 + 3 × 595 = 6 165
     expect(total()).toBe(`6${NBSP}165,-`);
@@ -142,7 +145,7 @@ describe("PrisKalkulator — trappa og totalen", () => {
 
 describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
   it("lar tellerne fortsette forbi 20 — pluss stopper først på 99 totalt", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     sett(21, 0);
     expect(adminFelt().value).toBe("21");
     expect(adminPluss().hasAttribute("disabled")).toBe(false);
@@ -152,7 +155,7 @@ describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
   });
 
   it("klemmer innskrevet antall mot 99 totalt", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     sett(1, 3);
     fireEvent.change(adminFelt(), { target: { value: "999" } });
     fireEvent.blur(adminFelt());
@@ -160,7 +163,7 @@ describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
   });
 
   it("bytter til antall-kvittering og tilbudsskjema over 20", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     sett(21, 4);
     // Kvitteringen viser antallene uten priser — prisen stopper på 20.
     expect(adminRad()[0]).toBe("21 admin");
@@ -175,7 +178,7 @@ describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
   });
 
   it("viser vanlig pris og CTA igjen når man går under taket", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     sett(21, 0);
     sett(20, 0);
     expect(document.querySelector(".panel-topp a.btn")).not.toBeNull();
@@ -185,20 +188,20 @@ describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
 
 describe("PrisKalkulator — redigering av feltene", () => {
   it("oppdaterer totalen mens man skriver, uten å blure", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     fireEvent.change(adminFelt(), { target: { value: "4" } });
     // 4 lisenser → 1 095 per admin → 4 380
     expect(total()).toBe(`4${NBSP}380,-`);
   });
 
   it("ignorerer bokstaver", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     fireEvent.change(adminFelt(), { target: { value: "1a2b" } });
     expect(adminFelt().value).toBe("12");
   });
 
   it("faller tilbake til forrige verdi når feltet tømmes", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     fireEvent.change(adminFelt(), { target: { value: "7" } });
     fireEvent.blur(adminFelt());
     fireEvent.change(adminFelt(), { target: { value: "" } });
@@ -207,7 +210,7 @@ describe("PrisKalkulator — redigering av feltene", () => {
   });
 
   it("commit-er på Enter", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     fireEvent.change(adminFelt(), { target: { value: "7" } });
     fireEvent.keyDown(adminFelt(), { key: "Enter" });
     // 7 × 995
@@ -215,7 +218,7 @@ describe("PrisKalkulator — redigering av feltene", () => {
   });
 
   it("endrer med piltaster", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     fireEvent.keyDown(adminFelt(), { key: "ArrowUp" });
     expect(adminFelt().value).toBe("2");
     fireEvent.keyDown(adminFelt(), { key: "ArrowDown" });
@@ -223,7 +226,7 @@ describe("PrisKalkulator — redigering av feltene", () => {
   });
 
   it("committer utkastet når man klikker seg videre", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     fireEvent.change(adminFelt(), { target: { value: "7" } });
     fireEvent.pointerDown(adminPluss());
     fireEvent.pointerUp(adminPluss());
@@ -235,7 +238,7 @@ describe("PrisKalkulator — hold inne", () => {
   it("repeterer så lenge knappen holdes, og stopper ved slipp", () => {
     vi.useFakeTimers();
     try {
-      render(<PrisKalkulator />);
+      render(<Kalk />);
       fireEvent.pointerDown(adminPluss());
       expect(adminFelt().value).toBe("2"); // første klikk teller med en gang
 
@@ -258,7 +261,7 @@ describe("PrisKalkulator — hold inne", () => {
   it("stanser på 99 selv om knappen holdes lenge", () => {
     vi.useFakeTimers();
     try {
-      render(<PrisKalkulator />);
+      render(<Kalk />);
       fireEvent.pointerDown(adminPluss());
       act(() => {
         vi.advanceTimersByTime(60_000);
@@ -272,7 +275,7 @@ describe("PrisKalkulator — hold inne", () => {
   it("stopper repetisjonen også når pekeren slippes utenfor knappen", () => {
     vi.useFakeTimers();
     try {
-      render(<PrisKalkulator />);
+      render(<Kalk />);
       fireEvent.pointerDown(adminPluss());
       act(() => {
         vi.advanceTimersByTime(400 + 120 * 3);
@@ -291,7 +294,7 @@ describe("PrisKalkulator — hold inne", () => {
 
 describe("PrisKalkulator — tastatur", () => {
   it("kan betjenes med tastatur", () => {
-    render(<PrisKalkulator />);
+    render(<Kalk />);
     fireEvent.keyDown(adminPluss(), { key: "Enter" });
     expect(adminFelt().value).toBe("2");
     fireEvent.keyDown(mekPluss(), { key: " " });
@@ -305,7 +308,7 @@ describe("PrisKalkulator — tastatur", () => {
 
 describe("PrisKalkulator — tilgjengelighet", () => {
   it("melder totalen i én og samme aria-live-region", () => {
-    const { container } = render(<PrisKalkulator />);
+    const { container } = render(<Kalk />);
     const regioner = container.querySelectorAll("[aria-live]");
     expect(regioner.length).toBe(1);
     expect(regioner[0]!.textContent).toContain(`1${NBSP}295,-`);

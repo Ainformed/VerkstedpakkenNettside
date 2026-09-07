@@ -2,177 +2,153 @@
 
 import { useState } from "react";
 
+import type { IntegrasjonerDict } from "@/i18n/dictionaries/nb";
+
+type CatKey = keyof IntegrasjonerDict["categories"];
+type IntegId = keyof IntegrasjonerDict["integrations"];
+
 type Integration = {
+  id: IntegId;
   name: string;
-  cat: string;
-  catLabel: string;
-  desc: string;
+  cat: Exclude<CatKey, "alle">;
   logo?: { src: string; alt: string; className?: string };
   logoText?: string;
   logoColor?: string;
 };
 
-const CATEGORIES = [
-  { key: "alle", label: "Alle" },
-  { key: "regnskap", label: "Regnskap" },
-  { key: "betaling", label: "Betaling" },
-  { key: "deler", label: "Deler" },
-  { key: "kjoretoy", label: "Kjøretøydata" },
-  { key: "ki", label: "AI" },
-] as const;
+const CATEGORIES: CatKey[] = ["alle", "regnskap", "betaling", "deler", "kjoretoy", "ki"];
 
 const INTEGRATIONS: Integration[] = [
   {
+    id: "fiken",
     name: "Fiken",
     cat: "regnskap",
-    catLabel: "Regnskap",
     logo: { src: "/design/logos/fiken.svg", alt: "Fiken" },
-    desc: "Fakturaer og betalinger går rett inn i regnskapet. Perfekt for verksteder som fører regnskapet selv.",
   },
   {
+    id: "poweroffice",
     name: "PowerOffice GO",
     cat: "regnskap",
-    catLabel: "Regnskap",
     logo: { src: "/design/logos/poweroffice.png", alt: "PowerOffice GO", className: "logo-wide" },
-    desc: "Automatisk overføring av fakturagrunnlag og betalingsstatus til regnskapsføreren deres.",
   },
   {
+    id: "tripletex",
     name: "Tripletex",
     cat: "regnskap",
-    catLabel: "Regnskap",
     logo: { src: "/design/logos/tripletex.png", alt: "Tripletex" },
-    desc: "Fakturaer, kunder og betalinger holdes synkronisert — uten manuell punching.",
   },
   {
+    id: "visma",
     name: "Visma eAccounting",
     cat: "regnskap",
-    catLabel: "Regnskap",
     logo: { src: "/design/logos/visma-eaccounting.png", alt: "Visma eAccounting" },
-    desc: "Send fakturaer og bilag rett til Visma, klare til bokføring.",
   },
   {
+    id: "24sevenoffice",
     name: "24SevenOffice",
     cat: "regnskap",
-    catLabel: "Regnskap",
     logo: { src: "/design/logos/finago.png", alt: "24SevenOffice (Finago)" },
-    desc: "Overfør salg og betalinger automatisk til regnskapet.",
   },
   {
+    id: "systima",
     name: "Systima",
     cat: "regnskap",
-    catLabel: "Regnskap",
     logo: { src: "/design/logos/systima.png", alt: "Systima" },
-    desc: "Fakturagrunnlag og betalinger går automatisk til bokføring i Systima.",
   },
   {
+    id: "conta",
     name: "Conta",
     cat: "regnskap",
-    catLabel: "Regnskap",
     logo: { src: "/design/logos/conta.svg", alt: "Conta" },
-    desc: "Koble til på minuttet med API-nøkkel — salg og betalingsstatus havner rett i Conta.",
   },
   {
+    id: "vipps",
     name: "Vipps",
     cat: "betaling",
-    catLabel: "Betaling",
     logo: { src: "/design/logos/vipps.png", alt: "Vipps", className: "logo-wide" },
-    desc: "Kunden betaler med Vipps når bilen hentes.",
   },
   {
+    id: "stripe",
     name: "Stripe",
     cat: "betaling",
-    catLabel: "Betaling",
     logo: { src: "/design/logos/stripe.png", alt: "Stripe" },
-    desc: "Kortbetaling på nett — kunden betaler med kort direkte fra fakturaen eller bookingen.",
   },
   {
+    id: "bilxtra",
     name: "BilXtra",
     cat: "deler",
-    catLabel: "Deler",
     logo: { src: "/design/logos/bilxtra.svg", alt: "BilXtra", className: "logo-wide" },
-    desc: "Søk på skiltnummer, se pris og lagerstatus, og bestill deler rett fra ordren.",
   },
   {
+    id: "meca",
     name: "MECA",
     cat: "deler",
-    catLabel: "Deler",
     logo: { src: "/design/logos/meca.png", alt: "MECA" },
-    desc: "Delekatalog og bestilling koblet til jobben delen skal brukes på.",
   },
   {
+    id: "meko",
     name: "MEKO",
     cat: "deler",
-    catLabel: "Deler",
     logo: { src: "/design/logos/meko.png", alt: "MEKO", className: "logo-wide" },
-    desc: "Bestill fra MEKO-nettverket med leveringstid synlig i ordrebildet.",
   },
   {
+    id: "flak",
     name: "Flak",
     cat: "deler",
-    catLabel: "Deler",
     logo: { src: "/design/logos/flak.png", alt: "Flak", className: "logo-compact" },
-    desc: "Verkstedutstyr og rekvisita fra Flak — bestill med jobben som referanse.",
   },
   {
+    id: "romnes",
     name: "Romnes",
     cat: "deler",
-    catLabel: "Deler",
     logo: { src: "/design/logos/romnes.png", alt: "Romnes", className: "logo-wide" },
-    desc: "Deler og rekvisita fra Romnes, med pris og tilgjengelighet i ordrebildet.",
   },
   {
+    id: "vegvesen",
     name: "Statens vegvesen",
     cat: "kjoretoy",
-    catLabel: "Kjøretøydata",
     logo: { src: "/design/logos/statens-vegvesen.png", alt: "Statens vegvesen", className: "logo-tall" },
-    desc: "Skiltoppslag henter merke, modell og EU-frist automatisk.",
   },
   {
+    id: "haynespro",
     name: "HaynesPro",
     cat: "kjoretoy",
-    catLabel: "Kjøretøydata",
     logo: { src: "/design/logos/haynespro.png", alt: "HaynesPro", className: "logo-compact" },
-    desc: "Tekniske data, reparasjonstider og servicedata for jobben på løfteren.",
   },
   {
+    id: "autofrontal",
     name: "AutoFrontal",
     cat: "kjoretoy",
-    catLabel: "Kjøretøydata",
     logo: { src: "/design/logos/autofrontal.png", alt: "AutoFrontal", className: "logo-compact" },
-    desc: "Reparasjonsbulletiner og feilkoder med løsninger på kjente feil, samlet fra tusenvis av verksteder.",
   },
   {
+    id: "bus",
     name: "BUS",
     cat: "kjoretoy",
-    catLabel: "Kjøretøydata",
     logo: { src: "/design/logos/bus.png", alt: "B.U.S." },
-    desc: "EU-kontroll: hent kjøretøydata og send kontrollresultatet rett fra ordren.",
   },
   {
+    id: "claude",
     name: "Claude",
     cat: "ki",
-    catLabel: "AI",
     logo: { src: "/design/logos/claude.svg", alt: "Claude" },
-    desc: "Anthropics språkmodell — en av modellene bak Muttern, brukt til tekst, oppsummeringer og svar.",
   },
   {
+    id: "chatgpt",
     name: "ChatGPT",
     cat: "ki",
-    catLabel: "AI",
     logo: { src: "/design/logos/chatgpt.png", alt: "ChatGPT" },
-    desc: "OpenAIs språkmodell — driver deler av Muttern, som utkast til meldinger og svar på spørsmål.",
   },
   {
+    id: "gemini",
     name: "Gemini",
     cat: "ki",
-    catLabel: "AI",
     logo: { src: "/design/logos/gemini.png", alt: "Gemini" },
-    desc: "Googles språkmodell — Muttern velger den når den løser oppgaven best.",
   },
 ];
 
-export default function IntegrationCatalog() {
-  const [active, setActive] = useState<string>("alle");
+export default function IntegrationCatalog({ t }: { t: IntegrasjonerDict }) {
+  const [active, setActive] = useState<CatKey>("alle");
 
   const visible = INTEGRATIONS.filter(
     (i) => active === "alle" || i.cat === active,
@@ -184,12 +160,12 @@ export default function IntegrationCatalog() {
         <div className="cat-chips" id="catChips">
           {CATEGORIES.map((c) => (
             <button
-              key={c.key}
+              key={c}
               className="cat-chip"
-              aria-pressed={active === c.key}
-              onClick={() => setActive(c.key)}
+              aria-pressed={active === c}
+              onClick={() => setActive(c)}
             >
-              {c.label}
+              {t.categories[c]}
             </button>
           ))}
         </div>
@@ -217,9 +193,9 @@ export default function IntegrationCatalog() {
                   </span>
                 )}
               </div>
-              <span className="ic-cat">{card.catLabel}</span>
+              <span className="ic-cat">{t.categories[card.cat]}</span>
               <h3>{card.name}</h3>
-              <p>{card.desc}</p>
+              <p>{t.integrations[card.id]}</p>
             </div>
           ))}
         </div>

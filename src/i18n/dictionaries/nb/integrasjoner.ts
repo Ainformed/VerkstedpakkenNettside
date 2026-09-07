@@ -1,0 +1,48 @@
+const integrasjoner = {
+  meta: {
+    title: "Integrasjoner",
+    description:
+      "Verkstedpakken er koblet til regnskap, betaling, deleleverandører og kjøretøydata.",
+  },
+  hero: {
+    title: "Ett program som snakker med resten",
+    lead: "Verkstedpakken er koblet til programmene verkstedet allerede bruker: regnskap, betaling, deler og kjøretøydata.",
+  },
+  categories: {
+    alle: "Alle",
+    regnskap: "Regnskap",
+    betaling: "Betaling",
+    deler: "Deler",
+    kjoretoy: "Kjøretøydata",
+    ki: "AI",
+  },
+  integrations: {
+    fiken: "Fakturaer og betalinger går rett inn i regnskapet. Perfekt for verksteder som fører regnskapet selv.",
+    poweroffice: "Automatisk overføring av fakturagrunnlag og betalingsstatus til regnskapsføreren deres.",
+    tripletex: "Fakturaer, kunder og betalinger holdes synkronisert — uten manuell punching.",
+    visma: "Send fakturaer og bilag rett til Visma, klare til bokføring.",
+    "24sevenoffice": "Overfør salg og betalinger automatisk til regnskapet.",
+    systima: "Fakturagrunnlag og betalinger går automatisk til bokføring i Systima.",
+    conta: "Koble til på minuttet med API-nøkkel — salg og betalingsstatus havner rett i Conta.",
+    vipps: "Kunden betaler med Vipps når bilen hentes.",
+    stripe: "Kortbetaling på nett — kunden betaler med kort direkte fra fakturaen eller bookingen.",
+    bilxtra: "Søk på skiltnummer, se pris og lagerstatus, og bestill deler rett fra ordren.",
+    meca: "Delekatalog og bestilling koblet til jobben delen skal brukes på.",
+    meko: "Bestill fra MEKO-nettverket med leveringstid synlig i ordrebildet.",
+    flak: "Verkstedutstyr og rekvisita fra Flak — bestill med jobben som referanse.",
+    romnes: "Deler og rekvisita fra Romnes, med pris og tilgjengelighet i ordrebildet.",
+    vegvesen: "Skiltoppslag henter merke, modell og EU-frist automatisk.",
+    haynespro: "Tekniske data, reparasjonstider og servicedata for jobben på løfteren.",
+    autofrontal: "Reparasjonsbulletiner og feilkoder med løsninger på kjente feil, samlet fra tusenvis av verksteder.",
+    bus: "EU-kontroll: hent kjøretøydata og send kontrollresultatet rett fra ordren.",
+    claude: "Anthropics språkmodell — en av modellene bak Muttern, brukt til tekst, oppsummeringer og svar.",
+    chatgpt: "OpenAIs språkmodell — driver deler av Muttern, som utkast til meldinger og svar på spørsmål.",
+    gemini: "Googles språkmodell — Muttern velger den når den løser oppgaven best.",
+  },
+  api: {
+    title: "Lag din egen kobling",
+    textBefore: "Verkstedpakken har et eget API for deg som vil koble til noe vi ikke har på lista. Send oss en e-post på",
+    textAfter: ", så finner vi ut av det sammen.",
+  },
+};
+export default integrasjoner;

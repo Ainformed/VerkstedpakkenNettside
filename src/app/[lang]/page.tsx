@@ -3,6 +3,10 @@ import Header from "@/components/vp/Header";
 import Footer from "@/components/vp/Footer";
 import InView from "@/components/vp/InView";
 import { SIGNUP_URL } from "@/lib/links";
+import { getDictionary } from "@/i18n";
+import { isLocale, localePath, languageAlternates, LOCALE_META } from "@/i18n/config";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import {
   M_ORDER_NY_SVG,
   M_ZEN_FIG_SVG,
@@ -16,19 +20,44 @@ function RawSvg({ html }: { html: string }) {
   return <span style={{ display: "contents" }} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
-export default function Home() {
+type Params = { params: Promise<{ lang: string }> };
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const { home } = await getDictionary(lang);
+  const alts = languageAlternates("/");
+  return {
+    title: { absolute: home.meta.title },
+    description: home.meta.description,
+    alternates: { canonical: alts[LOCALE_META[lang].hreflang], languages: alts },
+    openGraph: { title: home.meta.title, description: home.meta.description },
+  };
+}
+
+const Arrow = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+);
+
+export default async function Home({ params }: Params) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const { home: t, common } = await getDictionary(lang);
+  const [c1, c2, c3] = t.cols;
+  const [p1, p2, p3] = t.panel1.cards;
+  const [q1, q2, q3] = t.panel2.cards;
   return (
     <>
-      <Header />
+      <Header lang={lang} t={common} />
       <main className="page-home">
         {/* ─────────────── HERO ─────────────── */}
         <section className="hero">
           <div className="wrap">
-            <h1>Verkstedprogrammet uten dobbeltarbeid</h1>
+            <h1>{t.hero.title}</h1>
             <div className="cta-row">
-              <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>Prøv gratis i 14 dager</a>
+              <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>{t.hero.cta}</a>
             </div>
-            <p className="subnote">Bytter du fra et annet program? Du betaler ikke før oppsigelsestiden er ute.</p>
+            <p className="subnote">{t.hero.subnote}</p>
           </div>
         </section>
 
@@ -44,8 +73,8 @@ export default function Home() {
                   <RawSvg html={M_ORDER_NY_SVG} />
                 </div>
               </div>
-              <h3>Lett å lære</h3>
-              <p>Nye programmer pleier å bety kurs og frustrasjon. Her er du i gang med en gang.</p>
+              <h3>{c1.title}</h3>
+              <p>{c1.text}</p>
             </div>
             <div className="col">
               <div className="art">
@@ -53,8 +82,8 @@ export default function Home() {
                   <RawSvg html={M_ZEN_FIG_SVG} />
                 </div>
               </div>
-              <h3>Full kontroll</h3>
-              <p>Ordre, timer, deler og status på ett sted. Du vet alltid hvor jobbene står.</p>
+              <h3>{c2.title}</h3>
+              <p>{c2.text}</p>
             </div>
             <div className="col">
               <div className="art">
@@ -62,8 +91,8 @@ export default function Home() {
                   <RawSvg html={M_SUPPORT_SVG} />
                 </div>
               </div>
-              <h3>Hjelp koster ikke</h3>
-              <p>Ring eller skriv, så svarer en som kan både programmet og verkstedhverdagen.</p>
+              <h3>{c3.title}</h3>
+              <p>{c3.text}</p>
             </div>
           </InView>
         </section>
@@ -71,11 +100,11 @@ export default function Home() {
         {/* ─────────────── FEATURE PANEL ─────────────── */}
         <section className="panel-sec">
           <div className="panel">
-            <h2>Hele verkstedet<br />i ett program</h2>
+            <h2>{t.panel1.title[0]}<br />{t.panel1.title[1]}</h2>
             <div className="panel-cards">
               <div className="pcard">
-                <h3>Du styrer verkstedet</h3>
-                <p>Tildel jobber, følg status og kapasitet på én skjerm, uten å gå runden. Når jobben lukkes, ligger fakturagrunnlaget klart for regnskapet.</p>
+                <h3>{p1.title}</h3>
+                <p>{p1.text}</p>
                 <div className="illo">
                   <div className="ill ill-orders">
                     <div className="oc oc3"></div>
@@ -89,13 +118,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="pcard">
-                <h3>Laget for mekanikeren</h3>
-                <p>Ledige jobber på mobilen eller felles skjerm. Plukk selv eller få tildelt. Tiden stemples der og da og havner rett på ordrelinjen.</p>
+                <h3>{p2.title}</h3>
+                <p>{p2.text}</p>
                 <div className="illo">
                   <div className="ill ill-phone2">
                     <div className="frame">
                       <div className="scr">
-                        <div className="hdr">Ledige jobber</div>
+                        <div className="hdr">{t.panel1.phoneHeader}</div>
                         <div className="jrow"><span className="jdot"></span><span className="jbars"><i></i><i className="sm"></i></span></div>
                         <div className="jrow active"><span className="jdot"></span><span className="jbars"><i></i><i className="sm"></i></span><span className="jtime">00:42</span></div>
                         <div className="jrow"><span className="jdot"></span><span className="jbars"><i></i><i className="sm"></i></span></div>
@@ -105,8 +134,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="pcard">
-                <h3>Kunden sender forespørsel</h3>
-                <p>På telefon eller nett. Du foreslår pris og dato, kunden bekrefter. De følger bilen underveis og slipper å ringe.</p>
+                <h3>{p3.title}</h3>
+                <p>{p3.text}</p>
                 <div className="illo">
                   <div className="ill ill-bubble">
                     <div className="bub">
@@ -115,7 +144,7 @@ export default function Home() {
                       </span>
                       <div className="bub-lines"><span></span><span className="sm"></span></div>
                     </div>
-                    <span className="chip">tir 24. juni · 1 490 kr</span>
+                    <span className="chip">{t.panel1.chip}</span>
                   </div>
                 </div>
               </div>
@@ -127,12 +156,12 @@ export default function Home() {
         <section className="help-sec">
           <div className="help-grid">
             <div className="help-media">
-              <img loading="lazy" className="help-photo" src="/design/support-svarer-telefon.jpg" alt="Supportmedarbeider svarer en kunde ved laptopen" />
+              <img loading="lazy" className="help-photo" src="/design/support-svarer-telefon.jpg" alt={t.help.photoAlt} />
             </div>
             <div className="help-copy">
-              <h2>Support som kan verksted</h2>
-              <p>Spør om stort eller smått. Det er alltid et menneske som svarer.</p>
-              <p>Oppsett, opplæring og spørsmål underveis er inkludert. Du får aldri faktura for hjelp.</p>
+              <h2>{t.help.title}</h2>
+              <p>{t.help.p1}</p>
+              <p>{t.help.p2}</p>
             </div>
           </div>
         </section>
@@ -140,8 +169,8 @@ export default function Home() {
         {/* ─────────────── CTA-BANNER ─────────────── */}
         <section className="cta-sec">
           <div className="cta-banner">
-            <a className="btn btn-primary" href={SIGNUP_URL}>Prøv gratis i 14 dager</a>
-            <p>I gang på fem minutter. Ingen binding.</p>
+            <a className="btn btn-primary" href={SIGNUP_URL}>{t.ctaBanner.cta}</a>
+            <p>{t.ctaBanner.note}</p>
             <div className="cta-mascot">
               <div className="fig zen-fig">
                 <RawSvg html={M_ZEN_FIG_SVG} />
@@ -154,10 +183,10 @@ export default function Home() {
         <section className="split-sec">
           <div className="split-row">
             <div className="split-text">
-              <h2>Formet etter driften din</h2>
-              <p>Bil, anleggsmaskin, MC, båt eller landbruk. Du får egne ordremaler, prislister og felt for din bransje. Arbeidsordre, timeregistrering, delelager og fakturering samlet på ett sted.</p>
-              <Link className="split-link" href="/ordresystem">Slik fungerer ordreprogrammet
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              <h2>{t.split1.title}</h2>
+              <p>{t.split1.text}</p>
+              <Link className="split-link" href={localePath(lang, "/ordresystem")}>{t.split1.link}
+                <Arrow />
               </Link>
             </div>
             <div className="split-art">
@@ -170,14 +199,14 @@ export default function Home() {
           <div className="split-row reverse">
             <div className="split-art">
               <div className="fig">
-                <RawSvg html={M_ORDER_BYTT_SVG} />
+                <RawSvg html={M_ORDER_BYTT_SVG(t.mascot.free, t.mascot.switchNow)} />
               </div>
             </div>
             <div className="split-text">
-              <h2>Lei av programmet<br />dere har?</h2>
-              <p>Å bytte program skal være trygt. Derfor er Verkstedpakken gratis til oppsigelsestiden på det gamle programmet er over. Du betaler aldri for to programmer samtidig. Vi hjelper deg hele veien, og verkstedet går som normalt.</p>
-              <Link className="split-link" href="/pris">Se priser
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              <h2>{t.split2.title[0]}<br />{t.split2.title[1]}</h2>
+              <p>{t.split2.text}</p>
+              <Link className="split-link" href={localePath(lang, "/pris")}>{t.split2.link}
+                <Arrow />
               </Link>
             </div>
           </div>
@@ -187,10 +216,10 @@ export default function Home() {
         <section className="split-sec">
           <div className="split-row integ-row">
             <div className="split-text">
-              <h2>Integrasjoner</h2>
-              <p>Regnskap, deler og kjøretøydata. Verkstedpakken sender tallene dit de skal, så ingenting føres to ganger.</p>
-              <Link className="split-link" href="/integrasjoner">Tjenester du kan koble til
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              <h2>{t.integ.title}</h2>
+              <p>{t.integ.text}</p>
+              <Link className="split-link" href={localePath(lang, "/integrasjoner")}>{t.integ.link}
+                <Arrow />
               </Link>
             </div>
             <div className="split-art" style={{ justifyItems: "end" }}>
@@ -214,17 +243,17 @@ export default function Home() {
         {/* ─────────────── NETTSIDE OG BOOKING ─────────────── */}
         <section className="panel-sec">
           <div className="panel">
-            <h2>Bli verkstedet<br />kundene velger</h2>
+            <h2>{t.panel2.title[0]}<br />{t.panel2.title[1]}</h2>
             <div className="panel-cards">
               <div className="pcard">
-                <h3>Vær synlig</h3>
-                <p>Dukk opp når kunder søker etter verksted på nett, og styr selv inntrykket de får. Vis hvem dere er, slik dere vil.</p>
+                <h3>{q1.title}</h3>
+                <p>{q1.text}</p>
                 <div className="illo">
                   <div className="ill ill-site">
                     <div className="win">
                       <div className="win-bar"><i></i><i></i><i></i><span className="win-url"></span></div>
                       <div className="ws-nav">
-                        <span className="ws-brand">Verkstedet ditt</span>
+                        <span className="ws-brand">{t.panel2.wsBrand}</span>
                         <span className="ws-links"><i></i><i></i><i></i></span>
                       </div>
                       <div className="ws-hero">
@@ -238,49 +267,49 @@ export default function Home() {
                 </div>
               </div>
               <div className="pcard">
-                <h3>Du bestemmer tiden</h3>
-                <p>Kunden taster inn regnr og huker av hva som er galt. Du svarer med pris, dato og tid, så takker de ja eller nei.</p>
+                <h3>{q2.title}</h3>
+                <p>{q2.text}</p>
                 <div className="illo">
                   <div className="ill ill-book">
                     <div className="bk">
-                      <div className="bk-hdr">Ny forespørsel</div>
-                      <span className="bk-plate">AA 11111 · Volkswagen Caddy</span>
+                      <div className="bk-hdr">{t.panel2.bkHeader}</div>
+                      <span className="bk-plate">{t.panel2.bkPlate}</span>
                       <div className="bk-msg"><span></span><span></span><span className="sm"></span></div>
-                      <span className="bk-btn">Send forespørsel</span>
+                      <span className="bk-btn">{t.panel2.bkButton}</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="pcard">
-                <h3>Færre telefoner</h3>
-                <p>Kunden ser selv hvor bilen er. Da slipper du oppringningene som bare lurer på en ting: er den ferdig snart?</p>
+                <h3>{q3.title}</h3>
+                <p>{q3.text}</p>
                 <div className="illo">
                   <div className="ill ill-track">
                     <div className="tk">
-                      <div className="tk-hdr">Følg bilen</div>
+                      <div className="tk-hdr">{t.panel2.tkHeader}</div>
                       <div className="tk-car">Volkswagen Caddy</div>
                       <div className="tk-reg">UX 58585</div>
                       <div className="tk-steps">
-                        <div className="tk-step done"><span className="tk-dot"></span><span className="tk-lbl">Bekreftet</span></div>
-                        <div className="tk-step done"><span className="tk-dot"></span><span className="tk-lbl">Mottatt</span></div>
-                        <div className="tk-step now"><span className="tk-dot"></span><span className="tk-lbl">Pågår</span></div>
-                        <div className="tk-step"><span className="tk-dot"></span><span className="tk-lbl">Klar</span></div>
+                        <div className="tk-step done"><span className="tk-dot"></span><span className="tk-lbl">{t.panel2.tkSteps[0]}</span></div>
+                        <div className="tk-step done"><span className="tk-dot"></span><span className="tk-lbl">{t.panel2.tkSteps[1]}</span></div>
+                        <div className="tk-step now"><span className="tk-dot"></span><span className="tk-lbl">{t.panel2.tkSteps[2]}</span></div>
+                        <div className="tk-step"><span className="tk-dot"></span><span className="tk-lbl">{t.panel2.tkSteps[3]}</span></div>
                       </div>
-                      <div className="tk-foot"><span className="tk-foot-lbl">Du får beskjed når bilen er klar</span></div>
+                      <div className="tk-foot"><span className="tk-foot-lbl">{t.panel2.tkFoot}</span></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="panel-link-row">
-              <Link href="/nettside-og-booking">Mer om nettside og booking
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              <Link href={localePath(lang, "/nettside-og-booking")}>{t.panel2.link}
+                <Arrow />
               </Link>
             </div>
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer lang={lang} t={common} />
     </>
   );
 }

@@ -3,16 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
+import LangSwitcher from "./LangSwitcher";
 import { APP_URL, SIGNUP_URL } from "@/lib/links";
+import { localePath, type Locale } from "@/i18n/config";
+import type { CommonDict } from "@/i18n/dictionaries/nb";
 
-const NAV_LINKS = [
-  { href: "/ordresystem", label: "Ordreprogram" },
-  { href: "/nettside-og-booking", label: "Nettside og booking" },
-  { href: "/integrasjoner", label: "Integrasjoner" },
-  { href: "/pris", label: "Pris" },
-] as const;
-
-export default function Header() {
+export default function Header({ lang, t }: { lang: Locale; t: CommonDict }) {
+  const NAV_LINKS = [
+    { href: localePath(lang, "/ordresystem"), label: t.nav.ordresystem },
+    { href: localePath(lang, "/nettside-og-booking"), label: t.nav.booking },
+    { href: localePath(lang, "/integrasjoner"), label: t.nav.integrasjoner },
+    { href: localePath(lang, "/pris"), label: t.nav.pris },
+  ];
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   // Helt på toppen skjules «Prøv gratis» i nav på mobil — heroen har alt en
@@ -88,7 +90,7 @@ export default function Header() {
         className={`nav${hidden ? " nav-hidden" : ""}${atTop ? " nav-at-top" : ""}`}
       >
         <div className="nav-inner">
-          <Link className="brand" href="/" aria-label="Verkstedpakken">
+          <Link className="brand" href={localePath(lang, "/")} aria-label="Verkstedpakken">
             <Logo />
           </Link>
           <nav className="nav-links">
@@ -99,15 +101,16 @@ export default function Header() {
             ))}
           </nav>
           <div className="nav-cta">
+            <LangSwitcher lang={lang} label={t.nav.language} className="lang-switch-nav" variant="menu" />
             <a className="btn btn-ghost login" href={APP_URL}>
-              Logg inn
+              {t.nav.login}
             </a>
             <a className="btn btn-primary primary-cta" href={SIGNUP_URL}>
-              Prøv gratis
+              {t.nav.tryFree}
             </a>
             <button
               className="nav-burger"
-              aria-label="Meny"
+              aria-label={t.nav.menu}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen(true)}
             >
@@ -129,14 +132,14 @@ export default function Header() {
         className={`mm-overlay${menuOpen ? " open" : ""}`}
         onClick={() => setMenuOpen(false)}
       />
-      <aside className={`mobile-menu${menuOpen ? " open" : ""}`} aria-label="Meny">
+      <aside className={`mobile-menu${menuOpen ? " open" : ""}`} aria-label={t.nav.menu}>
         <div className="mm-top">
           <span className="mm-brand" aria-hidden="true">
             <Logo />
           </span>
           <button
             className="mm-close"
-            aria-label="Lukk meny"
+            aria-label={t.nav.closeMenu}
             onClick={() => setMenuOpen(false)}
           >
             <svg
@@ -163,12 +166,13 @@ export default function Header() {
             </div>
           ))}
         </nav>
+        <LangSwitcher lang={lang} label={t.nav.language} className="lang-switch-mm" />
         <div className="mm-foot">
           <a className="btn btn-ghost" href={APP_URL}>
-            Logg inn
+            {t.nav.login}
           </a>
           <a className="btn btn-primary" href={SIGNUP_URL}>
-            Prøv gratis
+            {t.nav.tryFree}
           </a>
         </div>
       </aside>

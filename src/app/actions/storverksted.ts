@@ -22,9 +22,11 @@ if (RESEND_API_KEY) {
   }
 }
 
+/** Feil returneres som kode; klienten slår opp tekst i sin ordbok. */
+export type StorverkstedError = "" | "rate_limit" | "count" | "contact" | "generic";
 export type StorverkstedState = {
   success: boolean;
-  error: string;
+  error: StorverkstedError;
 };
 
 // Enkel in-memory rate limit — holder for lav trafikk / én instans.
@@ -156,7 +158,7 @@ export async function submitStorverksted(
   if (!checkRateLimit(ip)) {
     return {
       success: false,
-      error: "For mange forsøk på kort tid. Prøv igjen om litt.",
+      error: "rate_limit",
     };
   }
 
@@ -179,7 +181,7 @@ export async function submitStorverksted(
 
   const antall = Number(antallRaa.replace(/\s/g, ""));
   if (!Number.isFinite(antall) || antall < 1 || antall > 10000) {
-    return { success: false, error: "Oppgi hvor mange dere er." };
+    return { success: false, error: "count" };
   }
 
   // Kontakt skal være e-post eller et telefonnummer (minst 8 sifre).
@@ -188,7 +190,7 @@ export async function submitStorverksted(
   if (!kontakt || (!erEpost && !erTelefon)) {
     return {
       success: false,
-      error: "Oppgi et telefonnummer eller en e-postadresse.",
+      error: "contact",
     };
   }
 
@@ -196,8 +198,7 @@ export async function submitStorverksted(
     console.error("Resend not configured — cannot send storverksted lead.");
     return {
       success: false,
-      error:
-        "Noe gikk galt. Send oss gjerne en e-post på hei@verkstedpakken.no i stedet.",
+      error: "generic",
     };
   }
 
@@ -220,8 +221,7 @@ export async function submitStorverksted(
     console.error("Failed to send storverksted lead:", e);
     return {
       success: false,
-      error:
-        "Noe gikk galt. Send oss gjerne en e-post på hei@verkstedpakken.no i stedet.",
+      error: "generic",
     };
   }
 }

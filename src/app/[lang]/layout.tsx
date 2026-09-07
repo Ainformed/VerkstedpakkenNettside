@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter_Tight, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import ScrollReset from "@/components/ScrollReset";
+import { LOCALES, LOCALE_META, isLocale, languageAlternates, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n";
+import { notFound } from "next/navigation";
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
@@ -27,14 +30,25 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-export const metadata: Metadata = {
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const { common } = await getDictionary(lang);
+  return {
   metadataBase: new URL("https://verkstedpakken.no"),
   title: {
-    default: "Verkstedpakken — Verkstedprogrammet uten dobbeltarbeid",
+    default: common.seo.siteTitle,
     template: "%s | Verkstedpakken",
   },
-  description:
-    "Verkstedprogrammet uten dobbeltarbeid. Ordre, booking, mekanikerportal og faktura i ett program. Admin 1 295 kr og mekaniker 595 kr per mnd. Prøv gratis i 14 dager.",
+  description: common.seo.siteDescription,
   applicationName: "Verkstedpakken",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
@@ -69,18 +83,17 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "nb_NO",
-    url: "https://verkstedpakken.no",
+    locale: LOCALE_META[lang].ogLocale,
+    url: languageAlternates("/")[LOCALE_META[lang].hreflang],
     siteName: "Verkstedpakken",
-    title: "Verkstedpakken — Verkstedprogrammet uten dobbeltarbeid",
-    description:
-      "Ordre, nettside og booking, mekanikerportal og faktura i ett program. Alt inkludert, ingen bindingstid. Prøv gratis i 14 dager.",
+    title: common.seo.siteTitle,
+    description: common.seo.ogDescription,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Verkstedpakken — komplett program for verksteder",
+        alt: common.seo.ogImageAlt,
         type: "image/png",
       },
     ],
@@ -89,16 +102,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@verkstedpakken",
     creator: "@verkstedpakken",
-    title: "Verkstedpakken — Verkstedprogrammet uten dobbeltarbeid",
-    description:
-      "Ordre, nettside og booking, mekanikerportal og faktura i ett program. Prøv gratis i 14 dager.",
+    title: common.seo.siteTitle,
+    description: common.seo.ogDescription,
     images: ["/og-image.png"],
   },
   alternates: {
-    canonical: "/",
-    languages: {
-      "nb-NO": "/",
-    },
+    canonical: languageAlternates("/")[LOCALE_META[lang].hreflang],
+    languages: languageAlternates("/"),
   },
   icons: {
     icon: [
@@ -127,7 +137,8 @@ export const metadata: Metadata = {
     // Legg til Google Search Console verification-token her når du har det:
     // google: "xxxxxxxxxxxxxxxx",
   },
-};
+  };
+}
 
 function JsonLd() {
   const SITE = "https://verkstedpakken.no";
@@ -227,13 +238,17 @@ function JsonLd() {
   );
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
   return (
-    <html lang="nb">
+    <html lang={LOCALE_META[lang as Locale].htmlLang}>
       <head>
         <JsonLd />
       </head>

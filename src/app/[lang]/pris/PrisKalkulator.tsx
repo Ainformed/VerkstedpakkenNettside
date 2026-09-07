@@ -7,7 +7,10 @@ import {
   useRef,
   useState,
 } from "react";
-import { submitStorverksted } from "@/app/actions/storverksted";
+import {
+  submitStorverksted,
+  type StorverkstedState,
+} from "@/app/actions/storverksted";
 import {
   MAKS_LISENSER,
   MAKS_TELLER,
@@ -15,10 +18,12 @@ import {
   MIN_ADMIN,
   MIN_MEKANIKERE,
   beregnManedspris,
-  formaterKr,
+  formaterBelop,
   klemAntall,
 } from "@/lib/pricing";
 import { SIGNUP_URL } from "@/lib/links";
+import type { Locale } from "@/i18n/config";
+import type { PrisDict } from "@/i18n/dictionaries/nb";
 
 /** Hold inne: pause før repetisjonen starter, så jevn takt, så raskere. */
 const FORSINKELSE_MS = 400;
@@ -177,7 +182,14 @@ function Teller({
   );
 }
 
-export default function PrisKalkulator() {
+export default function PrisKalkulator({
+  t,
+}: {
+  lang: Locale;
+  t: PrisDict;
+}) {
+  const c = t.calc;
+  const kr = (belop: number) => formaterBelop(belop, t.priceFormat);
   const [antall, setAntall] = useState({
     admin: MIN_ADMIN,
     mekanikere: MIN_MEKANIKERE,
@@ -227,10 +239,10 @@ export default function PrisKalkulator() {
   const paaTelleTaket = totalLisenser >= MAKS_TELLER;
 
   // Storverksted-skjemaet ved taket.
-  const [skjema, skjemaAction, sender] = useActionState(submitStorverksted, {
-    success: false,
-    error: "",
-  });
+  const [skjema, skjemaAction, sender] = useActionState<
+    StorverkstedState,
+    FormData
+  >(submitStorverksted, { success: false, error: "" });
 
   return (
     <div className="pris-omrade" aria-live="polite">
@@ -249,20 +261,20 @@ export default function PrisKalkulator() {
             }`}
           >
             <div className="total-klassisk">
-              <p className="total-ledetekst">Din pris per måned</p>
+              <p className="total-ledetekst">{c.totalLabel}</p>
               <div className="amt-rad">
-                <div className="amt">{formaterKr(total)}</div>
-                <span className="amt-mva">eks. mva</span>
+                <div className="amt">{kr(total)}</div>
+                <span className="amt-mva">{c.exVat}</span>
               </div>
             </div>
             <div className="total-kvittering">
               <div className="kvitt-rad kvitt-admin">
                 <span>
-                  {antall.admin} admin
-                  {overTaket ? "" : ` × ${formaterKr(perAdmin)}`}
+                  {antall.admin} {c.adminUnit}
+                  {overTaket ? "" : ` × ${kr(perAdmin)}`}
                 </span>
                 <span>
-                  {overTaket ? "" : formaterKr(antall.admin * perAdmin)}
+                  {overTaket ? "" : kr(antall.admin * perAdmin)}
                 </span>
               </div>
               {/* Alltid rendret — skjult med visibility ved null mekanikere,
@@ -276,24 +288,24 @@ export default function PrisKalkulator() {
               >
                 <span>
                   {antall.mekanikere}{" "}
-                  {antall.mekanikere === 1 ? "mekaniker" : "mekanikere"}
-                  {overTaket ? "" : ` × ${formaterKr(MEKANIKER_PRIS)}`}
+                  {antall.mekanikere === 1 ? c.mechanicOne : c.mechanicMany}
+                  {overTaket ? "" : ` × ${kr(MEKANIKER_PRIS)}`}
                 </span>
                 <span>
                   {overTaket
                     ? ""
-                    : formaterKr(antall.mekanikere * MEKANIKER_PRIS)}
+                    : kr(antall.mekanikere * MEKANIKER_PRIS)}
                 </span>
               </div>
               <div className="kvitt-strek" />
               <div className="kvitt-total">
-                <span className="kvitt-total-navn">Per måned</span>
+                <span className="kvitt-total-navn">{c.perMonth}</span>
                 {overTaket ? (
-                  <span className="kvitt-tilbud">Etter avtale</span>
+                  <span className="kvitt-tilbud">{c.byAgreement}</span>
                 ) : (
                   <div className="amt-rad">
-                    <div className="amt">{formaterKr(total)}</div>
-                    <span className="amt-mva">eks. mva</span>
+                    <div className="amt">{kr(total)}</div>
+                    <span className="amt-mva">{c.exVat}</span>
                   </div>
                 )}
               </div>
@@ -302,9 +314,7 @@ export default function PrisKalkulator() {
           <div className="panel-cta">
             {overTaket ? (
               skjema.success ? (
-                <p className="tilbud-takk">
-                  Takk! Vi tar kontakt og setter opp et tilbud til dere.
-                </p>
+                <p className="tilbud-takk">{c.form.thanks}</p>
               ) : (
                 <form action={skjemaAction} className="tilbud-skjema">
                   {/* Honeypot for boter — skjult for folk. */}
@@ -337,15 +347,12 @@ export default function PrisKalkulator() {
                     name="antall_mekanikere"
                     value={antall.mekanikere}
                   />
-                  <p className="tilbud-tekst">
-                    Legg igjen telefon eller e-post, så setter vi opp et tilbud
-                    til verkstedet deres.
-                  </p>
+                  <p className="tilbud-tekst">{c.form.intro}</p>
                   <input
                     type="text"
                     name="kontakt"
-                    aria-label="Telefon eller e-post"
-                    placeholder="Telefon eller e-post"
+                    aria-label={c.form.contactLabel}
+                    placeholder={c.form.contactLabel}
                     required
                   />
                   <button
@@ -353,10 +360,12 @@ export default function PrisKalkulator() {
                     className="btn btn-primary btn-lg"
                     disabled={sender}
                   >
-                    {sender ? "Sender …" : "Send"}
+                    {sender ? c.form.sending : c.form.send}
                   </button>
                   {skjema.error ? (
-                    <span className="tilbud-feil">{skjema.error}</span>
+                    <span className="tilbud-feil">
+                      {c.form.errors[skjema.error]}
+                    </span>
                   ) : null}
                 </form>
               )
@@ -364,11 +373,11 @@ export default function PrisKalkulator() {
               <>
                 <div className="panel-cta-knapp">
                   <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
-                    Prøv gratis i 14 dager
+                    {c.cta}
                   </a>
                 </div>
                 <p className="per">
-                  <b>Ingen bindingstid</b> · Ingen etableringskostnad
+                  <b>{c.termsBold}</b> · {c.termsRest}
                 </p>
               </>
             )}
@@ -377,20 +386,17 @@ export default function PrisKalkulator() {
 
         <div className="pkort-rad">
           <div className="pkort pkort-admin">
-            <p className="pkort-navn">Admin / kundemottaker</p>
+            <p className="pkort-navn">{c.adminCard.name}</p>
             <p className="pkort-pris">
-              <b>{formaterKr(perAdmin)}</b>{" "}
-              <span className="pkort-per">per bruker/mnd</span>
+              <b>{kr(perAdmin)}</b>{" "}
+              <span className="pkort-per">{c.adminCard.per}</span>
             </p>
-            <p className="pkort-tekst">
-              Alt inkludert: ordre, planlegging, kunder, faktura, deler og
-              lager. En admin kan også jobbe som mekaniker.
-            </p>
+            <p className="pkort-tekst">{c.adminCard.text}</p>
             <Teller
               verdi={antall.admin}
-              feltLabel="Antall admin"
-              mindreLabel="Én admin mindre"
-              merLabel="Én admin mer"
+              feltLabel={c.adminCard.field}
+              mindreLabel={c.adminCard.less}
+              merLabel={c.adminCard.more}
               mindreDeaktivert={antall.admin <= MIN_ADMIN}
               merDeaktivert={paaTelleTaket}
               onEndre={endreAdmin}
@@ -399,20 +405,17 @@ export default function PrisKalkulator() {
           </div>
 
           <div className="pkort pkort-mek">
-            <p className="pkort-navn">Mekaniker</p>
+            <p className="pkort-navn">{c.mechanicCard.name}</p>
             <p className="pkort-pris">
-              <b>{formaterKr(MEKANIKER_PRIS)}</b>{" "}
-              <span className="pkort-per">per mekaniker/mnd</span>
+              <b>{kr(MEKANIKER_PRIS)}</b>{" "}
+              <span className="pkort-per">{c.mechanicCard.per}</span>
             </p>
-            <p className="pkort-tekst">
-              Utfører og registrerer arbeid i mekanikerportalen. På egen enhet
-              eller innlogget på felles enhet i verkstedet.
-            </p>
+            <p className="pkort-tekst">{c.mechanicCard.text}</p>
             <Teller
               verdi={antall.mekanikere}
-              feltLabel="Antall mekanikere"
-              mindreLabel="Én mekaniker mindre"
-              merLabel="Én mekaniker mer"
+              feltLabel={c.mechanicCard.field}
+              mindreLabel={c.mechanicCard.less}
+              merLabel={c.mechanicCard.more}
               mindreDeaktivert={antall.mekanikere <= MIN_MEKANIKERE}
               merDeaktivert={paaTelleTaket}
               onEndre={endreMekanikere}
