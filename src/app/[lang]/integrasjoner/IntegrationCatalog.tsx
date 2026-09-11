@@ -104,6 +104,12 @@ const INTEGRATIONS: Integration[] = [
     logo: { src: "/design/logos/romnes.png", alt: "Romnes", className: "logo-wide" },
   },
   {
+    id: "tpro",
+    name: "T-PRO",
+    cat: "deler",
+    logo: { src: "/design/logos/t-pro.png", alt: "T-PRO" },
+  },
+  {
     id: "vegvesen",
     name: "Statens vegvesen",
     cat: "kjoretoy",
