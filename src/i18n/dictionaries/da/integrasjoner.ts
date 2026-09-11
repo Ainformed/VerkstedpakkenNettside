@@ -32,6 +32,7 @@ const integrasjoner: IntegrasjonerDict = {
     meko: "Bestil fra MEKO-netværket med leveringstid synlig i ordrebilledet.",
     flak: "Værkstedsudstyr og forbrugsvarer fra Flak. Bestil med jobbet som reference.",
     romnes: "Dele og forbrugsvarer fra Romnes, med pris og tilgængelighed i ordrebilledet.",
+    tpro: "Tesla-dele fra T-PRO. Hent kurven direkte ind på ordren, med værkstedspris ind og vejledende pris ud.",
     vegvesen: "Nummerpladeopslag henter mærke, model og synsfrist automatisk.",
     haynespro: "Tekniske data, reparationstider og servicedata til jobbet på liften.",
     autofrontal: "Reparationsbulletiner og fejlkoder med løsninger på kendte fejl, samlet fra tusindvis af værksteder.",

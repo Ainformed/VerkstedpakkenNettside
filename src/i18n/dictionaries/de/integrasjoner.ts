@@ -32,6 +32,7 @@ const integrasjoner: IntegrasjonerDict = {
     meko: "Aus dem MEKO-Netzwerk bestellen, mit Lieferzeit sichtbar in der Auftragsansicht.",
     flak: "Werkstattausrüstung und Verbrauchsmaterial von Flak. Bestellen mit dem Auftrag als Referenz.",
     romnes: "Teile und Verbrauchsmaterial von Romnes, mit Preis und Verfügbarkeit in der Auftragsansicht.",
+    tpro: "Tesla-Teile von T-PRO. Warenkorb direkt in den Auftrag übernehmen, mit Werkstattpreis im Einkauf und UVP im Verkauf.",
     vegvesen: "Die Kennzeichenabfrage holt Marke, Modell und Prüffrist automatisch.",
     haynespro: "Technische Daten, Reparaturzeiten und Servicedaten für den Auftrag auf der Hebebühne.",
     autofrontal: "Reparaturbulletins und Fehlercodes mit Lösungen für bekannte Fehler, gesammelt aus Tausenden Werkstätten.",

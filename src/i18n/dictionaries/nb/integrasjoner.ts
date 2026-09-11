@@ -31,6 +31,7 @@ const integrasjoner = {
     meko: "Bestill fra MEKO-nettverket med leveringstid synlig i ordrebildet.",
     flak: "Verkstedutstyr og rekvisita fra Flak — bestill med jobben som referanse.",
     romnes: "Deler og rekvisita fra Romnes, med pris og tilgjengelighet i ordrebildet.",
+    tpro: "Tesla-deler fra T-PRO. Hent kurven rett inn på ordren, med verkstedpris inn og veiledende pris ut.",
     vegvesen: "Skiltoppslag henter merke, modell og EU-frist automatisk.",
     haynespro: "Tekniske data, reparasjonstider og servicedata for jobben på løfteren.",
     autofrontal: "Reparasjonsbulletiner og feilkoder med løsninger på kjente feil, samlet fra tusenvis av verksteder.",

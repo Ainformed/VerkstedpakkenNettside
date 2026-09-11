@@ -32,6 +32,7 @@ const integrasjoner: IntegrasjonerDict = {
     meko: "Order from the MEKO network with delivery time visible in the order view.",
     flak: "Workshop equipment and supplies from Flak. Order with the job as reference.",
     romnes: "Parts and supplies from Romnes, with price and availability in the order view.",
+    tpro: "Tesla parts from T-PRO. Pull the basket straight into the order, at trade price in and list price out.",
     vegvesen: "Plate lookup fetches make, model and inspection deadline automatically.",
     haynespro: "Technical data, repair times and service data for the job on the lift.",
     autofrontal: "Repair bulletins and fault codes with fixes for known faults, gathered from thousands of workshops.",
