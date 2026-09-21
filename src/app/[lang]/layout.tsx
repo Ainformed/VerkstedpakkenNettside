@@ -269,6 +269,25 @@ export default async function RootLayout({
             gtag('config', 'AW-18381801939');
           `}
         </Script>
+        {/* ChatGPT Ads-pikselen. Fanger oppref fra annonseklikket og lagrer
+            den på .verkstedpakken.no, så den følger med til app.-domenet der
+            registreringen (konverteringen) måles. */}
+        <Script id="openai-pixel" strategy="afterInteractive">
+          {`
+            (function (w, d, s, u) {
+              if (w.oaiq) return;
+              var q = function () { q.q.push(arguments); };
+              q.q = [];
+              w.oaiq = q;
+              var js = d.createElement(s);
+              js.async = true;
+              js.src = u;
+              var f = d.getElementsByTagName(s)[0];
+              f.parentNode.insertBefore(js, f);
+            })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+            oaiq("init", { pixelId: "FdBWJYAYN6f5uiVSdxjE8k" });
+          `}
+        </Script>
       </body>
     </html>
   );
