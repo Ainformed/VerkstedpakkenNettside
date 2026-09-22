@@ -16,6 +16,7 @@ const integrasjoner = {
     kjoretoy: "Kjøretøydata",
     ki: "AI",
   },
+  vendorPrefix: "Utviklet av",
   integrations: {
     fiken: "Fakturaer og betalinger går rett inn i regnskapet. Perfekt for verksteder som fører regnskapet selv.",
     poweroffice: "Automatisk overføring av fakturagrunnlag og betalingsstatus til regnskapsføreren deres.",
@@ -34,6 +35,7 @@ const integrasjoner = {
     tpro: "Tesla-deler fra T-PRO. Hent kurven rett inn på ordren, med verkstedpris inn og veiledende pris ut.",
     vegvesen: "Skiltoppslag henter merke, modell og EU-frist automatisk.",
     haynespro: "Tekniske data, reparasjonstider og servicedata for jobben på løfteren.",
+    macsdata: "Tekniske data fra Hella Gutmann: koblingsskjemaer, reparasjonsveiledninger, servicedata og reparasjonstider for nesten alle merker, rett fra ordren.",
     autofrontal: "Reparasjonsbulletiner og feilkoder med løsninger på kjente feil, samlet fra tusenvis av verksteder.",
     bus: "EU-kontroll: hent kjøretøydata og send kontrollresultatet rett fra ordren.",
     pkkhuset: "EU-kontroll via PKK Huset: start kontrollen fra ordren og få resultatet tilbake på ordren når den er sendt inn.",

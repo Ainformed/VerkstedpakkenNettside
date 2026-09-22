@@ -17,6 +17,7 @@ const integrasjoner: IntegrasjonerDict = {
     kjoretoy: "Køretøjsdata",
     ki: "AI",
   },
+  vendorPrefix: "Udviklet af",
   integrations: {
     fiken: "Fakturaer og betalinger går direkte ind i regnskabet. Perfekt til værksteder, der selv fører regnskab.",
     poweroffice: "Automatisk overførsel af fakturagrundlag og betalingsstatus til jeres bogholder.",
@@ -35,6 +36,7 @@ const integrasjoner: IntegrasjonerDict = {
     tpro: "Tesla-dele fra T-PRO. Hent kurven direkte ind på ordren, med værkstedspris ind og vejledende pris ud.",
     vegvesen: "Nummerpladeopslag henter mærke, model og synsfrist automatisk.",
     haynespro: "Tekniske data, reparationstider og servicedata til jobbet på liften.",
+    macsdata: "Tekniske data fra Hella Gutmann: ledningsdiagrammer, reparationsvejledninger, servicedata og reparationstider for næsten alle mærker, direkte fra ordren.",
     autofrontal: "Reparationsbulletiner og fejlkoder med løsninger på kendte fejl, samlet fra tusindvis af værksteder.",
     bus: "Periodisk syn: hent køretøjsdata og send resultatet direkte fra ordren.",
     pkkhuset: "Periodisk syn via PKK Huset: start synet fra ordren og få resultatet tilbage på ordren, når det er indsendt.",

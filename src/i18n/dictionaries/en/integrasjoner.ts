@@ -17,6 +17,7 @@ const integrasjoner: IntegrasjonerDict = {
     kjoretoy: "Vehicle data",
     ki: "AI",
   },
+  vendorPrefix: "Developed by",
   integrations: {
     fiken: "Invoices and payments go straight into the books. Perfect for workshops that do their own accounting.",
     poweroffice: "Automatic transfer of invoice basis and payment status to your accountant.",
@@ -35,6 +36,7 @@ const integrasjoner: IntegrasjonerDict = {
     tpro: "Tesla parts from T-PRO. Pull the basket straight into the order, at trade price in and list price out.",
     vegvesen: "Plate lookup fetches make, model and inspection deadline automatically.",
     haynespro: "Technical data, repair times and service data for the job on the lift.",
+    macsdata: "Technical data from Hella Gutmann: wiring diagrams, repair instructions, service data and repair times for almost every make, straight from the order.",
     autofrontal: "Repair bulletins and fault codes with fixes for known faults, gathered from thousands of workshops.",
     bus: "Periodic inspection: fetch vehicle data and submit the result straight from the order.",
     pkkhuset: "Periodic inspection via PKK Huset: start the inspection from the order and get the result back on the order once it is submitted.",

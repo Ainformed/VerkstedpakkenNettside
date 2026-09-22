@@ -17,6 +17,7 @@ const integrasjoner: IntegrasjonerDict = {
     kjoretoy: "Fahrzeugdaten",
     ki: "KI",
   },
+  vendorPrefix: "Entwickelt von",
   integrations: {
     fiken: "Rechnungen und Zahlungen gehen direkt in die Buchhaltung. Ideal für Werkstätten, die selbst buchen.",
     poweroffice: "Automatische Übertragung von Rechnungsgrundlage und Zahlungsstatus an Ihren Buchhalter.",
@@ -35,6 +36,7 @@ const integrasjoner: IntegrasjonerDict = {
     tpro: "Tesla-Teile von T-PRO. Warenkorb direkt in den Auftrag übernehmen, mit Werkstattpreis im Einkauf und UVP im Verkauf.",
     vegvesen: "Die Kennzeichenabfrage holt Marke, Modell und Prüffrist automatisch.",
     haynespro: "Technische Daten, Reparaturzeiten und Servicedaten für den Auftrag auf der Hebebühne.",
+    macsdata: "Technische Daten von Hella Gutmann: Schaltpläne, Reparaturanleitungen, Servicedaten und Reparaturzeiten für fast alle Marken, direkt aus dem Auftrag.",
     autofrontal: "Reparaturbulletins und Fehlercodes mit Lösungen für bekannte Fehler, gesammelt aus Tausenden Werkstätten.",
     bus: "Hauptuntersuchung: Fahrzeugdaten holen und das Prüfergebnis direkt aus dem Auftrag senden.",
     pkkhuset: "Hauptuntersuchung über PKK Huset: Prüfung aus dem Auftrag starten und das Ergebnis nach dem Einreichen direkt im Auftrag erhalten.",
