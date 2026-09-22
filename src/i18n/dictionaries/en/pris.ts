@@ -44,7 +44,7 @@ const pris: PrisDict = {
         rate_limit: "Too many attempts in a short time. Please try again shortly.",
         count: "Tell us how many you are.",
         contact: "Enter a phone number or an email address.",
-        generic: "Something went wrong. Feel free to email us at hei@verkstedpakken.no instead.",
+        generic: "Something went wrong. Feel free to email us at x@verkstedpakken.no instead.",
       },
     },
   },

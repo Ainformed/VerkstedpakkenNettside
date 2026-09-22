@@ -58,7 +58,7 @@ export default function Footer({ lang, t }: { lang: Locale; t: CommonDict }) {
           <span>{t.footer.orgLine}</span>
           <span>
             {t.footer.contactPrefix}{" "}
-            <a href="mailto:hei@verkstedpakken.no">hei@verkstedpakken.no</a>
+            <a href="mailto:x@verkstedpakken.no">x@verkstedpakken.no</a>
             {t.footer.contactMiddle} <a href="tel:+4793484220">93 48 42 20</a>
           </span>
         </div>

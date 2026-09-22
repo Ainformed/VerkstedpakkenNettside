@@ -44,7 +44,7 @@ const pris: PrisDict = {
         rate_limit: "For mange forsøg på kort tid. Prøv igen om lidt.",
         count: "Angiv hvor mange I er.",
         contact: "Angiv et telefonnummer eller en e-mailadresse.",
-        generic: "Noget gik galt. Send os gerne en e-mail på hei@verkstedpakken.no i stedet.",
+        generic: "Noget gik galt. Send os gerne en e-mail på x@verkstedpakken.no i stedet.",
       },
     },
   },

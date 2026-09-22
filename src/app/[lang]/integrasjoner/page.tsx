@@ -45,10 +45,10 @@ export default async function Integrasjoner({ params }: Params) {
               <p>
                 {t.api.textBefore}{" "}
                 <a
-                  href="mailto:hei@verkstedpakken.no"
+                  href="mailto:x@verkstedpakken.no"
                   style={{ textDecoration: "underline", textUnderlineOffset: "3px" }}
                 >
-                  hei@verkstedpakken.no
+                  x@verkstedpakken.no
                 </a>
                 {t.api.textAfter}
               </p>

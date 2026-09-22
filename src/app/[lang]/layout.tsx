@@ -196,7 +196,7 @@ function JsonLd() {
       legalName: "Verkstedpakken AS",
       url: SITE,
       logo: `${SITE}/icon-512.png`,
-      email: "hei@verkstedpakken.no",
+      email: "x@verkstedpakken.no",
       telephone: "+4793484220",
       vatID: "937000847",
       description:
@@ -207,7 +207,7 @@ function JsonLd() {
       contactPoint: [
         {
           "@type": "ContactPoint",
-          email: "hei@verkstedpakken.no",
+          email: "x@verkstedpakken.no",
           contactType: "customer support",
           areaServed: "NO",
           availableLanguage: ["Norwegian", "Bokmål"],

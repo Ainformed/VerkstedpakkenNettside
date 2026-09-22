@@ -44,7 +44,7 @@ const pris = {
         rate_limit: "For mange forsøk på kort tid. Prøv igjen om litt.",
         count: "Oppgi hvor mange dere er.",
         contact: "Oppgi et telefonnummer eller en e-postadresse.",
-        generic: "Noe gikk galt. Send oss gjerne en e-post på hei@verkstedpakken.no i stedet.",
+        generic: "Noe gikk galt. Send oss gjerne en e-post på x@verkstedpakken.no i stedet.",
       },
     },
   },
