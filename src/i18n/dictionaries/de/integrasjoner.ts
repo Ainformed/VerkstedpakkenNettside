@@ -37,6 +37,7 @@ const integrasjoner: IntegrasjonerDict = {
     haynespro: "Technische Daten, Reparaturzeiten und Servicedaten für den Auftrag auf der Hebebühne.",
     autofrontal: "Reparaturbulletins und Fehlercodes mit Lösungen für bekannte Fehler, gesammelt aus Tausenden Werkstätten.",
     bus: "Hauptuntersuchung: Fahrzeugdaten holen und das Prüfergebnis direkt aus dem Auftrag senden.",
+    pkkhuset: "Hauptuntersuchung über PKK Huset: Prüfung aus dem Auftrag starten und das Ergebnis nach dem Einreichen direkt im Auftrag erhalten.",
     claude: "Das Sprachmodell von Anthropic. Eines der Modelle hinter Muttern, genutzt für Texte, Zusammenfassungen und Antworten.",
     chatgpt: "Das Sprachmodell von OpenAI. Treibt Teile von Muttern an, etwa Nachrichtenentwürfe und Antworten auf Fragen.",
     gemini: "Das Sprachmodell von Google. Muttern wählt es, wenn es die Aufgabe am besten löst.",
