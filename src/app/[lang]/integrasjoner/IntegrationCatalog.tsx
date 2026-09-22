@@ -12,8 +12,6 @@ type Integration = {
   name: string;
   cat: Exclude<CatKey, "alle">;
   logo?: { src: string; alt: string; className?: string };
-  /** Vises under navnet når produktet er laget av et annet selskap enn det heter. */
-  vendor?: string;
   logoText?: string;
   logoColor?: string;
 };
@@ -126,7 +124,6 @@ const INTEGRATIONS: Integration[] = [
   {
     id: "macsdata",
     name: "macsData",
-    vendor: "Hella Gutmann",
     cat: "kjoretoy",
     logo: { src: "/design/logos/macsdata.svg", alt: "macsData fra Hella Gutmann", className: "logo-wide" },
   },
@@ -216,11 +213,6 @@ export default function IntegrationCatalog({ t }: { t: IntegrasjonerDict }) {
               </div>
               <span className="ic-cat">{t.categories[card.cat]}</span>
               <h3>{card.name}</h3>
-              {card.vendor && (
-                <span className="ic-vendor">
-                  {t.vendorPrefix} {card.vendor}
-                </span>
-              )}
               <p>{t.integrations[card.id]}</p>
             </div>
           ))}

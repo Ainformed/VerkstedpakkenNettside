@@ -17,7 +17,6 @@ const integrasjoner: IntegrasjonerDict = {
     kjoretoy: "Vehicle data",
     ki: "AI",
   },
-  vendorPrefix: "Developed by",
   integrations: {
     fiken: "Invoices and payments go straight into the books. Perfect for workshops that do their own accounting.",
     poweroffice: "Automatic transfer of invoice basis and payment status to your accountant.",

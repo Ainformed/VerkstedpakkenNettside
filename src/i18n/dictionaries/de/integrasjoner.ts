@@ -17,7 +17,6 @@ const integrasjoner: IntegrasjonerDict = {
     kjoretoy: "Fahrzeugdaten",
     ki: "KI",
   },
-  vendorPrefix: "Entwickelt von",
   integrations: {
     fiken: "Rechnungen und Zahlungen gehen direkt in die Buchhaltung. Ideal für Werkstätten, die selbst buchen.",
     poweroffice: "Automatische Übertragung von Rechnungsgrundlage und Zahlungsstatus an Ihren Buchhalter.",

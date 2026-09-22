@@ -17,7 +17,6 @@ const integrasjoner: IntegrasjonerDict = {
     kjoretoy: "Fordonsdata",
     ki: "AI",
   },
-  vendorPrefix: "Utvecklad av",
   integrations: {
     fiken: "Fakturor och betalningar går rakt in i bokföringen. Perfekt för verkstäder som sköter bokföringen själva.",
     poweroffice: "Automatisk överföring av fakturaunderlag och betalstatus till er redovisningskonsult.",

@@ -16,7 +16,6 @@ const integrasjoner = {
     kjoretoy: "Kjøretøydata",
     ki: "AI",
   },
-  vendorPrefix: "Utviklet av",
   integrations: {
     fiken: "Fakturaer og betalinger går rett inn i regnskapet. Perfekt for verksteder som fører regnskapet selv.",
     poweroffice: "Automatisk overføring av fakturagrunnlag og betalingsstatus til regnskapsføreren deres.",

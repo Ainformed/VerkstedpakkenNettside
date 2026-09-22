@@ -17,7 +17,6 @@ const integrasjoner: IntegrasjonerDict = {
     kjoretoy: "Køretøjsdata",
     ki: "AI",
   },
-  vendorPrefix: "Udviklet af",
   integrations: {
     fiken: "Fakturaer og betalinger går direkte ind i regnskabet. Perfekt til værksteder, der selv fører regnskab.",
     poweroffice: "Automatisk overførsel af fakturagrundlag og betalingsstatus til jeres bogholder.",
