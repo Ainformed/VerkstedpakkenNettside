@@ -62,6 +62,12 @@ const INTEGRATIONS: Integration[] = [
     logo: { src: "/design/logos/conta.svg", alt: "Conta" },
   },
   {
+    id: "unimicro",
+    name: "Unimicro",
+    cat: "regnskap",
+    logo: { src: "/design/logos/unimicro.svg", alt: "Unimicro", className: "logo-wide" },
+  },
+  {
     id: "susoft",
     name: "Susoft",
     cat: "betaling",
@@ -102,6 +108,12 @@ const INTEGRATIONS: Integration[] = [
     name: "T-PRO",
     cat: "deler",
     logo: { src: "/design/logos/t-pro.png", alt: "T-PRO" },
+  },
+  {
+    id: "bildeler",
+    name: "Bildeler.no",
+    cat: "deler",
+    logo: { src: "/design/logos/bildeler.svg", alt: "Bildeler.no", className: "logo-compact" },
   },
   {
     id: "vegvesen",
