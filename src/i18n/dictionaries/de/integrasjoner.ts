@@ -34,6 +34,7 @@ const integrasjoner: IntegrasjonerDict = {
     romnes: "Teile und Verbrauchsmaterial von Romnes, mit Preis und Verfügbarkeit in der Auftragsansicht.",
     tpro: "Tesla-Teile von T-PRO. Warenkorb direkt in den Auftrag übernehmen, mit Werkstattpreis im Einkauf und UVP im Verkauf.",
     bildeler: "Suche per Kennzeichen bei Bildeler.no, sieh den Werkstattpreis und Lagerbestand und bestelle direkt aus dem Auftrag mit Paketverfolgung.",
+    trollparts: "Teilebestellung bei TrollParts direkt aus dem Auftrag ist unterwegs. Bleib dran!",
     vegvesen: "Die Kennzeichenabfrage holt Marke, Modell und Prüffrist automatisch.",
     haynespro: "Technische Daten, Reparaturzeiten und Servicedaten für den Auftrag auf der Hebebühne.",
     macsdata: "Technische Daten von Hella Gutmann: Schaltpläne, Reparaturanleitungen, Servicedaten und Reparaturzeiten für fast alle Marken, direkt aus dem Auftrag.",
@@ -44,6 +45,7 @@ const integrasjoner: IntegrasjonerDict = {
     chatgpt: "Das Sprachmodell von OpenAI. Treibt Teile von Muttern an, etwa Nachrichtenentwürfe und Antworten auf Fragen.",
     gemini: "Das Sprachmodell von Google. Muttern wählt es, wenn es die Aufgabe am besten löst.",
   },
+  comingSoon: "Demnächst",
   api: {
     title: "Eigene Anbindung bauen",
     textBefore: "Verkstedpakken hat eine eigene API für alle, die etwas anbinden wollen, das nicht auf der Liste steht. Schreiben Sie uns an",

@@ -14,6 +14,7 @@ type Integration = {
   logo?: { src: string; alt: string; className?: string };
   logoText?: string;
   logoColor?: string;
+  comingSoon?: boolean;
 };
 
 const CATEGORIES: CatKey[] = ["alle", "regnskap", "betaling", "deler", "kjoretoy", "ki"];
@@ -114,6 +115,13 @@ const INTEGRATIONS: Integration[] = [
     name: "Bildeler.no",
     cat: "deler",
     logo: { src: "/design/logos/bildeler.svg", alt: "Bildeler.no", className: "logo-compact" },
+  },
+  {
+    id: "trollparts",
+    name: "TrollParts",
+    cat: "deler",
+    logo: { src: "/design/logos/trollparts.svg", alt: "TrollParts" },
+    comingSoon: true,
   },
   {
     id: "vegvesen",
@@ -219,6 +227,7 @@ export default function IntegrationCatalog({ t }: { t: IntegrasjonerDict }) {
               </div>
               <span className="ic-cat">{t.categories[card.cat]}</span>
               <h3>{card.name}</h3>
+              {card.comingSoon && <span className="ic-soon">{t.comingSoon}</span>}
               <p>{t.integrations[card.id]}</p>
             </div>
           ))}

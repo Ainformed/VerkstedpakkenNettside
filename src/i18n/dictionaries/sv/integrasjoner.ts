@@ -34,6 +34,7 @@ const integrasjoner: IntegrasjonerDict = {
     romnes: "Delar och förbrukningsmaterial från Romnes, med pris och tillgänglighet i ordervyn.",
     tpro: "Tesla-delar från T-PRO. Hämta varukorgen rakt in i ordern, med verkstadspris in och rekommenderat pris ut.",
     bildeler: "Sök på registreringsnummer i Bildeler.no, se verkstadens pris och lagerstatus och beställ direkt från ordern med spårning av paketet.",
+    trollparts: "Beställning av delar från TrollParts direkt i ordern är på väg. Håll utkik!",
     vegvesen: "Regnummeruppslag hämtar märke, modell och besiktningsfrist automatiskt.",
     haynespro: "Tekniska data, reparationstider och servicedata för jobbet på lyften.",
     macsdata: "Tekniska data från Hella Gutmann: kopplingsscheman, reparationsanvisningar, servicedata och reparationstider för nästan alla märken, direkt från ordern.",
@@ -44,6 +45,7 @@ const integrasjoner: IntegrasjonerDict = {
     chatgpt: "OpenAIs språkmodell. Driver delar av Muttern, som utkast till meddelanden och svar på frågor.",
     gemini: "Googles språkmodell. Muttern väljer den när den löser uppgiften bäst.",
   },
+  comingSoon: "Kommer snart",
   api: {
     title: "Bygg din egen koppling",
     textBefore: "Verkstedpakken har ett eget API för dig som vill koppla till något vi inte har på listan. Mejla oss på",
