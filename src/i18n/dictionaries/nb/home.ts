@@ -7,7 +7,7 @@ const home = {
   hero: {
     title: "Verkstedprogrammet uten dobbeltarbeid",
     cta: "Prøv gratis i 14 dager",
-    subnote: "Bytter du fra et annet program? Du betaler ikke før oppsigelsestiden er ute.",
+    subnote: "Bytter du fra et annet system? Vi dekker oppsigelsestiden din, inntil 3 måneder.",
   },
   cols: [
     { title: "Lett å lære", text: "Nye programmer pleier å bety kurs og frustrasjon. Her er du i gang med en gang." },
@@ -42,7 +42,7 @@ const home = {
   },
   split2: {
     title: ["Lei av programmet", "dere har?"],
-    text: "Å bytte program skal være trygt. Derfor er Verkstedpakken gratis til oppsigelsestiden på det gamle programmet er over. Du betaler aldri for to programmer samtidig. Vi hjelper deg hele veien, og verkstedet går som normalt.",
+    text: "Å bytte program skal være trygt. Derfor er Verkstedpakken gratis i oppsigelsestiden på det gamle programmet, inntil 3 måneder. Du slipper å betale for to programmer samtidig. Vi hjelper deg hele veien, og verkstedet går som normalt.",
     link: "Se priser",
   },
   integ: {

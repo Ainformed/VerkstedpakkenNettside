@@ -8,7 +8,7 @@ const home: HomeDict = {
   hero: {
     title: "Værkstedsprogrammet uden dobbeltarbejde",
     cta: "Prøv gratis i 14 dage",
-    subnote: "Skifter du fra et andet program? Du betaler ikke, før opsigelsesperioden er udløbet.",
+    subnote: "Skifter du fra et andet system? Vi dækker din opsigelsesperiode, op til 3 måneder.",
   },
   cols: [
     { title: "Let at lære", text: "Nye programmer plejer at betyde kurser og frustration. Her er du i gang med det samme." },
@@ -43,7 +43,7 @@ const home: HomeDict = {
   },
   split2: {
     title: ["Træt af programmet,", "I har?"],
-    text: "At skifte program skal være trygt. Derfor er Verkstedpakken gratis, indtil opsigelsesperioden på det gamle program er udløbet. Du betaler aldrig for to programmer samtidig. Vi hjælper dig hele vejen, og værkstedet kører som normalt.",
+    text: "At skifte program skal være trygt. Derfor er Verkstedpakken gratis i opsigelsesperioden på det gamle program, op til 3 måneder. Du slipper for at betale for to programmer samtidig. Vi hjælper dig hele vejen, og værkstedet kører som normalt.",
     link: "Se priser",
   },
   integ: {

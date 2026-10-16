@@ -87,7 +87,7 @@ const pris = {
           { name: "Etablering av regnskapsintegrasjon" },
           { name: "Flytting av innhold fra andre programmer" },
           { name: "Support og opplæring" },
-          { name: "Bytter du fra et annet program?", note: "gratis i hele oppsigelsestiden" },
+          { name: "Bytter du fra et annet system?", note: "Vi dekker oppsigelsestiden din, inntil 3 måneder" },
         ],
       },
     ],
@@ -151,7 +151,7 @@ const pris = {
       },
       {
         q: "Kan vi få hjelp til å flytte fra programmet vi har i dag?",
-        a: "Ja. Vi hjelper deg med å få over kunder, kjøretøy og historikk, og setter opp verkstedet klart til bruk. Bytter du fra et annet program, er Verkstedpakken gratis til oppsigelsestiden hos det gamle er over – du betaler aldri for to programmer samtidig.",
+        a: "Ja. Vi hjelper deg med å få over kunder, kjøretøy og historikk, og setter opp verkstedet klart til bruk. Bytter du fra et annet program, er Verkstedpakken gratis i oppsigelsestiden hos det gamle, inntil 3 måneder – så du slipper å betale for to programmer samtidig.",
       },
     ],
   },
