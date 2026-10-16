@@ -25,7 +25,7 @@ const integrasjoner: IntegrasjonerDict = {
     "24sevenoffice": "För över försäljning och betalningar automatiskt till bokföringen.",
     systima: "Fakturaunderlag och betalningar går automatiskt till bokföring i Systima.",
     conta: "Koppla på en minut med API-nyckel. Försäljning och betalstatus hamnar direkt i Conta.",
-    unimicro: "Fakturor läggs som utkast i Unimicro med artiklar och konto på plats, och betalningsstatus kommer tillbaka automatiskt.",
+    unimicro: "Automatisk fakturering och bokföring — färdiga jobb går direkt in i Unimicro.",
     susoft: "Kassabetalning med Susoft, levererad av Nordia Payment Service.",
     bilxtra: "Sök på regnummer, se pris och lagerstatus och beställ delar direkt från ordern.",
     meca: "Reservdelskatalog och beställning kopplad till jobbet delen ska användas på.",

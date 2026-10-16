@@ -24,7 +24,7 @@ const integrasjoner = {
     "24sevenoffice": "Overfør salg og betalinger automatisk til regnskapet.",
     systima: "Fakturagrunnlag og betalinger går automatisk til bokføring i Systima.",
     conta: "Koble til på minuttet med API-nøkkel — salg og betalingsstatus havner rett i Conta.",
-    unimicro: "Fakturaer legges som utkast i Unimicro med varer og konto på plass, og betalingsstatus kommer automatisk tilbake.",
+    unimicro: "Automatisk fakturering og bokføring — ferdige jobber går rett inn i Unimicro.",
     susoft: "Kassebetaling med Susoft, levert av Nordia Payment Service.",
     bilxtra: "Søk på skiltnummer, se pris og lagerstatus, og bestill deler rett fra ordren.",
     meca: "Delekatalog og bestilling koblet til jobben delen skal brukes på.",
