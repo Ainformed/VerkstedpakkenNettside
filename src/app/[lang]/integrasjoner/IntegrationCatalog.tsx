@@ -120,7 +120,7 @@ const INTEGRATIONS: Integration[] = [
     id: "trollparts",
     name: "TrollParts",
     cat: "deler",
-    logo: { src: "/design/logos/trollparts.svg", alt: "TrollParts" },
+    logo: { src: "/design/logos/trollparts.svg", alt: "TrollParts", className: "logo-compact" },
     comingSoon: true,
   },
   {
@@ -226,8 +226,10 @@ export default function IntegrationCatalog({ t }: { t: IntegrasjonerDict }) {
                 )}
               </div>
               <span className="ic-cat">{t.categories[card.cat]}</span>
-              <h3>{card.name}</h3>
-              {card.comingSoon && <span className="ic-soon">{t.comingSoon}</span>}
+              <div className="ic-title">
+                <h3>{card.name}</h3>
+                {card.comingSoon && <span className="ic-soon">{t.comingSoon}</span>}
+              </div>
               <p>{t.integrations[card.id]}</p>
             </div>
           ))}
