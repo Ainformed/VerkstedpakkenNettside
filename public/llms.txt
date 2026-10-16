@@ -26,7 +26,7 @@
 Alle integrasjoner er bygget og driftet av Verkstedpakken selv (in house), uten tredjepartsløsninger mellom verkstedet og systemene.
 
 - Regnskap: Fiken, PowerOffice GO, Tripletex, Visma eAccounting, 24SevenOffice
-- Betaling: Vipps, Stripe
+- Betaling: Susoft (levert av Nordia Payment Service)
 - Deler: BilXtra, MECA, MEKO, Flak, Romnes, T-PRO (Tesla-deler)
 - Kjøretøydata: Statens vegvesen, HaynesPro, macsData (Hella Gutmann), AutoFrontal, BUS og PKK Huset (EU-kontroll)
 

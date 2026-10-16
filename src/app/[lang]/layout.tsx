@@ -66,7 +66,7 @@ export async function generateMetadata({
     "Fiken integrasjon verksted",
     "Tripletex integrasjon verksted",
     "MEKO bildeler integrasjon",
-    "Stripe betaling verksted",
+    "Susoft kassesystem verksted",
     "bilverksted Oslo",
     "båtverksted system",
     "lastebilverksted system",
@@ -153,7 +153,7 @@ function JsonLd() {
       applicationSubCategory: "Workshop Management Software",
       operatingSystem: "Web",
       description:
-        "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett program. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Vipps, Stripe, BilXtra, MECA, MEKO og Statens vegvesen.",
+        "Verkstedprogrammet uten dobbeltarbeid. Ordre, nettside og booking, mekanikerportal og faktura i ett program. Integrasjoner med Fiken, PowerOffice, Tripletex, Visma eAccounting, 24SevenOffice, Susoft, BilXtra, MECA, MEKO og Statens vegvesen.",
       url: SITE,
       image: `${SITE}/og-image.png`,
       screenshot: `${SITE}/og-image.png`,
