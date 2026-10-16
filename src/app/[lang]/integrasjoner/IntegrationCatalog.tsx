@@ -62,16 +62,10 @@ const INTEGRATIONS: Integration[] = [
     logo: { src: "/design/logos/conta.svg", alt: "Conta" },
   },
   {
-    id: "vipps",
-    name: "Vipps",
+    id: "susoft",
+    name: "Susoft",
     cat: "betaling",
-    logo: { src: "/design/logos/vipps.png", alt: "Vipps", className: "logo-wide" },
-  },
-  {
-    id: "stripe",
-    name: "Stripe",
-    cat: "betaling",
-    logo: { src: "/design/logos/stripe.png", alt: "Stripe" },
+    logo: { src: "/design/logos/susoft.png", alt: "Susoft", className: "logo-wide" },
   },
   {
     id: "bilxtra",
