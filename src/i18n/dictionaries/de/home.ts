@@ -8,7 +8,7 @@ const home: HomeDict = {
   hero: {
     title: "Werkstattsoftware ohne Doppelarbeit",
     cta: "14 Tage kostenlos testen",
-    subnote: "Sie wechseln von einem anderen Programm? Sie zahlen nichts, bis Ihre alte Kündigungsfrist abgelaufen ist.",
+    subnote: "Sie wechseln von einem anderen System? Wir übernehmen Ihre Kündigungsfrist, bis zu 3 Monate.",
   },
   cols: [
     { title: "Leicht zu lernen", text: "Neue Programme bedeuten meist Schulung und Frust. Hier legen Sie sofort los." },
@@ -43,7 +43,7 @@ const home: HomeDict = {
   },
   split2: {
     title: ["Genug von dem Programm,", "das Sie haben?"],
-    text: "Ein Programmwechsel soll sicher sein. Deshalb ist Verkstedpakken kostenlos, bis die Kündigungsfrist des alten Programms abgelaufen ist. Sie zahlen nie für zwei Programme gleichzeitig. Wir helfen Ihnen den ganzen Weg, und die Werkstatt läuft wie gewohnt.",
+    text: "Ein Programmwechsel soll sicher sein. Deshalb ist Verkstedpakken während der Kündigungsfrist des alten Programms kostenlos, bis zu 3 Monate. So zahlen Sie nicht für zwei Programme gleichzeitig. Wir helfen Ihnen den ganzen Weg, und die Werkstatt läuft wie gewohnt.",
     link: "Preise ansehen",
   },
   integ: {

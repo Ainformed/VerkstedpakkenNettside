@@ -8,7 +8,7 @@ const home: HomeDict = {
   hero: {
     title: "Workshop software without double work",
     cta: "Try free for 14 days",
-    subnote: "Switching from another program? You pay nothing until your old notice period is over.",
+    subnote: "Switching from another system? We cover your notice period, up to 3 months.",
   },
   cols: [
     { title: "Easy to learn", text: "New software usually means training and frustration. Here you are up and running right away." },
@@ -43,7 +43,7 @@ const home: HomeDict = {
   },
   split2: {
     title: ["Tired of the program", "you have?"],
-    text: "Switching software should feel safe. That is why Verkstedpakken is free until the notice period on your old program is over. You never pay for two programs at once. We help you all the way, and the workshop runs as normal.",
+    text: "Switching software should feel safe. That is why Verkstedpakken is free during the notice period on your old program, up to 3 months. You avoid paying for two programs at once. We help you all the way, and the workshop runs as normal.",
     link: "See pricing",
   },
   integ: {

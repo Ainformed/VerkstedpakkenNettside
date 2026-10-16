@@ -87,7 +87,7 @@ const pris: PrisDict = {
           { name: "Uppsättning av bokföringsintegration" },
           { name: "Flytt av innehåll från andra program" },
           { name: "Support och utbildning" },
-          { name: "Byter du från ett annat program?", note: "gratis under hela uppsägningstiden" },
+          { name: "Byter du från ett annat system?", note: "Vi täcker din uppsägningstid, upp till 3 månader" },
         ],
       },
     ],
@@ -151,7 +151,7 @@ const pris: PrisDict = {
       },
       {
         q: "Kan vi få hjälp att flytta från programmet vi har i dag?",
-        a: "Ja. Vi hjälper dig att få över kunder, fordon och historik, och sätter upp verkstaden klar att använda. Byter du från ett annat program är Verkstedpakken gratis tills uppsägningstiden hos det gamla är över – du betalar aldrig för två program samtidigt.",
+        a: "Ja. Vi hjälper dig att få över kunder, fordon och historik, och sätter upp verkstaden klar att använda. Byter du från ett annat program är Verkstedpakken gratis under uppsägningstiden hos det gamla, upp till 3 månader – så du slipper betala för två program samtidigt.",
       },
     ],
   },

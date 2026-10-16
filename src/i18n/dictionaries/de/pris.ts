@@ -87,7 +87,7 @@ const pris: PrisDict = {
           { name: "Einrichtung der Buchhaltungsintegration" },
           { name: "Übernahme von Inhalten aus anderen Programmen" },
           { name: "Support und Schulung" },
-          { name: "Sie wechseln von einem anderen Programm?", note: "kostenlos während der gesamten Kündigungsfrist" },
+          { name: "Sie wechseln von einem anderen System?", note: "Wir übernehmen Ihre Kündigungsfrist, bis zu 3 Monate" },
         ],
       },
     ],
@@ -151,7 +151,7 @@ const pris: PrisDict = {
       },
       {
         q: "Bekommen wir Hilfe beim Umzug von unserem heutigen Programm?",
-        a: "Ja. Wir helfen Ihnen, Kunden, Fahrzeuge und Historie zu übernehmen, und richten die Werkstatt einsatzbereit ein. Wechseln Sie von einem anderen Programm, ist Verkstedpakken kostenlos, bis die Kündigungsfrist beim alten abgelaufen ist – Sie zahlen nie für zwei Programme gleichzeitig.",
+        a: "Ja. Wir helfen Ihnen, Kunden, Fahrzeuge und Historie zu übernehmen, und richten die Werkstatt einsatzbereit ein. Wechseln Sie von einem anderen Programm, ist Verkstedpakken während der Kündigungsfrist beim alten kostenlos, bis zu 3 Monate – so zahlen Sie nicht für zwei Programme gleichzeitig.",
       },
     ],
   },

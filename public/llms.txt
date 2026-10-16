@@ -32,7 +32,7 @@ Alle integrasjoner er bygget og driftet av Verkstedpakken selv (in house), uten 
 
 ## Pris
 
-1 295,- per bruker per måned (ekskl. mva). Prisen per bruker blir lavere fra fjerde ansatt. Alt inkludert: oppsett, opplæring, support, flytting fra andre systemer og regnskapsintegrasjon. Ingen etableringskostnad, ingen bindingstid. 14 dager gratis prøveperiode uten automatisk abonnement etterpå. Bytter du fra et annet system er Verkstedpakken gratis til oppsigelsestiden hos det gamle er over. Se https://verkstedpakken.no/pris
+1 295,- per bruker per måned (ekskl. mva). Prisen per bruker blir lavere fra fjerde ansatt. Alt inkludert: oppsett, opplæring, support, flytting fra andre systemer og regnskapsintegrasjon. Ingen etableringskostnad, ingen bindingstid. 14 dager gratis prøveperiode uten automatisk abonnement etterpå. Bytter du fra et annet system er Verkstedpakken gratis i oppsigelsestiden hos det gamle, inntil 3 måneder. Se https://verkstedpakken.no/pris
 
 Valgfrie tillegg: nettside for verkstedet 495 kr/mnd, kjøretøyoppslag med eieropplysninger fra Statens vegvesen 995 kr/mnd, Muttern AI-assistent (betal per bruk), SMS til kunder 2 kr per melding.
 
