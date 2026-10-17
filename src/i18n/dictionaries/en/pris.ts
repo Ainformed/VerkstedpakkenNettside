@@ -151,7 +151,7 @@ const pris: PrisDict = {
       },
       {
         q: "Can we get help moving from the program we use today?",
-        a: "Yes. We help you bring over customers, vehicles and history, and set up the workshop ready to use. If you switch from another program, Verkstedpakken is free during the notice period on the old one, up to 3 months – so you avoid paying for two programs at once.",
+        a: "Yes. We help you bring over customers, vehicles and history, and set up the workshop ready to use. If you switch from another program, Verkstedpakken is free during the notice period on the old one, up to 3 months.",
       },
     ],
   },

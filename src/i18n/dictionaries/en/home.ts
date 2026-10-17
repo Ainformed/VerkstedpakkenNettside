@@ -43,7 +43,7 @@ const home: HomeDict = {
   },
   split2: {
     title: ["Tired of the program", "you have?"],
-    text: "Switching software should feel safe. That is why Verkstedpakken is free during the notice period on your old program, up to 3 months. You avoid paying for two programs at once. We help you all the way, and the workshop runs as normal.",
+    text: "Switching software should feel safe. That is why Verkstedpakken is free during the notice period on your old program, up to 3 months. You don't pay for two programs at once during the first 3 months. We help you all the way, and the workshop runs as normal.",
     link: "See pricing",
   },
   integ: {

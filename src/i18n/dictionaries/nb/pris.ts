@@ -151,7 +151,7 @@ const pris = {
       },
       {
         q: "Kan vi få hjelp til å flytte fra programmet vi har i dag?",
-        a: "Ja. Vi hjelper deg med å få over kunder, kjøretøy og historikk, og setter opp verkstedet klart til bruk. Bytter du fra et annet program, er Verkstedpakken gratis i oppsigelsestiden hos det gamle, inntil 3 måneder – så du slipper å betale for to programmer samtidig.",
+        a: "Ja. Vi hjelper deg med å få over kunder, kjøretøy og historikk, og setter opp verkstedet klart til bruk. Bytter du fra et annet program, er Verkstedpakken gratis i oppsigelsestiden hos det gamle, inntil 3 måneder.",
       },
     ],
   },
