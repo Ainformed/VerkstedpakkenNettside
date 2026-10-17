@@ -8,7 +8,7 @@ const home: HomeDict = {
   hero: {
     title: "Verkstadsprogrammet utan dubbelarbete",
     cta: "Prova gratis i 14 dagar",
-    subnote: "Byter du från ett annat system? Vi täcker din uppsägningstid, upp till 3 månader.",
+    subnote: "Byter du från ett annat system? Gratis Verkstedpakken under uppsägningstiden (upp till 3 månader).",
   },
   cols: [
     { title: "Lätt att lära", text: "Nya program brukar betyda kurser och frustration. Här kommer du igång direkt." },

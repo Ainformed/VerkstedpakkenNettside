@@ -8,7 +8,7 @@ const home: HomeDict = {
   hero: {
     title: "Werkstattsoftware ohne Doppelarbeit",
     cta: "14 Tage kostenlos testen",
-    subnote: "Sie wechseln von einem anderen System? Wir übernehmen Ihre Kündigungsfrist, bis zu 3 Monate.",
+    subnote: "Sie wechseln von einem anderen System? Verkstedpakken kostenlos während der Kündigungsfrist (bis zu 3 Monate).",
   },
   cols: [
     { title: "Leicht zu lernen", text: "Neue Programme bedeuten meist Schulung und Frust. Hier legen Sie sofort los." },

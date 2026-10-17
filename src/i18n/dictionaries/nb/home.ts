@@ -7,7 +7,7 @@ const home = {
   hero: {
     title: "Verkstedprogrammet uten dobbeltarbeid",
     cta: "Prøv gratis i 14 dager",
-    subnote: "Bytter du fra et annet system? Vi dekker oppsigelsestiden din, inntil 3 måneder.",
+    subnote: "Bytter du fra et annet system? Gratis Verkstedpakken i oppsigelsestiden (inntil 3 måneder).",
   },
   cols: [
     { title: "Lett å lære", text: "Nye programmer pleier å bety kurs og frustrasjon. Her er du i gang med en gang." },

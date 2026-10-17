@@ -87,7 +87,7 @@ const pris: PrisDict = {
           { name: "Einrichtung der Buchhaltungsintegration" },
           { name: "Übernahme von Inhalten aus anderen Programmen" },
           { name: "Support und Schulung" },
-          { name: "Sie wechseln von einem anderen System?", note: "Wir übernehmen Ihre Kündigungsfrist, bis zu 3 Monate" },
+          { name: "Sie wechseln von einem anderen System?", note: "Verkstedpakken kostenlos während der Kündigungsfrist (bis zu 3 Monate)" },
         ],
       },
     ],

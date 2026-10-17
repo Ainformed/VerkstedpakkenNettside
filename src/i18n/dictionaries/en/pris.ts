@@ -87,7 +87,7 @@ const pris: PrisDict = {
           { name: "Accounting integration setup" },
           { name: "Migrating content from other programs" },
           { name: "Support and training" },
-          { name: "Switching from another system?", note: "We cover your notice period, up to 3 months" },
+          { name: "Switching from another system?", note: "Free Verkstedpakken during the notice period (up to 3 months)" },
         ],
       },
     ],
