@@ -87,7 +87,7 @@ const pris: PrisDict = {
           { name: "Opsætning af regnskabsintegration" },
           { name: "Flytning af indhold fra andre programmer" },
           { name: "Support og oplæring" },
-          { name: "Skifter du fra et andet system?", note: "Vi dækker din opsigelsesperiode, op til 3 måneder" },
+          { name: "Skifter du fra et andet system?", note: "Gratis Verkstedpakken i opsigelsesperioden (op til 3 måneder)" },
         ],
       },
     ],

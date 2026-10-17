@@ -87,7 +87,7 @@ const pris: PrisDict = {
           { name: "Uppsättning av bokföringsintegration" },
           { name: "Flytt av innehåll från andra program" },
           { name: "Support och utbildning" },
-          { name: "Byter du från ett annat system?", note: "Vi täcker din uppsägningstid, upp till 3 månader" },
+          { name: "Byter du från ett annat system?", note: "Gratis Verkstedpakken under uppsägningstiden (upp till 3 månader)" },
         ],
       },
     ],

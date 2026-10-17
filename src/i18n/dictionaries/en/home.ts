@@ -8,7 +8,7 @@ const home: HomeDict = {
   hero: {
     title: "Workshop software without double work",
     cta: "Try free for 14 days",
-    subnote: "Switching from another system? We cover your notice period, up to 3 months.",
+    subnote: "Switching from another system? Free Verkstedpakken during the notice period (up to 3 months).",
   },
   cols: [
     { title: "Easy to learn", text: "New software usually means training and frustration. Here you are up and running right away." },

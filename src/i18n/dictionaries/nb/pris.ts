@@ -87,7 +87,7 @@ const pris = {
           { name: "Etablering av regnskapsintegrasjon" },
           { name: "Flytting av innhold fra andre programmer" },
           { name: "Support og opplæring" },
-          { name: "Bytter du fra et annet system?", note: "Vi dekker oppsigelsestiden din, inntil 3 måneder" },
+          { name: "Bytter du fra et annet system?", note: "Gratis Verkstedpakken i oppsigelsestiden (inntil 3 måneder)" },
         ],
       },
     ],
