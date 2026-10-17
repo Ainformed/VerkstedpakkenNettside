@@ -42,7 +42,7 @@ const home = {
   },
   split2: {
     title: ["Lei av programmet", "dere har?"],
-    text: "Å bytte program skal være trygt. Derfor er Verkstedpakken gratis i oppsigelsestiden på det gamle programmet, inntil 3 måneder. Du slipper å betale for to programmer samtidig. Vi hjelper deg hele veien, og verkstedet går som normalt.",
+    text: "Å bytte program skal være trygt. Derfor er Verkstedpakken gratis i oppsigelsestiden på det gamle programmet, inntil 3 måneder. Du betaler ikke for to programmer samtidig de første 3 månedene. Vi hjelper deg hele veien, og verkstedet går som normalt.",
     link: "Se priser",
   },
   integ: {

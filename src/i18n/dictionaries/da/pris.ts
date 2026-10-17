@@ -151,7 +151,7 @@ const pris: PrisDict = {
       },
       {
         q: "Kan vi få hjælp til at flytte fra det program, vi har i dag?",
-        a: "Ja. Vi hjælper dig med at få kunder, køretøjer og historik over og sætter værkstedet klar til brug. Skifter du fra et andet program, er Verkstedpakken gratis i opsigelsesperioden hos det gamle, op til 3 måneder – så du slipper for at betale for to programmer samtidig.",
+        a: "Ja. Vi hjælper dig med at få kunder, køretøjer og historik over og sætter værkstedet klar til brug. Skifter du fra et andet program, er Verkstedpakken gratis i opsigelsesperioden hos det gamle, op til 3 måneder.",
       },
     ],
   },

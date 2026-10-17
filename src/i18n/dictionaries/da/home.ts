@@ -43,7 +43,7 @@ const home: HomeDict = {
   },
   split2: {
     title: ["Træt af programmet,", "I har?"],
-    text: "At skifte program skal være trygt. Derfor er Verkstedpakken gratis i opsigelsesperioden på det gamle program, op til 3 måneder. Du slipper for at betale for to programmer samtidig. Vi hjælper dig hele vejen, og værkstedet kører som normalt.",
+    text: "At skifte program skal være trygt. Derfor er Verkstedpakken gratis i opsigelsesperioden på det gamle program, op til 3 måneder. Du betaler ikke for to programmer samtidig de første 3 måneder. Vi hjælper dig hele vejen, og værkstedet kører som normalt.",
     link: "Se priser",
   },
   integ: {

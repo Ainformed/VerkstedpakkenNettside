@@ -151,7 +151,7 @@ const pris: PrisDict = {
       },
       {
         q: "Bekommen wir Hilfe beim Umzug von unserem heutigen Programm?",
-        a: "Ja. Wir helfen Ihnen, Kunden, Fahrzeuge und Historie zu übernehmen, und richten die Werkstatt einsatzbereit ein. Wechseln Sie von einem anderen Programm, ist Verkstedpakken während der Kündigungsfrist beim alten kostenlos, bis zu 3 Monate – so zahlen Sie nicht für zwei Programme gleichzeitig.",
+        a: "Ja. Wir helfen Ihnen, Kunden, Fahrzeuge und Historie zu übernehmen, und richten die Werkstatt einsatzbereit ein. Wechseln Sie von einem anderen Programm, ist Verkstedpakken während der Kündigungsfrist beim alten kostenlos, bis zu 3 Monate.",
       },
     ],
   },

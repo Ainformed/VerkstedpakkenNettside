@@ -43,7 +43,7 @@ const home: HomeDict = {
   },
   split2: {
     title: ["Genug von dem Programm,", "das Sie haben?"],
-    text: "Ein Programmwechsel soll sicher sein. Deshalb ist Verkstedpakken während der Kündigungsfrist des alten Programms kostenlos, bis zu 3 Monate. So zahlen Sie nicht für zwei Programme gleichzeitig. Wir helfen Ihnen den ganzen Weg, und die Werkstatt läuft wie gewohnt.",
+    text: "Ein Programmwechsel soll sicher sein. Deshalb ist Verkstedpakken während der Kündigungsfrist des alten Programms kostenlos, bis zu 3 Monate. In den ersten 3 Monaten zahlen Sie nicht für zwei Programme gleichzeitig. Wir helfen Ihnen den ganzen Weg, und die Werkstatt läuft wie gewohnt.",
     link: "Preise ansehen",
   },
   integ: {
