@@ -14,6 +14,7 @@ type Integration = {
   logo?: { src: string; alt: string; className?: string };
   logoText?: string;
   logoColor?: string;
+  comingSoon?: boolean;
 };
 
 const CATEGORIES: CatKey[] = ["alle", "regnskap", "betaling", "deler", "kjoretoy", "ki"];
@@ -62,6 +63,12 @@ const INTEGRATIONS: Integration[] = [
     logo: { src: "/design/logos/conta.svg", alt: "Conta" },
   },
   {
+    id: "unimicro",
+    name: "Unimicro",
+    cat: "regnskap",
+    logo: { src: "/design/logos/unimicro.svg", alt: "Unimicro", className: "logo-wide" },
+  },
+  {
     id: "susoft",
     name: "Susoft",
     cat: "betaling",
@@ -102,6 +109,19 @@ const INTEGRATIONS: Integration[] = [
     name: "T-PRO",
     cat: "deler",
     logo: { src: "/design/logos/t-pro.png", alt: "T-PRO" },
+  },
+  {
+    id: "bildeler",
+    name: "Bildeler.no",
+    cat: "deler",
+    logo: { src: "/design/logos/bildeler.svg", alt: "Bildeler.no", className: "logo-compact" },
+  },
+  {
+    id: "trollparts",
+    name: "TrollParts",
+    cat: "deler",
+    logo: { src: "/design/logos/trollparts.svg", alt: "TrollParts", className: "logo-compact" },
+    comingSoon: true,
   },
   {
     id: "vegvesen",
@@ -206,7 +226,10 @@ export default function IntegrationCatalog({ t }: { t: IntegrasjonerDict }) {
                 )}
               </div>
               <span className="ic-cat">{t.categories[card.cat]}</span>
-              <h3>{card.name}</h3>
+              <div className="ic-title">
+                <h3>{card.name}</h3>
+                {card.comingSoon && <span className="ic-soon">{t.comingSoon}</span>}
+              </div>
               <p>{t.integrations[card.id]}</p>
             </div>
           ))}
