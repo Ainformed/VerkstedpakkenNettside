@@ -68,6 +68,19 @@ const INTEGRATIONS: Integration[] = [
     cat: "regnskap",
     logo: { src: "/design/logos/unimicro.svg", alt: "Unimicro", className: "logo-wide" },
   },
+  // Unimicro-plattformen under bankenes navn (Nichlas 27.10).
+  {
+    id: "dnbregnskap",
+    name: "DNB Regnskap",
+    cat: "regnskap",
+    logo: { src: "/design/logos/dnb.svg", alt: "DNB", className: "logo-compact" },
+  },
+  {
+    id: "sparebank1regnskap",
+    name: "SpareBank 1 Regnskap",
+    cat: "regnskap",
+    logo: { src: "/design/logos/sparebank1.svg", alt: "SpareBank 1", className: "logo-compact" },
+  },
   {
     id: "susoft",
     name: "Susoft",

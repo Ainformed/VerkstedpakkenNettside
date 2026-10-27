@@ -26,6 +26,8 @@ const integrasjoner: IntegrasjonerDict = {
     systima: "Rechnungsgrundlage und Zahlungen gehen automatisch zur Buchung in Systima.",
     conta: "In einer Minute per API-Schlüssel verbinden. Verkäufe und Zahlungsstatus landen direkt in Conta.",
     unimicro: "Automatische Rechnungsstellung und Buchhaltung — fertige Aufträge gehen direkt in Unimicro.",
+    dnbregnskap: "Rechnungen und Zahlungsstatus gehen direkt in DNB Regnskap.",
+    sparebank1regnskap: "Rechnungen und Zahlungsstatus gehen direkt in SpareBank 1 Regnskap.",
     susoft: "Kassenzahlung mit Susoft, geliefert von Nordia Payment Service.",
     bilxtra: "Nach Kennzeichen suchen, Preis und Lagerbestand sehen und Teile direkt aus dem Auftrag bestellen.",
     meca: "Teilekatalog und Bestellung verknüpft mit dem Auftrag, für den das Teil gebraucht wird.",
