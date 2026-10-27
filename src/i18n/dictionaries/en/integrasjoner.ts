@@ -26,6 +26,8 @@ const integrasjoner: IntegrasjonerDict = {
     systima: "Invoice basis and payments go automatically to bookkeeping in Systima.",
     conta: "Connect in a minute with an API key. Sales and payment status land straight in Conta.",
     unimicro: "Automatic invoicing and bookkeeping. Finished jobs go straight into Unimicro.",
+    dnbregnskap: "Invoices and payment status go straight into DNB Regnskap.",
+    sparebank1regnskap: "Invoices and payment status go straight into SpareBank 1 Regnskap.",
     susoft: "Point-of-sale payment with Susoft, delivered by Nordia Payment Service.",
     bilxtra: "Search by plate number, see price and stock, and order parts straight from the order.",
     meca: "Parts catalogue and ordering linked to the job the part is for.",

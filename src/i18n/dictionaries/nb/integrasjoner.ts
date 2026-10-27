@@ -25,6 +25,8 @@ const integrasjoner = {
     systima: "Fakturagrunnlag og betalinger går automatisk til bokføring i Systima.",
     conta: "Koble til på minuttet med API-nøkkel — salg og betalingsstatus havner rett i Conta.",
     unimicro: "Automatisk fakturering og bokføring — ferdige jobber går rett inn i Unimicro.",
+    dnbregnskap: "Fakturaer og betalingsstatus går rett inn i DNB Regnskap.",
+    sparebank1regnskap: "Fakturaer og betalingsstatus går rett inn i SpareBank 1 Regnskap.",
     susoft: "Kassebetaling med Susoft, levert av Nordia Payment Service.",
     bilxtra: "Søk på skiltnummer, se pris og lagerstatus, og bestill deler rett fra ordren.",
     meca: "Delekatalog og bestilling koblet til jobben delen skal brukes på.",
