@@ -35,6 +35,7 @@ const integrasjoner = {
     romnes: "Deler og rekvisita fra Romnes, med pris og tilgjengelighet i ordrebildet.",
     tpro: "Tesla-deler fra T-PRO. Hent kurven rett inn på ordren, med verkstedpris inn og veiledende pris ut.",
     bildeler: "Søk på skiltnummer i Bildeler.no, se verkstedets pris og lagerstatus, og bestill rett fra ordren med sporing av pakken.",
+    nbk: "Deler fra mange leverandører på ett sted. Fyll kurven i Norsk Bildelkatalog og hent den rett inn på ordren.",
     trollparts: "Delebestilling fra TrollParts rett i ordren kommer fortløpende. Følg med!",
     vegvesen: "Skiltoppslag henter merke, modell og EU-frist automatisk.",
     haynespro: "Tekniske data, reparasjonstider og servicedata for jobben på løfteren.",
