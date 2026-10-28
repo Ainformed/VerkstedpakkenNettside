@@ -36,6 +36,7 @@ const integrasjoner: IntegrasjonerDict = {
     romnes: "Parts and supplies from Romnes, with price and availability in the order view.",
     tpro: "Tesla parts from T-PRO. Pull the basket straight into the order, at trade price in and list price out.",
     bildeler: "Search by plate number in Bildeler.no, see your workshop price and stock, and order straight from the order with parcel tracking.",
+    nbk: "Parts from many suppliers in one place. Fill the basket in Norsk Bildelkatalog and pull it straight into the order.",
     trollparts: "Ordering parts from TrollParts straight from the order is on its way. Stay tuned!",
     vegvesen: "Plate lookup fetches make, model and inspection deadline automatically.",
     haynespro: "Technical data, repair times and service data for the job on the lift.",

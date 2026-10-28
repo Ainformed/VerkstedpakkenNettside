@@ -36,6 +36,7 @@ const integrasjoner: IntegrasjonerDict = {
     romnes: "Dele og forbrugsvarer fra Romnes, med pris og tilgængelighed i ordrebilledet.",
     tpro: "Tesla-dele fra T-PRO. Hent kurven direkte ind på ordren, med værkstedspris ind og vejledende pris ud.",
     bildeler: "Søg på nummerplade i Bildeler.no, se værkstedets pris og lagerstatus, og bestil direkte fra ordren med sporing af pakken.",
+    nbk: "Dele fra mange leverandører ét sted. Fyld kurven i Norsk Bildelkatalog og hent den direkte ind på ordren.",
     trollparts: "Bestilling af dele fra TrollParts direkte i ordren er på vej. Følg med!",
     vegvesen: "Nummerpladeopslag henter mærke, model og synsfrist automatisk.",
     haynespro: "Tekniske data, reparationstider og servicedata til jobbet på liften.",

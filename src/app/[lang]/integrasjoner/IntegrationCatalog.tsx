@@ -130,6 +130,12 @@ const INTEGRATIONS: Integration[] = [
     logo: { src: "/design/logos/bildeler.svg", alt: "Bildeler.no", className: "logo-compact" },
   },
   {
+    id: "nbk",
+    name: "Norsk Bildelkatalog",
+    cat: "deler",
+    logo: { src: "/design/logos/norskbildelkatalog.png", alt: "Norsk Bildelkatalog", className: "logo-compact" },
+  },
+  {
     id: "trollparts",
     name: "TrollParts",
     cat: "deler",

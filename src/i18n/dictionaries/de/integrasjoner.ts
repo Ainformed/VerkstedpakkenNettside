@@ -36,6 +36,7 @@ const integrasjoner: IntegrasjonerDict = {
     romnes: "Teile und Verbrauchsmaterial von Romnes, mit Preis und Verfügbarkeit in der Auftragsansicht.",
     tpro: "Tesla-Teile von T-PRO. Warenkorb direkt in den Auftrag übernehmen, mit Werkstattpreis im Einkauf und UVP im Verkauf.",
     bildeler: "Suche per Kennzeichen bei Bildeler.no, sieh den Werkstattpreis und Lagerbestand und bestelle direkt aus dem Auftrag mit Paketverfolgung.",
+    nbk: "Teile von vielen Lieferanten an einem Ort. Fülle den Warenkorb im Norsk Bildelkatalog und übernimm ihn direkt in den Auftrag.",
     trollparts: "Teilebestellung bei TrollParts direkt aus dem Auftrag ist unterwegs. Bleib dran!",
     vegvesen: "Die Kennzeichenabfrage holt Marke, Modell und Prüffrist automatisch.",
     haynespro: "Technische Daten, Reparaturzeiten und Servicedaten für den Auftrag auf der Hebebühne.",
