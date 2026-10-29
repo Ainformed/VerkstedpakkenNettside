@@ -44,6 +44,7 @@ const integrasjoner: IntegrasjonerDict = {
     autofrontal: "Reparationsbulletiner og fejlkoder med løsninger på kendte fejl, samlet fra tusindvis af værksteder.",
     bus: "Periodisk syn: hent køretøjsdata og send resultatet direkte fra ordren.",
     pkkhuset: "Periodisk syn via PKK Huset: start synet fra ordren og få resultatet tilbage på ordren, når det er indsendt.",
+    euromek: "Periodisk syn i EuroMek: send ordren fra Verkstedpakken, så ligger den klar, når synet starter.",
     claude: "Anthropics sprogmodel. En af modellerne bag Muttern, brugt til tekst, opsummeringer og svar.",
     chatgpt: "OpenAIs sprogmodel. Driver dele af Muttern, som udkast til beskeder og svar på spørgsmål.",
     gemini: "Googles sprogmodel. Muttern vælger den, når den løser opgaven bedst.",
