@@ -179,6 +179,12 @@ const INTEGRATIONS: Integration[] = [
     logo: { src: "/design/logos/pkkhuset.png", alt: "PKK Huset" },
   },
   {
+    id: "euromek",
+    name: "EuroMek",
+    cat: "kjoretoy",
+    logo: { src: "/design/logos/euromek.png", alt: "EuroMek" },
+  },
+  {
     id: "claude",
     name: "Claude",
     cat: "ki",

@@ -43,6 +43,7 @@ const integrasjoner = {
     autofrontal: "Reparasjonsbulletiner og feilkoder med løsninger på kjente feil, samlet fra tusenvis av verksteder.",
     bus: "EU-kontroll: hent kjøretøydata og send kontrollresultatet rett fra ordren.",
     pkkhuset: "EU-kontroll via PKK Huset: start kontrollen fra ordren og få resultatet tilbake på ordren når den er sendt inn.",
+    euromek: "EU-kontroll i EuroMek: send ordren fra Verkstedpakken, så ligger den klar når kontrollen starter.",
     claude: "Anthropics språkmodell — en av modellene bak Muttern, brukt til tekst, oppsummeringer og svar.",
     chatgpt: "OpenAIs språkmodell — driver deler av Muttern, som utkast til meldinger og svar på spørsmål.",
     gemini: "Googles språkmodell — Muttern velger den når den løser oppgaven best.",

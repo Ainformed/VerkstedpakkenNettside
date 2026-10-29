@@ -44,6 +44,7 @@ const integrasjoner: IntegrasjonerDict = {
     autofrontal: "Reparationsbulletiner och felkoder med lösningar på kända fel, samlade från tusentals verkstäder.",
     bus: "Kontrollbesiktning: hämta fordonsdata och skicka resultatet direkt från ordern.",
     pkkhuset: "Kontrollbesiktning via PKK Huset: starta besiktningen från ordern och få resultatet tillbaka på ordern när den skickats in.",
+    euromek: "Kontrollbesiktning i EuroMek: skicka ordern från Verkstedpakken, så ligger den klar när besiktningen startar.",
     claude: "Anthropics språkmodell. En av modellerna bakom Muttern, används till text, sammanfattningar och svar.",
     chatgpt: "OpenAIs språkmodell. Driver delar av Muttern, som utkast till meddelanden och svar på frågor.",
     gemini: "Googles språkmodell. Muttern väljer den när den löser uppgiften bäst.",

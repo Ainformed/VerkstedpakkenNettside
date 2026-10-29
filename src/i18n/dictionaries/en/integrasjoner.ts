@@ -44,6 +44,7 @@ const integrasjoner: IntegrasjonerDict = {
     autofrontal: "Repair bulletins and fault codes with fixes for known faults, gathered from thousands of workshops.",
     bus: "Periodic inspection: fetch vehicle data and submit the result straight from the order.",
     pkkhuset: "Periodic inspection via PKK Huset: start the inspection from the order and get the result back on the order once it is submitted.",
+    euromek: "Periodic inspection in EuroMek: send the order from Verkstedpakken and it is ready when the inspection starts.",
     claude: "Anthropic's language model. One of the models behind Muttern, used for text, summaries and answers.",
     chatgpt: "OpenAI's language model. Powers parts of Muttern, such as message drafts and answers to questions.",
     gemini: "Google's language model. Muttern picks it when it solves the task best.",
