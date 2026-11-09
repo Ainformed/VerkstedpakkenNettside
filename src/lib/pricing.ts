@@ -32,12 +32,12 @@ export const MIN_ADMIN = 1;
 export const MIN_MEKANIKERE = 0;
 
 /**
- * Prisene gjelder opp til 20 lisenser totalt — over det skal verkstedet ha
+ * Prisene gjelder opp til 10 lisenser totalt — over det skal verkstedet ha
  * eget tilbud: åpne priser over dette gir bort forhandlingsrommet på
- * kjedeavtaler. Tellerne fortsetter forbi 20 (opp til MAKS_TELLER), men da
+ * kjedeavtaler. Tellerne fortsetter forbi 10 (opp til MAKS_TELLER), men da
  * bytter panelet til antall-kvittering og kontaktskjema.
  */
-export const MAKS_LISENSER = 20;
+export const MAKS_LISENSER = 10;
 export const MAKS_TELLER = 99;
 
 /** Trappa garanterer ingen rekkefølge der den brukes. Sorter før oppslag. */
@@ -79,7 +79,7 @@ export function beregnManedspris(
 }
 
 /** Grensene er tellerens ansvar: min per teller, maks etter hva den andre
- *  telleren alt har tatt av de 20 lisensene. */
+ *  telleren alt har tatt av de 10 lisensene. */
 export function klemAntall(n: number, min: number, maks: number): number {
   if (!Number.isFinite(n)) return min;
   return Math.min(maks, Math.max(min, Math.trunc(n)));

@@ -143,11 +143,11 @@ describe("PrisKalkulator — trappa og totalen", () => {
   });
 });
 
-describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
-  it("lar tellerne fortsette forbi 20 — pluss stopper først på 99 totalt", () => {
+describe("PrisKalkulator — over 10 lisenser blir det tilbud", () => {
+  it("lar tellerne fortsette forbi 10 — pluss stopper først på 99 totalt", () => {
     render(<Kalk />);
-    sett(21, 0);
-    expect(adminFelt().value).toBe("21");
+    sett(11, 0);
+    expect(adminFelt().value).toBe("11");
     expect(adminPluss().hasAttribute("disabled")).toBe(false);
     sett(96, 3);
     expect(adminPluss().hasAttribute("disabled")).toBe(true);
@@ -162,11 +162,11 @@ describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
     expect(adminFelt().value).toBe("96");
   });
 
-  it("bytter til antall-kvittering og tilbudsskjema over 20", () => {
+  it("bytter til antall-kvittering og tilbudsskjema over 10", () => {
     render(<Kalk />);
-    sett(21, 4);
-    // Kvitteringen viser antallene uten priser — prisen stopper på 20.
-    expect(adminRad()[0]).toBe("21 admin");
+    sett(11, 4);
+    // Kvitteringen viser antallene uten priser — prisen stopper på 10.
+    expect(adminRad()[0]).toBe("11 admin");
     expect(mekRad()[0]).toBe("4 mekanikere");
     expect(document.querySelector(".kvitt-tilbud")!.textContent).toBe(
       "Etter avtale",
@@ -179,10 +179,10 @@ describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
 
   it("viser vanlig pris og CTA igjen når man går under taket", () => {
     render(<Kalk />);
-    sett(21, 0);
-    sett(20, 0);
+    sett(11, 0);
+    sett(10, 0);
     expect(document.querySelector(".panel-topp a.btn")).not.toBeNull();
-    expect(total()).toBe(`19${NBSP}900,-`);
+    expect(total()).toBe(`9${NBSP}950,-`);
   });
 });
 

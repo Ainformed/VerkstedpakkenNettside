@@ -195,7 +195,7 @@ export default function PrisKalkulator({
     mekanikere: MIN_MEKANIKERE,
   });
 
-  // Begge tellerne deler taket på 20 lisenser: maks for den ene er det som er
+  // Begge tellerne deler taket på 10 lisenser: maks for den ene er det som er
   // igjen etter den andre. Én state-oppdatering per endring holder klemmingen
   // atomisk, også under hold-repetisjon.
   const endreAdmin = useCallback((delta: number, basis?: number) => {
@@ -233,7 +233,7 @@ export default function PrisKalkulator({
 
   const { perAdmin, total } = beregnManedspris(antall.admin, antall.mekanikere);
   const totalLisenser = antall.admin + antall.mekanikere;
-  // Over 20 lisenser stopper prisen: panelet viser antall-kvittering og
+  // Over 10 lisenser stopper prisen: panelet viser antall-kvittering og
   // kontaktskjema i stedet for pris og prøveperiode.
   const overTaket = totalLisenser > MAKS_LISENSER;
   const paaTelleTaket = totalLisenser >= MAKS_TELLER;

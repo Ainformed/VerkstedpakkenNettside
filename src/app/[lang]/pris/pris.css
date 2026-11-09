@@ -73,7 +73,7 @@
   .panel-cta .btn { width: 100%; }
   .panel-cta .per { margin: 0; font-size: 16.5px; color: var(--ink); text-align: center; white-space: nowrap; }
 
-  /* Over 20 lisenser: kvitteringen viser antall, sumraden sier «Etter
+  /* Over 10 lisenser: kvitteringen viser antall, sumraden sier «Etter
      avtale», og CTA-kolonnen blir kontaktskjema med Send-knapp. */
   .kvitt-tilbud { font-size: 22px; font-weight: 600; color: var(--ink); }
   .tilbud-skjema { display: flex; flex-direction: column; gap: 12px; max-width: 440px; }

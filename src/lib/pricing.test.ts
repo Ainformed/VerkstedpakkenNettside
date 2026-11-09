@@ -86,7 +86,7 @@ describe("MEKANIKER_PRIS og grenser", () => {
     expect(MEKANIKER_PRIS).toBe(595);
     expect(MIN_ADMIN).toBe(1);
     expect(MIN_MEKANIKERE).toBe(0);
-    expect(MAKS_LISENSER).toBe(20);
+    expect(MAKS_LISENSER).toBe(10);
     expect(MAKS_TELLER).toBe(99);
   });
 });
