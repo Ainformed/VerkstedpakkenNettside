@@ -22,6 +22,7 @@ const integrasjoner: IntegrasjonerDict = {
     poweroffice: "Automatisk overførsel af fakturagrundlag og betalingsstatus til jeres bogholder.",
     tripletex: "Fakturaer, kunder og betalinger holdes synkroniseret, uden manuel indtastning.",
     visma: "Send fakturaer og bilag direkte til Visma, klar til bogføring.",
+    vismabusinessnxt: "Ordrer og betalingsstatus går direkte ind i Visma Business NXT.",
     "24sevenoffice": "Overfør salg og betalinger automatisk til regnskabet.",
     systima: "Fakturagrundlag og betalinger går automatisk til bogføring i Systima.",
     conta: "Kobl til på et minut med API-nøgle. Salg og betalingsstatus lander direkte i Conta.",
