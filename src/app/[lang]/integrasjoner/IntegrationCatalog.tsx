@@ -44,13 +44,11 @@ const INTEGRATIONS: Integration[] = [
     cat: "regnskap",
     logo: { src: "/design/logos/visma-eaccounting.png", alt: "Visma eAccounting" },
   },
-  // Rulles ut til kundene etter eAccounting. «Kommer snart» fjernes når den er slått på i prod.
   {
     id: "vismabusinessnxt",
     name: "Visma Business NXT",
     cat: "regnskap",
     logo: { src: "/design/logos/visma-business-nxt.svg", alt: "Visma Business NXT" },
-    comingSoon: true,
   },
   {
     id: "24sevenoffice",
