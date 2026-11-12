@@ -22,6 +22,7 @@ const integrasjoner: IntegrasjonerDict = {
     poweroffice: "Automatische Übertragung von Rechnungsgrundlage und Zahlungsstatus an Ihren Buchhalter.",
     tripletex: "Rechnungen, Kunden und Zahlungen bleiben synchron, ohne manuelle Eingabe.",
     visma: "Rechnungen und Belege direkt an Visma senden, fertig zur Buchung.",
+    vismabusinessnxt: "Aufträge und Zahlungsstatus gehen direkt in Visma Business NXT.",
     "24sevenoffice": "Verkäufe und Zahlungen automatisch in die Buchhaltung übertragen.",
     systima: "Rechnungsgrundlage und Zahlungen gehen automatisch zur Buchung in Systima.",
     conta: "In einer Minute per API-Schlüssel verbinden. Verkäufe und Zahlungsstatus landen direkt in Conta.",

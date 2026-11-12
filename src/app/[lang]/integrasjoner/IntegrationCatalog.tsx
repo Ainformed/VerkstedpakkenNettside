@@ -45,6 +45,12 @@ const INTEGRATIONS: Integration[] = [
     logo: { src: "/design/logos/visma-eaccounting.png", alt: "Visma eAccounting" },
   },
   {
+    id: "vismabusinessnxt",
+    name: "Visma Business NXT",
+    cat: "regnskap",
+    logo: { src: "/design/logos/visma-business-nxt.svg", alt: "Visma Business NXT" },
+  },
+  {
     id: "24sevenoffice",
     name: "24SevenOffice",
     cat: "regnskap",
