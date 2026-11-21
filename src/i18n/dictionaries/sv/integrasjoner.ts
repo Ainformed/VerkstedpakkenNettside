@@ -38,7 +38,6 @@ const integrasjoner: IntegrasjonerDict = {
     tpro: "Tesla-delar från T-PRO. Hämta varukorgen rakt in i ordern, med verkstadspris in och rekommenderat pris ut.",
     bildeler: "Sök på registreringsnummer i Bildeler.no, se verkstadens pris och lagerstatus och beställ direkt från ordern med spårning av paketet.",
     nbk: "Delar från många leverantörer på ett ställe. Fyll varukorgen i Norsk Bildelkatalog och hämta den rakt in i ordern.",
-    trollparts: "Beställning av delar från TrollParts direkt i ordern är på väg. Håll utkik!",
     vegvesen: "Regnummeruppslag hämtar märke, modell och besiktningsfrist automatiskt.",
     haynespro: "Tekniska data, reparationstider och servicedata för jobbet på lyften.",
     macsdata: "Tekniska data från Hella Gutmann: kopplingsscheman, reparationsanvisningar, servicedata och reparationstider för nästan alla märken, direkt från ordern.",
