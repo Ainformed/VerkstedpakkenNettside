@@ -8,16 +8,24 @@ const pris: PrisDict = {
   title: "Preise für Verkstedpakken",
   priceFormat: { locale: "de-DE", prefix: "", suffix: " NOK" },
   calc: {
-    totalLabel: "Ihr Preis pro Monat",
     exVat: "zzgl. MwSt.",
-    perMonth: "Pro Monat",
     byAgreement: "Nach Vereinbarung",
     adminUnit: "Admin",
     mechanicOne: "Mechaniker",
     mechanicMany: "Mechaniker",
     cta: "14 Tage kostenlos testen",
-    termsBold: "Keine Bindung",
     termsRest: "Keine Einrichtungsgebühr",
+    choices: {
+      bindingTitle: "Bindung",
+      bindingOptions: ["1 Monat", "6 Monate", "1 Jahr"],
+      bindingTerms: ["Keine Bindung", "6 Monate Bindung", "1 Jahr Bindung"],
+      paymentTitle: "Zahlungsintervall",
+      paymentOptions: ["Für 1 Monat zahlen", "Für 6 Monate zahlen", "Für 1 Jahr zahlen"],
+      periodLabels: ["Pro Monat", "Pro 6 Monate", "Pro Jahr"],
+      months: " × {n} Mon.",
+      saving: "Sie sparen {pct} %",
+      badge: "−{pct} %",
+    },
     adminCard: {
       name: "Admin / Serviceberater",
       per: "pro Nutzer/Monat",
@@ -135,11 +143,11 @@ const pris: PrisDict = {
     items: [
       {
         q: "Gibt es eine Vertragsbindung?",
-        a: "Nein. Sie zahlen Monat für Monat und können jederzeit kündigen.",
+        a: "Das entscheiden Sie selbst. Standard ist ein Monat, dann können Sie jederzeit kündigen. Bei 6 Monaten Bindung erhalten Sie 7,5 % Rabatt, bei 1 Jahr Bindung 15 %. Zahlen Sie zusätzlich für 6 Monate, erhalten Sie weitere 7,5 %. Zahlen Sie für 1 Jahr, erhalten Sie weitere 15 %. Sie können nicht für einen längeren Zeitraum zahlen, als Ihre gewählte Bindung dauert. Der höchste Rabatt beträgt 30 %: 1 Jahr Bindung und Zahlung für 1 Jahr. Der Rabatt gilt für Admin- und Mechaniker-Lizenzen.",
       },
       {
         q: "Wie wird der Preis berechnet?",
-        a: "Sie zahlen 1.295 NOK pro Admin und 595 NOK pro Mechaniker pro Monat. Der Preis pro Admin sinkt bei mehreren Admins: 1.095 NOK ab dem vierten und 995 NOK ab dem siebten. Die Mechaniker-Lizenz kostet unabhängig von der Anzahl gleich viel.",
+        a: "Sie zahlen 1.295 NOK pro Admin und 595 NOK pro Mechaniker pro Monat. Der Preis pro Admin sinkt bei mehreren Admins: 1.095 NOK ab dem vierten und 995 NOK ab dem siebten. Die Mechaniker-Lizenz kostet unabhängig von der Anzahl gleich viel. Bei längerer Bindung oder Zahlung für 6 Monate bzw. 1 Jahr kommt der Rabatt noch hinzu.",
       },
       {
         q: "Was ist der Unterschied zwischen Admin und Mechaniker?",

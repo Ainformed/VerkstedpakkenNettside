@@ -17,9 +17,12 @@ import {
   MEKANIKER_PRIS,
   MIN_ADMIN,
   MIN_MEKANIKERE,
-  beregnManedspris,
+  beregnPris,
+  erGyldigKombinasjon,
   formaterBelop,
+  formaterProsent,
   klemAntall,
+  type Trinn,
 } from "@/lib/pricing";
 import { SIGNUP_URL } from "@/lib/links";
 import type { Locale } from "@/i18n/config";
@@ -182,6 +185,8 @@ function Teller({
   );
 }
 
+const TRINN: readonly Trinn[] = [0, 1, 2];
+
 export default function PrisKalkulator({
   t,
 }: {
@@ -189,13 +194,32 @@ export default function PrisKalkulator({
   t: PrisDict;
 }) {
   const c = t.calc;
+  const ch = c.choices;
   const kr = (belop: number) => formaterBelop(belop, t.priceFormat);
+  // Prosenten kan være en halv (7,5 / 22,5), så den får språkets desimaltegn.
+  const fyll = (mal: string, nokkel: "pct" | "n", verdi: number) =>
+    mal.replace(
+      `{${nokkel}}`,
+      nokkel === "pct"
+        ? formaterProsent(verdi, t.priceFormat.locale)
+        : String(verdi),
+    );
   const [antall, setAntall] = useState({
     admin: MIN_ADMIN,
     mekanikere: MIN_MEKANIKERE,
   });
+  // Valgene låser hverandre i stedet for å endre hverandre: betalingen kan
+  // ikke være lengre enn bindingen, og ingen av dem hopper av seg selv.
+  const [binding, setBinding] = useState<Trinn>(0);
+  const [betaling, setBetaling] = useState<Trinn>(0);
+  const velgBinding = (i: Trinn) => {
+    if (erGyldigKombinasjon(i, betaling)) setBinding(i);
+  };
+  const velgBetaling = (i: Trinn) => {
+    if (erGyldigKombinasjon(binding, i)) setBetaling(i);
+  };
 
-  // Begge tellerne deler taket på 20 lisenser: maks for den ene er det som er
+  // Begge tellerne deler taket på 10 lisenser: maks for den ene er det som er
   // igjen etter den andre. Én state-oppdatering per endring holder klemmingen
   // atomisk, også under hold-repetisjon.
   const endreAdmin = useCallback((delta: number, basis?: number) => {
@@ -231,12 +255,14 @@ export default function PrisKalkulator({
     }));
   }, []);
 
-  const { perAdmin, total } = beregnManedspris(antall.admin, antall.mekanikere);
+  const p = beregnPris(antall.admin, antall.mekanikere, binding, betaling);
   const totalLisenser = antall.admin + antall.mekanikere;
-  // Over 20 lisenser stopper prisen: panelet viser antall-kvittering og
-  // kontaktskjema i stedet for pris og prøveperiode.
+  // Over 10 lisenser stopper prisen: panelet viser antall-kvittering og
+  // kontaktskjema i stedet for pris, valg og prøveperiode.
   const overTaket = totalLisenser > MAKS_LISENSER;
   const paaTelleTaket = totalLisenser >= MAKS_TELLER;
+  const perPeriode =
+    p.maneder > 1 ? fyll(ch.months, "n", p.maneder) : "";
 
   // Storverksted-skjemaet ved taket.
   const [skjema, skjemaAction, sender] = useActionState<
@@ -247,148 +273,23 @@ export default function PrisKalkulator({
   return (
     <div className="pris-omrade" aria-live="polite">
       <div className="pris-panel">
-        {/* Totalen rendres i to varianter og CSS velger etter bredde:
-            desktop viser stor total med regnestykket på én linje,
-            telefon viser kvittering (rad per lisenstype, delelinje, sum). */}
-        <div className="panel-topp">
-          <div
-            className={`panel-total ${
-              overTaket
-                ? "har-mekanikere har-tilbud"
-                : antall.mekanikere > 0
-                  ? "har-mekanikere"
-                  : "kun-admin"
-            }`}
-          >
-            <div className="total-klassisk">
-              <p className="total-ledetekst">{c.totalLabel}</p>
-              <div className="amt-rad">
-                <div className="amt">{kr(total)}</div>
-                <span className="amt-mva">{c.exVat}</span>
-              </div>
-            </div>
-            <div className="total-kvittering">
-              <div className="kvitt-rad kvitt-admin">
-                <span>
-                  {antall.admin} {c.adminUnit}
-                  {overTaket ? "" : ` × ${kr(perAdmin)}`}
-                </span>
-                <span>
-                  {overTaket ? "" : kr(antall.admin * perAdmin)}
-                </span>
-              </div>
-              {/* Alltid rendret — skjult med visibility ved null mekanikere,
-                  så panelet ikke hopper når første legges til. */}
-              <div
-                className={
-                  antall.mekanikere > 0
-                    ? "kvitt-rad kvitt-mek"
-                    : "kvitt-rad kvitt-mek kvitt-rad-skjult"
-                }
-              >
-                <span>
-                  {antall.mekanikere}{" "}
-                  {antall.mekanikere === 1 ? c.mechanicOne : c.mechanicMany}
-                  {overTaket ? "" : ` × ${kr(MEKANIKER_PRIS)}`}
-                </span>
-                <span>
-                  {overTaket
-                    ? ""
-                    : kr(antall.mekanikere * MEKANIKER_PRIS)}
-                </span>
-              </div>
-              <div className="kvitt-strek" />
-              <div className="kvitt-total">
-                <span className="kvitt-total-navn">{c.perMonth}</span>
-                {overTaket ? (
-                  <span className="kvitt-tilbud">{c.byAgreement}</span>
-                ) : (
-                  <div className="amt-rad">
-                    <div className="amt">{kr(total)}</div>
-                    <span className="amt-mva">{c.exVat}</span>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="panel-cta">
-            {overTaket ? (
-              skjema.success ? (
-                <p className="tilbud-takk">{c.form.thanks}</p>
-              ) : (
-                <form action={skjemaAction} className="tilbud-skjema">
-                  {/* Honeypot for boter — skjult for folk. */}
-                  <input
-                    type="text"
-                    name="company_website"
-                    className="tak-hp"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    aria-hidden="true"
-                  />
-                  {/* Tidsstempelet settes i ref-callbacken: SSR-html-en får
-                      tom verdi, klienten fyller inn ved mount. */}
-                  <input
-                    type="hidden"
-                    name="form_loaded_at"
-                    defaultValue=""
-                    ref={(el) => {
-                      if (el && !el.value) el.value = String(Date.now());
-                    }}
-                  />
-                  <input type="hidden" name="antall" value={totalLisenser} />
-                  <input
-                    type="hidden"
-                    name="antall_admin"
-                    value={antall.admin}
-                  />
-                  <input
-                    type="hidden"
-                    name="antall_mekanikere"
-                    value={antall.mekanikere}
-                  />
-                  <p className="tilbud-tekst">{c.form.intro}</p>
-                  <input
-                    type="text"
-                    name="kontakt"
-                    aria-label={c.form.contactLabel}
-                    placeholder={c.form.contactLabel}
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-lg"
-                    disabled={sender}
-                  >
-                    {sender ? c.form.sending : c.form.send}
-                  </button>
-                  {skjema.error ? (
-                    <span className="tilbud-feil">
-                      {c.form.errors[skjema.error]}
-                    </span>
-                  ) : null}
-                </form>
-              )
-            ) : (
-              <>
-                <div className="panel-cta-knapp">
-                  <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
-                    {c.cta}
-                  </a>
-                </div>
-                <p className="per">
-                  <b>{c.termsBold}</b> · {c.termsRest}
-                </p>
-              </>
-            )}
-          </div>
-        </div>
-
         <div className="pkort-rad">
           <div className="pkort pkort-admin">
             <p className="pkort-navn">{c.adminCard.name}</p>
             <p className="pkort-pris">
-              <b>{kr(perAdmin)}</b>{" "}
+              {/* Plassen er alltid reservert, så kortet ikke hopper når
+                  rabatten dukker opp. */}
+              <span className="pkort-gammel">
+                {p.perAdmin < p.perAdminStart ? (
+                  <>
+                    <s>{kr(p.perAdminStart)}</s>
+                    <span className="pkort-merke">
+                      {fyll(ch.badge, "pct", p.adminSparProsent)}
+                    </span>
+                  </>
+                ) : null}
+              </span>
+              <b>{kr(p.perAdmin)}</b>{" "}
               <span className="pkort-per">{c.adminCard.per}</span>
             </p>
             <p className="pkort-tekst">{c.adminCard.text}</p>
@@ -407,7 +308,17 @@ export default function PrisKalkulator({
           <div className="pkort pkort-mek">
             <p className="pkort-navn">{c.mechanicCard.name}</p>
             <p className="pkort-pris">
-              <b>{kr(MEKANIKER_PRIS)}</b>{" "}
+              <span className="pkort-gammel">
+                {p.perMekaniker < MEKANIKER_PRIS ? (
+                  <>
+                    <s>{kr(MEKANIKER_PRIS)}</s>
+                    <span className="pkort-merke">
+                      {fyll(ch.badge, "pct", p.mekanikerSparProsent)}
+                    </span>
+                  </>
+                ) : null}
+              </span>
+              <b>{kr(p.perMekaniker)}</b>{" "}
               <span className="pkort-per">{c.mechanicCard.per}</span>
             </p>
             <p className="pkort-tekst">{c.mechanicCard.text}</p>
@@ -423,8 +334,182 @@ export default function PrisKalkulator({
             />
           </div>
         </div>
+
+        <div className={`panel-topp${overTaket ? " uten-valg" : ""}`}>
+          {overTaket ? null : (
+            <div className="valg-rad">
+              <div
+                className="valg-gruppe"
+                role="radiogroup"
+                aria-labelledby="valg-binding-tittel"
+              >
+                <span className="valg-tittel" id="valg-binding-tittel">
+                  {ch.bindingTitle}
+                </span>
+                {TRINN.map((i) => (
+                  <label className="valg" key={i}>
+                    <input
+                      type="radio"
+                      name="binding"
+                      checked={binding === i}
+                      disabled={!erGyldigKombinasjon(i, betaling)}
+                      onChange={() => velgBinding(i)}
+                    />
+                    <span className="valg-boks" aria-hidden="true" />
+                    <span className="valg-tekst">{ch.bindingOptions[i]}</span>
+                  </label>
+                ))}
+              </div>
+              <div
+                className="valg-gruppe"
+                role="radiogroup"
+                aria-labelledby="valg-betaling-tittel"
+              >
+                <span className="valg-tittel" id="valg-betaling-tittel">
+                  {ch.paymentTitle}
+                </span>
+                {TRINN.map((i) => (
+                  <label className="valg" key={i}>
+                    <input
+                      type="radio"
+                      name="betaling"
+                      checked={betaling === i}
+                      disabled={!erGyldigKombinasjon(binding, i)}
+                      onChange={() => velgBetaling(i)}
+                    />
+                    <span className="valg-boks" aria-hidden="true" />
+                    <span className="valg-tekst">{ch.paymentOptions[i]}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Kvitteringen: linjene samles rett over summen, og summen står
+              fast i bunnen — den skal aldri flytte seg når en linje kommer
+              eller går. */}
+          <div className="panel-total">
+            <div className="kvitt-rader">
+              <div className="kvitt-rad kvitt-admin">
+                <span>
+                  {antall.admin} {c.adminUnit}
+                  {overTaket ? "" : ` × ${kr(p.perAdmin)}${perPeriode}`}
+                </span>
+                <span>
+                  {overTaket ? "" : kr(antall.admin * p.perAdmin * p.maneder)}
+                </span>
+              </div>
+              <div
+                className={
+                  antall.mekanikere > 0
+                    ? "kvitt-rad kvitt-mek"
+                    : "kvitt-rad kvitt-mek kvitt-rad-bort"
+                }
+              >
+                <span>
+                  {antall.mekanikere}{" "}
+                  {antall.mekanikere === 1 ? c.mechanicOne : c.mechanicMany}
+                  {overTaket ? "" : ` × ${kr(p.perMekaniker)}${perPeriode}`}
+                </span>
+                <span>
+                  {overTaket
+                    ? ""
+                    : kr(antall.mekanikere * p.perMekaniker * p.maneder)}
+                </span>
+              </div>
+              {!overTaket && p.spartManed > 0 ? (
+                <div className="kvitt-rad kvitt-spart">
+                  <span>{fyll(ch.saving, "pct", p.sparProsent)}</span>
+                  <span>−{kr(p.spartPeriode)}</span>
+                </div>
+              ) : null}
+            </div>
+            <div className="kvitt-total">
+              {/* Samme ordlyd som valget under Betalingsfrekvens. Over
+                  taket er valgene skjult, og da står perioden alene. */}
+              <span className="kvitt-total-navn">
+                {overTaket
+                  ? ch.periodLabels[betaling]
+                  : ch.paymentOptions[betaling]}
+              </span>
+              {overTaket ? (
+                <span className="kvitt-tilbud">{c.byAgreement}</span>
+              ) : (
+                <div className="amt-rad">
+                  <div className="amt">{kr(p.totalPeriode)}</div>
+                  <span className="amt-mva">{c.exVat}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
 
+      <div className="pris-cta">
+        {overTaket ? (
+          skjema.success ? (
+            <p className="tilbud-takk">{c.form.thanks}</p>
+          ) : (
+            <form action={skjemaAction} className="tilbud-skjema">
+              {/* Honeypot for boter — skjult for folk. */}
+              <input
+                type="text"
+                name="company_website"
+                className="tak-hp"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+              {/* Tidsstempelet settes i ref-callbacken: SSR-html-en får
+                  tom verdi, klienten fyller inn ved mount. */}
+              <input
+                type="hidden"
+                name="form_loaded_at"
+                defaultValue=""
+                ref={(el) => {
+                  if (el && !el.value) el.value = String(Date.now());
+                }}
+              />
+              <input type="hidden" name="antall" value={totalLisenser} />
+              <input type="hidden" name="antall_admin" value={antall.admin} />
+              <input
+                type="hidden"
+                name="antall_mekanikere"
+                value={antall.mekanikere}
+              />
+              <p className="tilbud-tekst">{c.form.intro}</p>
+              <input
+                type="text"
+                name="kontakt"
+                aria-label={c.form.contactLabel}
+                placeholder={c.form.contactLabel}
+                required
+              />
+              <button
+                type="submit"
+                className="btn btn-primary btn-lg"
+                disabled={sender}
+              >
+                {sender ? c.form.sending : c.form.send}
+              </button>
+              {skjema.error ? (
+                <span className="tilbud-feil">
+                  {c.form.errors[skjema.error]}
+                </span>
+              ) : null}
+            </form>
+          )
+        ) : (
+          <>
+            <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
+              {c.cta}
+            </a>
+            <p className="per">
+              <b>{ch.bindingTerms[binding]}</b> · {c.termsRest}
+            </p>
+          </>
+        )}
+      </div>
     </div>
   );
 }

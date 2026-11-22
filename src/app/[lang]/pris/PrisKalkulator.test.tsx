@@ -53,9 +53,9 @@ describe("PrisKalkulator i ro", () => {
     expect(pris().textContent).toContain(`1${NBSP}295,-`);
     expect(pris().textContent).toContain("per bruker/mnd");
     sett(4, 1);
-    // 4 admin → trinn 4–6 → kortet viser 1 095, ikke startprisen.
-    expect(pris().textContent).toContain(`1${NBSP}095,-`);
-    expect(pris().textContent).not.toContain(`1${NBSP}295,-`);
+    // 4 admin → trinn 4–6 → kortet viser 1 095 stort, med startprisen overstrøket.
+    expect(pris().querySelector("b")!.textContent).toBe(`1${NBSP}095,-`);
+    expect(pris().querySelector("s")!.textContent).toBe(`1${NBSP}295,-`);
   });
 
   it("viser flat mekaniker-pris i toppen av mekaniker-kortet", () => {
@@ -73,19 +73,17 @@ describe("PrisKalkulator i ro", () => {
     // mva står ved selve prisen, ikke i betingelseslinjen — da holder
     // linjen seg på én linje også på mobil.
     expect(per.textContent).not.toContain("mva");
-    expect(
-      document.querySelector(".total-klassisk .amt-mva")!.textContent,
-    ).toBe("eks. mva");
-    expect(
-      document.querySelector(".total-kvittering .amt-mva")!.textContent,
-    ).toBe("eks. mva");
+    expect(document.querySelector(".kvitt-total .amt-mva")!.textContent).toBe(
+      "eks. mva",
+    );
   });
 
-  it("har CTA-en inne i panelet", () => {
+  it("har CTA-en rett under panelet, ikke inne i det", () => {
     render(<Kalk />);
-    const cta = document.querySelector(".panel-topp a.btn")!;
+    const cta = document.querySelector(".pris-cta a.btn")!;
     expect(cta).not.toBeNull();
     expect(cta.textContent).toBe("Prøv gratis i 14 dager");
+    expect(document.querySelector(".pris-panel a.btn")).toBeNull();
   });
 
   it("har «−» avslått ved én admin og null mekanikere", () => {
@@ -94,13 +92,13 @@ describe("PrisKalkulator i ro", () => {
     expect(mekMinus().hasAttribute("disabled")).toBe(true);
   });
 
-  it("skjuler mekaniker-raden i kvitteringen ved null mekanikere, men holder plassen", () => {
+  it("tar mekaniker-raden ut av kvitteringen ved null mekanikere", () => {
     render(<Kalk />);
     expect(adminRad()).toEqual([`1 admin × 1${NBSP}295,-`, `1${NBSP}295,-`]);
-    // Rendret men usynlig: fjernes raden, hopper CTA og kort når første
-    // mekaniker legges til.
+    // Linjene ligger rett over sumlinjen, som står fast i bunnen — da
+    // flytter ikke summen seg når en linje kommer eller går.
     const rad = document.querySelector(".kvitt-mek")!;
-    expect(rad.className).toContain("kvitt-rad-skjult");
+    expect(rad.className).toContain("kvitt-rad-bort");
   });
 });
 
@@ -121,7 +119,7 @@ describe("PrisKalkulator — trappa og totalen", () => {
     expect(total()).toBe(`1${NBSP}890,-`);
     expect(mekRad()).toEqual([`1 mekaniker × 595,-`, `595,-`]);
     expect(document.querySelector(".kvitt-mek")!.className).not.toContain(
-      "kvitt-rad-skjult",
+      "kvitt-rad-bort",
     );
   });
 
@@ -143,11 +141,11 @@ describe("PrisKalkulator — trappa og totalen", () => {
   });
 });
 
-describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
-  it("lar tellerne fortsette forbi 20 — pluss stopper først på 99 totalt", () => {
+describe("PrisKalkulator — over 10 lisenser blir det tilbud", () => {
+  it("lar tellerne fortsette forbi 10 — pluss stopper først på 99 totalt", () => {
     render(<Kalk />);
-    sett(21, 0);
-    expect(adminFelt().value).toBe("21");
+    sett(11, 0);
+    expect(adminFelt().value).toBe("11");
     expect(adminPluss().hasAttribute("disabled")).toBe(false);
     sett(96, 3);
     expect(adminPluss().hasAttribute("disabled")).toBe(true);
@@ -162,27 +160,27 @@ describe("PrisKalkulator — over 20 lisenser blir det tilbud", () => {
     expect(adminFelt().value).toBe("96");
   });
 
-  it("bytter til antall-kvittering og tilbudsskjema over 20", () => {
+  it("bytter til antall-kvittering og tilbudsskjema over 10", () => {
     render(<Kalk />);
-    sett(21, 4);
-    // Kvitteringen viser antallene uten priser — prisen stopper på 20.
-    expect(adminRad()[0]).toBe("21 admin");
+    sett(11, 4);
+    // Kvitteringen viser antallene uten priser — prisen stopper på 10.
+    expect(adminRad()[0]).toBe("11 admin");
     expect(mekRad()[0]).toBe("4 mekanikere");
     expect(document.querySelector(".kvitt-tilbud")!.textContent).toBe(
       "Etter avtale",
     );
     // «Prøv gratis» er byttet ut med kontaktfelt og Send-knapp.
-    expect(document.querySelector(".panel-topp a.btn")).toBeNull();
+    expect(document.querySelector(".pris-cta a.btn")).toBeNull();
     expect(screen.getByLabelText("Telefon eller e-post")).toBeDefined();
     expect(screen.getByRole("button", { name: "Send" })).toBeDefined();
   });
 
   it("viser vanlig pris og CTA igjen når man går under taket", () => {
     render(<Kalk />);
-    sett(21, 0);
-    sett(20, 0);
-    expect(document.querySelector(".panel-topp a.btn")).not.toBeNull();
-    expect(total()).toBe(`19${NBSP}900,-`);
+    sett(11, 0);
+    sett(10, 0);
+    expect(document.querySelector(".pris-cta a.btn")).not.toBeNull();
+    expect(total()).toBe(`9${NBSP}950,-`);
   });
 });
 
@@ -312,5 +310,157 @@ describe("PrisKalkulator — tilgjengelighet", () => {
     const regioner = container.querySelectorAll("[aria-live]");
     expect(regioner.length).toBe(1);
     expect(regioner[0]!.textContent).toContain(`1${NBSP}295,-`);
+  });
+});
+
+const radio = (navn: string) => screen.getByRole("radio", { name: navn }) as HTMLInputElement;
+const velg = (navn: string) => fireEvent.click(radio(navn));
+const sumLabel = () => document.querySelector(".kvitt-total-navn")!.textContent;
+const sparRad = () => document.querySelector(".kvitt-spart");
+const adminKortPris = () => document.querySelector(".pkort-admin .pkort-pris")!;
+const mekKortPris = () => document.querySelector(".pkort-mek .pkort-pris")!;
+
+describe("PrisKalkulator — bindingstid og betaling", () => {
+  it("starter på 1 måned og betaling for 1 måned, uten rabatt", () => {
+    render(<Kalk />);
+    expect(radio("1 måned").checked).toBe(true);
+    expect(radio("Betal for 1 måned").checked).toBe(true);
+    expect(sparRad()).toBeNull();
+    expect(sumLabel()).toBe("Betal for 1 måned");
+    expect(adminKortPris().querySelector("s")).toBeNull();
+  });
+
+  it("viser to grupper med tre valg hver", () => {
+    render(<Kalk />);
+    expect(screen.getAllByRole("radiogroup").length).toBe(2);
+    expect(screen.getAllByRole("radio").length).toBe(6);
+  });
+
+  it("senker prisene i kortene og kvitteringen når man velger 1 år", () => {
+    render(<Kalk />);
+    sett(2, 2);
+    velg("1 år");
+    // 15 %: 1 295 → 1 101 og 595 → 506 (avrundet per lisens).
+    expect(adminKortPris().querySelector("b")!.textContent).toBe(`1${NBSP}101,-`);
+    expect(adminKortPris().querySelector("s")!.textContent).toBe(`1${NBSP}295,-`);
+    expect(adminKortPris().textContent).toContain("−15 %");
+    expect(mekKortPris().querySelector("b")!.textContent).toBe("506,-");
+    expect(adminRad()).toEqual([`2 admin × 1${NBSP}101,-`, `2${NBSP}202,-`]);
+    expect(mekRad()).toEqual([`2 mekanikere × 506,-`, `1${NBSP}012,-`]);
+    expect(total()).toBe(`3${NBSP}214,-`);
+    expect(sparRad()!.textContent).toBe(`Du sparer 15 %−566,-`);
+  });
+
+  it("regner kvitteringen om til året når man betaler for 1 år, og skriver det ut", () => {
+    render(<Kalk />);
+    sett(2, 2);
+    velg("1 år");
+    velg("Betal for 1 år");
+    // 30 %: 1 295 → 907, 595 → 417. Per måned 2 × 907 + 2 × 417 = 2 648.
+    expect(sumLabel()).toBe("Betal for 1 år");
+    expect(total()).toBe(`31${NBSP}776,-`);
+    expect(adminRad()).toEqual([
+      `2 admin × 907,- × 12 mnd`,
+      `21${NBSP}768,-`,
+    ]);
+    expect(sparRad()!.textContent).toContain("Du sparer 30 %");
+  });
+
+  it("bruker 6-månedersperioden når man betaler for 6 måneder", () => {
+    render(<Kalk />);
+    sett(1, 0);
+    velg("1 år");
+    velg("Betal for 6 måneder");
+    // 22,5 %: 1 295 → 1 004 (1 003,625). 6 måneder.
+    expect(sumLabel()).toBe("Betal for 6 måneder");
+    expect(total()).toBe(`6${NBSP}024,-`);
+    expect(adminRad()).toEqual([
+      `1 admin × 1${NBSP}004,- × 6 mnd`,
+      `6${NBSP}024,-`,
+    ]);
+    expect(adminKortPris().textContent).toContain("−22,5 %");
+    expect(sparRad()!.textContent).toBe(`Du sparer 22,5 %−1${NBSP}746,-`);
+  });
+
+  it("låser betaling som er lengre enn bindingen, og binding som er kortere enn betalingen", () => {
+    render(<Kalk />);
+    expect(radio("Betal for 6 måneder").disabled).toBe(true);
+    expect(radio("Betal for 1 år").disabled).toBe(true);
+    velg("1 år");
+    expect(radio("Betal for 6 måneder").disabled).toBe(false);
+    expect(radio("Betal for 1 år").disabled).toBe(false);
+    velg("Betal for 1 år");
+    expect(radio("1 måned").disabled).toBe(true);
+    expect(radio("6 måneder").disabled).toBe(true);
+    expect(radio("1 år").disabled).toBe(false);
+  });
+
+  it("endrer aldri det ene valget når man klikker på det andre", () => {
+    render(<Kalk />);
+    velg("1 år");
+    velg("Betal for 1 år");
+    // Kortere binding er låst — klikk gjør ingenting, og betalingen blir stående.
+    velg("6 måneder");
+    expect(radio("1 år").checked).toBe(true);
+    expect(radio("Betal for 1 år").checked).toBe(true);
+    // Setter man betalingen lavere, åpnes kortere binding.
+    velg("Betal for 1 måned");
+    velg("6 måneder");
+    expect(radio("6 måneder").checked).toBe(true);
+    expect(radio("Betal for 1 måned").checked).toBe(true);
+  });
+
+  it("skriver bindingen i betingelseslinjen ved CTA-en", () => {
+    render(<Kalk />);
+    expect(document.querySelector(".per")!.textContent).toContain("Ingen bindingstid");
+    velg("6 måneder");
+    expect(document.querySelector(".per")!.textContent).toContain("6 måneders bindingstid");
+    velg("1 år");
+    expect(document.querySelector(".per")!.textContent).toContain("1 års bindingstid");
+  });
+
+  it("regner mengderabatten på admin med i sparingen og merkelappen", () => {
+    render(<Kalk />);
+    sett(4, 0);
+    // 800 / 5 180 = 15,4 % → nærmeste halve.
+    expect(adminKortPris().textContent).toContain("−15,5 %");
+    expect(sparRad()!.textContent).toBe(`Du sparer 15,5 %−800,-`);
+  });
+
+  it("gir mekanikeren bindingsrabatt, men ikke mengderabatt", () => {
+    render(<Kalk />);
+    sett(7, 1);
+    expect(mekKortPris().querySelector("s")).toBeNull();
+    velg("1 år");
+    expect(mekKortPris().textContent).toContain("−15 %");
+  });
+
+  it("viser 7,5 % med desimal når man binder seg i 6 måneder", () => {
+    render(<Kalk />);
+    sett(1, 1);
+    velg("6 måneder");
+    // 7,5 %: 1 295 → 1 198 og 595 → 550.
+    expect(adminKortPris().querySelector("b")!.textContent).toBe(`1${NBSP}198,-`);
+    expect(adminKortPris().textContent).toContain("−7,5 %");
+    expect(mekKortPris().querySelector("b")!.textContent).toBe("550,-");
+    expect(mekKortPris().textContent).toContain("−7,5 %");
+    expect(sparRad()!.textContent).toBe(`Du sparer 7,5 %−142,-`);
+    // Betaling for 6 måneder legger til 7,5 % til: 15 % samlet.
+    velg("Betal for 6 måneder");
+    expect(adminKortPris().textContent).toContain("−15 %");
+    expect(sumLabel()).toBe("Betal for 6 måneder");
+  });
+
+  it("skjuler valgene og sparelinjen når prisen er etter avtale (over 10 lisenser)", () => {
+    render(<Kalk />);
+    velg("1 år");
+    sett(11, 0);
+    expect(screen.queryAllByRole("radio").length).toBe(0);
+    expect(sparRad()).toBeNull();
+    // Uten valg på skjermen står perioden alene på sumlinjen.
+    expect(sumLabel()).toBe("Per måned");
+    // Går man under taket igjen, ligger valgene der de var.
+    sett(10, 0);
+    expect(radio("1 år").checked).toBe(true);
   });
 });

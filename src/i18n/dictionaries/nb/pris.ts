@@ -8,16 +8,30 @@ const pris = {
   /** Beløpsformat: Intl-locale + tekst rundt tallet. nb: «1 295,-». */
   priceFormat: { locale: "nb-NO", prefix: "", suffix: ",-" },
   calc: {
-    totalLabel: "Din pris per måned",
     exVat: "eks. mva",
-    perMonth: "Per måned",
     byAgreement: "Etter avtale",
     adminUnit: "admin",
     mechanicOne: "mekaniker",
     mechanicMany: "mekanikere",
     cta: "Prøv gratis i 14 dager",
-    termsBold: "Ingen bindingstid",
     termsRest: "Ingen etableringskostnad",
+    choices: {
+      bindingTitle: "Bindingstid",
+      bindingOptions: ["1 måned", "6 måneder", "1 år"],
+      /** Betingelseslinjen under CTA-en, én per bindingstid. */
+      bindingTerms: ["Ingen bindingstid", "6 måneders bindingstid", "1 års bindingstid"],
+      paymentTitle: "Betalingsfrekvens",
+      /** Hva man betaler for hver gang — Henriks ordlyd 22.11.2026. */
+      paymentOptions: ["Betal for 1 måned", "Betal for 6 måneder", "Betal for 1 år"],
+      /** Sumraden når prisen er «Etter avtale» (over 10 lisenser). Ellers
+       *  bruker sumraden samme tekst som valget i paymentOptions. */
+      periodLabels: ["Per måned", "Per 6 måneder", "Per år"],
+      /** Regnestykket ved lengre betalingsperiode. {n} = antall måneder. */
+      months: " × {n} mnd",
+      /** Sparelinjen. {pct} = prosent, hel eller halv («15» / «7,5»). */
+      saving: "Du sparer {pct} %",
+      badge: "−{pct} %",
+    },
     adminCard: {
       name: "Admin / kundemottaker",
       per: "per bruker/mnd",
@@ -135,11 +149,11 @@ const pris = {
     items: [
       {
         q: "Er det bindingstid?",
-        a: "Nei. Du betaler måned for måned, og kan si opp når du vil.",
+        a: "Du velger selv. Standard er én måned, og da kan du si opp når du vil. Velger du 6 måneders bindingstid, får du 7,5 % rabatt. Velger du 1 års bindingstid, får du 15 %. Betaler du i tillegg for 6 måneder, får du 7,5 % til. Betaler du for 1 år, får du 15 % til. Du kan ikke betale for lengre tid enn bindingstiden du har valgt. Høyeste rabatt er 30 %: 1 års bindingstid og betaling for 1 år. Rabatten gjelder både admin og mekaniker.",
       },
       {
         q: "Hvordan regnes prisen?",
-        a: "Du betaler 1 295,- per admin og 595,- per mekaniker per måned. Prisen per admin blir lavere når dere er flere admin: 1 095,- fra den fjerde og 995,- fra den sjuende. Mekaniker-lisensen koster det samme uansett antall.",
+        a: "Du betaler 1 295,- per admin og 595,- per mekaniker per måned. Prisen per admin blir lavere når dere er flere admin: 1 095,- fra den fjerde og 995,- fra den sjuende. Mekaniker-lisensen koster det samme uansett antall. Velger du lengre bindingstid, eller betaler for 6 måneder eller 1 år, kommer rabatten oppå dette.",
       },
       {
         q: "Hva er forskjellen på admin og mekaniker?",

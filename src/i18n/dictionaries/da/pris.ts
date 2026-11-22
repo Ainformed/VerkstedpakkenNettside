@@ -8,16 +8,24 @@ const pris: PrisDict = {
   title: "Pris for Verkstedpakken",
   priceFormat: { locale: "da-DK", prefix: "", suffix: " NOK" },
   calc: {
-    totalLabel: "Din pris pr. måned",
     exVat: "ekskl. moms",
-    perMonth: "Pr. måned",
     byAgreement: "Efter aftale",
     adminUnit: "admin",
     mechanicOne: "mekaniker",
     mechanicMany: "mekanikere",
     cta: "Prøv gratis i 14 dage",
-    termsBold: "Ingen binding",
     termsRest: "Intet oprettelsesgebyr",
+    choices: {
+      bindingTitle: "Binding",
+      bindingOptions: ["1 måned", "6 måneder", "1 år"],
+      bindingTerms: ["Ingen binding", "6 måneders binding", "1 års binding"],
+      paymentTitle: "Betalingsfrekvens",
+      paymentOptions: ["Betal for 1 måned", "Betal for 6 måneder", "Betal for 1 år"],
+      periodLabels: ["Pr. måned", "Pr. 6 måneder", "Pr. år"],
+      months: " × {n} md.",
+      saving: "Du sparer {pct} %",
+      badge: "−{pct} %",
+    },
     adminCard: {
       name: "Admin / kundemodtager",
       per: "pr. bruger/md.",
@@ -135,11 +143,11 @@ const pris: PrisDict = {
     items: [
       {
         q: "Er der binding?",
-        a: "Nej. Du betaler måned for måned og kan opsige, når du vil.",
+        a: "Du vælger selv. Standard er én måned, og så kan du opsige, når du vil. Vælger du 6 måneders binding, får du 7,5 % rabat. Vælger du 1 års binding, får du 15 %. Betaler du desuden for 6 måneder, får du 7,5 % mere. Betaler du for 1 år, får du 15 % mere. Du kan ikke betale for længere tid end den binding, du har valgt. Den højeste rabat er 30 %: 1 års binding og betaling for 1 år. Rabatten gælder både admin og mekaniker.",
       },
       {
         q: "Hvordan beregnes prisen?",
-        a: "Du betaler 1.295 NOK pr. admin og 595 NOK pr. mekaniker pr. måned. Prisen pr. admin bliver lavere, når I er flere admin: 1.095 NOK fra den fjerde og 995 NOK fra den syvende. Mekanikerlicensen koster det samme uanset antal.",
+        a: "Du betaler 1.295 NOK pr. admin og 595 NOK pr. mekaniker pr. måned. Prisen pr. admin bliver lavere, når I er flere admin: 1.095 NOK fra den fjerde og 995 NOK fra den syvende. Mekanikerlicensen koster det samme uanset antal. Vælger du længere binding, eller betaler du for 6 måneder eller 1 år, kommer rabatten oveni.",
       },
       {
         q: "Hvad er forskellen på admin og mekaniker?",

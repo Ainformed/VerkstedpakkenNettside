@@ -10,8 +10,10 @@
     text-wrap: balance; margin-bottom: 48px;
   }
 
-  /* ── Pris-hero: ett samlet panel — total øverst, lisenskortene under ── */
-  .phero-innhold { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+  /* ── Pris-hero: ett samlet panel — lisenskortene øverst, valg og kvittering under ── */
+  /* 940 px: sumraden «Betal for 6 måneder» + beløp + «eks. mva» trenger
+     rundt 395 px ved siden av valgene. */
+  .phero-innhold { max-width: 940px; margin: 0 auto; padding: 0 28px; }
 
   .pris-panel {
     background: #fff; border: 1.5px solid var(--line); border-radius: 22px;
@@ -19,64 +21,82 @@
     display: flex; flex-direction: column;
   }
 
-  /* Ingen flex-wrap: et lengre regnestykke skal aldri dytte CTA-kolonnen
-     ned under prisen — panelet skal ikke hoppe når tellerne endres. */
+  /* Lisenskortene øverst, så den grå delen med valg og kvittering. Knappen
+     ligger utenfor panelet (.pris-cta). */
   .panel-topp {
-    background: #FAFAFE; border-bottom: 1.5px solid var(--line);
-    padding: 34px 38px; display: flex;
-    /* Kolonnene strekkes: totalen pinnes i bunn av venstre kolonne og
-       betingelseslinjen i bunn av høyre, så «Per måned»-raden og
-       betingelsene står på samme linje — mens knappen sentreres i
-       rommet over, midt på kvitteringsradene. */
-    align-items: stretch;
-    justify-content: space-between; gap: 32px;
+    background: #FAFAFE; border-top: 1.5px solid var(--line);
+    padding: 30px 38px 52px;
+    display: grid; grid-template-columns: auto 1fr; column-gap: 36px; align-items: start;
   }
-  /* Med kvittering pinnes totalen i bunn (på linje med betingelsene);
-     med kun admin sentreres den enkle totalen mot CTA-kolonnen. */
-  .panel-total { display: flex; flex-direction: column; flex: 1; min-width: 0; }
-  .panel-total.har-mekanikere { justify-content: flex-end; }
-  /* Litt over midten — optisk senter, ikke geometrisk. */
-  .panel-total.kun-admin { justify-content: center; padding-bottom: 22px; }
+  /* Over 10 lisenser finnes ingen valg — kvitteringen står alene. */
+  .panel-topp.uten-valg {
+    grid-template-columns: minmax(0, 430px); justify-content: center; padding-bottom: 34px;
+  }
 
-  /* Desktop: stor total med regnestykket på én linje. */
-  .total-klassisk { display: flex; flex-direction: column; gap: 4px; }
-  .total-ledetekst { font-size: 17px; color: var(--ink); }
-  .total-klassisk .amt { font-size: clamp(38px, 5vw, 48px); letter-spacing: -1.5px; line-height: 1.1; }
+  /* Valgene: to kolonner à fire linjer à 44 px (tittel + tre valg). Samme
+     linjehøyde som kvitteringen, så alt står på linje på tvers. */
+  /* Kolonnene må romme det bredeste valget i fet skrift: «6 måneder» og
+     «Betal for 6 måneder». */
+  .valg-rad { display: grid; grid-template-columns: 128px 210px; column-gap: 26px; }
+  .valg-gruppe { display: grid; grid-auto-rows: 44px; align-items: center; }
+  .valg-tittel {
+    font-size: 14.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .valg {
+    position: relative; display: flex; align-items: center; gap: 12px;
+    font-size: 17px; color: var(--ink); cursor: pointer; user-select: none;
+  }
+  /* Radioknappen er skjult for øyet, men fokuserbar og med i tilgjengelighetstreet. */
+  .valg input { position: absolute; left: 0; width: 22px; height: 22px; margin: 0; opacity: 0; cursor: inherit; }
+  .valg-boks {
+    flex: none; width: 22px; height: 22px; border-radius: 7px;
+    border: 1.8px solid #B9B4D0; background: #fff; display: grid; place-items: center;
+    transition: background 120ms ease-out, border-color 120ms ease-out;
+  }
+  .valg-boks::after {
+    content: ""; width: 6px; height: 11px; border: solid #fff; border-width: 0 2px 2px 0;
+    transform: translateY(-1px) rotate(45deg); opacity: 0;
+  }
+  .valg input:checked + .valg-boks { background: var(--navy); border-color: var(--navy); }
+  .valg input:checked + .valg-boks::after { opacity: 1; }
+  .valg input:checked ~ .valg-tekst { font-weight: 600; }
+  /* Et valg står alltid på én linje, uansett skjermbredde. */
+  .valg-tekst { white-space: nowrap; }
+  .valg:hover input:not(:disabled) + .valg-boks { border-color: var(--navy); }
+  .valg input:focus-visible + .valg-boks { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .valg:has(input:disabled) { opacity: 0.38; cursor: not-allowed; }
 
-  /* Kvittering — rad per lisenstype, delelinje, sum. Vises på alle
-     skjermer, men bare når regnestykket har to lisenstyper; med kun
-     admin er den unødvendig og den enkle totalen vises i stedet. */
-  .total-kvittering { display: none; flex-direction: column; max-width: 430px; }
-  .panel-total.har-mekanikere .total-klassisk { display: none; }
-  .panel-total.har-mekanikere .total-kvittering { display: flex; }
+  /* Kvittering: linjene samles rett over summen, og summen står fast i
+     bunnen på høyde med nederste valg. Fire linjer à 44 px. */
+  .panel-total { display: flex; flex-direction: column; height: 176px; min-width: 0; }
+  .kvitt-rader { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
   .kvitt-rad {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
-    padding: 4px 0; font-size: 16.5px; color: var(--ink); white-space: nowrap;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    height: 44px; font-size: 16.5px; color: var(--ink); white-space: nowrap;
   }
-  .kvitt-rad-skjult { visibility: hidden; }
-  .kvitt-strek { height: 1.5px; background: var(--line); margin: 8px 0; }
-  .kvitt-total { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; white-space: nowrap; }
+  .kvitt-rad-bort { display: none; }
+  .kvitt-spart { color: #2F7D4E; font-weight: 600; }
+  .kvitt-total {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    height: 44px; box-shadow: inset 0 1.5px 0 var(--line); white-space: nowrap;
+  }
   .kvitt-total-navn { font-size: 17px; font-weight: 600; color: var(--ink); }
   .amt-rad { display: flex; align-items: baseline; gap: 8px; }
   .amt-mva { font-size: 16.5px; color: var(--ink); }
-  /* Kun på PC: den enkle totalen får «eks. mva» under tallet, i litt
-     større skrift. På mobil (og i kvitteringen) står det etter tallet. */
-  .total-klassisk .amt-rad { flex-direction: column; align-items: flex-start; gap: 2px; }
-  .total-klassisk .amt-mva { font-size: 17.5px; }
-  .total-kvittering .amt { font-size: 34px; letter-spacing: -1px; line-height: 1.15; }
+  .kvitt-total .amt { font-size: 34px; letter-spacing: -1px; line-height: 1; }
+  /* Uten valg og med mange lisenser går tilbudsraden uten fast høyde. */
+  .panel-topp.uten-valg .panel-total { height: auto; }
 
-  .panel-cta { flex-shrink: 0; }
-  /* Knappen spenner nøyaktig over betingelseslinjen under, midtstilt —
-     høyrejustert kolonne så de to ulike breddene ikke ser ragget ut. */
-  .panel-cta { display: flex; flex-direction: column; align-items: stretch; gap: 18px; }
-  .panel-cta-knapp { flex: 1 1 auto; display: flex; align-items: center; }
-  .panel-cta .btn { width: 100%; }
-  .panel-cta .per { margin: 0; font-size: 16.5px; color: var(--ink); text-align: center; white-space: nowrap; }
-
-  /* Over 20 lisenser: kvitteringen viser antall, sumraden sier «Etter
-     avtale», og CTA-kolonnen blir kontaktskjema med Send-knapp. */
+  /* Over 10 lisenser: kvitteringen viser antall, sumraden sier «Etter
+     avtale», og skjemaet står under panelet der knappen ellers står. */
   .kvitt-tilbud { font-size: 22px; font-weight: 600; color: var(--ink); }
-  .tilbud-skjema { display: flex; flex-direction: column; gap: 12px; max-width: 440px; }
+
+  /* Knappen (eller tilbudsskjemaet) under panelet. */
+  .pris-cta { margin: 28px auto 0; max-width: 420px; display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+  .pris-cta .btn { width: 100%; }
+  .pris-cta .per { margin: 0; font-size: 16.5px; color: var(--ink); text-align: center; }
+  .tilbud-skjema { display: flex; flex-direction: column; gap: 12px; }
   .tilbud-tekst { font-size: 16.5px; color: var(--ink); line-height: 1.5; text-align: center; text-wrap: balance; }
   .tilbud-skjema input[type="text"] {
     border: 1.5px solid var(--line); border-radius: 999px; background: #fff;
@@ -99,37 +119,53 @@
   .pkort-pris b {
     font-family: var(--serif); font-weight: 600; font-size: 34px; letter-spacing: -1px;
   }
+  /* Startpris overstrøket + merkelapp med prosent. Raden har alltid plass, så
+     kortet ikke hopper når rabatten kommer. */
+  .pkort-gammel {
+    display: flex; align-items: center; gap: 10px; min-height: 28px; margin-bottom: 2px;
+    font-size: 16.5px; color: var(--ink-2);
+  }
+  .pkort-gammel s { text-decoration-thickness: 1.5px; }
+  .pkort-merke {
+    background: #E7F2EC; color: #2F7D4E; font-weight: 700; font-size: 14px;
+    padding: 3px 10px; border-radius: 999px;
+  }
   .pkort-per { font-size: 16.5px; color: var(--ink); }
   .pkort-tekst { font-size: 16.5px; color: var(--ink); line-height: 1.55; flex: 1; }
   .pkort .teller { margin-top: 6px; }
 
+  /* Under 940 px er det ikke plass til kvitteringen ved siden av valgene —
+     da legger den seg under, i full bredde. */
+  @media (max-width: 940px) {
+    .panel-topp { grid-template-columns: 1fr; row-gap: 26px; }
+    .panel-total { height: auto; }
+    .kvitt-rader { justify-content: flex-start; }
+  }
+
   @media (max-width: 760px) {
     .phero-innhold { padding: 0 16px; }
-    /* Kortene først, totalen og CTA-en nederst — man velger, så ser man prisen. */
-    .panel-topp {
-      order: 2; border-bottom: none; border-top: 1.5px solid var(--line);
-      flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 30px 22px 28px;
-    }
-    .panel-cta { align-self: stretch; gap: 20px; }
-    .panel-cta .per { white-space: normal; }
-    .panel-total { flex: initial; align-self: stretch; }
-    .total-kvittering { max-width: none; }
-    .total-kvittering .amt { font-size: 30px; }
-    /* Kun admin: samme oppsett som kvitteringens sumrad — tekst til
-       venstre, tallet til høyre. */
-    .panel-total.kun-admin .total-klassisk {
-      flex-direction: row; justify-content: space-between; align-items: baseline; gap: 16px;
-    }
-    .panel-total.kun-admin .total-ledetekst { font-size: 17px; font-weight: 600; }
-    .panel-total.kun-admin .total-klassisk .amt { font-size: 30px; letter-spacing: -1px; }
-    .total-klassisk .amt-rad { flex-direction: row; align-items: baseline; gap: 8px; }
-    .total-klassisk .amt-mva { font-size: 16.5px; }
     .pkort-rad { grid-template-columns: 1fr; }
     .pkort { padding: 24px 20px; }
     .pkort-admin { border-right: none; border-bottom: 1.5px solid var(--line); }
+    /* Kortene først, så valgene og kvitteringen, så knappen — man velger,
+       så ser man prisen. */
+    .panel-topp { grid-template-columns: 1fr; row-gap: 26px; padding: 26px 20px 30px; }
+    /* Side om side der det er plass. På smale telefoner legger gruppene seg
+       under hverandre — ingen valgtekst skal brytes over to linjer. */
+    .valg-rad { display: flex; flex-wrap: wrap; gap: 10px 28px; }
+    .valg-gruppe { flex: none; }
+    .panel-total { height: auto; }
+    .kvitt-rader { justify-content: flex-start; }
+    .kvitt-rad { height: auto; min-height: 44px; white-space: normal; }
+    .kvitt-total .amt { font-size: 30px; }
+    /* På telefon får ikke sumteksten og beløpet plass på samme linje:
+       teksten øverst, beløpet under til høyre. */
+    .kvitt-total { flex-wrap: wrap; height: auto; min-height: 44px; padding: 12px 0 2px; row-gap: 6px; }
+    .amt-rad { margin-left: auto; }
+    .pris-cta .per { white-space: normal; }
   }
   @media (max-width: 380px) {
-    .panel-cta .btn { padding: 16px 26px; font-size: 16px; }
+    .pris-cta .btn { padding: 16px 26px; font-size: 16px; }
   }
 
   /* ── Farget bånd rundt prisseksjonene ── */
