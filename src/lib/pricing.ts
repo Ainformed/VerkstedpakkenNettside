@@ -28,6 +28,10 @@ export const ADMIN_TRINN: Pristrinn[] = [
 /** Mekaniker-lisens: flat pris uansett antall. */
 export const MEKANIKER_PRIS = 595;
 
+/** Tillegg med fast månedspris (prissiden fra lerretet, 21.11.2026): nettside og kjøretøyoppslag med eieropplysninger. */
+export const NETTSIDE_PRIS = 495;
+export const OPPSLAG_PRIS = 235;
+
 export const MIN_ADMIN = 1;
 export const MIN_MEKANIKERE = 0;
 
@@ -39,6 +43,23 @@ export const MIN_MEKANIKERE = 0;
  */
 export const MAKS_LISENSER = 10;
 export const MAKS_TELLER = 99;
+
+/**
+ * Rabattkode sammen med rabatten for binding og betaling (rabattProsent): «storste» betyr at den som gir flest kroner
+ * over betalingsperioden gjelder (koden teller bare de månedene den varer), «begge» at begge trekkes fra (først
+ * perioden, så koden av resten). Foreløpig, ikke bestemt av teamet. Appen har den samme innstillingen.
+ */
+export const KODE_OG_PERIODE: "storste" | "begge" = "storste";
+
+/** Prisen per lisens og måned etter rabatt, rundet til hele kroner (som i appen): 1 295 med 15 % blir 1 101. */
+export function rabattertPris(pris: number, prosent: number): number {
+  return Math.round((pris * (100 - prosent)) / 100);
+}
+
+/** Samlet rabatt i prosent når kunden også har en prosentkode. */
+export function samletRabatt(periode: number, kode: number, regel: "storste" | "begge" = KODE_OG_PERIODE): number {
+  return regel === "begge" ? Math.round(100 - ((100 - periode) * (100 - kode)) / 100) : Math.max(periode, kode);
+}
 
 /** Trappa garanterer ingen rekkefølge der den brukes. Sorter før oppslag. */
 function sorterTrinn(trinn: Pristrinn[]): Pristrinn[] {
@@ -131,6 +152,8 @@ export const BINDING_RABATT: readonly [number, number, number] = [0, 7.5, 15];
 export const BETALING_RABATT: readonly [number, number, number] = [0, 7.5, 15];
 /** Antall måneder per betalingsperiode: månedlig, halvårlig, årlig. */
 export const BETALING_MANEDER: readonly [number, number, number] = [1, 6, 12];
+/** Bindingstiden har de samme trinnene: 1 måned, 6 måneder, 1 år (lenken til registreringen og tilbudsskjemaet). */
+export const BINDING_MANEDER: readonly [number, number, number] = BETALING_MANEDER;
 
 /** Samlet rabatt i prosent. */
 export function rabattProsent(binding: Trinn, betaling: Trinn): number {
@@ -168,10 +191,6 @@ export type Prisberegning = {
   spartPeriode: number;
 };
 
-function medRabatt(pris: number, prosent: number): number {
-  return Math.round((pris * (100 - prosent)) / 100);
-}
-
 /**
  * Spart i prosent, avrundet til nærmeste halve. Satsene går i steg på 7,5,
  * og kroneavrundingen per lisens skal ikke gjøre 7,5 % om til 7 % eller 8 %.
@@ -203,8 +222,8 @@ export function beregnPris(
   const prosent = rabattProsent(binding, gyldigBetaling);
   const perAdminListe = finnPris(ADMIN_TRINN, antallAdmin);
   const perAdminStart = sorterTrinn(ADMIN_TRINN)[0]!.pris;
-  const perAdmin = medRabatt(perAdminListe, prosent);
-  const perMekaniker = medRabatt(MEKANIKER_PRIS, prosent);
+  const perAdmin = rabattertPris(perAdminListe, prosent);
+  const perMekaniker = rabattertPris(MEKANIKER_PRIS, prosent);
   const totalManed = antallAdmin * perAdmin + antallMekanikere * perMekaniker;
   const startTotalManed =
     antallAdmin * perAdminStart + antallMekanikere * MEKANIKER_PRIS;

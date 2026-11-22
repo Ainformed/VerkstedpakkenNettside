@@ -2,7 +2,7 @@ const pris = {
   meta: {
     title: "Pris på verkstedprogrammet",
     description:
-      "Admin-lisens 1 295,- og mekaniker-lisens 595,- per måned (ekskl. mva). Alt inkludert, ingen bindingstid, ingen etableringskostnad. Prøv gratis i 14 dager.",
+      "Admin-lisens 1 295,- og mekaniker-lisens 595,- per måned (ekskl. mva). Gratis oppstart og support. Månedlig uten binding, eller rabatt med binding. Prøv gratis i 14 dager.",
   },
   title: "Pris for Verkstedpakken",
   /** Beløpsformat: Intl-locale + tekst rundt tallet. nb: «1 295,-». */
@@ -22,7 +22,7 @@ const pris = {
       bindingTerms: ["Ingen bindingstid", "6 måneders bindingstid", "1 års bindingstid"],
       paymentTitle: "Betalingsfrekvens",
       /** Hva man betaler for hver gang — Henriks ordlyd 22.11.2026. */
-      paymentOptions: ["Betal for 1 måned", "Betal for 6 måneder", "Betal for 1 år"],
+      paymentOptions: ["Betal per mnd", "Betal for 6 måneder", "Betal for 1 år"],
       /** Sumraden når prisen er «Etter avtale» (over 10 lisenser). Ellers
        *  bruker sumraden samme tekst som valget i paymentOptions. */
       periodLabels: ["Per måned", "Per 6 måneder", "Per år"],
@@ -64,7 +64,7 @@ const pris = {
   },
   included: {
     title: "Alt dette er inkludert",
-    subtitle: "Ting andre tar betalt for, er en del av prisen hos oss.",
+    subtitle: "Ting andre tar betalt for, er gratis hos oss.",
     pill: "Inkludert",
     groups: [
       {

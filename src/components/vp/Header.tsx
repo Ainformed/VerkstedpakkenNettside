@@ -9,12 +9,17 @@ import { localePath, type Locale } from "@/i18n/config";
 import type { CommonDict } from "@/i18n/dictionaries/nb";
 
 export default function Header({ lang, t }: { lang: Locale; t: CommonDict }) {
-  const NAV_LINKS = [
-    { href: localePath(lang, "/ordresystem"), label: t.nav.ordresystem },
-    { href: localePath(lang, "/nettside-og-booking"), label: t.nav.booking },
+  // Lerretet (22.11.2026): Ordreprogram og Nettside og booking samlet under «Produkt», og Om oss som egen side
+  const PRODUKT = [
+    { href: localePath(lang, "/ordresystem"), label: t.nav.ordresystem, sub: t.nav.ordresystemSub },
+    { href: localePath(lang, "/nettside-og-booking"), label: t.nav.booking, sub: t.nav.bookingSub },
+  ];
+  const ANDRE_LENKER = [
     { href: localePath(lang, "/integrasjoner"), label: t.nav.integrasjoner },
     { href: localePath(lang, "/pris"), label: t.nav.pris },
+    { href: localePath(lang, "/om-oss"), label: t.nav.omoss },
   ];
+  const NAV_LINKS = [...PRODUKT.map(({ href, label }) => ({ href, label })), ...ANDRE_LENKER];
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   // Helt på toppen skjules «Prøv gratis» i nav på mobil — heroen har alt en
@@ -94,7 +99,32 @@ export default function Header({ lang, t }: { lang: Locale; t: CommonDict }) {
             <Logo />
           </Link>
           <nav className="nav-links">
-            {NAV_LINKS.map((l) => (
+            <div className="nav-item">
+              <Link className="nav-trigger" href={PRODUKT[0].href} aria-haspopup="true">
+                {t.footer.product}
+                <svg
+                  className="chev"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </Link>
+              <div className="nav-dropdown">
+                {PRODUKT.map((p) => (
+                  <Link key={p.href} className="nav-dd-item" href={p.href}>
+                    <span className="t">{p.label}</span>
+                    <span className="s">{p.sub}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {ANDRE_LENKER.map((l) => (
               <Link key={l.href} href={l.href}>
                 {l.label}
               </Link>

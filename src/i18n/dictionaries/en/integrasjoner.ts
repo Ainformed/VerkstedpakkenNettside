@@ -23,6 +23,7 @@ const integrasjoner: IntegrasjonerDict = {
     tripletex: "Invoices, customers and payments stay in sync, with no manual entry.",
     visma: "Send invoices and vouchers straight to Visma, ready for bookkeeping.",
     vismabusinessnxt: "Orders and payment status go straight into Visma Business NXT.",
+    vismaenterprise: "Invoices and payment status go straight into Visma Enterprise.",
     "24sevenoffice": "Transfer sales and payments to the books automatically.",
     systima: "Invoice basis and payments go automatically to bookkeeping in Systima.",
     conta: "Connect in a minute with an API key. Sales and payment status land straight in Conta.",

@@ -1,0 +1,512 @@
+/* Stilene for Pris fra lerretet (gen/til_react.py), i samme rekkefølge som i lerretet. */
+.page-pris .phero-title { font-family: var(--serif); font-weight: 600; color: var(--ink); text-align: center; font-size: clamp(30px, 4.5vw, 54px); line-height: 1.1; letter-spacing: -1.4px; text-wrap: balance; margin-bottom: 48px; }
+.page-pris .phero-innhold { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+.page-pris .pris-panel { background: #fff; border: 1.5px solid var(--line); border-radius: 22px; box-shadow: 0 14px 40px rgba(12, 0, 90, 0.07); overflow: hidden; text-align: left; display: flex; flex-direction: column; }
+.page-pris .panel-topp { background: #FAFAFE; border-bottom: 1.5px solid var(--line); padding: 34px 38px; display: flex; align-items: stretch; justify-content: space-between; gap: 32px; }
+.page-pris .panel-total { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.page-pris .panel-total.har-mekanikere { justify-content: flex-end; }
+.page-pris .panel-total.kun-admin { justify-content: center; padding-bottom: 22px; }
+.page-pris .total-klassisk { display: flex; flex-direction: column; gap: 4px; }
+.page-pris .total-ledetekst { font-size: 17px; color: var(--ink); }
+.page-pris .total-klassisk .amt { font-size: clamp(38px, 5vw, 48px); letter-spacing: -1.5px; line-height: 1.1; }
+.page-pris .total-kvittering { display: none; flex-direction: column; max-width: 430px; }
+.page-pris .panel-total.har-mekanikere .total-klassisk { display: none; }
+.page-pris .panel-total.har-mekanikere .total-kvittering { display: flex; }
+.page-pris .kvitt-rad { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 4px 0; font-size: 16.5px; color: var(--ink); white-space: nowrap; }
+.page-pris .kvitt-rad-skjult { visibility: hidden; }
+.page-pris .kvitt-strek { height: 1.5px; background: var(--line); margin: 8px 0; }
+.page-pris .kvitt-total { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; white-space: nowrap; }
+.page-pris .kvitt-total-navn { font-size: 17px; font-weight: 600; color: var(--ink); }
+.page-pris .amt-rad { display: flex; align-items: baseline; gap: 8px; }
+.page-pris .amt-mva { font-size: 16.5px; color: var(--ink); }
+.page-pris .total-klassisk .amt-rad { flex-direction: column; align-items: flex-start; gap: 2px; }
+.page-pris .total-klassisk .amt-mva { font-size: 17.5px; }
+.page-pris .total-kvittering .amt { font-size: 34px; letter-spacing: -1px; line-height: 1.15; }
+.page-pris .panel-cta { flex-shrink: 0; }
+.page-pris .panel-cta { display: flex; flex-direction: column; align-items: stretch; gap: 18px; }
+.page-pris .panel-cta-knapp { flex: 1 1 auto; display: flex; align-items: center; }
+.page-pris .panel-cta .btn { width: 100%; }
+.page-pris .panel-cta .per { margin: 0; font-size: 16.5px; color: var(--ink); text-align: center; white-space: nowrap; }
+.page-pris .kvitt-tilbud { font-size: 22px; font-weight: 600; color: var(--ink); }
+.page-pris .tilbud-skjema { display: flex; flex-direction: column; gap: 12px; max-width: 440px; }
+.page-pris .tilbud-tekst { font-size: 16.5px; color: var(--ink); line-height: 1.5; text-align: center; text-wrap: balance; }
+.page-pris .tilbud-skjema input[type="text"] { border: 1.5px solid var(--line); border-radius: 999px; background: #fff; padding: 14px 22px; font-family: var(--sans); font-size: 16.5px; color: var(--ink); text-align: center; }
+.page-pris .tilbud-skjema input[type="text"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.page-pris .tilbud-feil { font-size: 16px; color: #B3261E; text-align: center; }
+.page-pris .tilbud-takk { font-size: 17px; font-weight: 600; color: var(--ink); text-align: center; align-self: center; }
+.page-pris .tak-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.page-pris .pkort-rad { display: grid; grid-template-columns: 1fr 1fr; }
+.page-pris .pkort { padding: 32px 38px; display: flex; flex-direction: column; gap: 13px; }
+.page-pris .pkort-admin { border-right: 1.5px solid var(--line); }
+.page-pris .pkort-navn { font-size: 14.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+.page-pris .pkort-pris { color: var(--ink); }
+.page-pris .pkort-pris b { font-family: var(--serif); font-weight: 600; font-size: 34px; letter-spacing: -1px; }
+.page-pris .pkort-per { font-size: 16.5px; color: var(--ink); }
+.page-pris .pkort-tekst { font-size: 16.5px; color: var(--ink); line-height: 1.55; flex: 1; }
+.page-pris .pkort .teller { margin-top: 6px; }
+@media (max-width: 760px) {
+.page-pris .phero-innhold { padding: 0 16px; }
+.page-pris .panel-topp { order: 2; border-bottom: none; border-top: 1.5px solid var(--line); flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 30px 22px 28px; }
+.page-pris .panel-cta { align-self: stretch; gap: 20px; }
+.page-pris .panel-cta .per { white-space: normal; }
+.page-pris .panel-total { flex: initial; align-self: stretch; }
+.page-pris .total-kvittering { max-width: none; }
+.page-pris .total-kvittering .amt { font-size: 30px; }
+.page-pris .panel-total.kun-admin .total-klassisk { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 16px; }
+.page-pris .panel-total.kun-admin .total-ledetekst { font-size: 17px; font-weight: 600; }
+.page-pris .panel-total.kun-admin .total-klassisk .amt { font-size: 30px; letter-spacing: -1px; }
+.page-pris .total-klassisk .amt-rad { flex-direction: row; align-items: baseline; gap: 8px; }
+.page-pris .total-klassisk .amt-mva { font-size: 16.5px; }
+.page-pris .pkort-rad { grid-template-columns: 1fr; }
+.page-pris .pkort { padding: 24px 20px; }
+.page-pris .pkort-admin { border-right: none; border-bottom: 1.5px solid var(--line); }
+}
+@media (max-width: 380px) {
+.page-pris .panel-cta .btn { padding: 16px 26px; font-size: 16px; }
+}
+.page-pris .price-band { background: #EFF3FC; margin-top: 76px; padding: 26px 0 72px; }
+.page-pris .plist-wrap { max-width: 720px; margin: 0 auto; padding: 0 28px; }
+.page-pris .plist { margin-top: 34px; }
+.page-pris .pgroup-label { text-align: center; font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: -.3px; color: var(--ink); margin: 54px 0 16px; }
+.page-pris .plist .pgroup-label:first-child { margin-top: 0; }
+.page-pris .prow-flat { background: #fff; border-radius: 16px; padding: 20px 22px; margin-bottom: 14px; display: flex; align-items: center; gap: 14px; }
+.page-pris .prow-flat .pname { flex: 1; min-width: 0; overflow-wrap: break-word; font-weight: 600; font-size: 17.5px; color: var(--ink); letter-spacing: -.15px; }
+.page-pris .prow-flat .pname small { display: block; font-weight: 400; font-size: 14.5px; color: var(--ink-2); margin-top: 1px; }
+.page-pris .pill { flex-shrink: 0; display: inline-flex; align-items: center; border-radius: 999px; padding: 5px 13px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.page-pris .pill-inc { background: #E7F2EC; color: #2F7D4E; }
+.page-pris .pill-price { background: #E7EEFB; color: var(--navy); font-family: var(--mono); font-weight: 500; font-size: 13.5px; }
+.page-pris .pill-soon { background: #EFEDF3; color: var(--ink-2); }
+.page-pris .psum { margin-top: 40px; background: var(--navy); border-radius: 18px; padding: 26px 28px; text-align: center; }
+.page-pris .psum p { font-size: 16.5px; color: #E8E6F4; line-height: 1.55; }
+.page-pris .psum p b { font-weight: 700; color: #fff; }
+.page-pris .pnote { margin-top: 56px; text-align: center; }
+.page-pris .pnote span { display: inline-block; background: #fff; border-radius: 999px; padding: 13px 26px; font-size: 16px; color: var(--ink); }
+.page-pris .pfine { margin-top: 24px; text-align: center; font-size: 16px; color: var(--ink); line-height: 1.6; }
+.teller { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 12px; }
+.teller-btn { width: 44px; height: 44px; flex: 0 0 44px; display: grid; place-items: center; border-radius: 999px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); font-family: var(--sans); font-size: 22px; line-height: 1; cursor: pointer; transition: border-color 160ms ease-out, color 160ms ease-out; user-select: none; touch-action: manipulation; }
+.teller-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.teller-btn:disabled { opacity: 0.4; cursor: default; }
+.teller-felt input { width: 64px; height: 44px; text-align: center; border-radius: 12px; border: 1.5px solid var(--line); background: #fff; font-family: var(--sans); font-size: 18px; font-weight: 600; color: var(--ink); }
+.teller-felt input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Muttern-figurene som er animerte SVG-er på nettsiden, er tatt opp som bilder (.m-opptak).
+   Justeringen legger figuren på samme sted og i samme størrelse som SVG-en har på nettsiden. */
+.col .art img.m-opptak.m-order { max-height: clamp(140px, 33vw, 202px); }
+.col .art img.m-opptak.m-zen { max-height: clamp(108px, 24vw, 146px); }
+.col .art img.m-opptak.m-support { max-height: clamp(120px, 27vw, 162px); }
+/* Logoen er et bilde her (innebygd SVG på nettsiden) og skal ikke krympe i brede vinduer */
+.brand .logo-svg, .mm-top .logo-svg, .foot-brand .logo-svg { max-width: none; }
+/* Zen-figuren i knappefeltene er høyreforankret: gi bildet samme bredde som SVG-en har */
+.cta-mascot img.m-opptak.m-zen, .foot-cta-mascot img.m-opptak.m-zen { margin: 0 calc(clamp(86px, 10vw, 116px) * 0.0699); }
+img.m-opptak.m-order { transform-origin: 0 100%; transform: translate(16.1%, 1.2%) scale(1.025); }
+img.m-opptak.m-zen { transform-origin: 50% 100%; transform: translateX(7.4%) scale(1.126); }
+img.m-opptak.m-support { transform-origin: 50% 100%; transform: translate(-3%, 1.5%) scale(1.0315); }
+/* Integrasjoner: kategoriknappene skjuler kort i stedet for å tegne lista på nytt */
+.kat-regnskap .integ-card:not([data-cat="regnskap"]), .kat-betaling .integ-card:not([data-cat="betaling"]), .kat-deler .integ-card:not([data-cat="deler"]), .kat-kjoretoy .integ-card:not([data-cat="kjoretoy"]), .kat-ki .integ-card:not([data-cat="ki"]) { display: none; }
+/* 21.11.2026: «sentrer alle logoene osv»: logo og navn midt på kortet, og kategorien flyttet fra hjørnet til
+   midt under navnet */
+.page-integrasjoner .integ-card { align-items: center; text-align: center; padding: 28px 24px 24px; gap: 10px; }
+.page-integrasjoner .integ-card .ic-logo { width: 100%; justify-content: center; }
+.page-integrasjoner .integ-card .ic-logo img { object-position: center; }
+.page-integrasjoner .integ-card .ic-title { justify-content: center; }
+.page-integrasjoner .integ-card .ic-cat { position: static; order: 3; margin-top: -4px; }
+/* Pris 19.11.2026: «her må vi ha mindgames der integrasjon med regnskap er gratis … måten det kommer frem på».
+   Regnskapsintegrasjonen står som egen linje til 0,- i prisboksen, både under den store prisen og i kvitteringen. */
+.page-pris .kvitt-gratis > span:last-child { font-weight: 700; color: var(--navy); }
+.page-pris .kvitt-gratis-alene { width: 100%; max-width: 320px; margin-top: 16px; padding-top: 14px; border-top: 1.5px solid var(--line); font-size: 18px; }
+.page-pris .kvitt-gratis-alene > span:last-child { font-size: 24px; letter-spacing: -0.5px; }
+/* Nettside og booking (19.11.2026): bildet av en laptop er byttet med to ekte kundesider vist som
+   nettleservinduer som ligger litt over hverandre. Vinduene har samme ramme som vinduene på
+   Ordreprogram-siden, og glir inn når raden ruller inn i bildet. */
+.ks-stabel { position: relative; width: 100%; max-width: 540px; aspect-ratio: 540 / 452; }
+.ks-vindu { position: absolute; width: 80%; margin: 0; background: #fff; border: 1.5px solid #D5E0F7; border-radius: 16px; box-shadow: 0 40px 80px -44px rgba(12, 0, 90, 0.4); overflow: hidden; }
+.ks-vindu img { display: block; width: 100%; height: auto; aspect-ratio: 1120 / 700; }
+.ks-bak { left: 0; top: 0; }
+.ks-foran { right: 0; bottom: 0; }
+.ks-bar { display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; background: #F2F7FF; border-bottom: 1.5px solid #D5E0F7; }
+.ks-bar i { width: 9px; height: 9px; border-radius: 50%; background: #D5E0F7; }
+.ks-bar span { margin-left: 8px; padding: 3px 12px; border-radius: 999px; background: #fff; font-size: 12.5px; line-height: 1.3; color: var(--ink-2); }
+@keyframes ksInn { from { opacity: 0; transform: translateY(44px); } to { opacity: 1; transform: none; } }
+@supports (animation-timeline: view()) {
+  .ks-vindu { animation: ksInn linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
+  .ks-foran { animation-range: entry 20% cover 30%; }
+}
+@media (prefers-reduced-motion: reduce) { .ks-vindu { animation: none; } }
+/* 19.11.2026: «istedenfor muttern her flytt disse opp dit». Vinduene står i toppen der Muttern sto,
+   og står stille der (ingen innglidning øverst på siden). Teksten om nettsiden er en ren tekstrad under. */
+.nb-hero-art.ks-topp .ks-vindu { animation: none; }
+.split-row.ks-tekstrad { align-items: start; }
+.split-row.ks-tekstrad .split-text { max-width: 500px; }
+.split-row.ks-tekstrad .split-text p:first-child { margin-top: 10px; }
+@media (max-width: 600px) {
+  .page-booking .nb-hero-art.ks-topp { order: 0; }
+  .split-row.ks-tekstrad { gap: 6px; }
+}
+/* Bookingportalen på mobilen (19.11.2026): bildet av en hånd med telefon er byttet med en tegnet
+   telefon som viser de ekte skjermene i forespørselen (tekstene er hentet fra portalen).
+   Knappene til venstre velger steg, teksten under følger med, og knappen i telefonen går videre. */
+.split-row.bp-rad .split-art, .split-row.bp-rad.reverse .split-art { order: 0; }
+.bp-knapper { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.bp-forklaring { display: grid; margin-top: 22px; }
+.split-text .bp-forklaring .bp-f { grid-area: 1 / 1; margin: 0; opacity: 0; transition: opacity 0.25s ease; }
+.bp-forklaring .bp-f b { font-weight: 600; color: var(--ink); }
+.split-text .bp-forklaring.bp-steg-0 .bp-f0, .split-text .bp-forklaring.bp-steg-1 .bp-f1, .split-text .bp-forklaring.bp-steg-2 .bp-f2, .split-text .bp-forklaring.bp-steg-3 .bp-f3 { opacity: 1; }
+/* Telefonen viser ekte bilder av bookingportalen (390 × 844), ett per skjerm. Et trykk på skjermen går videre. */
+.bp-tlf { position: relative; width: 332px; max-width: 100%; padding: 40px 8px 8px; border: 2px solid var(--navy); border-radius: 44px; background: #fff; box-shadow: 0 40px 80px -44px rgba(12, 0, 90, 0.4); }
+.bp-hakk { position: absolute; left: 50%; top: 12px; width: 84px; height: 18px; margin-left: -42px; border-radius: 999px; background: var(--navy); }
+.bp-skjermer { position: relative; aspect-ratio: 390 / 844; overflow: hidden; border-radius: 4px 4px 34px 34px; background: #fff; }
+.bp-s { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-width: none; opacity: 0; transform: translateX(14px); transition: opacity 0.25s ease, transform 0.25s ease; }
+.bp-skjerm-0 .bp-s0, .bp-skjerm-1 .bp-s1, .bp-skjerm-2 .bp-s2, .bp-skjerm-3 .bp-s3, .bp-skjerm-4 .bp-s4, .bp-skjerm-5 .bp-s5 { opacity: 1; transform: none; }
+.bp-videre { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { .bp-s, .bp-forklaring .bp-f { transition: none; } }
+.page-pris .panel-total.kun-admin .total-klassisk { flex-wrap: wrap; }
+/* Betalingsperiode (20.11.2026), som bryter i prisboksen fra 21.11: én lyseblå skinne med tre like felt og en
+   hvit knott som glir til valget. Rabatten står som tekst i feltet. Rabatten står også som egen linje i prisboksen. */
+/* Tilleggene under kortene (21.11.2026): to valg man krysser av, med pris per måned */
+.page-pris .pkort-tillegg { display: grid; grid-template-columns: 1fr 1fr; border-top: 1.5px solid var(--line); }
+.page-pris .tillegg { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 22px 38px; border: 0; background: #fff; font: inherit; text-align: left; color: var(--ink); cursor: pointer; }
+.page-pris .tillegg + .tillegg { border-left: 1.5px solid var(--line); }
+.page-pris .tillegg i { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; border: 1.5px solid #C9D3EE; color: transparent; transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
+.page-pris .tillegg i svg { width: 15px; height: 15px; }
+.page-pris .tillegg:hover i { border-color: var(--navy); }
+.page-pris .tillegg[aria-checked="true"] i { background: var(--navy); border-color: var(--navy); color: #fff; }
+.page-pris .tillegg span { font-size: 17px; font-weight: 600; line-height: 1.3; }
+.page-pris .tillegg b { font-size: 17px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+.page-pris .tillegg b small { font-size: 14px; font-weight: 500; color: var(--ink); }
+.page-pris .tillegg:focus-visible { outline: 2px solid var(--navy); outline-offset: -4px; }
+/* Kortene med antall øverst i prisboksen, så tilleggene, bryteren og til slutt summen med knappen (21.11.2026:
+   «flytt mekaniker og admin øverst»). Samme rekkefølge som på telefon. */
+.page-pris .panel-topp { order: 2; border-bottom: none; border-top: 1.5px solid var(--line); }
+.page-pris .per-bunn { order: 1; }
+/* Bryteren står nederst i prisboksen, under kortene med antall (21.11.2026: «de velger jo antall ansatte først») */
+.page-pris .per-bunn { padding: 26px 38px 30px; border-top: 1.5px solid var(--line); }
+.page-pris .per-bryter { position: relative; display: inline-grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; border-radius: 999px; background: #E7EEFB; }
+.page-pris .per-knott { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 3); border-radius: 999px; background: #fff; box-shadow: 0 1px 2px rgba(12, 0, 90, 0.08), 0 6px 14px -6px rgba(12, 0, 90, 0.32); transition: transform 0.25s ease; }
+.page-pris .per-bryter.p-kv .per-knott { transform: translateX(100%); }
+.page-pris .per-bryter.p-aar .per-knott { transform: translateX(200%); }
+.page-pris .per-bryter button { position: relative; z-index: 1; display: inline-flex; align-items: baseline; justify-content: center; gap: 6px; padding: 10px 18px; border: 0; border-radius: 999px; background: none; font: inherit; font-size: 15.5px; font-weight: 500; line-height: 1.25; color: var(--navy); cursor: pointer; white-space: nowrap; }
+.page-pris .per-bryter button b { font-weight: 700; }
+.page-pris .per-bryter button:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .page-pris .per-knott { transition: none; } }
+@media (max-width: 760px) {
+  .page-pris .per-bunn { order: 1; padding: 22px 22px 8px; }
+  .page-pris .pkort-tillegg { grid-template-columns: minmax(0, 1fr); }
+  .page-pris .tillegg { padding: 18px 22px; }
+  .page-pris .tillegg + .tillegg { border-left: 0; border-top: 1.5px solid var(--line); }
+  .page-pris .per-bryter { display: grid; width: 100%; border-radius: 18px; }
+  .page-pris .per-knott { border-radius: 14px; }
+  .page-pris .per-bryter button { flex-direction: column; align-items: center; gap: 1px; padding: 8px 4px; border-radius: 14px; font-size: 15px; }
+}
+.page-pris .kvitt-rad-borte { display: none; }
+.page-pris .kvitt-spart.kvitt-gratis-alene:not(.kvitt-rad-borte) + .kvitt-gratis-alene { margin-top: 0; padding-top: 4px; border-top: none; }
+/* Prisboksen, ryddigere (21.11.2026: «alt må kunne vises på en liten side»). Kortene er korte rader: navn og pris
+   til venstre, telleren til høyre, uten beskrivelse. På PC står summen med knappen i en kolonne til høyre. */
+.page-pris .pkort-rad { grid-template-columns: minmax(0, 1fr); }
+.page-pris .pkort { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "navn teller" "pris teller"; column-gap: 20px; row-gap: 2px; align-items: center; padding: 18px 30px; }
+.page-pris .pkort-admin { border-right: 0; border-bottom: 1.5px solid var(--line); }
+.page-pris .pkort-navn { grid-area: navn; font-size: 17px; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.page-pris .pkort-pris { grid-area: pris; }
+.page-pris .pkort-pris b { font-size: 20px; letter-spacing: -0.4px; }
+.page-pris .pkort-per { font-size: 15px; }
+.page-pris .pkort-tekst { display: none; }
+.page-pris .pkort .teller { grid-area: teller; margin-top: 0; flex-wrap: nowrap; gap: 8px; }
+.page-pris .pkort .teller-btn { width: 38px; height: 38px; flex-basis: 38px; font-size: 20px; }
+.page-pris .pkort .teller-felt input { width: 52px; height: 38px; font-size: 17px; }
+.page-pris .pkort-tillegg { grid-template-columns: minmax(0, 1fr); }
+.page-pris .tillegg { padding: 15px 30px; }
+.page-pris .tillegg + .tillegg { border-left: 0; border-top: 1.5px solid var(--line); }
+.page-pris .tillegg span, .page-pris .tillegg b { font-size: 16px; }
+.page-pris .per-bunn { padding: 18px 30px 20px; }
+.page-pris .per-bryter { display: grid; width: 100%; }
+@media (min-width: 761px) {
+  .page-pris .phero-innhold { max-width: 980px; }
+  .page-pris .phero-title { margin-bottom: 36px; }
+  .page-pris .pris-panel { display: grid; grid-template-columns: minmax(0, 1fr) 360px; grid-template-rows: auto auto 1fr; }
+  .page-pris .pkort-rad { grid-column: 1; grid-row: 1; }
+  .page-pris .pkort-tillegg { grid-column: 1; grid-row: 2; }
+  .page-pris .per-bunn { grid-column: 1; grid-row: 3; }
+  .page-pris .panel-topp { grid-column: 2; grid-row: 1 / span 3; flex-direction: column; justify-content: space-between; gap: 22px; padding: 28px 30px; border: 0; border-left: 1.5px solid var(--line); }
+  .page-pris .panel-total { flex: 0 0 auto; }
+  .page-pris .panel-total.kun-admin { justify-content: flex-start; padding-bottom: 0; }
+  .page-pris .total-kvittering { max-width: none; }
+  .page-pris .kvitt-rad { font-size: 15px; }
+  .page-pris .total-kvittering .amt { font-size: 28px; }
+  .page-pris .total-klassisk .amt { font-size: 44px; }
+  .page-pris .kvitt-gratis-alene { max-width: none; }
+  .page-pris .panel-cta { gap: 12px; }
+  .page-pris .panel-cta-knapp { flex: 0 0 auto; }
+  .page-pris .panel-cta .per { white-space: normal; font-size: 15px; }
+}
+@media (max-width: 760px) {
+  .page-pris .pkort { padding: 14px 18px; column-gap: 12px; }
+  .page-pris .pkort-navn { font-size: 16px; }
+  .page-pris .pkort-pris { white-space: nowrap; }
+  .page-pris .pkort-pris b { font-size: 18px; }
+  .page-pris .pkort-per { font-size: 13.5px; }
+  .page-pris .pkort .teller { gap: 6px; }
+  .page-pris .pkort .teller-btn { width: 34px; height: 34px; flex-basis: 34px; font-size: 18px; }
+  .page-pris .pkort .teller-felt input { width: 44px; height: 34px; font-size: 16px; }
+  .page-pris .tillegg { padding: 14px 20px; }
+  .page-pris .per-bunn { padding: 16px 20px 18px; }
+}
+/* Kjeder (21.11.2026: «burde og få frem at har de en kjede som er intressert så tar vi gjerne en dialog») */
+.page-pris .p-kjede { margin: 22px auto 0; max-width: 40em; text-align: center; font-size: 17px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+.page-pris .p-kjede b { font-weight: 600; }
+.page-pris .p-kjede a { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+/* «Alt dette er inkludert» og «Legg til hvis du vil» (21.11.2026: «dette er også kopi av fiken»): punktene i kolonner,
+   ett område per kolonne, med navy hake; tilleggene likt, med prisen til høyre. Ingen lapper, ingen farget bånd. */
+.p-inkl-wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+.p-kol { margin-top: 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 36px; text-align: left; }
+.p-kol.p-kol-tre { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.p-gruppe h3 { margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1.5px solid var(--line); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.p-gruppe ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 13px; }
+.p-gruppe li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 11px; align-items: start; font-size: 16.5px; line-height: 1.4; color: var(--ink); }
+.p-gruppe li i { display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: var(--navy); color: #fff; }
+.p-gruppe li i svg { width: 12px; height: 12px; }
+.p-gruppe li small { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.4; color: var(--ink); opacity: 0.75; }
+.p-till .p-gruppe li { grid-template-columns: minmax(0, 1fr) auto; gap: 14px; }
+.p-till .p-gruppe li b { font-size: 15.5px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+.p-till .p-gruppe li b.p-snart { font-weight: 500; color: var(--ink); opacity: 0.75; }
+.p-till-note { margin: 40px auto 0; max-width: 40em; text-align: center; font-size: 16px; line-height: 1.5; color: var(--ink); }
+@media (max-width: 900px) {
+  .p-kol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-kol.p-kol-tre { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .p-inkl-wrap { padding: 0 16px; }
+  .p-kol { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 30px; }
+}
+/* «Inkludert» og «Tillegg» som to kort side om side (21.11.2026, etter prissiden til x.ai, på vår måte) */
+.p-kort2 { margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; text-align: left; }
+.p-plan { padding: 32px 32px 34px; border: 1.5px solid var(--line); border-radius: 24px; background: #fff; }
+.p-plan-inkl { border-color: var(--navy); box-shadow: 0 30px 60px -44px rgba(12, 0, 90, 0.45); }
+.p-plan-navn { margin: 0; font-size: 17px; font-weight: 600; color: var(--ink); }
+.p-plan-pris { margin: 10px 0 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+.p-plan-pris b { font-size: 46px; font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; color: var(--navy); }
+.p-plan-pris span { font-size: 16px; color: var(--ink); }
+.p-plan-inn { margin: 12px 0 0; font-size: 16.5px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+.p-plan-gr { margin-top: 28px; }
+.p-plan-gr h3 { margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1.5px solid var(--line); font-size: 15px; font-weight: 600; color: var(--ink); }
+.p-plan-gr ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.p-plan-gr li { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: 12px; align-items: start; font-size: 16.5px; line-height: 1.4; color: var(--ink); }
+.p-plan-gr li i { display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: var(--navy); color: #fff; }
+.p-plan-gr li i svg { width: 12px; height: 12px; }
+/* 21.11.2026: «grønn på alt som er inkludert» */
+.p-plan-inkl .p-plan-gr li i { background: #2F7D4E; }
+.p-plan-till .p-plan-gr li i { background: #fff; border: 1.5px solid var(--navy); color: var(--navy); }
+.p-plan-till .p-plan-gr li i svg { width: 11px; height: 11px; }
+.p-plan-gr li small { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.4; color: var(--ink); opacity: 0.75; }
+.p-plan-gr li b { font-size: 15.5px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+.p-plan-gr li b.p-snart { font-weight: 500; color: var(--ink); opacity: 0.75; }
+.p-plan-note { margin: 30px 0 0; padding-top: 16px; border-top: 1.5px solid var(--line); font-size: 15px; line-height: 1.5; color: var(--ink); }
+@media (max-width: 760px) {
+  .p-kort2 { grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 30px; }
+  .p-plan { padding: 26px 20px 28px; border-radius: 20px; }
+  .p-plan-pris b { font-size: 38px; }
+}
+/* 22.11.2026 (Henrik: «litt mye tekst og veldig trang på PC»): kortene under hverandre i full bredde, gruppene i
+   kolonner (tre i Inkludert, to i Tillegg), og mer luft mellom radene */
+.p-kort-bred { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.p-kort-bred .p-plan { padding: 40px 48px 44px; }
+.p-plan-kol { columns: 3 240px; column-gap: 56px; }
+.p-plan-till .p-plan-kol { columns: 2 280px; }
+.p-plan-kol .p-plan-gr { break-inside: avoid; margin-top: 0; padding-top: 30px; }
+.p-plan-kol .p-plan-gr ul { gap: 14px; }
+@media (max-width: 760px) {
+  .p-kort-bred { gap: 18px; }
+  .p-kort-bred .p-plan { padding: 28px 20px 30px; }
+}
+/* «Interessert i andre ting?» (21.11.2026): én rad som folder ut valgene fra Valgfritt-kortet */
+.page-pris .andre-knapp { display: flex; align-items: center; gap: 12px; width: 100%; padding: 16px 30px; border: 0; background: #fff; font: inherit; font-size: 16px; font-weight: 600; color: var(--navy); text-align: left; cursor: pointer; }
+.page-pris .andre-knapp small { margin-left: auto; font-size: 14.5px; font-weight: 500; color: var(--ink); }
+.page-pris .andre-knapp .andre-pil { flex: none; transition: transform 0.2s ease; }
+.page-pris .andre-knapp[aria-expanded="true"] .andre-pil { transform: rotate(180deg); }
+.page-pris .andre-knapp:hover { background: #FAFAFE; }
+.page-pris .andre-knapp:focus-visible { outline: 2px solid var(--navy); outline-offset: -4px; }
+.page-pris .andre-liste { display: none; border-top: 1.5px solid var(--line); }
+.page-pris .pkort-tillegg.apen .andre-liste { display: grid; }
+.page-pris .andre-liste .tillegg + .tillegg { border-top: 1.5px solid var(--line); }
+.page-pris .tillegg b.snart { font-weight: 500; color: var(--ink); opacity: 0.75; }
+@media (max-width: 760px) {
+  .page-pris .andre-knapp { padding: 14px 20px; }
+}
+/* «Betal for et år: 3 måneder gratis og 30 % rabatt» under bryteren (21.11.2026) */
+.page-pris .per-tilbud { margin: 12px 0 0; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.page-pris .per-tilbud b { font-weight: 600; color: var(--navy); }
+/* 21.11.2026: «bindingstid og betalingsfrekvens» som navn over bryteren, som radene over */
+.page-pris .per-navn { margin: 0 0 12px; }
+/* 21.11.2026: det beste fra Henriks utkast og vårt: avkrysningsbokser for perioden, rabattert pris per lisens med den
+   gamle overstreket, og «Du sparer» i grønt (ingen piller, jf. Fredrik) */
+.page-pris .per-valg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.page-pris .per-valg button { display: flex; align-items: flex-start; gap: 10px; padding: 11px 12px; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; text-align: left; cursor: pointer; transition: border-color 0.15s ease; }
+.page-pris .per-valg button[aria-checked="true"] { border-color: var(--navy); }
+.page-pris .per-valg button:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.page-pris .per-valg i { flex: none; display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border: 1.5px solid #B9C6E2; border-radius: 6px; background: #fff; color: transparent; }
+.page-pris .per-valg button[aria-checked="true"] i { border-color: var(--navy); background: var(--navy); color: #fff; }
+.page-pris .per-valg i svg { width: 12px; height: 12px; }
+.page-pris .per-valg span { min-width: 0; display: grid; gap: 2px; }
+.page-pris .per-valg b { font-size: 15.5px; font-weight: 600; color: var(--ink); }
+.page-pris .per-valg small { font-size: 13px; line-height: 1.35; color: var(--ink); opacity: 0.75; }
+.page-pris .pkort-for { margin-right: 8px; font-size: 15px; font-weight: 500; color: var(--ink); opacity: 0.6; }
+.page-pris .pkort-rabatt { margin-left: 8px; font-size: 14px; font-weight: 600; color: #2F7D4E; white-space: nowrap; }
+.page-pris .pkort-for.borte, .page-pris .pkort-rabatt.borte { display: none; }
+.page-pris .kvitt-spart > span { color: #2F7D4E !important; }
+@media (max-width: 760px) { .page-pris .per-valg { grid-template-columns: minmax(0, 1fr); } }
+/* 21.11.2026: «vis månedspris»: med kvartalsvis eller årlig betaling står månedsprisen under summen */
+.page-pris .amt-mnd { margin: 6px 0 0; font-size: 15px; line-height: 1.4; color: var(--ink); }
+.page-pris .amt-mnd b { font-weight: 600; color: var(--navy); }
+.page-pris .total-kvittering .amt-mnd { text-align: right; }
+.page-pris .amt-mnd.amt-mnd-borte { display: none; }
+/* 21.11.2026: den enkle visningen (bare admin) skal få plass på 1280 × 720 også med årlig betaling og månedspris:
+   «eks. mva» på linje med summen, og lavere rader under */
+@media (min-width: 761px) {
+  .page-pris .total-klassisk .amt-rad { display: flex; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0 10px; }
+  .page-pris .total-klassisk .kvitt-gratis-alene { margin-top: 12px; padding-top: 10px; font-size: 15px; }
+  .page-pris .total-klassisk .kvitt-gratis-alene > span:last-child { font-size: 18px; letter-spacing: -0.3px; }
+  .page-pris .total-klassisk .amt-mnd { margin-top: 2px; }
+  .page-pris .total-klassisk .kvitt-gratis-alene:not(.kvitt-rad-borte) { margin-top: 8px; padding-top: 8px; }
+  .page-pris .total-klassisk .kvitt-spart.kvitt-gratis-alene:not(.kvitt-rad-borte) ~ .kvitt-gratis-alene { margin-top: 0; padding-top: 2px; border-top: none; }
+  .page-pris .panel-topp:has(.panel-total.kun-admin) { gap: 14px; }
+}
+.page-pris .kvitt-spart.kvitt-gratis-alene:not(.kvitt-rad-borte) + .kvitt-rad-borte + .kvitt-gratis-alene { margin-top: 0; padding-top: 4px; border-top: none; }
+/* Duse farger (21.11.2026): Inkludert/Tillegg på et salviegrønt bånd over hele bredden */
+.page-pris .p-inkl { padding-top: 88px; padding-bottom: 96px; background: #EDF5EF; }
+@media (max-width: 600px) { .page-pris .p-inkl { padding-top: 56px; padding-bottom: 64px; } }
+/* Pris: over 20 lisenser byttes knapp og betingelser ut med tilbudsskjemaet */
+.pris-omrade:not(.over-taket) .vis-over, .pris-omrade.over-taket .vis-under { display: none !important; }
+/* Knappefeltet over bunnteksten (21.11.2026): «kan ikke ha denne looken der pga fiken» om det lyse kortet med Muttern
+   oppe til høyre inne i den mørke bunnteksten. Nå et lyseblått bånd fra kant til kant rett over bunnteksten, med knapp
+   og tekst i midten og Muttern midt på kanten, som «Prøv før du bytter» på forsiden. */
+.vp-side .foot-cta-sec { margin-top: 150px; padding: 60px 0 56px; background: #F2F7FF; }
+.vp-side .foot-cta-inner { text-align: center; }
+/* 21.11.2026: «legg knappen til høyre og tekst til venstre». På telefon står teksten over knappen. */
+.vp-side .foot-cta-card { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 40px; max-width: 880px; margin: 0 auto; padding: 0; border-radius: 0; background: none; }
+.vp-side .foot-cta-card p { order: 0; max-width: 30em; font-size: 19px; line-height: 1.5; text-align: left; }
+.vp-side .foot-cta-card .btn { order: 1; }
+.vp-side .foot-cta-mascot { left: 50%; right: auto; top: auto; bottom: calc(100% + 60px); transform: translateX(-50%); }
+/* Muttern med kaffekoppen på kanten av knappefeltet (22.11.2026, i stedet for Muttern i yoga): føttene står på kanten,
+   koppen damper, han vugger litt og puster, og hvert 10. s tar han koppen ned foran «munnen» under øyet og drikker med
+   halvlukket øye over kanten */
+.foot-cta-mascot .m-kaffe { display: block; height: 140px; width: auto; overflow: visible; }
+.m-kaffe .k-vugg { transform-box: view-box; transform-origin: 108px 204.5px; animation: kaffeVugg 4.4s ease-in-out infinite alternate; }
+.m-kaffe .k-pust, .m-kaffe .k-blunk { transform-box: fill-box; }
+.m-kaffe .k-pust { transform-origin: 50% 100%; animation: kaffePust 3.2s ease-in-out infinite alternate; }
+.m-kaffe .k-blunk { transform-origin: 50% 50%; animation: kaffeOye 10s ease-in-out infinite; }
+.m-kaffe .k-arm { animation: kaffeArm 10s ease-in-out infinite; }
+.m-kaffe .k-kopp { animation: kaffeKopp 10s ease-in-out infinite; }
+.m-kaffe .k-tipp { transform-box: view-box; transform-origin: 486px 112px; animation: kaffeTipp 10s ease-in-out infinite; }
+.m-kaffe .k-damp-g { animation: kaffeDampVis 10s linear infinite; }
+.m-kaffe .k-damp { opacity: 0; animation: kaffeDamp 2.6s ease-out infinite; }
+.m-kaffe .k-damp2 { animation-delay: .85s; }
+.m-kaffe .k-damp3 { animation-delay: 1.7s; }
+@keyframes kaffeVugg { from { transform: rotate(-1.6deg); } to { transform: rotate(1.6deg); } }
+@keyframes kaffePust { from { transform: scale(1, 1); } to { transform: scale(1.01, 1.028); } }
+@keyframes kaffeOye { 0%, 14% { transform: scale(1, 1); } 15% { transform: scale(1, .12); } 16%, 18% { transform: scale(1, 1); } 19% { transform: scale(1, .12); } 20%, 47% { transform: scale(1, 1); } 50%, 59% { transform: scale(1, .55); } 62%, 84% { transform: scale(1, 1); } 85% { transform: scale(1, .12); } 86%, 100% { transform: scale(1, 1); } }
+@keyframes kaffeArm { 0%, 38% { opacity: 1; } 40%, 67% { opacity: 0; } 70%, 100% { opacity: 1; } }
+@keyframes kaffeKopp { 0%, 38% { transform: translate(0, 0); } 42% { transform: translate(-10px, 45px); } 46% { transform: translate(-65px, 70px); } 49%, 58% { transform: translate(-65px, 67px); } 61% { transform: translate(-65px, 70px); } 65% { transform: translate(-10px, 45px); } 70%, 100% { transform: translate(0, 0); } }
+@keyframes kaffeTipp { 0%, 46% { transform: rotate(0deg); } 49%, 58% { transform: rotate(-8deg); } 61%, 100% { transform: rotate(0deg); } }
+@keyframes kaffeDampVis { 0%, 35% { opacity: 1; } 39%, 70% { opacity: 0; } 78%, 100% { opacity: 1; } }
+@keyframes kaffeDamp { 0% { opacity: 0; transform: translate(0, 6px); } 25% { opacity: .85; } 100% { opacity: 0; transform: translate(0, -18px); } }
+@media (prefers-reduced-motion: reduce) {
+  .m-kaffe * { animation: none !important; }
+  .m-kaffe .k-damp { opacity: .6; }
+}
+@media (max-width: 760px) {
+  .vp-side .foot-cta-sec { margin-top: 120px; padding: 52px 0 44px; }
+  .vp-side .foot-cta-mascot { bottom: calc(100% + 52px); }
+  .foot-cta-mascot .m-kaffe { height: 108px; }
+  .vp-side .foot-cta-card { flex-direction: column; gap: 18px; }
+  .vp-side .foot-cta-card p { max-width: 34ch; font-size: 18px; text-align: center; }
+}
+/* Nedtrekk i toppmenyen (21.11.2026): åpnes også med tastatur, og står over innholdet under */
+.nav-item:focus-within .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity 190ms ease, transform 190ms ease; }
+.nav-item:focus-within > .nav-trigger .chev { transform: rotate(180deg); opacity: 1; }
+.nav-dropdown { text-align: left; }
+.nav-dropdown .nav-dd-item .s { color: var(--ink); opacity: 0.72; }
+/* Pris etter Henriks oppsett (22.11.2026, Nichlas: «Fikse sånn som Henrik la det frem igår»): admin og mekaniker
+   side om side med pris, tekst og teller; under dem tilleggene; nederst bindingstid og betaling hver for seg og summen. */
+.page-pris .phero-innhold.hk-innhold { max-width: 1120px; }
+.page-pris .hk-boks { background: #fff; border: 1.5px solid var(--line); border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px -44px rgba(12, 0, 90, 0.28); text-align: left; }
+.page-pris .hk-lisenser { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.page-pris .hk-lisens { padding: 34px 44px 32px; }
+.page-pris .hk-lisens + .hk-lisens { border-left: 1.5px solid var(--line); }
+.page-pris .hk-etikett { margin: 0; font-size: 14px; font-weight: 700; line-height: 1.4; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+.page-pris .hk-for { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 -4px; font-size: 16px; line-height: 1.4; }
+.page-pris .hk-for s { color: var(--ink); opacity: 0.55; }
+.page-pris .hk-for span { font-weight: 600; color: #2F7D4E; }
+.page-pris .hk-pris { margin: 12px 0 0; font-size: 17px; line-height: 1.2; color: var(--ink); }
+.page-pris .hk-pris b { font-size: 44px; font-weight: 700; letter-spacing: -1.2px; }
+.page-pris .hk-tekst { margin: 12px 0 20px; max-width: 30em; font-size: 16.5px; line-height: 1.55; color: var(--ink); }
+.page-pris .hk-lisens .teller { flex-wrap: nowrap; }
+.page-pris .hk-borte { display: none !important; }
+.page-pris .hk-tillegg .andre-knapp { padding: 18px 44px; }
+.page-pris .hk-tillegg .tillegg { padding: 18px 44px; }
+.page-pris .hk-bunn { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 28px 56px; padding: 32px 44px 36px; border-top: 1.5px solid var(--line); background: #F8F8FC; }
+.page-pris .hk-valg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; gap: 0 24px; }
+.page-pris .hk-gruppe { display: grid; align-content: start; gap: 4px; }
+.page-pris .hk-gruppe .hk-etikett { margin-bottom: 8px; }
+.page-pris .hk-v { display: flex; align-items: center; gap: 14px; padding: 6px 0; border: 0; background: none; font: inherit; font-size: 17px; line-height: 1.3; color: var(--ink); text-align: left; cursor: pointer; }
+.page-pris .hk-v i { display: grid; place-items: center; flex: 0 0 26px; width: 26px; height: 26px; border-radius: 7px; border: 1.5px solid #C9D3EE; background: #fff; color: transparent; transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
+.page-pris .hk-v i svg { width: 16px; height: 16px; }
+.page-pris .hk-v:hover i { border-color: var(--navy); }
+.page-pris .hk-v[aria-checked="true"] { font-weight: 700; }
+.page-pris .hk-v[aria-checked="true"] i { background: var(--navy); border-color: var(--navy); color: #fff; }
+.page-pris .hk-v.hk-demp { color: rgba(27, 27, 31, 0.42); }
+.page-pris .hk-v.hk-demp i { border-color: #E1E6F3; }
+.page-pris .hk-v:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; border-radius: 6px; }
+.page-pris .hk-kode { grid-column: 1 / -1; margin-top: 16px; }
+.page-pris .hk-kode-apne { padding: 0; border: 0; background: none; font: inherit; font-size: 15.5px; font-weight: 600; color: var(--navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.page-pris .hk-kode-felt { display: none; gap: 8px; max-width: 360px; }
+.page-pris .hk-kode.apen .hk-kode-apne { display: none; }
+.page-pris .hk-kode.apen .hk-kode-felt { display: flex; }
+.page-pris .hk-kode-felt input { flex: 1 1 auto; min-width: 0; height: 44px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; font-size: 16px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink); }
+.page-pris .hk-kode-felt input::placeholder { font-weight: 500; letter-spacing: 0; color: rgba(27, 27, 31, 0.5); }
+.page-pris .hk-kode-felt input:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+.page-pris .hk-kode-bruk { flex: none; height: 44px; padding: 0 18px; border: 0; border-radius: 6px; background: var(--navy); font: inherit; font-size: 15.5px; font-weight: 600; color: #fff; cursor: pointer; }
+.page-pris .hk-kode-bruk:disabled { opacity: 0.4; cursor: default; }
+.page-pris .hk-kode-svar { margin: 8px 0 0; max-width: 34em; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.page-pris .hk-kode-svar:empty { display: none; }
+.page-pris .hk-kode-svar.hk-ok { color: #2F7D4E; font-weight: 600; }
+.page-pris .hk-sum { display: grid; align-content: start; gap: 2px; }
+.page-pris .hk-rad { display: flex; justify-content: space-between; gap: 16px; font-size: 16.5px; line-height: 1.5; color: var(--ink); }
+.page-pris .hk-rad > span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.page-pris .hk-gratis > span:last-child { font-weight: 700; color: var(--navy); }
+.page-pris .hk-spart > span { font-weight: 600; color: #2F7D4E; }
+.page-pris .hk-strek { height: 1.5px; margin: 12px 0 10px; background: var(--line); }
+.page-pris .hk-total { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.page-pris .hk-total-navn { font-size: 18px; font-weight: 600; color: var(--ink); }
+.page-pris .hk-belop { display: inline-flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+.page-pris .hk-belop b { font-size: 40px; font-weight: 700; letter-spacing: -1px; line-height: 1.1; color: var(--ink); }
+.page-pris .hk-belop small { font-size: 16px; color: var(--ink); }
+.page-pris .hk-tilbud { font-size: 22px; font-weight: 700; color: var(--ink); }
+.page-pris .hk-mnd { margin: 2px 0 0; text-align: right; font-size: 15px; color: var(--ink); }
+.page-pris .hk-cta { margin-top: 18px; }
+.page-pris .hk-cta .btn { width: 100%; justify-content: center; }
+.page-pris .hk-vilkaar { margin: 10px 0 0; text-align: center; font-size: 14.5px; line-height: 1.45; color: var(--ink); }
+.page-pris .hk-vilkaar b { font-weight: 600; }
+.page-pris .hk-sum .tilbud-skjema, .page-pris .hk-sum .tilbud-takk { margin-top: 16px; max-width: none; }
+@media (prefers-reduced-motion: reduce) { .page-pris .hk-v i { transition: none; } }
+@media (max-width: 900px) {
+  .page-pris .hk-lisens { padding: 26px 28px 24px; }
+  .page-pris .hk-pris b { font-size: 36px; }
+  .page-pris .hk-tillegg .andre-knapp, .page-pris .hk-tillegg .tillegg { padding: 16px 28px; }
+  .page-pris .hk-bunn { grid-template-columns: minmax(0, 1fr); padding: 26px 28px 30px; }
+}
+@media (max-width: 600px) {
+  .page-pris .hk-boks { border-radius: 22px; }
+  .page-pris .hk-lisenser { grid-template-columns: minmax(0, 1fr); }
+  .page-pris .hk-lisens + .hk-lisens { border-left: 0; border-top: 1.5px solid var(--line); }
+  .page-pris .hk-lisens { padding: 22px 20px; }
+  .page-pris .hk-pris b { font-size: 32px; }
+  .page-pris .hk-tekst { margin: 8px 0 16px; font-size: 15.5px; }
+  .page-pris .hk-tillegg .andre-knapp, .page-pris .hk-tillegg .tillegg { padding: 14px 20px; }
+  .page-pris .hk-bunn { padding: 22px 20px 26px; gap: 22px; }
+  .page-pris .hk-valg { gap: 0 14px; }
+  /* «Betalingsfrekvens» er lang med sperringen: litt mindre sperring på telefon, så tittelen får plass (22.11.2026) */
+  .page-pris .hk-gruppe .hk-etikett { letter-spacing: 0.06em; }
+  .page-pris .hk-v { gap: 10px; font-size: 16px; }
+  .page-pris .hk-rad { font-size: 15.5px; }
+  .page-pris .hk-belop b { font-size: 32px; }
+}
+

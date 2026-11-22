@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   ADMIN_TRINN,
+  BETALING_MANEDER,
+  BINDING_MANEDER,
+  KODE_OG_PERIODE,
   MAKS_LISENSER,
   MAKS_TELLER,
   MEKANIKER_PRIS,
@@ -15,7 +18,32 @@ import {
   hardtMellomrom,
   klemAntall,
   rabattProsent,
+  rabattertPris,
+  samletRabatt,
 } from "./pricing";
+
+describe("Rabattkode sammen med binding og betaling (hjelperne)", () => {
+  it("runder prisen per lisens til hele kroner, som beregnPris", () => {
+    expect(rabattertPris(1295, 15)).toBe(1101);
+    expect(rabattertPris(1295, 22.5)).toBe(1004);
+    expect(rabattertPris(1295, 30)).toBe(907);
+    expect(rabattertPris(595, 30)).toBe(417);
+    expect(rabattertPris(1295, 0)).toBe(1295);
+  });
+
+  it("lar den største rabatten gjelde, eller begge etter hverandre", () => {
+    expect(samletRabatt(15, 20, "storste")).toBe(20);
+    expect(samletRabatt(30, 10, "storste")).toBe(30);
+    expect(samletRabatt(20, 20, "begge")).toBe(36);
+    expect(samletRabatt(0, 0, "begge")).toBe(0);
+    expect(KODE_OG_PERIODE).toBe("storste");
+  });
+
+  it("har bindingstid med de samme trinnene som betalingen", () => {
+    expect(BINDING_MANEDER).toEqual([1, 6, 12]);
+    expect(BINDING_MANEDER).toEqual(BETALING_MANEDER);
+  });
+});
 
 describe("ADMIN_TRINN", () => {
   it("er trappa fra superadmin per 2026-08-25", () => {

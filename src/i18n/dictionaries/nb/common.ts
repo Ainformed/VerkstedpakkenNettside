@@ -9,6 +9,9 @@ const common = {
     menu: "Meny",
     closeMenu: "Lukk meny",
     language: "Språk",
+    omoss: "Om oss",
+    ordresystemSub: "Samler hele jobben",
+    bookingSub: "Ferdig fra start",
   },
   footer: {
     ctaButton: "Prøv gratis i 14 dager",
@@ -24,7 +27,7 @@ const common = {
     siteDescription:
       "Verkstedprogrammet uten dobbeltarbeid. Ordre, booking, mekanikerportal og faktura i ett program. Admin 1 295 kr og mekaniker 595 kr per mnd. Prøv gratis i 14 dager.",
     ogDescription:
-      "Ordre, nettside og booking, mekanikerportal og faktura i ett program. Alt inkludert, ingen bindingstid. Prøv gratis i 14 dager.",
+      "Ordre, nettside og booking, mekanikerportal og faktura i ett program. Gratis oppstart og support, og månedlig uten binding. Prøv gratis i 14 dager.",
     ogImageAlt: "Verkstedpakken — komplett program for verksteder",
   },
 };

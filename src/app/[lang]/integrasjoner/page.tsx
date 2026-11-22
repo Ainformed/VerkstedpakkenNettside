@@ -32,7 +32,6 @@ export default async function Integrasjoner({ params }: Params) {
         <section className="hero feat-hero">
           <div className="wrap">
             <h1>{t.hero.title}</h1>
-            <p className="lead">{t.hero.lead}</p>
           </div>
         </section>
 

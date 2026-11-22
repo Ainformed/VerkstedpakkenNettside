@@ -2,6 +2,7 @@
 
 import { headers } from "next/headers";
 import { Resend } from "resend";
+import { BETALING_MANEDER, BINDING_MANEDER } from "@/lib/pricing";
 
 // Strip BOM, zero-width og kontrolltegn som sniker seg inn når en API-nøkkel
 // limes fra en BOM-prefikset fil. Et slikt tegn får Resend-konstruktøren til
@@ -107,6 +108,7 @@ const internEpost = (data: {
   kommentar: string;
   antallAdmin: string;
   antallMekanikere: string;
+  valg: string;
 }) => {
   const row = (label: string, value: string) => `
     <tr>
@@ -124,12 +126,45 @@ const internEpost = (data: {
       ${row("Antall personer", escape(data.antall))}
       ${data.kommentar ? row("Kommentar", escape(data.kommentar)) : ""}
       ${row("Kalkulatoren sto på", escape(`${data.antallAdmin} admin + ${data.antallMekanikere} mekanikere`))}
+      ${data.valg ? row("Valgt i kalkulatoren", escape(data.valg)) : ""}
     </table>
   `;
   return emailLayout("Storverksted-lead fra prissiden", body);
 };
 
 const MAX_LEN = { kontakt: 120, antall: 8, kommentar: 1000 } as const;
+
+// Bindingstid og betaling kommer som måneder (1, 6 eller 12, fra BINDING_MANEDER og BETALING_MANEDER i pricing.ts)
+const PERIODE_NAVN: Record<string, string> = Object.fromEntries(
+  BINDING_MANEDER.map((m, i) => [String(m), ["1 måned", "6 måneder", "1 år"][i]!]),
+);
+const BETALING_NAVN: Record<string, string> = Object.fromEntries(
+  BETALING_MANEDER.map((m, i) => [String(m), ["for 1 måned", "for 6 måneder", "for 1 år"][i]!]),
+);
+const TILLEGG_NAVN: Record<string, string> = {
+  nettside: "nettside",
+  oppslag: "kjøretøyoppslag",
+  haynes: "HaynesPro",
+  hella: "macsData av Hella Gutmann",
+};
+
+/** Binding, betaling, tillegg og rabattkode fra kalkulatoren som én linje i e-posten (tomt når ingenting er valgt). */
+function valgFraSkjema(formData: FormData): string {
+  const tekst = (navn: string) => String(formData.get(navn) ?? "").slice(0, 80);
+  const deler: string[] = [];
+  const binding = PERIODE_NAVN[tekst("binding")];
+  const betaling = BETALING_NAVN[tekst("betaling")];
+  if (binding && binding !== "1 måned") deler.push(`binding ${binding}`);
+  if (betaling && betaling !== "for 1 måned") deler.push(`betaling ${betaling}`);
+  const tillegg = tekst("tillegg")
+    .split(",")
+    .map((t) => TILLEGG_NAVN[t.trim()])
+    .filter(Boolean);
+  if (tillegg.length) deler.push(`tillegg: ${tillegg.join(", ")}`);
+  const kode = tekst("kode").toUpperCase().replace(/[^A-Z0-9ÆØÅ_-]/g, "").slice(0, 40);
+  if (kode) deler.push(`rabattkode ${kode}`);
+  return deler.join("; ");
+}
 
 const EPOST_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -179,6 +214,8 @@ export async function submitStorverksted(
     (formData.get("antall_mekanikere") as string) ?? ""
   ).slice(0, 4);
 
+  const valg = valgFraSkjema(formData);
+
   const antall = Number(antallRaa.replace(/\s/g, ""));
   if (!Number.isFinite(antall) || antall < 1 || antall > 10000) {
     return { success: false, error: "count" };
@@ -214,6 +251,7 @@ export async function submitStorverksted(
         kommentar,
         antallAdmin,
         antallMekanikere,
+        valg,
       }),
     });
     return { success: true, error: "" };

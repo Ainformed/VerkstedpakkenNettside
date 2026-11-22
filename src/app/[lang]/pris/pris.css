@@ -2,7 +2,9 @@
    Delte regler (.price-hero, .incl-grid, details.faq, .page-sec, .sec-title-c)
    ligger allerede globalt i vp-site.css. */
 
-.page-pris {
+/* 22.11.2026: Henriks kalkulator brukes på den nye prissiden, i en egen blokk (.page-pris-kalk), så stilene fra
+   lerretet (.page-pris …) og disse ikke blander seg. Ellers uendret fra main. */
+.page-pris-kalk {
   /* Samme skala som .hero h1 på de andre sidene. */
   .phero-title {
     font-family: var(--serif); font-weight: 600; color: var(--ink); text-align: center;

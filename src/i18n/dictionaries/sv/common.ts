@@ -10,6 +10,9 @@ const common: CommonDict = {
     menu: "Meny",
     closeMenu: "Stäng meny",
     language: "Språk",
+    omoss: "Om oss",
+    ordresystemSub: "Samlar hela jobbet",
+    bookingSub: "Klart från start",
   },
   footer: {
     ctaButton: "Prova gratis i 14 dagar",
@@ -25,7 +28,7 @@ const common: CommonDict = {
     siteDescription:
       "Verkstadsprogrammet utan dubbelarbete. Order, bokning, mekanikerportal och faktura i ett program. Admin 1 295 NOK och mekaniker 595 NOK per månad. Prova gratis i 14 dagar.",
     ogDescription:
-      "Order, hemsida och bokning, mekanikerportal och faktura i ett program. Allt ingår, ingen bindningstid. Prova gratis i 14 dagar.",
+      "Order, hemsida och bokning, mekanikerportal och faktura i ett program. Gratis uppstart och support, och månadsvis utan bindningstid. Prova gratis i 14 dagar.",
     ogImageAlt: "Verkstedpakken — komplett program för verkstäder",
   },
 };

@@ -5,6 +5,8 @@
    Sidespesifikk CSS ligger colokalisert med hver side og nestes under
    sidens rotklasse (f.eks. .page-pris) for å unngå kollisjoner. */
 @import "../styles/vp-site.css";
+/* Nytt design fra lerretet (22.11.2026) */
+@import "../styles/lerret.css";
 
 /* ── Interesseskjema (bevart registrering, restylet til nye tokens) ── */
 .page-interesse .interest-wrap { max-width: 640px; margin: 0 auto; padding: 0 28px 120px; }

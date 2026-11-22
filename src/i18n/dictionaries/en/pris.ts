@@ -3,7 +3,7 @@ const pris: PrisDict = {
   meta: {
     title: "Pricing for the workshop software",
     description:
-      "Admin licence NOK 1,295 and mechanic licence NOK 595 per month (excl. VAT). Everything included, no lock-in, no setup fee. Try free for 14 days.",
+      "Admin licence NOK 1,295 and mechanic licence NOK 595 per month (excl. VAT). Free setup and support. Monthly with no lock-in, or a discount when you commit. Try free for 14 days.",
   },
   title: "Verkstedpakken pricing",
   priceFormat: { locale: "en-GB", prefix: "NOK ", suffix: "" },
@@ -20,7 +20,7 @@ const pris: PrisDict = {
       bindingOptions: ["1 month", "6 months", "1 year"],
       bindingTerms: ["No lock-in", "6-month commitment", "1-year commitment"],
       paymentTitle: "Payment frequency",
-      paymentOptions: ["Pay for 1 month", "Pay for 6 months", "Pay for 1 year"],
+      paymentOptions: ["Pay monthly", "Pay for 6 months", "Pay for 1 year"],
       periodLabels: ["Per month", "Per 6 months", "Per year"],
       months: " × {n} mo.",
       saving: "You save {pct}%",
@@ -58,7 +58,7 @@ const pris: PrisDict = {
   },
   included: {
     title: "All of this is included",
-    subtitle: "Things others charge for are part of the price with us.",
+    subtitle: "Things others charge for are free with us.",
     pill: "Included",
     groups: [
       {

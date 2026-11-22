@@ -1,0 +1,1187 @@
+/* Stilene for NettsideOgBooking fra lerretet (gen/til_react.py), i samme rekkefølge som i lerretet. */
+.page-booking .nb-hero-split { text-align: left; padding: 116px 0 70px; }
+.page-booking .nb-hero-grid { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: clamp(32px, 6vw, 80px); }
+.page-booking .nb-hero-grid > * { min-width: 0; }
+.page-booking .nb-hero-copy .lead { margin: 26px 0 0; max-width: 560px; }
+.page-booking .nb-hero-copy .cta-row { margin-top: 40px; }
+.page-booking .nb-hero-art { display: grid; place-items: center; }
+.page-booking .nb-hero-art .m-fig { display: block; width: auto; max-width: 100%; max-height: 340px; overflow: visible; }
+@media (max-width: 900px) {
+.page-booking .nb-hero-split { padding-top: 84px; }
+.page-booking .nb-hero-art .m-fig { max-height: 260px; }
+}
+@media (max-width: 600px) {
+.page-booking .nb-hero-split { padding-top: 48px; text-align: center; }
+.page-booking .nb-hero-grid { grid-template-columns: 1fr; gap: 30px; }
+.page-booking .nb-hero-art { order: -1; }
+.page-booking .nb-hero-copy .lead { margin: 22px auto 0; }
+.page-booking .nb-hero-copy .cta-row { margin-top: 34px; }
+.page-booking .nb-hero-art .m-fig { max-height: 220px; }
+}
+.page-booking .split-art .mock-photo { object-fit: cover; }
+.page-booking .nb-cx-head { max-width: var(--maxw); margin: 0 auto; padding: 96px 28px 0; text-align: center; }
+.page-booking .nb-cx-head h2 { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: clamp(1.8rem, 4vw, 42px); line-height: 1.12; letter-spacing: -1px; text-wrap: balance; max-width: 640px; margin: 0 auto; }
+.page-booking .nb-cx-head p { max-width: 560px; margin: 18px auto 0; font-size: 18px; color: var(--ink-2); line-height: 1.55; text-wrap: pretty; }
+.page-booking .nb-cx-sec { padding: 0 28px 120px; }
+.page-booking .nb-cx { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; margin: 64px auto 0; max-width: 1020px; }
+.page-booking .nb-steps { display: flex; flex-direction: column; gap: 34px; }
+.page-booking .nb-step { position: relative; padding-left: 54px; }
+.page-booking .nb-step::before { content: ""; position: absolute; left: 14px; top: 38px; bottom: -34px; width: 2px; background: var(--line-2); }
+.page-booking .nb-step:last-child::before { display: none; }
+.page-booking .nb-step .nb-dot { position: absolute; left: 0; top: 2px; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-family: var(--mono); font-size: 12px; font-weight: 700; }
+.page-booking .nb-step h3 { font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); letter-spacing: -.3px; }
+.page-booking .nb-step p { margin-top: 7px; font-size: 15.5px; color: var(--ink-2); line-height: 1.55; text-wrap: pretty; max-width: 400px; }
+.page-booking .nb-phone { width: 100%; max-width: 370px; justify-self: center; background: #fff; border: 1.5px solid var(--line-2); border-radius: 26px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(12,0,90,0.35); }
+.page-booking .nb-ph-hdr { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--line); background: #FAF9FD; }
+.page-booking .nb-ph-hdr .av { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-family: var(--serif); font-weight: 700; font-size: 16px; flex-shrink: 0; }
+.page-booking .nb-ph-hdr .nm { font-weight: 600; font-size: 15px; color: var(--ink); line-height: 1.2; }
+.page-booking .nb-ph-hdr .sb { font-size: 12px; color: var(--ink-3); }
+.page-booking .nb-ph-body { padding: 20px 18px 24px; display: flex; flex-direction: column; gap: 10px; }
+.page-booking .nb-bub { max-width: 85%; padding: 12px 15px; font-size: 13.5px; line-height: 1.5; color: var(--ink); }
+.page-booking .nb-bub.in { align-self: flex-start; background: #F1F1EF; border-radius: 16px 16px 16px 5px; }
+.page-booking .nb-bub.out { align-self: flex-end; background: var(--navy); color: #fff; border-radius: 16px 16px 5px 16px; }
+.page-booking .nb-bub .bt { font-weight: 600; }
+.page-booking .nb-bub .bs { display: block; margin-top: 6px; font-size: 12.5px; color: var(--ink-2); }
+.page-booking .nb-bub.out .bs { color: rgba(255,255,255,0.75); }
+.page-booking .nb-bub .b-actions { display: flex; gap: 8px; margin-top: 12px; }
+.page-booking .nb-bub .b-yes { background: var(--navy); color: #fff; border-radius: 9px; padding: 7px 16px; font-size: 12.5px; font-weight: 600; }
+.page-booking .nb-bub .b-no { border: 1.5px solid var(--line-2); background: #fff; color: var(--ink-2); border-radius: 9px; padding: 7px 16px; font-size: 12.5px; font-weight: 600; }
+.page-booking .nb-bub .b-link { display: inline-block; margin-top: 10px; color: var(--navy); font-weight: 600; font-size: 13px; text-decoration: underline; text-underline-offset: 2px; }
+.page-booking .nb-ph-status { align-self: flex-end; font-size: 11px; color: var(--ink-3); margin-top: -4px; }
+@media (max-width: 820px) {
+.page-booking .nb-cx { grid-template-columns: 1fr; gap: 44px; margin-top: 44px; }
+.page-booking .nb-phone { justify-self: start; }
+}
+
+/* Muttern-figurene som er animerte SVG-er på nettsiden, er tatt opp som bilder (.m-opptak).
+   Justeringen legger figuren på samme sted og i samme størrelse som SVG-en har på nettsiden. */
+.col .art img.m-opptak.m-order { max-height: clamp(140px, 33vw, 202px); }
+.col .art img.m-opptak.m-zen { max-height: clamp(108px, 24vw, 146px); }
+.col .art img.m-opptak.m-support { max-height: clamp(120px, 27vw, 162px); }
+/* Logoen er et bilde her (innebygd SVG på nettsiden) og skal ikke krympe i brede vinduer */
+.brand .logo-svg, .mm-top .logo-svg, .foot-brand .logo-svg { max-width: none; }
+/* Zen-figuren i knappefeltene er høyreforankret: gi bildet samme bredde som SVG-en har */
+.cta-mascot img.m-opptak.m-zen, .foot-cta-mascot img.m-opptak.m-zen { margin: 0 calc(clamp(86px, 10vw, 116px) * 0.0699); }
+img.m-opptak.m-order { transform-origin: 0 100%; transform: translate(16.1%, 1.2%) scale(1.025); }
+img.m-opptak.m-zen { transform-origin: 50% 100%; transform: translateX(7.4%) scale(1.126); }
+img.m-opptak.m-support { transform-origin: 50% 100%; transform: translate(-3%, 1.5%) scale(1.0315); }
+/* Integrasjoner: kategoriknappene skjuler kort i stedet for å tegne lista på nytt */
+.kat-regnskap .integ-card:not([data-cat="regnskap"]), .kat-betaling .integ-card:not([data-cat="betaling"]), .kat-deler .integ-card:not([data-cat="deler"]), .kat-kjoretoy .integ-card:not([data-cat="kjoretoy"]), .kat-ki .integ-card:not([data-cat="ki"]) { display: none; }
+/* 21.11.2026: «sentrer alle logoene osv»: logo og navn midt på kortet, og kategorien flyttet fra hjørnet til
+   midt under navnet */
+.page-integrasjoner .integ-card { align-items: center; text-align: center; padding: 28px 24px 24px; gap: 10px; }
+.page-integrasjoner .integ-card .ic-logo { width: 100%; justify-content: center; }
+.page-integrasjoner .integ-card .ic-logo img { object-position: center; }
+.page-integrasjoner .integ-card .ic-title { justify-content: center; }
+.page-integrasjoner .integ-card .ic-cat { position: static; order: 3; margin-top: -4px; }
+/* Pris 19.11.2026: «her må vi ha mindgames der integrasjon med regnskap er gratis … måten det kommer frem på».
+   Regnskapsintegrasjonen står som egen linje til 0,- i prisboksen, både under den store prisen og i kvitteringen. */
+.page-pris .kvitt-gratis > span:last-child { font-weight: 700; color: var(--navy); }
+.page-pris .kvitt-gratis-alene { width: 100%; max-width: 320px; margin-top: 16px; padding-top: 14px; border-top: 1.5px solid var(--line); font-size: 18px; }
+.page-pris .kvitt-gratis-alene > span:last-child { font-size: 24px; letter-spacing: -0.5px; }
+/* Nettside og booking (19.11.2026): bildet av en laptop er byttet med to ekte kundesider vist som
+   nettleservinduer som ligger litt over hverandre. Vinduene har samme ramme som vinduene på
+   Ordreprogram-siden, og glir inn når raden ruller inn i bildet. */
+.ks-stabel { position: relative; width: 100%; max-width: 540px; aspect-ratio: 540 / 452; }
+.ks-vindu { position: absolute; width: 80%; margin: 0; background: #fff; border: 1.5px solid #D5E0F7; border-radius: 16px; box-shadow: 0 40px 80px -44px rgba(12, 0, 90, 0.4); overflow: hidden; }
+.ks-vindu img { display: block; width: 100%; height: auto; aspect-ratio: 1120 / 700; }
+.ks-bak { left: 0; top: 0; }
+.ks-foran { right: 0; bottom: 0; }
+.ks-bar { display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; background: #F2F7FF; border-bottom: 1.5px solid #D5E0F7; }
+.ks-bar i { width: 9px; height: 9px; border-radius: 50%; background: #D5E0F7; }
+.ks-bar span { margin-left: 8px; padding: 3px 12px; border-radius: 999px; background: #fff; font-size: 12.5px; line-height: 1.3; color: var(--ink-2); }
+@keyframes ksInn { from { opacity: 0; transform: translateY(44px); } to { opacity: 1; transform: none; } }
+@supports (animation-timeline: view()) {
+  .ks-vindu { animation: ksInn linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
+  .ks-foran { animation-range: entry 20% cover 30%; }
+}
+@media (prefers-reduced-motion: reduce) { .ks-vindu { animation: none; } }
+/* 19.11.2026: «istedenfor muttern her flytt disse opp dit». Vinduene står i toppen der Muttern sto,
+   og står stille der (ingen innglidning øverst på siden). Teksten om nettsiden er en ren tekstrad under. */
+.nb-hero-art.ks-topp .ks-vindu { animation: none; }
+.split-row.ks-tekstrad { align-items: start; }
+.split-row.ks-tekstrad .split-text { max-width: 500px; }
+.split-row.ks-tekstrad .split-text p:first-child { margin-top: 10px; }
+@media (max-width: 600px) {
+  .page-booking .nb-hero-art.ks-topp { order: 0; }
+  .split-row.ks-tekstrad { gap: 6px; }
+}
+/* Bookingportalen på mobilen (19.11.2026): bildet av en hånd med telefon er byttet med en tegnet
+   telefon som viser de ekte skjermene i forespørselen (tekstene er hentet fra portalen).
+   Knappene til venstre velger steg, teksten under følger med, og knappen i telefonen går videre. */
+.split-row.bp-rad .split-art, .split-row.bp-rad.reverse .split-art { order: 0; }
+.bp-knapper { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.bp-forklaring { display: grid; margin-top: 22px; }
+.split-text .bp-forklaring .bp-f { grid-area: 1 / 1; margin: 0; opacity: 0; transition: opacity 0.25s ease; }
+.bp-forklaring .bp-f b { font-weight: 600; color: var(--ink); }
+.split-text .bp-forklaring.bp-steg-0 .bp-f0, .split-text .bp-forklaring.bp-steg-1 .bp-f1, .split-text .bp-forklaring.bp-steg-2 .bp-f2, .split-text .bp-forklaring.bp-steg-3 .bp-f3 { opacity: 1; }
+/* Telefonen viser ekte bilder av bookingportalen (390 × 844), ett per skjerm. Et trykk på skjermen går videre. */
+.bp-tlf { position: relative; width: 332px; max-width: 100%; padding: 40px 8px 8px; border: 2px solid var(--navy); border-radius: 44px; background: #fff; box-shadow: 0 40px 80px -44px rgba(12, 0, 90, 0.4); }
+.bp-hakk { position: absolute; left: 50%; top: 12px; width: 84px; height: 18px; margin-left: -42px; border-radius: 999px; background: var(--navy); }
+.bp-skjermer { position: relative; aspect-ratio: 390 / 844; overflow: hidden; border-radius: 4px 4px 34px 34px; background: #fff; }
+.bp-s { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-width: none; opacity: 0; transform: translateX(14px); transition: opacity 0.25s ease, transform 0.25s ease; }
+.bp-skjerm-0 .bp-s0, .bp-skjerm-1 .bp-s1, .bp-skjerm-2 .bp-s2, .bp-skjerm-3 .bp-s3, .bp-skjerm-4 .bp-s4, .bp-skjerm-5 .bp-s5 { opacity: 1; transform: none; }
+.bp-videre { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { .bp-s, .bp-forklaring .bp-f { transition: none; } }
+.page-pris .panel-total.kun-admin .total-klassisk { flex-wrap: wrap; }
+/* Betalingsperiode (20.11.2026), som bryter i prisboksen fra 21.11: én lyseblå skinne med tre like felt og en
+   hvit knott som glir til valget. Rabatten står som tekst i feltet. Rabatten står også som egen linje i prisboksen. */
+/* Tilleggene under kortene (21.11.2026): to valg man krysser av, med pris per måned */
+.page-pris .pkort-tillegg { display: grid; grid-template-columns: 1fr 1fr; border-top: 1.5px solid var(--line); }
+.page-pris .tillegg { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 22px 38px; border: 0; background: #fff; font: inherit; text-align: left; color: var(--ink); cursor: pointer; }
+.page-pris .tillegg + .tillegg { border-left: 1.5px solid var(--line); }
+.page-pris .tillegg i { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; border: 1.5px solid #C9D3EE; color: transparent; transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
+.page-pris .tillegg i svg { width: 15px; height: 15px; }
+.page-pris .tillegg:hover i { border-color: var(--navy); }
+.page-pris .tillegg[aria-checked="true"] i { background: var(--navy); border-color: var(--navy); color: #fff; }
+.page-pris .tillegg span { font-size: 17px; font-weight: 600; line-height: 1.3; }
+.page-pris .tillegg b { font-size: 17px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+.page-pris .tillegg b small { font-size: 14px; font-weight: 500; color: var(--ink); }
+.page-pris .tillegg:focus-visible { outline: 2px solid var(--navy); outline-offset: -4px; }
+/* Kortene med antall øverst i prisboksen, så tilleggene, bryteren og til slutt summen med knappen (21.11.2026:
+   «flytt mekaniker og admin øverst»). Samme rekkefølge som på telefon. */
+.page-pris .panel-topp { order: 2; border-bottom: none; border-top: 1.5px solid var(--line); }
+.page-pris .per-bunn { order: 1; }
+/* Bryteren står nederst i prisboksen, under kortene med antall (21.11.2026: «de velger jo antall ansatte først») */
+.page-pris .per-bunn { padding: 26px 38px 30px; border-top: 1.5px solid var(--line); }
+.page-pris .per-bryter { position: relative; display: inline-grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; border-radius: 999px; background: #E7EEFB; }
+.page-pris .per-knott { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 3); border-radius: 999px; background: #fff; box-shadow: 0 1px 2px rgba(12, 0, 90, 0.08), 0 6px 14px -6px rgba(12, 0, 90, 0.32); transition: transform 0.25s ease; }
+.page-pris .per-bryter.p-kv .per-knott { transform: translateX(100%); }
+.page-pris .per-bryter.p-aar .per-knott { transform: translateX(200%); }
+.page-pris .per-bryter button { position: relative; z-index: 1; display: inline-flex; align-items: baseline; justify-content: center; gap: 6px; padding: 10px 18px; border: 0; border-radius: 999px; background: none; font: inherit; font-size: 15.5px; font-weight: 500; line-height: 1.25; color: var(--navy); cursor: pointer; white-space: nowrap; }
+.page-pris .per-bryter button b { font-weight: 700; }
+.page-pris .per-bryter button:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .page-pris .per-knott { transition: none; } }
+@media (max-width: 760px) {
+  .page-pris .per-bunn { order: 1; padding: 22px 22px 8px; }
+  .page-pris .pkort-tillegg { grid-template-columns: minmax(0, 1fr); }
+  .page-pris .tillegg { padding: 18px 22px; }
+  .page-pris .tillegg + .tillegg { border-left: 0; border-top: 1.5px solid var(--line); }
+  .page-pris .per-bryter { display: grid; width: 100%; border-radius: 18px; }
+  .page-pris .per-knott { border-radius: 14px; }
+  .page-pris .per-bryter button { flex-direction: column; align-items: center; gap: 1px; padding: 8px 4px; border-radius: 14px; font-size: 15px; }
+}
+.page-pris .kvitt-rad-borte { display: none; }
+.page-pris .kvitt-spart.kvitt-gratis-alene:not(.kvitt-rad-borte) + .kvitt-gratis-alene { margin-top: 0; padding-top: 4px; border-top: none; }
+/* Prisboksen, ryddigere (21.11.2026: «alt må kunne vises på en liten side»). Kortene er korte rader: navn og pris
+   til venstre, telleren til høyre, uten beskrivelse. På PC står summen med knappen i en kolonne til høyre. */
+.page-pris .pkort-rad { grid-template-columns: minmax(0, 1fr); }
+.page-pris .pkort { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "navn teller" "pris teller"; column-gap: 20px; row-gap: 2px; align-items: center; padding: 18px 30px; }
+.page-pris .pkort-admin { border-right: 0; border-bottom: 1.5px solid var(--line); }
+.page-pris .pkort-navn { grid-area: navn; font-size: 17px; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.page-pris .pkort-pris { grid-area: pris; }
+.page-pris .pkort-pris b { font-size: 20px; letter-spacing: -0.4px; }
+.page-pris .pkort-per { font-size: 15px; }
+.page-pris .pkort-tekst { display: none; }
+.page-pris .pkort .teller { grid-area: teller; margin-top: 0; flex-wrap: nowrap; gap: 8px; }
+.page-pris .pkort .teller-btn { width: 38px; height: 38px; flex-basis: 38px; font-size: 20px; }
+.page-pris .pkort .teller-felt input { width: 52px; height: 38px; font-size: 17px; }
+.page-pris .pkort-tillegg { grid-template-columns: minmax(0, 1fr); }
+.page-pris .tillegg { padding: 15px 30px; }
+.page-pris .tillegg + .tillegg { border-left: 0; border-top: 1.5px solid var(--line); }
+.page-pris .tillegg span, .page-pris .tillegg b { font-size: 16px; }
+.page-pris .per-bunn { padding: 18px 30px 20px; }
+.page-pris .per-bryter { display: grid; width: 100%; }
+@media (min-width: 761px) {
+  .page-pris .phero-innhold { max-width: 980px; }
+  .page-pris .phero-title { margin-bottom: 36px; }
+  .page-pris .pris-panel { display: grid; grid-template-columns: minmax(0, 1fr) 360px; grid-template-rows: auto auto 1fr; }
+  .page-pris .pkort-rad { grid-column: 1; grid-row: 1; }
+  .page-pris .pkort-tillegg { grid-column: 1; grid-row: 2; }
+  .page-pris .per-bunn { grid-column: 1; grid-row: 3; }
+  .page-pris .panel-topp { grid-column: 2; grid-row: 1 / span 3; flex-direction: column; justify-content: space-between; gap: 22px; padding: 28px 30px; border: 0; border-left: 1.5px solid var(--line); }
+  .page-pris .panel-total { flex: 0 0 auto; }
+  .page-pris .panel-total.kun-admin { justify-content: flex-start; padding-bottom: 0; }
+  .page-pris .total-kvittering { max-width: none; }
+  .page-pris .kvitt-rad { font-size: 15px; }
+  .page-pris .total-kvittering .amt { font-size: 28px; }
+  .page-pris .total-klassisk .amt { font-size: 44px; }
+  .page-pris .kvitt-gratis-alene { max-width: none; }
+  .page-pris .panel-cta { gap: 12px; }
+  .page-pris .panel-cta-knapp { flex: 0 0 auto; }
+  .page-pris .panel-cta .per { white-space: normal; font-size: 15px; }
+}
+@media (max-width: 760px) {
+  .page-pris .pkort { padding: 14px 18px; column-gap: 12px; }
+  .page-pris .pkort-navn { font-size: 16px; }
+  .page-pris .pkort-pris { white-space: nowrap; }
+  .page-pris .pkort-pris b { font-size: 18px; }
+  .page-pris .pkort-per { font-size: 13.5px; }
+  .page-pris .pkort .teller { gap: 6px; }
+  .page-pris .pkort .teller-btn { width: 34px; height: 34px; flex-basis: 34px; font-size: 18px; }
+  .page-pris .pkort .teller-felt input { width: 44px; height: 34px; font-size: 16px; }
+  .page-pris .tillegg { padding: 14px 20px; }
+  .page-pris .per-bunn { padding: 16px 20px 18px; }
+}
+/* Kjeder (21.11.2026: «burde og få frem at har de en kjede som er intressert så tar vi gjerne en dialog») */
+.page-pris .p-kjede { margin: 22px auto 0; max-width: 40em; text-align: center; font-size: 17px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+.page-pris .p-kjede b { font-weight: 600; }
+.page-pris .p-kjede a { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+/* «Alt dette er inkludert» og «Legg til hvis du vil» (21.11.2026: «dette er også kopi av fiken»): punktene i kolonner,
+   ett område per kolonne, med navy hake; tilleggene likt, med prisen til høyre. Ingen lapper, ingen farget bånd. */
+.p-inkl-wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+.p-kol { margin-top: 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 36px; text-align: left; }
+.p-kol.p-kol-tre { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.p-gruppe h3 { margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1.5px solid var(--line); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.p-gruppe ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 13px; }
+.p-gruppe li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 11px; align-items: start; font-size: 16.5px; line-height: 1.4; color: var(--ink); }
+.p-gruppe li i { display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: var(--navy); color: #fff; }
+.p-gruppe li i svg { width: 12px; height: 12px; }
+.p-gruppe li small { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.4; color: var(--ink); opacity: 0.75; }
+.p-till .p-gruppe li { grid-template-columns: minmax(0, 1fr) auto; gap: 14px; }
+.p-till .p-gruppe li b { font-size: 15.5px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+.p-till .p-gruppe li b.p-snart { font-weight: 500; color: var(--ink); opacity: 0.75; }
+.p-till-note { margin: 40px auto 0; max-width: 40em; text-align: center; font-size: 16px; line-height: 1.5; color: var(--ink); }
+@media (max-width: 900px) {
+  .p-kol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-kol.p-kol-tre { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .p-inkl-wrap { padding: 0 16px; }
+  .p-kol { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 30px; }
+}
+/* «Inkludert» og «Tillegg» som to kort side om side (21.11.2026, etter prissiden til x.ai, på vår måte) */
+.p-kort2 { margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; text-align: left; }
+.p-plan { padding: 32px 32px 34px; border: 1.5px solid var(--line); border-radius: 24px; background: #fff; }
+.p-plan-inkl { border-color: var(--navy); box-shadow: 0 30px 60px -44px rgba(12, 0, 90, 0.45); }
+.p-plan-navn { margin: 0; font-size: 17px; font-weight: 600; color: var(--ink); }
+.p-plan-pris { margin: 10px 0 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+.p-plan-pris b { font-size: 46px; font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; color: var(--navy); }
+.p-plan-pris span { font-size: 16px; color: var(--ink); }
+.p-plan-inn { margin: 12px 0 0; font-size: 16.5px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+.p-plan-gr { margin-top: 28px; }
+.p-plan-gr h3 { margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1.5px solid var(--line); font-size: 15px; font-weight: 600; color: var(--ink); }
+.p-plan-gr ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.p-plan-gr li { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: 12px; align-items: start; font-size: 16.5px; line-height: 1.4; color: var(--ink); }
+.p-plan-gr li i { display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: var(--navy); color: #fff; }
+.p-plan-gr li i svg { width: 12px; height: 12px; }
+/* 21.11.2026: «grønn på alt som er inkludert» */
+.p-plan-inkl .p-plan-gr li i { background: #2F7D4E; }
+.p-plan-till .p-plan-gr li i { background: #fff; border: 1.5px solid var(--navy); color: var(--navy); }
+.p-plan-till .p-plan-gr li i svg { width: 11px; height: 11px; }
+.p-plan-gr li small { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.4; color: var(--ink); opacity: 0.75; }
+.p-plan-gr li b { font-size: 15.5px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+.p-plan-gr li b.p-snart { font-weight: 500; color: var(--ink); opacity: 0.75; }
+.p-plan-note { margin: 30px 0 0; padding-top: 16px; border-top: 1.5px solid var(--line); font-size: 15px; line-height: 1.5; color: var(--ink); }
+@media (max-width: 760px) {
+  .p-kort2 { grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 30px; }
+  .p-plan { padding: 26px 20px 28px; border-radius: 20px; }
+  .p-plan-pris b { font-size: 38px; }
+}
+/* 22.11.2026 (Henrik: «litt mye tekst og veldig trang på PC»): kortene under hverandre i full bredde, gruppene i
+   kolonner (tre i Inkludert, to i Tillegg), og mer luft mellom radene */
+.p-kort-bred { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.p-kort-bred .p-plan { padding: 40px 48px 44px; }
+.p-plan-kol { columns: 3 240px; column-gap: 56px; }
+.p-plan-till .p-plan-kol { columns: 2 280px; }
+.p-plan-kol .p-plan-gr { break-inside: avoid; margin-top: 0; padding-top: 30px; }
+.p-plan-kol .p-plan-gr ul { gap: 14px; }
+@media (max-width: 760px) {
+  .p-kort-bred { gap: 18px; }
+  .p-kort-bred .p-plan { padding: 28px 20px 30px; }
+}
+/* «Interessert i andre ting?» (21.11.2026): én rad som folder ut valgene fra Valgfritt-kortet */
+.page-pris .andre-knapp { display: flex; align-items: center; gap: 12px; width: 100%; padding: 16px 30px; border: 0; background: #fff; font: inherit; font-size: 16px; font-weight: 600; color: var(--navy); text-align: left; cursor: pointer; }
+.page-pris .andre-knapp small { margin-left: auto; font-size: 14.5px; font-weight: 500; color: var(--ink); }
+.page-pris .andre-knapp .andre-pil { flex: none; transition: transform 0.2s ease; }
+.page-pris .andre-knapp[aria-expanded="true"] .andre-pil { transform: rotate(180deg); }
+.page-pris .andre-knapp:hover { background: #FAFAFE; }
+.page-pris .andre-knapp:focus-visible { outline: 2px solid var(--navy); outline-offset: -4px; }
+.page-pris .andre-liste { display: none; border-top: 1.5px solid var(--line); }
+.page-pris .pkort-tillegg.apen .andre-liste { display: grid; }
+.page-pris .andre-liste .tillegg + .tillegg { border-top: 1.5px solid var(--line); }
+.page-pris .tillegg b.snart { font-weight: 500; color: var(--ink); opacity: 0.75; }
+@media (max-width: 760px) {
+  .page-pris .andre-knapp { padding: 14px 20px; }
+}
+/* «Betal for et år: 3 måneder gratis og 30 % rabatt» under bryteren (21.11.2026) */
+.page-pris .per-tilbud { margin: 12px 0 0; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.page-pris .per-tilbud b { font-weight: 600; color: var(--navy); }
+/* 21.11.2026: «bindingstid og betalingsfrekvens» som navn over bryteren, som radene over */
+.page-pris .per-navn { margin: 0 0 12px; }
+/* 21.11.2026: det beste fra Henriks utkast og vårt: avkrysningsbokser for perioden, rabattert pris per lisens med den
+   gamle overstreket, og «Du sparer» i grønt (ingen piller, jf. Fredrik) */
+.page-pris .per-valg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.page-pris .per-valg button { display: flex; align-items: flex-start; gap: 10px; padding: 11px 12px; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; text-align: left; cursor: pointer; transition: border-color 0.15s ease; }
+.page-pris .per-valg button[aria-checked="true"] { border-color: var(--navy); }
+.page-pris .per-valg button:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.page-pris .per-valg i { flex: none; display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border: 1.5px solid #B9C6E2; border-radius: 6px; background: #fff; color: transparent; }
+.page-pris .per-valg button[aria-checked="true"] i { border-color: var(--navy); background: var(--navy); color: #fff; }
+.page-pris .per-valg i svg { width: 12px; height: 12px; }
+.page-pris .per-valg span { min-width: 0; display: grid; gap: 2px; }
+.page-pris .per-valg b { font-size: 15.5px; font-weight: 600; color: var(--ink); }
+.page-pris .per-valg small { font-size: 13px; line-height: 1.35; color: var(--ink); opacity: 0.75; }
+.page-pris .pkort-for { margin-right: 8px; font-size: 15px; font-weight: 500; color: var(--ink); opacity: 0.6; }
+.page-pris .pkort-rabatt { margin-left: 8px; font-size: 14px; font-weight: 600; color: #2F7D4E; white-space: nowrap; }
+.page-pris .pkort-for.borte, .page-pris .pkort-rabatt.borte { display: none; }
+.page-pris .kvitt-spart > span { color: #2F7D4E !important; }
+@media (max-width: 760px) { .page-pris .per-valg { grid-template-columns: minmax(0, 1fr); } }
+/* 21.11.2026: «vis månedspris»: med kvartalsvis eller årlig betaling står månedsprisen under summen */
+.page-pris .amt-mnd { margin: 6px 0 0; font-size: 15px; line-height: 1.4; color: var(--ink); }
+.page-pris .amt-mnd b { font-weight: 600; color: var(--navy); }
+.page-pris .total-kvittering .amt-mnd { text-align: right; }
+.page-pris .amt-mnd.amt-mnd-borte { display: none; }
+/* 21.11.2026: den enkle visningen (bare admin) skal få plass på 1280 × 720 også med årlig betaling og månedspris:
+   «eks. mva» på linje med summen, og lavere rader under */
+@media (min-width: 761px) {
+  .page-pris .total-klassisk .amt-rad { display: flex; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0 10px; }
+  .page-pris .total-klassisk .kvitt-gratis-alene { margin-top: 12px; padding-top: 10px; font-size: 15px; }
+  .page-pris .total-klassisk .kvitt-gratis-alene > span:last-child { font-size: 18px; letter-spacing: -0.3px; }
+  .page-pris .total-klassisk .amt-mnd { margin-top: 2px; }
+  .page-pris .total-klassisk .kvitt-gratis-alene:not(.kvitt-rad-borte) { margin-top: 8px; padding-top: 8px; }
+  .page-pris .total-klassisk .kvitt-spart.kvitt-gratis-alene:not(.kvitt-rad-borte) ~ .kvitt-gratis-alene { margin-top: 0; padding-top: 2px; border-top: none; }
+  .page-pris .panel-topp:has(.panel-total.kun-admin) { gap: 14px; }
+}
+.page-pris .kvitt-spart.kvitt-gratis-alene:not(.kvitt-rad-borte) + .kvitt-rad-borte + .kvitt-gratis-alene { margin-top: 0; padding-top: 4px; border-top: none; }
+/* Duse farger (21.11.2026): Inkludert/Tillegg på et salviegrønt bånd over hele bredden */
+.page-pris .p-inkl { padding-top: 88px; padding-bottom: 96px; background: #EDF5EF; }
+@media (max-width: 600px) { .page-pris .p-inkl { padding-top: 56px; padding-bottom: 64px; } }
+/* Pris: over 20 lisenser byttes knapp og betingelser ut med tilbudsskjemaet */
+.pris-omrade:not(.over-taket) .vis-over, .pris-omrade.over-taket .vis-under { display: none !important; }
+/* Knappefeltet over bunnteksten (21.11.2026): «kan ikke ha denne looken der pga fiken» om det lyse kortet med Muttern
+   oppe til høyre inne i den mørke bunnteksten. Nå et lyseblått bånd fra kant til kant rett over bunnteksten, med knapp
+   og tekst i midten og Muttern midt på kanten, som «Prøv før du bytter» på forsiden. */
+.vp-side .foot-cta-sec { margin-top: 150px; padding: 60px 0 56px; background: #F2F7FF; }
+.vp-side .foot-cta-inner { text-align: center; }
+/* 21.11.2026: «legg knappen til høyre og tekst til venstre». På telefon står teksten over knappen. */
+.vp-side .foot-cta-card { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 40px; max-width: 880px; margin: 0 auto; padding: 0; border-radius: 0; background: none; }
+.vp-side .foot-cta-card p { order: 0; max-width: 30em; font-size: 19px; line-height: 1.5; text-align: left; }
+.vp-side .foot-cta-card .btn { order: 1; }
+.vp-side .foot-cta-mascot { left: 50%; right: auto; top: auto; bottom: calc(100% + 60px); transform: translateX(-50%); }
+/* Muttern med kaffekoppen på kanten av knappefeltet (22.11.2026, i stedet for Muttern i yoga): føttene står på kanten,
+   koppen damper, han vugger litt og puster, og hvert 10. s tar han koppen ned foran «munnen» under øyet og drikker med
+   halvlukket øye over kanten */
+.foot-cta-mascot .m-kaffe { display: block; height: 140px; width: auto; overflow: visible; }
+.m-kaffe .k-vugg { transform-box: view-box; transform-origin: 108px 204.5px; animation: kaffeVugg 4.4s ease-in-out infinite alternate; }
+.m-kaffe .k-pust, .m-kaffe .k-blunk { transform-box: fill-box; }
+.m-kaffe .k-pust { transform-origin: 50% 100%; animation: kaffePust 3.2s ease-in-out infinite alternate; }
+.m-kaffe .k-blunk { transform-origin: 50% 50%; animation: kaffeOye 10s ease-in-out infinite; }
+.m-kaffe .k-arm { animation: kaffeArm 10s ease-in-out infinite; }
+.m-kaffe .k-kopp { animation: kaffeKopp 10s ease-in-out infinite; }
+.m-kaffe .k-tipp { transform-box: view-box; transform-origin: 486px 112px; animation: kaffeTipp 10s ease-in-out infinite; }
+.m-kaffe .k-damp-g { animation: kaffeDampVis 10s linear infinite; }
+.m-kaffe .k-damp { opacity: 0; animation: kaffeDamp 2.6s ease-out infinite; }
+.m-kaffe .k-damp2 { animation-delay: .85s; }
+.m-kaffe .k-damp3 { animation-delay: 1.7s; }
+@keyframes kaffeVugg { from { transform: rotate(-1.6deg); } to { transform: rotate(1.6deg); } }
+@keyframes kaffePust { from { transform: scale(1, 1); } to { transform: scale(1.01, 1.028); } }
+@keyframes kaffeOye { 0%, 14% { transform: scale(1, 1); } 15% { transform: scale(1, .12); } 16%, 18% { transform: scale(1, 1); } 19% { transform: scale(1, .12); } 20%, 47% { transform: scale(1, 1); } 50%, 59% { transform: scale(1, .55); } 62%, 84% { transform: scale(1, 1); } 85% { transform: scale(1, .12); } 86%, 100% { transform: scale(1, 1); } }
+@keyframes kaffeArm { 0%, 38% { opacity: 1; } 40%, 67% { opacity: 0; } 70%, 100% { opacity: 1; } }
+@keyframes kaffeKopp { 0%, 38% { transform: translate(0, 0); } 42% { transform: translate(-10px, 45px); } 46% { transform: translate(-65px, 70px); } 49%, 58% { transform: translate(-65px, 67px); } 61% { transform: translate(-65px, 70px); } 65% { transform: translate(-10px, 45px); } 70%, 100% { transform: translate(0, 0); } }
+@keyframes kaffeTipp { 0%, 46% { transform: rotate(0deg); } 49%, 58% { transform: rotate(-8deg); } 61%, 100% { transform: rotate(0deg); } }
+@keyframes kaffeDampVis { 0%, 35% { opacity: 1; } 39%, 70% { opacity: 0; } 78%, 100% { opacity: 1; } }
+@keyframes kaffeDamp { 0% { opacity: 0; transform: translate(0, 6px); } 25% { opacity: .85; } 100% { opacity: 0; transform: translate(0, -18px); } }
+@media (prefers-reduced-motion: reduce) {
+  .m-kaffe * { animation: none !important; }
+  .m-kaffe .k-damp { opacity: .6; }
+}
+@media (max-width: 760px) {
+  .vp-side .foot-cta-sec { margin-top: 120px; padding: 52px 0 44px; }
+  .vp-side .foot-cta-mascot { bottom: calc(100% + 52px); }
+  .foot-cta-mascot .m-kaffe { height: 108px; }
+  .vp-side .foot-cta-card { flex-direction: column; gap: 18px; }
+  .vp-side .foot-cta-card p { max-width: 34ch; font-size: 18px; text-align: center; }
+}
+/* Nedtrekk i toppmenyen (21.11.2026): åpnes også med tastatur, og står over innholdet under */
+.nav-item:focus-within .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity 190ms ease, transform 190ms ease; }
+.nav-item:focus-within > .nav-trigger .chev { transform: rotate(180deg); opacity: 1; }
+.nav-dropdown { text-align: left; }
+.nav-dropdown .nav-dd-item .s { color: var(--ink); opacity: 0.72; }
+/* Pris etter Henriks oppsett (22.11.2026, Nichlas: «Fikse sånn som Henrik la det frem igår»): admin og mekaniker
+   side om side med pris, tekst og teller; under dem tilleggene; nederst bindingstid og betaling hver for seg og summen. */
+.page-pris .phero-innhold.hk-innhold { max-width: 1120px; }
+.page-pris .hk-boks { background: #fff; border: 1.5px solid var(--line); border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px -44px rgba(12, 0, 90, 0.28); text-align: left; }
+.page-pris .hk-lisenser { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.page-pris .hk-lisens { padding: 34px 44px 32px; }
+.page-pris .hk-lisens + .hk-lisens { border-left: 1.5px solid var(--line); }
+.page-pris .hk-etikett { margin: 0; font-size: 14px; font-weight: 700; line-height: 1.4; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+.page-pris .hk-for { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 -4px; font-size: 16px; line-height: 1.4; }
+.page-pris .hk-for s { color: var(--ink); opacity: 0.55; }
+.page-pris .hk-for span { font-weight: 600; color: #2F7D4E; }
+.page-pris .hk-pris { margin: 12px 0 0; font-size: 17px; line-height: 1.2; color: var(--ink); }
+.page-pris .hk-pris b { font-size: 44px; font-weight: 700; letter-spacing: -1.2px; }
+.page-pris .hk-tekst { margin: 12px 0 20px; max-width: 30em; font-size: 16.5px; line-height: 1.55; color: var(--ink); }
+.page-pris .hk-lisens .teller { flex-wrap: nowrap; }
+.page-pris .hk-borte { display: none !important; }
+.page-pris .hk-tillegg .andre-knapp { padding: 18px 44px; }
+.page-pris .hk-tillegg .tillegg { padding: 18px 44px; }
+.page-pris .hk-bunn { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 28px 56px; padding: 32px 44px 36px; border-top: 1.5px solid var(--line); background: #F8F8FC; }
+.page-pris .hk-valg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; gap: 0 24px; }
+.page-pris .hk-gruppe { display: grid; align-content: start; gap: 4px; }
+.page-pris .hk-gruppe .hk-etikett { margin-bottom: 8px; }
+.page-pris .hk-v { display: flex; align-items: center; gap: 14px; padding: 6px 0; border: 0; background: none; font: inherit; font-size: 17px; line-height: 1.3; color: var(--ink); text-align: left; cursor: pointer; }
+.page-pris .hk-v i { display: grid; place-items: center; flex: 0 0 26px; width: 26px; height: 26px; border-radius: 7px; border: 1.5px solid #C9D3EE; background: #fff; color: transparent; transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
+.page-pris .hk-v i svg { width: 16px; height: 16px; }
+.page-pris .hk-v:hover i { border-color: var(--navy); }
+.page-pris .hk-v[aria-checked="true"] { font-weight: 700; }
+.page-pris .hk-v[aria-checked="true"] i { background: var(--navy); border-color: var(--navy); color: #fff; }
+.page-pris .hk-v.hk-demp { color: rgba(27, 27, 31, 0.42); }
+.page-pris .hk-v.hk-demp i { border-color: #E1E6F3; }
+.page-pris .hk-v:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; border-radius: 6px; }
+.page-pris .hk-kode { grid-column: 1 / -1; margin-top: 16px; }
+.page-pris .hk-kode-apne { padding: 0; border: 0; background: none; font: inherit; font-size: 15.5px; font-weight: 600; color: var(--navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.page-pris .hk-kode-felt { display: none; gap: 8px; max-width: 360px; }
+.page-pris .hk-kode.apen .hk-kode-apne { display: none; }
+.page-pris .hk-kode.apen .hk-kode-felt { display: flex; }
+.page-pris .hk-kode-felt input { flex: 1 1 auto; min-width: 0; height: 44px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; font-size: 16px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink); }
+.page-pris .hk-kode-felt input::placeholder { font-weight: 500; letter-spacing: 0; color: rgba(27, 27, 31, 0.5); }
+.page-pris .hk-kode-felt input:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+.page-pris .hk-kode-bruk { flex: none; height: 44px; padding: 0 18px; border: 0; border-radius: 6px; background: var(--navy); font: inherit; font-size: 15.5px; font-weight: 600; color: #fff; cursor: pointer; }
+.page-pris .hk-kode-bruk:disabled { opacity: 0.4; cursor: default; }
+.page-pris .hk-kode-svar { margin: 8px 0 0; max-width: 34em; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.page-pris .hk-kode-svar:empty { display: none; }
+.page-pris .hk-kode-svar.hk-ok { color: #2F7D4E; font-weight: 600; }
+.page-pris .hk-sum { display: grid; align-content: start; gap: 2px; }
+.page-pris .hk-rad { display: flex; justify-content: space-between; gap: 16px; font-size: 16.5px; line-height: 1.5; color: var(--ink); }
+.page-pris .hk-rad > span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.page-pris .hk-gratis > span:last-child { font-weight: 700; color: var(--navy); }
+.page-pris .hk-spart > span { font-weight: 600; color: #2F7D4E; }
+.page-pris .hk-strek { height: 1.5px; margin: 12px 0 10px; background: var(--line); }
+.page-pris .hk-total { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.page-pris .hk-total-navn { font-size: 18px; font-weight: 600; color: var(--ink); }
+.page-pris .hk-belop { display: inline-flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+.page-pris .hk-belop b { font-size: 40px; font-weight: 700; letter-spacing: -1px; line-height: 1.1; color: var(--ink); }
+.page-pris .hk-belop small { font-size: 16px; color: var(--ink); }
+.page-pris .hk-tilbud { font-size: 22px; font-weight: 700; color: var(--ink); }
+.page-pris .hk-mnd { margin: 2px 0 0; text-align: right; font-size: 15px; color: var(--ink); }
+.page-pris .hk-cta { margin-top: 18px; }
+.page-pris .hk-cta .btn { width: 100%; justify-content: center; }
+.page-pris .hk-vilkaar { margin: 10px 0 0; text-align: center; font-size: 14.5px; line-height: 1.45; color: var(--ink); }
+.page-pris .hk-vilkaar b { font-weight: 600; }
+.page-pris .hk-sum .tilbud-skjema, .page-pris .hk-sum .tilbud-takk { margin-top: 16px; max-width: none; }
+@media (prefers-reduced-motion: reduce) { .page-pris .hk-v i { transition: none; } }
+@media (max-width: 900px) {
+  .page-pris .hk-lisens { padding: 26px 28px 24px; }
+  .page-pris .hk-pris b { font-size: 36px; }
+  .page-pris .hk-tillegg .andre-knapp, .page-pris .hk-tillegg .tillegg { padding: 16px 28px; }
+  .page-pris .hk-bunn { grid-template-columns: minmax(0, 1fr); padding: 26px 28px 30px; }
+}
+@media (max-width: 600px) {
+  .page-pris .hk-boks { border-radius: 22px; }
+  .page-pris .hk-lisenser { grid-template-columns: minmax(0, 1fr); }
+  .page-pris .hk-lisens + .hk-lisens { border-left: 0; border-top: 1.5px solid var(--line); }
+  .page-pris .hk-lisens { padding: 22px 20px; }
+  .page-pris .hk-pris b { font-size: 32px; }
+  .page-pris .hk-tekst { margin: 8px 0 16px; font-size: 15.5px; }
+  .page-pris .hk-tillegg .andre-knapp, .page-pris .hk-tillegg .tillegg { padding: 14px 20px; }
+  .page-pris .hk-bunn { padding: 22px 20px 26px; gap: 22px; }
+  .page-pris .hk-valg { gap: 0 14px; }
+  /* «Betalingsfrekvens» er lang med sperringen: litt mindre sperring på telefon, så tittelen får plass (22.11.2026) */
+  .page-pris .hk-gruppe .hk-etikett { letter-spacing: 0.06em; }
+  .page-pris .hk-v { gap: 10px; font-size: 16px; }
+  .page-pris .hk-rad { font-size: 15.5px; }
+  .page-pris .hk-belop b { font-size: 32px; }
+}
+
+
+/* ── Ordreprogram, forslag etter linear.app/intake (gen/ordre_linear.py). Alt nytt har forstavelsen ol-. ── */
+.ol { --ol-linje: #E7EEFB; }
+
+/* Toppen: ordretavla der Muttern sto. Vinduet er litt bredere enn kolonnen og går ut i margen. */
+.page-ordresystem.ol .vo-hero-split { overflow-x: clip; }
+.page-ordresystem.ol .vo-hero-art { justify-items: start; }
+.page-ordresystem.ol .vo-hero-art .ol-brett { width: 780px; zoom: 0.82; }
+.page-ordresystem.ol .vo-hero-copy .lead { color: var(--ink); }
+
+/* Tavla: hvitt vindu, tre lyseblå baner, kort med det appen viser */
+.ol-brett { background: #fff; border: 1.5px solid #D5E0F7; border-radius: 24px; box-shadow: 0 44px 90px -48px rgba(12, 0, 90, 0.45); overflow: hidden; text-align: left; color: var(--ink); font-size: 15px; line-height: 1.35; }
+.ol-brett-topp { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px 16px; }
+.ol-brett-topp > b { font-family: var(--serif); font-size: 21px; font-weight: 600; letter-spacing: -0.02em; color: var(--navy); }
+.ol-brett-hoyre { display: inline-flex; align-items: center; gap: 12px; }
+.ol-brett-valg { display: inline-flex; padding: 3px; border-radius: 10px; background: #F2F7FF; }
+.ol-brett-valg i { padding: 5px 13px; border-radius: 7px; font-style: normal; font-size: 13.5px; font-weight: 500; color: var(--ink); }
+.ol-brett-valg i.pa { background: #fff; font-weight: 600; color: var(--navy); box-shadow: 0 1px 2px rgba(12, 0, 90, 0.14); }
+.ol-ny { padding: 8px 15px; border-radius: 8px; background: var(--navy); color: #fff; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+.ol-baner { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0 14px 14px; }
+.ol-bane { display: flex; flex-direction: column; gap: 10px; padding: 12px 10px 10px; border-radius: 16px; background: #F2F7FF; }
+.ol-bane-navn { display: flex; align-items: center; gap: 8px; padding: 2px 6px 2px; font-size: 14px; font-weight: 600; color: var(--navy); }
+.ol-bane-navn b { padding: 1px 8px; border-radius: 999px; background: #fff; font-size: 12px; font-weight: 600; }
+.ol-k { display: flex; flex-direction: column; gap: 4px; padding: 13px 14px 12px; border-radius: 14px; background: #fff; border: 1.5px solid #E1E9FA; }
+.ol-k-topp { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 26px; }
+.ol-k-topp b { font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; color: var(--navy); }
+.ol-k-av { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #E7EEFB; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; color: var(--navy); }
+.ol-k-tittel { font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }
+.ol-k-bil { font-size: 13.5px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ol-k-bil b { font-weight: 600; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+.ol-k-fot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; padding-top: 9px; border-top: 1.5px solid #EEF3FC; }
+.ol-k-status { min-width: 0; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ol-k-status i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--navy); }
+.ol-k-status.s-venter i { background: #E0A63A; }
+.ol-k-status.s-avtalt i { background: #6C9BF0; }
+.ol-k-status.s-gaar i { background: #2F7D4E; }
+.ol-k-status.s-gaar { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: var(--navy); font-variant-numeric: tabular-nums; }
+.ol-k-status.s-pause i { background: #9DB0DC; }
+.ol-k-fot em { font-style: normal; font-size: 13.5px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ol-k-paa { border-color: var(--navy); box-shadow: 0 14px 28px -18px rgba(12, 0, 90, 0.5); }
+.ol-k-paa .ol-k-av { background: var(--navy); color: #fff; }
+
+/* ── Den rullestyrte delen. Uten klassen ol-anim (ingen skript, smal skjerm, redusert bevegelse)
+   står stegene som en vanlig liste med den ferdige ordren ved siden av. ── */
+.ol-rull { padding-top: 88px; --P: 0.6; }
+.ol-ramme { max-width: var(--maxw); margin: 0 auto; padding: 24px 28px; display: grid; grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); align-items: center; gap: 72px; }
+.ol-venstre h2 { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: clamp(2rem, 4.4vw, 46px); line-height: 1.12; letter-spacing: -1.2px; text-wrap: balance; }
+/* Stegene: én rad med korte knapper øverst, og under den stegets overskrift og tekst. --P avgjør hvilket
+   steg som er valgt, både når man ruller og når man trykker. Tekstene ligger oppå hverandre, så høyden
+   er den samme hele veien og knapperaden står stille. */
+.ol-valg { display: flex; container-type: inline-size; }
+/* Knappene følger bredden på kolonnen, så de alltid står på én rad: skrift og luft i em, og
+   skriftstørrelsen hentes fra kolonnebredden (--ol-knapp) opp til 15 px. */
+.ol-v { --w: min(clamp(0, (var(--P, 0) - var(--inn) + 0.04) / 0.08, 1), clamp(0, (var(--ut) + 0.04 - var(--P, 0)) / 0.08, 1)); padding: 0.53em 1em 0.6em; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--navy) calc(var(--w) * 100%), #D5E0F7); background: color-mix(in srgb, var(--navy) calc(var(--w) * 100%), #fff); color: color-mix(in srgb, #fff calc(var(--w) * 100%), var(--navy)); font-family: var(--sans); font-size: min(15px, var(--ol-knapp, 3.6cqw)); font-weight: 600; line-height: 1.2; white-space: nowrap; cursor: pointer; }
+.ol-v + .ol-v { margin-left: 0.53em; }
+.ol-om { margin-top: 30px; display: grid; font-size: 19px; }
+.ol-o { grid-area: 1 / 1; align-self: start; --v: min(clamp(0, (var(--P, 0) - var(--inn)) / 0.07, 1), clamp(0, (var(--ut) - var(--P, 0)) / 0.07, 1)); opacity: var(--v); line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+.ol-o p { margin-top: 18px; max-width: 475px; }
+.ol-o p.ol-o2 { margin-top: 14px; font-size: 17.5px; line-height: 1.6; }
+.ol-rull:not(.ol-anim) .ol-v { transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+.ol-rull:not(.ol-anim) .ol-o { transition: opacity 0.18s ease; transition-delay: calc(var(--v) * 0.18s); }
+.ol-scene2 { height: 520px; padding: 40px; border-radius: 28px; background: #F2F7FF; display: grid; justify-items: center; align-items: start; overflow: hidden; }
+/* Flaten til høyre: ordren i første, andre og siste steg, og bildet av mekanikeren i det tredje. De ligger
+   oppå hverandre og bytter med --P. (Flaten bruker egne navn, --ba og --bb, så de ikke arves av delene
+   i ordren, som har sine egne --a og --b.) */
+.ol-scene3 { position: relative; height: 560px; border-radius: 28px; overflow: hidden; }
+.ol-b { position: absolute; left: 0; top: 0; width: 100%; height: 100%; --bi: clamp(0, (var(--P, 0) - var(--ba)) / 0.08, 1); --bu: clamp(0, (var(--P, 0) - var(--bb, 99)) / 0.08, 1); opacity: calc(var(--bi) * (1 - var(--bu))); }
+img.ol-b { display: block; max-width: none; object-fit: cover; }
+.ol-b0 { --ba: -9; --bb: 1.92; opacity: max(calc(var(--bi) * (1 - var(--bu))), clamp(0, (var(--P, 0) - 3) / 0.08, 1)); }
+.ol-b2 { --ba: 2; --bb: 2.92; object-position: 50% 18%; }
+/* Ordren står midt i flaten (litt sterkere lyseblå enn ellers, så det hvite kortet står fram) */
+.ol-b-flate { display: grid; justify-items: center; align-items: center; padding: 20px; }
+.ol-rull:not(.ol-anim) .ol-b { transition: opacity 0.25s ease; }
+@media (min-width: 901px) {
+  .page-ordresystem.ol .ol-ramme { grid-template-columns: minmax(0, 1fr) 440px; gap: 88px; }
+}
+
+/* Ordren */
+.ol-ordre { width: 100%; max-width: 440px; background: #fff; border: 1.5px solid #D5E0F7; border-radius: 24px; box-shadow: 0 34px 70px -40px rgba(12, 0, 90, 0.42); overflow: hidden; text-align: left; color: var(--ink); font-size: 16px; line-height: 1.4; }
+.ol-ordre-topp { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 22px 24px 18px; }
+.ol-ordre-hvem { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ol-ordre-hvem b { font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--navy); }
+.ol-ordre-hvem > span { font-size: 23px; font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); }
+.ol-statuser { display: inline-grid; justify-items: end; margin-top: 2px; }
+.ol-statuser > * { grid-area: 1 / 1; }
+.ol-status { padding: 5px 13px; border-radius: 999px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.ol-par { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 50px; padding: 0 24px; border-top: 1.5px solid var(--ol-linje); }
+.ol-par > span { font-size: 14px; font-weight: 600; color: var(--navy); }
+.ol-par b { display: inline-flex; align-items: center; gap: 9px; font-size: 16px; font-weight: 600; white-space: nowrap; }
+.ol-par .oi-skilt { padding: 2px 8px; font-size: 12.5px; }
+.ol-d-foresp { border-top: 1.5px solid var(--ol-linje); }
+.ol-foresp { margin: 16px 24px 4px; padding: 13px 16px 14px; border-radius: 14px; background: #F2F7FF; display: flex; flex-direction: column; gap: 3px; }
+.ol-foresp small, .ol-linjetittel { font-size: 14px; font-weight: 600; color: var(--navy); }
+.ol-linjetittel { padding: 16px 24px 12px; }
+.ol-linjer { border-top: 1.5px solid var(--ol-linje); }
+.ol-linjer .ol-del > div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 13px 24px; border-bottom: 1.5px solid var(--ol-linje); }
+.ol-linjer b { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ol-linjer .ol-sum { background: #F2F7FF; font-weight: 600; color: var(--navy); }
+.ol-linjer .ol-sum b { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.ol-tom { padding: 14px 24px 22px; }
+.ol-tom i { display: block; padding: 11px 0; border-radius: 12px; border: 1.5px dashed #B9C8EE; text-align: center; font-style: normal; font-size: 14.5px; font-weight: 600; color: var(--navy); }
+.ol-send { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 24px 20px; font-size: 15px; font-weight: 500; }
+.ol-send i { padding: 10px 18px; border-radius: 10px; background: var(--navy); color: #fff; font-style: normal; font-size: 14.5px; font-weight: 600; white-space: nowrap; }
+.ol-sjekk { display: flex; align-items: center; gap: 11px; padding: 14px 24px 12px; font-size: 16px; font-weight: 600; color: var(--ink); }
+.ol-d-k2 .ol-sjekk { padding-top: 6px; padding-bottom: 22px; }
+.ol-sjekk i { flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #2F7D4E; color: #fff; }
+/* --P går fra 0 til 4 og fyller ordren. Uten rullestyring (smal skjerm, redusert bevegelse) står --P
+   på steget som er trykket på, og delene glir inn i stedet for å følge rullingen. */
+.ol-rull:not(.ol-anim) .ol-del { transition: max-height 0.3s ease, opacity 0.3s ease; }
+.ol-rull:not(.ol-anim) .ol-st, .ol-rull:not(.ol-anim) .ol-chip { transition: opacity 0.3s ease, transform 0.3s ease; }
+
+.ol-rull.ol-fast .ol-spor { height: calc((var(--ol-blokk) + var(--ol-lengde)) * 1px); }
+.ol-rull.ol-fast .ol-feste { position: sticky; top: calc(var(--ol-topp) * 1px); transform: scale(var(--ol-skala, 1)); transform-origin: 50% 0; }
+.ol-t0 { --inn: -9; --ut: 0.95; } .ol-t1 { --inn: 0.95; --ut: 1.95; } .ol-t2 { --inn: 1.95; --ut: 2.95; } .ol-t3 { --inn: 2.95; --ut: 99; }
+.ol-rull .ol-del { --i: clamp(0, (var(--P, 0) - var(--a)) / 0.08, 1); --u: clamp(0, (var(--P, 0) - var(--b, 99)) / 0.08, 1); --q: calc(var(--i) * (1 - var(--u))); max-height: calc(var(--q) * var(--h, 56px)); opacity: var(--q); overflow: hidden; }
+.ol-rull .ol-st { --i: clamp(0, (var(--P, 0) - var(--a)) / 0.08, 1); --u: clamp(0, (var(--P, 0) - var(--b, 99)) / 0.08, 1); opacity: calc(var(--i) * (1 - var(--u))); }
+.ol-rull .ol-chip { opacity: clamp(0, (var(--P, 0) - var(--a)) / 0.08, 1); transform: translateY(calc((1 - clamp(0, (var(--P, 0) - var(--a)) / 0.08, 1)) * 6px)); }
+/* Første steg: forespørselen står, og linjene er tomme. Andre steg: prisene, summen og «Send tilbud»
+   kommer, forespørselen og den tomme linja går, og statusen bytter. Tredje steg er bildet av
+   mekanikeren. Siste steg: ordren er klar for oppgjør, så kommer fakturakontrollen og «Sendt til
+   regnskap». */
+.ol-st0 { --a: -9; --b: 1.5; } .ol-st1 { --a: 1.6; --b: 2.5; } .ol-st2 { --a: 2.6; --b: 3.44; } .ol-st3 { --a: 3.54; }
+.ol-d-tom { --a: -9; --b: 0.98; --h: 86px; }
+.ol-d-l1 { --a: 1.02; } .ol-d-l2 { --a: 1.12; } .ol-d-sum { --a: 1.22; --h: 62px; }
+.ol-d-foresp { --a: -9; --b: 1.3; --h: 104px; }
+.ol-d-send { --a: 1.32; --b: 2.5; --h: 80px; }
+.ol-d-k1 { --a: 3.12; --h: 54px; } .ol-d-k2 { --a: 3.3; --h: 58px; }
+
+/* ── Rollene: tre rader, bildet til venstre, høyre, venstre (21.11.2026) ── */
+.ol-kap { max-width: var(--maxw); margin: 0 auto; padding: 104px 28px 0; }
+.ol-roller-tittel { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: clamp(2rem, 4.4vw, 46px); line-height: 1.12; letter-spacing: -1.2px; text-wrap: balance; }
+.ol-roller-inn { margin-top: 16px; max-width: 34em; font-size: 19px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+.ol-roller-rad { margin-top: 56px; display: grid; gap: 80px; }
+.ol-rolle { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); align-items: center; gap: 88px; }
+.ol-rolle-h { grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr); }
+.ol-rolle-h .ol-flis { order: 2; }
+.ol-flis { height: 380px; padding: 44px 28px 0; display: grid; justify-items: center; align-items: start; overflow: hidden; }
+/* Uten flis bak tones telefonene ut nederst i stedet for å kuttes av en kant */
+.ol-flis:not(.ol-flis-midt) { -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%); mask-image: linear-gradient(to bottom, #000 78%, transparent 100%); }
+.ol-flis-midt { align-items: center; padding: 28px; }
+.ol-flis .oi-tlf { zoom: 1; box-shadow: 0 24px 48px -30px rgba(12, 0, 90, 0.36); }
+.ol-rolle h3 { font-family: var(--serif); font-size: clamp(28px, 3vw, 36px); font-weight: 600; line-height: 1.12; letter-spacing: -0.025em; color: var(--ink); }
+.ol-rolle p { margin-top: 14px; max-width: 22em; font-size: 19px; line-height: 1.6; color: var(--ink); text-wrap: pretty; }
+.ol-tilbud { width: 100%; max-width: 380px; box-shadow: 0 24px 48px -30px rgba(12, 0, 90, 0.36); font-size: 15px; }
+.ol-tilbud .oi-topp { padding: 14px 18px; }
+.ol-tilbud-rader > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; row-gap: 2px; align-items: center; padding: 12px 18px 13px; border-bottom: 1.5px solid var(--ol-linje); }
+.ol-tilbud-rader b { font-size: 13.5px; font-weight: 700; letter-spacing: 0.03em; color: var(--navy); }
+.ol-tilbud-rader span { grid-column: 1; font-size: 14.5px; font-weight: 600; color: var(--ink); }
+.ol-tilbud-rader i { grid-column: 2; grid-row: 1; justify-self: end; font-style: normal; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ol-tilbud-rader small { grid-column: 2; grid-row: 2; justify-self: end; padding: 2px 9px; border-radius: 999px; background: #E7EEFB; font-size: 12px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+.ol-tilbud-rader small.ok { background: #E3F2E8; color: #1F6B3E; }
+.ol-tilbud-rader small.fakt { background: var(--navy); color: #fff; }
+
+/* Det dere skrur på og lenker videre */
+.ol-kap-hode { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 80px; }
+.ol-kap-hode h2 { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: clamp(2rem, 4.4vw, 46px); line-height: 1.12; letter-spacing: -1.2px; text-wrap: balance; }
+.ol-kap-hode p { max-width: 470px; padding-top: 10px; font-size: 19px; line-height: 1.6; color: var(--ink); text-wrap: pretty; }
+.ol-typer { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
+.ol-typer li { flex: 1 1 auto; padding: 17px 20px; border-radius: 14px; border: 1.5px solid var(--navy); background: #fff; font-family: var(--serif); font-size: 21px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--navy); text-align: center; white-space: nowrap; }
+.ol-punkter { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1.5px solid var(--ol-linje); }
+.ol-punkter > * { padding: 30px 32px 34px; }
+.ol-punkter > *:first-child { padding-left: 0; }
+.ol-punkter > * + * { border-left: 1.5px solid var(--ol-linje); }
+.ol-punkter h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }
+.ol-punkter p { margin-top: 8px; font-size: 16.5px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+.ol-videre { padding-top: 96px; }
+.ol-lenker { border-top: 1.5px solid var(--ol-linje); }
+.ol-lenker a { display: block; text-decoration: none; color: inherit; }
+.ol-lenker h3 { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--navy); }
+.ol-lenker h3 span { font-weight: 500; transition: transform 0.2s ease; }
+.ol-lenker a:hover h3 span { transform: translateX(4px); }
+.page-ordresystem.ol .cta-sec { padding-top: 96px; }
+
+@media (max-width: 1320px) { .page-ordresystem.ol .vo-hero-art .ol-brett { zoom: 0.72; } }
+@media (max-width: 1220px) { .page-ordresystem.ol .vo-hero-art .ol-brett { zoom: 0.66; } }
+@media (max-width: 1120px) { .page-ordresystem.ol .vo-hero-art .ol-brett { zoom: 0.6; } }
+@media (max-width: 1020px) { .page-ordresystem.ol .vo-hero-art .ol-brett { zoom: 0.54; } }
+@media (max-width: 900px) {
+  .page-ordresystem.ol .vo-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .page-ordresystem.ol .vo-hero-art { order: 0; }
+  .page-ordresystem.ol .vo-hero-art .ol-brett { width: 100%; zoom: 1; }
+}
+@media (max-width: 900px) {
+  .ol-rull { padding-top: 56px; }
+  .ol-ramme { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 24px; }
+  .ol-scene2 { height: auto; padding: 28px 20px; }
+  .ol-scene3 { height: 480px; max-width: 440px; width: 100%; justify-self: center; }
+  .ol-kap { padding: 72px 24px 0; }
+  .ol-roller-rad { gap: 56px; }
+  .ol-rolle, .ol-rolle-h { gap: 48px; }
+  .ol-flis { height: 320px; padding: 32px 18px 0; }
+  .ol-flis-midt { padding: 20px; }
+  .ol-flis .oi-tlf { zoom: 0.9; }
+  .ol-tilbud { font-size: 14px; }
+  .ol-kap-hode { gap: 40px; }
+  .ol-kap-hode p { font-size: 17.5px; }
+  .ol-typer { margin-top: 30px; gap: 10px; }
+  .ol-typer li { padding: 13px 14px; font-size: 18px; }
+  .ol-punkter > * { padding: 24px 22px 26px; }
+}
+@media (max-width: 600px) {
+  .page-ordresystem.ol .vo-hero-art { order: 0; justify-items: center; }
+  .page-ordresystem.ol .vo-hero-art .ol-brett { width: 100%; zoom: 1; font-size: 12.5px; border-radius: 18px; }
+  .ol-brett-topp { padding: 13px 14px 11px; }
+  .ol-brett-topp > b { font-size: 17px; }
+  .ol-ny { display: none; }
+  .ol-baner { gap: 6px; padding: 0 8px 8px; }
+  .ol-bane { gap: 6px; padding: 8px 5px 5px; border-radius: 12px; }
+  .ol-bane-navn { gap: 5px; padding: 0 3px; font-size: 11.5px; }
+  .ol-bane-navn b { display: none; }
+  .ol-k { gap: 3px; padding: 8px 8px 8px; border-radius: 10px; }
+  .ol-k-topp { min-height: 0; }
+  .ol-k-topp b { font-size: 10.5px; }
+  .ol-k-av { width: 20px; height: 20px; font-size: 9px; }
+  .ol-k-tittel { font-size: 12.5px; }
+  .ol-k-bil { font-size: 11px; }
+  .ol-k-bil b { display: none; }
+  .ol-k-fot { flex-direction: column; align-items: flex-start; gap: 3px; margin-top: 5px; padding-top: 6px; }
+  .ol-k-status { font-size: 11px; white-space: normal; gap: 5px; }
+  .ol-k-status.s-gaar { font-size: 12px; }
+  .ol-k-fot em { font-size: 11px; }
+  .ol-rull { padding-top: 40px; }
+  .ol-ramme { padding: 16px; gap: 24px; }
+  .ol-valg { --ol-knapp: 3.95cqw; }
+  .ol-v { padding: 0.5em 0.8em 0.57em; }
+  .ol-v + .ol-v { margin-left: 0.45em; }
+  .ol-om { margin-top: 22px; font-size: 17.5px; }
+  .ol-o p { margin-top: 12px; }
+  .ol-o p.ol-o2 { margin-top: 10px; font-size: 16.5px; }
+  .ol-scene3 { height: 540px; border-radius: 22px; }
+  .ol-b-flate { padding: 12px; }
+  .ol-scene2 { padding: 20px 12px; border-radius: 22px; }
+  .ol-ordre { font-size: 15px; border-radius: 20px; }
+  .ol-ordre-topp { padding: 18px 18px 14px; }
+  .ol-ordre-hvem > span { font-size: 20px; }
+  .ol-status { padding: 4px 10px; font-size: 12px; }
+  .ol-par { padding: 0 18px; min-height: 46px; }
+  .ol-par b { font-size: 15px; }
+  .ol-foresp { margin: 14px 18px 4px; }
+  .ol-linjetittel { padding: 14px 18px 10px; }
+  .ol-linjer .ol-del > div { padding: 12px 18px; }
+  .ol-tom { padding: 12px 18px 18px; }
+  .ol-send { padding: 14px 18px 18px; font-size: 14px; }
+  .ol-sjekk { padding-left: 18px; padding-right: 18px; }
+  .ol-kap { padding: 56px 16px 0; }
+  .ol-roller-rad { gap: 44px; margin-top: 28px; }
+  .ol-flis { height: 290px; }
+  .ol-flis-midt { padding: 14px; }
+  .ol-flis .oi-tlf { zoom: 0.94; }
+  .ol-kap-hode { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .ol-kap-hode p { padding-top: 0; font-size: 17px; }
+  .ol-typer { margin-top: 18px; gap: 8px; }
+  .ol-typer li { flex: 0 1 auto; padding: 9px 14px; border-radius: 10px; font-size: 16.5px; }
+  .ol-punkter { grid-template-columns: minmax(0, 1fr); }
+  .ol-punkter > * { padding: 18px 0 20px; }
+  .ol-punkter > * + * { border-left: none; border-top: 1.5px solid var(--ol-linje); }
+  .ol-videre { padding-top: 56px; }
+}
+@media (max-width: 760px) {
+  .ol-rolle, .ol-rolle-h { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .ol-rolle-h .ol-flis { order: 0; }
+}
+/* Toppen (21.11.2026): tekst og knapp i midten, og tre små bilder på rad under (kontoret, mekanikeren, kunden) */
+.page-ordresystem.ol .vo-hero-grid { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; }
+.page-ordresystem.ol .vo-hero-copy { max-width: 820px; }
+.page-ordresystem.ol .vo-hero-copy .lead { margin-left: auto; margin-right: auto; max-width: 600px; }
+.page-ordresystem.ol .vo-hero-copy .cta-row { justify-content: center; }
+.ol-tre { max-width: var(--maxw); margin: 80px auto 0; padding: 0 28px; }
+.ol-tre-inn { margin: 0 auto; max-width: 34em; text-align: center; font-size: 19px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+.ol-tre-rad { margin-top: 36px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.ol-tre-del { margin: 0; }
+.ol-flis.ol-tre-flis { height: 300px; padding: 16px 8px 0; }
+.ol-flis.ol-tre-flis.ol-flis-midt { padding: 16px; }
+.ol-tre-flis .oi-tlf { zoom: 0.86; }
+.ol-tre .ol-tilbud { max-width: 320px; font-size: 14px; }
+.ol-tre-del figcaption { margin-top: 16px; text-align: center; font-size: 16.5px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+.ol-tre-del figcaption b { display: block; margin-bottom: 4px; font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+@media (max-width: 760px) {
+  .ol-tre { margin-top: 52px; padding: 0 16px; }
+  .ol-tre-rad { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .ol-flis.ol-tre-flis { height: 280px; }
+  .ol-tre-flis .oi-tlf { zoom: 0.9; }
+}
+/* Toppen (21.11.2026, ryddet etter «elendig fitment og dårlig ordbruk»): Muttern med ordren til venstre, tre like
+   rader med grønn hake til høyre, rett og likt justert; knappen under, midtstilt. */
+.ol-usp { max-width: 820px; margin: 48px auto 0; padding: 0 28px; display: grid; grid-template-columns: 250px minmax(0, 1fr); align-items: center; gap: 44px; }
+.ol-hold { display: block; width: 100%; height: auto; animation: olHold 4.5s ease-in-out infinite; }
+@keyframes olHold { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-6px) rotate(-1.2deg); } }
+.ol-usp-liste { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; text-align: left; }
+.ol-usp-liste li { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 14px; align-items: center; padding: 14px 18px; border-radius: 16px; border: 1.5px solid #D5E0F7; background: #fff; box-shadow: 0 18px 34px -28px rgba(12, 0, 90, 0.4); }
+.ol-usp-liste i { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #2F7D4E; color: #fff; }
+.ol-usp-liste i svg { width: 16px; height: 16px; }
+.ol-usp-liste p { margin: 0; font-size: 15.5px; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
+.ol-usp-liste p b { display: block; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+.page-ordresystem.ol .ol-usp + .cta-row { display: flex; justify-content: center; margin: 40px auto 0; padding: 0 28px; }
+@media (prefers-reduced-motion: reduce) { .ol-hold { animation: none; } }
+@media (max-width: 760px) {
+  .ol-usp { grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 30px; padding: 0 16px; }
+  .ol-hold { justify-self: center; max-width: 200px; }
+  .ol-usp-liste li { padding: 12px 14px; }
+  .ol-usp-liste p b { font-size: 17px; }
+}
+/* Toppen som på forsiden (21.11.2026: «vis nettsiden her på samme måte som denne»): tekst og knapp i midten, og
+   nettsiden i et stort vindu under, med samme ramme og skygge som dashbordet. Muttern ved hjørnet nede til venstre. */
+.bx { padding: 62px 0 72px; }
+.bx .lead { margin-top: 24px; color: var(--ink); }
+.bx .cta-row { margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.bx-vindu-wrap { max-width: var(--maxw); margin: 64px auto 0; padding: 0 28px; }
+.bx-stabel { position: relative; max-width: 1124px; margin: 0 auto; }
+.bx-vindu { margin: 0; background: #fff; border: 1.5px solid #D5E0F7; border-radius: 22px; overflow: hidden; box-shadow: 0 40px 80px -44px rgba(12, 0, 90, 0.4); text-align: left; }
+.bx-vindu .ns-bar { height: 40px; padding: 0 16px; }
+.bx-vindu .ns-bar i { width: 11px; height: 11px; }
+.bx-vindu .ns-bar b { font-size: 14px; }
+.bx-vindu img { display: block; width: 100%; height: auto; aspect-ratio: 1120 / 700; }
+.bx-stabel .m-hei { position: absolute; left: -92px; bottom: -34px; width: auto; height: 250px; max-width: none; }
+@media (max-width: 1320px) { .bx-stabel .m-hei { left: -40px; height: 210px; } }
+@media (max-width: 900px) {
+  .bx { padding-top: 40px; padding-bottom: 24px; }
+  .bx-vindu-wrap { margin-top: 44px; padding: 0 16px; }
+  .bx-vindu { border-radius: 16px; }
+  .bx-vindu .ns-bar { height: 30px; padding: 0 12px; }
+  .bx-stabel { padding-bottom: 96px; }
+  .bx-stabel .m-hei { left: 4px; bottom: 0; height: 130px; }
+}
+.k3-rad { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.k3 { display: grid; grid-template-rows: auto auto 1fr auto; padding: 22px 22px 26px; border-radius: 26px; text-align: left; color: var(--ink); }
+.k3-foresp { background: #DFE9FF; }
+.k3-status { background: #DCF1E4; }
+.k3-nett { background: #E9E4FB; }
+.k3-vis { height: 176px; margin-bottom: 24px; padding: 18px; border-radius: 18px; background: rgba(255, 255, 255, 0.7); display: grid; place-items: center; overflow: hidden; }
+.k3 h3 { margin: 0; font-family: var(--serif); font-size: 26px; font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); }
+.k3 > p { margin: 10px 0 0; font-size: 17px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+.k3-merke { justify-self: start; margin-top: 18px; font-size: 15px; font-weight: 600; color: var(--navy); }
+/* Forespørsler: kveldsvarsel og en ny forespørsel */
+.k3-varsel { width: 100%; display: grid; gap: 10px; justify-items: center; }
+.k3-klokke { padding: 6px 12px; border-radius: 999px; background: var(--navy); color: #fff; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+.k3-ny { width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: #fff; box-shadow: 0 14px 26px -18px rgba(12, 0, 90, 0.4); }
+.k3-ny i { flex: none; width: 10px; height: 10px; border-radius: 50%; background: #5B8DEF; box-shadow: 0 0 0 4px rgba(91, 141, 239, 0.2); }
+.k3-ny p { margin: 0; font-size: 13px; line-height: 1.35; color: var(--ink); }
+.k3-ny p b { display: block; font-size: 15px; font-weight: 600; color: var(--navy); }
+/* Status: fasene som kunden ser */
+.k3-trinn { margin: 0; padding: 0; list-style: none; width: 100%; display: grid; gap: 9px; }
+.k3-trinn li { display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 500; color: var(--ink); opacity: 0.55; }
+.k3-trinn li i { flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #9DB7A6; background: #fff; color: #fff; }
+.k3-trinn li i svg { width: 12px; height: 12px; }
+.k3-trinn li.ok, .k3-trinn li.na { opacity: 1; }
+.k3-trinn li.ok i { border-color: #2F7D4E; background: #2F7D4E; }
+.k3-trinn li.na { font-weight: 600; color: var(--navy); }
+.k3-trinn li.na i { border-color: var(--navy); background: #fff; box-shadow: inset 0 0 0 4px #fff, inset 0 0 0 11px var(--navy); }
+/* Personlig nettside: en liten tegnet nettside */
+.k3-side { width: 100%; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 14px 26px -18px rgba(12, 0, 90, 0.4); }
+.k3-bar { display: flex; align-items: center; gap: 5px; height: 26px; padding: 0 10px; border-bottom: 1.5px solid #E3DFF5; }
+.k3-bar i { width: 7px; height: 7px; border-radius: 50%; background: #D8D2F0; }
+.k3-bar b { margin-left: 6px; font-size: 11px; font-weight: 500; color: var(--ink); opacity: 0.7; }
+.k3-innhold { display: grid; gap: 7px; justify-items: start; padding: 12px 14px 14px; }
+.k3-logo { width: 46px; height: 12px; border-radius: 4px; background: var(--navy); }
+.k3-l1 { width: 82%; height: 11px; border-radius: 4px; background: #CFC7EE; }
+.k3-l2 { width: 60%; height: 11px; border-radius: 4px; background: #E3DEF6; }
+.k3-knapp { margin-top: 3px; padding: 5px 11px; border-radius: 999px; background: var(--navy); color: #fff; font-size: 11px; font-weight: 600; }
+@media (max-width: 900px) {
+  .k3-rad { grid-template-columns: minmax(0, 1fr); gap: 16px; max-width: 520px; margin: 0 auto; }
+  .k3-vis { height: 160px; }
+}
+/* Ordreprogram med inspirasjon fra Nettside og booking (21.11.2026): tavla i et stort vindu, rollene som fargede kort */
+.ox-stabel .ol-brett { width: 100%; }
+.ox-stabel .ol-baner { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ol-k-status.s-klar i { background: #8B6FE0; }
+/* Muttern med ordren står oppå kanten av tavla, øverst til høyre (ikke over kortene) */
+.ox-hold { position: absolute; right: 36px; bottom: calc(100% - 10px); width: auto; height: 150px; max-width: none; animation: olHold 4.5s ease-in-out infinite; }
+.ox-roller { padding-top: 24px; }
+.ox-inn { margin: 0 auto 36px; max-width: 34em; text-align: center; font-size: 19px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+.k3-bla { background: #DFE9FF; }
+.k3-gronn { background: #DCF1E4; }
+.k3-lilla { background: #E9E4FB; }
+.ox-liste { width: 100%; display: grid; gap: 8px; }
+.ox-rad { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 10px; row-gap: 2px; align-items: center; padding: 10px 12px; border-radius: 12px; background: #fff; box-shadow: 0 10px 20px -16px rgba(12, 0, 90, 0.35); text-align: left; }
+.ox-rad b { font-size: 11.5px; font-weight: 700; letter-spacing: 0.03em; color: var(--navy); }
+.ox-rad span { grid-column: 1; font-size: 13.5px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ox-rad i { grid-column: 2; grid-row: 1; justify-self: end; font-style: normal; font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+.ox-rad small { grid-column: 2; grid-row: 2; justify-self: end; padding: 1px 8px; border-radius: 999px; background: #E7EEFB; font-size: 11px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+.ox-rad small.ok { background: #E3F2E8; color: #1F6B3E; }
+.ox-jobb { width: 100%; display: grid; gap: 7px; justify-items: start; padding: 12px 14px; border-radius: 14px; background: #fff; box-shadow: 0 10px 20px -16px rgba(12, 0, 90, 0.35); text-align: left; }
+.ox-skilt { padding: 2px 7px; border: 1.5px solid var(--navy); border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: var(--navy); white-space: nowrap; }
+.ox-jobb p { margin: 0; font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.ox-tid { display: flex; align-items: center; gap: 7px; font-size: 20px; font-weight: 700; line-height: 1.1; color: var(--navy); font-variant-numeric: tabular-nums; }
+.ox-tid i { width: 8px; height: 8px; border-radius: 50%; background: #2F7D4E; }
+.ox-knapper { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.ox-knapper span { padding: 6px 0; border: 1.5px solid #D5E0F7; border-radius: 8px; background: #fff; text-align: center; font-size: 11.5px; font-weight: 600; color: var(--navy); }
+.ox-knapper span.mork { border-color: var(--navy); background: var(--navy); color: #fff; }
+.ox-garasje { gap: 9px; }
+.ox-gtit { font-size: 15px !important; color: var(--navy) !important; }
+.ox-bil { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--ink); }
+.ox-tilbud { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 8px 8px 10px; border: 1.5px solid #E3DFF5; border-radius: 10px; }
+.ox-tilbud span { display: grid; font-size: 11px; color: var(--ink); }
+.ox-tilbud span b { font-size: 14px; font-weight: 700; color: var(--navy); }
+.ox-tilbud em { padding: 6px 10px; border-radius: 8px; background: var(--navy); color: #fff; font-style: normal; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+@media (max-width: 900px) {
+  .ox-hold { right: auto; left: 4px; bottom: 0; height: 120px; }
+  .bx-stabel.ox-stabel { padding-bottom: 128px; }  /* Muttern står under tavla og dekker ikke nederste rad */
+  .ox-roller { padding-top: 8px; }
+}
+@media (max-width: 600px) {
+  .ox-stabel .ol-baner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ox-stabel .ol-bane:nth-child(4) { display: none; }
+  .ox-inn { font-size: 17px; margin-bottom: 24px; }
+}
+/* Kanban og Liste kan trykkes på tavla (21.11.2026: «vis kanban og liste») */
+.ol-brett-valg i { cursor: pointer; }
+@media (min-width: 901px) { .ox-stabel .ol-brett { min-height: 430px; } }
+.ol-brett.vis-liste .ol-baner { display: none; }
+.ol-brett:not(.vis-liste) .ol-liste { display: none; }
+.ol-liste { display: flex; flex-direction: column; margin: 0 22px 12px; border-top: 1px solid #E8EEF9; }
+.ol-lrad { display: grid; grid-template-columns: 64px minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 1fr) 30px 80px; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid #E8EEF9; text-align: left; }
+.ol-lrad:last-child { border-bottom: 0; }
+.ol-lkunde { min-width: 0; font-size: 14px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ol-lnr { font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; color: var(--navy); }
+.ol-ljobb { min-width: 0; display: grid; gap: 1px; }
+.ol-ljobb > b { font-size: 15px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ol-ljobb > span { font-size: 13px; color: var(--ink); opacity: 0.8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ol-lhvem { display: flex; justify-content: center; }
+.ol-lrad .ol-k-status.s-gaar { font-size: 13px; font-weight: 600; letter-spacing: 0; color: var(--ink); }
+.ol-lsum { justify-self: end; font-style: normal; font-size: 14px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 760px) {
+  .ol-liste { margin: 0 14px 8px; }
+  .ol-lrad { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; padding: 10px 0; }
+  .ol-lnr, .ol-lhvem, .ol-lkunde { display: none; }
+  .ol-lsum { grid-column: 2; grid-row: 1; }
+  .ol-lrad .ol-k-status { grid-column: 1 / -1; }
+}
+/* Rollekortene (22.11.2026, Henrik og Oscar: «animasjon på hver enkelt for å få frem poenget bedre»): den samme ordren
+   går mellom skjermene i en rolig runde på 12 s. Kunden godtar tilbudet (12 til 16 %), kontoret ser at det er akseptert
+   (24 til 28 %), og mekanikeren stempler inn og tiden går (36 til 82 %). Så starter runden på nytt. */
+@property --ox-sek { syntax: '<integer>'; inherits: false; initial-value: 42; }
+.ox-tilbud em.ox-godta, .ox-rad small.ox-status { display: inline-grid; }
+.ox-tilbud em.ox-godta > span, .ox-rad small.ox-status > span { grid-area: 1 / 1; display: inline-flex; align-items: center; justify-content: center; gap: 4px; font-size: inherit; font-weight: inherit; color: inherit; overflow: visible; }
+.ox-godta { animation: oxGodta 12s ease-in-out infinite; }
+.ox-godta .for { animation: oxGodtaFor 12s linear infinite; }
+.ox-godta .etter { animation: oxGodtaEtter 12s linear infinite; }
+.ox-akt { animation: oxRad 12s ease-in-out infinite; }
+.ox-status { animation: oxStatus 12s linear infinite; }
+.ox-status .for { animation: oxStatusFor 12s linear infinite; }
+.ox-status .etter { animation: oxStatusEtter 12s linear infinite; }
+.ox-mek { animation: oxMek 12s ease-in-out infinite; }
+.ox-mek .ox-tid i { animation: oxPrikk 12s linear infinite; }
+.ox-sek { --ox-sek: 42; counter-reset: oxsek var(--ox-sek); animation: oxSek 12s linear infinite; }
+.ox-sek::after { content: "00:" counter(oxsek, decimal-leading-zero); }
+@keyframes oxGodta { 0%, 11% { transform: none; background: var(--navy); } 13.5% { transform: scale(0.9); background: var(--navy); } 16% { transform: none; background: #2F7D4E; } 90% { transform: none; background: #2F7D4E; } 94%, 100% { transform: none; background: var(--navy); } }
+@keyframes oxGodtaFor { 0%, 15% { opacity: 1; } 16.5%, 91% { opacity: 0; } 93.5%, 100% { opacity: 1; } }
+@keyframes oxGodtaEtter { 0%, 15% { opacity: 0; } 16.5%, 91% { opacity: 1; } 93.5%, 100% { opacity: 0; } }
+@keyframes oxRad { 0%, 23%, 36%, 100% { background: #fff; box-shadow: 0 10px 20px -16px rgba(12, 0, 90, 0.35); } 27% { background: #F3FAF5; box-shadow: 0 0 0 2px #2F7D4E, 0 10px 20px -16px rgba(12, 0, 90, 0.35); } }
+@keyframes oxStatus { 0%, 26% { background: #E7EEFB; color: var(--navy); } 27.5%, 90% { background: #E3F2E8; color: #1F6B3E; } 93.5%, 100% { background: #E7EEFB; color: var(--navy); } }
+@keyframes oxStatusFor { 0%, 26% { opacity: 1; } 27.5%, 91% { opacity: 0; } 93.5%, 100% { opacity: 1; } }
+@keyframes oxStatusEtter { 0%, 26% { opacity: 0; } 27.5%, 91% { opacity: 1; } 93.5%, 100% { opacity: 0; } }
+@keyframes oxMek { 0%, 34% { opacity: 0.45; } 38%, 89% { opacity: 1; } 94%, 100% { opacity: 0.45; } }
+@keyframes oxPrikk { 0%, 38% { background: #B9C6E2; } 39%, 91% { background: #2F7D4E; } 93%, 100% { background: #B9C6E2; } }
+@keyframes oxSek { 0%, 39% { --ox-sek: 0; } 82%, 91% { --ox-sek: 42; } 93%, 100% { --ox-sek: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .ox-godta, .ox-godta > span, .ox-akt, .ox-status, .ox-status > span, .ox-mek, .ox-mek .ox-tid i, .ox-sek { animation: none !important; }
+  .ox-godta { background: #2F7D4E; }
+  .ox-godta .for, .ox-status .for { opacity: 0; }
+  .ox-status { background: #E3F2E8; color: #1F6B3E; }
+}
+
+
+/* ── Nettside og booking, forslag (gen/booking_linear.py). Bygger på ol-stilene fra Ordreprogram. ── */
+.bf .ol-rull { padding-top: 40px; }
+.bf-ramme { align-items: center; padding-top: 12px; padding-bottom: 12px; }
+/* Venstre kolonne er bredere enn på Ordreprogram, flaten med telefonen smalere */
+@media (min-width: 901px) {
+  .bf-ramme { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 64px; }
+}
+/* Fire knapper med lange navn: litt mindre skrift når kolonnen blir smal. På telefon to og to. */
+.bf .ol-valg { --ol-knapp: 2.6cqw; }
+.bf .ol-om { margin-top: 0; }
+/* Toppen (21.11.2026: «her burde vi egentlig ha ett bilde av en nettside …»): nettleservindu med en kundeside og
+   Muttern med hodesett foran, nede til venstre. */
+.bf-hero-art { width: 100%; }
+.bf-hero-stabel { position: relative; width: 100%; max-width: 620px; margin-left: auto; padding: 0 0 64px 150px; }
+.bf-hero-vindu { margin: 0; }
+.bf-hero-vindu:hover { transform: none; }
+.bf-hero-art .bf-hero-stabel .m-hei { position: absolute; left: 0; bottom: 0; width: auto; height: 220px; max-width: none; max-height: none; }
+@media (max-width: 900px) {
+  .bf-hero-stabel { max-width: 540px; margin: 0 auto; padding-left: 130px; }
+  .bf-hero-art .bf-hero-stabel .m-hei { height: 190px; }
+}
+@media (max-width: 600px) {
+  .bf-hero-stabel { padding: 0 0 44px 96px; }
+  .bf-hero-art .bf-hero-stabel .m-hei { left: -4px; height: 140px; }
+}
+/* Muttern med hodesett i toppen (21.11.2026: «animer muttern»): armen vinker, laptopen gynger litt */
+.m-hei { width: auto; overflow: visible; }
+.m-hei .hei-vink { transform-box: view-box; transform-origin: 299px 158px; animation: heiVink 3.2s ease-in-out infinite; }
+.m-hei .hei-pc { transform-box: view-box; animation: heiPc 3.6s ease-in-out infinite; }
+@keyframes heiVink { 0%, 46%, 100% { transform: rotate(0deg); } 10% { transform: rotate(-18deg); } 20% { transform: rotate(6deg); } 30% { transform: rotate(-14deg); } 38% { transform: rotate(2deg); } }
+@keyframes heiPc { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@media (prefers-reduced-motion: reduce) { .m-hei .hei-vink, .m-hei .hei-pc { animation: none; } }
+/* Nettsider vi har laget (21.11.2026): kundesidene som nettleservinduer, to og to, som lenker til sidene (fra 21.11 Moldestuket og RGL) */
+.ns-tittel { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: clamp(2rem, 4.4vw, 46px); line-height: 1.12; letter-spacing: -1.2px; }
+.ns-rad { margin-top: 40px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.ns-kort { display: block; overflow: hidden; border: 1.5px solid #D5E0F7; border-radius: 16px; background: #fff; box-shadow: 0 30px 60px -40px rgba(12, 0, 90, 0.35); color: inherit; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.ns-kort:hover { transform: translateY(-3px); box-shadow: 0 36px 64px -38px rgba(12, 0, 90, 0.45); }
+.ns-kort:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+.ns-bar { display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-bottom: 1.5px solid #D5E0F7; background: #fff; }
+.ns-bar i { width: 9px; height: 9px; border-radius: 50%; background: #D5E0F7; }
+.ns-bar b { margin-left: 8px; font-size: 13px; font-weight: 500; color: var(--ink); }
+.ns-bar em { margin-left: auto; font-style: normal; font-size: 12.5px; font-weight: 600; color: var(--navy); }
+.ns-kort img { display: block; width: 100%; height: auto; aspect-ratio: 1120 / 700; object-fit: cover; }
+@media (max-width: 600px) {
+  .ns-rad { grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 26px; }
+}
+
+/* Telefonen står rett på den hvite siden (den lyseblå flaten bak ble fjernet 19.11.2026: «fjern den blå
+   bakgrunen på denne»). Skjermbildet fyller hele telefonen, med statuslinje øverst. */
+.bf-scene { padding: 20px 0; display: grid; place-items: center; }
+.bf-tlf { position: relative; width: 260px; padding: 0; border: 5px solid #101012; border-radius: 42px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -34px rgba(8, 8, 24, 0.5); }
+.bf-tlf .bp-hakk { top: 6px; width: 70px; height: 17px; margin-left: -35px; z-index: 2; background: #101012; }
+.bf-tlf .bp-skjermer { aspect-ratio: 390 / 888; border-radius: 0; }
+.bf-videre { z-index: 3; }
+.bf-s { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-width: none; --i: clamp(0, (var(--P, 0) - var(--a)) / 0.08, 1); --u: clamp(0, (var(--P, 0) - var(--b, 99)) / 0.08, 1); opacity: calc(var(--i) * (1 - var(--u))); }
+/* Steg 1: nettsiden, skiltet og kvitteringen. Steg 2: SMS-en. Steg 3 og 4: sporingssiden. */
+.bf-sn { --a: -9; --b: 0.3; } .bf-s0 { --a: 0.36; --b: 0.6; } .bf-s5 { --a: 0.66; --b: 0.92; } .bf-sms { --a: 1; --b: 1.92; } .bf-s6 { --a: 2; --b: 2.92; } .bf-s7 { --a: 3; }
+.bf-videre { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+/* Skjermene fra appen, tegnet forenklet: verkstedets navn øverst, så bare det viktigste */
+.bf-app { display: flex; flex-direction: column; background: #fff; text-align: left; color: var(--ink); font-size: 12px; line-height: 1.4; }
+.bf-app-topp { padding: 10px 16px 0; font-size: 12.5px; font-weight: 600; }
+.bf-app-tittel { margin-top: 26px; text-align: center; font-size: 15px; font-weight: 600; }
+.bf-skilt { display: inline-flex; align-items: center; border: 1.3px solid var(--ink); border-radius: 5px; overflow: hidden; padding-right: 7px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; line-height: 1; white-space: nowrap; }
+.bf-skilt i { align-self: stretch; display: grid; place-items: end center; margin-right: 6px; padding: 5px 3.5px 3px; background: #1F3F94; color: #fff; font-style: normal; font-size: 7px; letter-spacing: 0; }
+.bf-app-kort { margin: 22px 16px 0; padding: 14px 14px 13px; border: 1.5px solid var(--navy); border-radius: 12px; }
+.bf-app-kort b { display: block; font-size: 14px; font-weight: 700; letter-spacing: 0.01em; }
+.bf-app-kort div { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; }
+.bf-app-kort .bf-skilt { font-size: 13.5px; }
+.bf-app-kort em { width: 18px; height: 18px; color: #2F7D4E; }
+.bf-app-kort em svg { display: block; width: 100%; height: 100%; }
+.bf-app-knapp { margin: auto 16px 18px; padding: 12px 0; border-radius: 11px; background: var(--navy); color: #fff; text-align: center; font-size: 13.5px; font-weight: 600; }
+.bf-app-midt { margin: auto 22px; padding-bottom: 60px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.bf-rund { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: var(--navy); color: #fff; box-shadow: 0 0 0 12px #F2F7FF; }
+.bf-rund svg { width: 30px; height: 30px; }
+.bf-app-midt b { margin-top: 30px; font-size: 21px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+.bf-app-midt span { margin-top: 8px; font-size: 13px; line-height: 1.45; }
+.bf-klar { margin-top: 44px; margin-bottom: auto; padding-bottom: 0; }
+.bf-klar .bf-rund { background: #2F7D4E; box-shadow: 0 0 0 12px #EDF5F0; }
+.bf-app-bil { margin: 26px 16px 0; display: flex; align-items: center; gap: 9px; font-size: 12.5px; font-weight: 500; }
+.bf-app-jobb { margin: 12px 16px 0; font-size: 19px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--navy); }
+.bf-app-linje { display: block; margin: 14px 16px 0; height: 5px; border-radius: 99px; background: #E7EEFB; overflow: hidden; }
+.bf-app-linje i { display: block; width: 75%; height: 100%; border-radius: 99px; background: var(--navy); }
+.bf-spor { margin: 24px 16px 0; padding: 0; list-style: none; }
+.bf-spor li { position: relative; padding: 0 0 22px 24px; }
+.bf-spor li::before { content: ""; position: absolute; left: 3px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: var(--navy); }
+.bf-spor li::after { content: ""; position: absolute; left: 6.2px; top: 16px; bottom: -3px; width: 1.6px; background: #C9D6F2; }
+.bf-spor li:last-child::after { display: none; }
+.bf-spor b { display: block; font-size: 13.5px; font-weight: 600; line-height: 1.3; }
+.bf-spor span { display: block; margin-top: 3px; font-size: 12px; line-height: 1.4; }
+.bf-spor .na { padding-bottom: 26px; }
+.bf-spor .na::before { left: 0; top: 4px; width: 14px; height: 14px; box-shadow: 0 0 0 3.5px #C9D1EE; }
+.bf-spor .na b { font-size: 17px; }
+/* SMS-en fra verkstedet */
+.bf-sms { display: flex; flex-direction: column; background: #fff; text-align: left; color: var(--ink); }
+.bf-sms-status { flex: none; height: 4.955%; display: flex; align-items: center; justify-content: space-between; padding: 0 8% 0 8.2%; font-size: 9.6px; color: #17181C; }
+.bf-sms-status b { font-weight: 700; letter-spacing: 0.01em; }
+.bf-sms-status span { display: inline-flex; align-items: flex-end; gap: 1.4px; }
+.bf-sms-status i { width: 2px; border-radius: 1px; background: #17181C; }
+.bf-sms-status i:nth-child(1) { height: 3px; } .bf-sms-status i:nth-child(2) { height: 4.4px; } .bf-sms-status i:nth-child(3) { height: 5.8px; } .bf-sms-status i:nth-child(4) { height: 7.2px; }
+.bf-sms-status em { margin-left: 5px; width: 16px; height: 8px; border: 1px solid #17181C; border-radius: 2.5px; background: linear-gradient(#17181C, #17181C) 1px 1px / 10.5px 4px no-repeat; }
+.bf-sms-topp { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1.5px solid #E7EEFB; }
+.bf-sms-topp .av { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-family: var(--serif); font-size: 14px; font-weight: 700; }
+.bf-sms-topp .nm { font-size: 13.5px; font-weight: 600; line-height: 1.2; }
+.bf-sms-topp .sb { font-size: 11px; color: var(--ink); }
+.bf-sms-kropp { padding: 16px 12px; display: flex; flex-direction: column; gap: 9px; }
+.bf-b { max-width: 90%; padding: 10px 12px 11px; font-size: 12px; line-height: 1.45; }
+.bf-inn { align-self: flex-start; background: #E7EEFB; border-radius: 14px 14px 14px 4px; }
+.bf-ut { align-self: flex-end; background: var(--navy); color: #fff; border-radius: 14px 14px 4px 14px; }
+.bf-b .bt { display: block; font-weight: 600; }
+.bf-b .bs { display: block; margin-top: 4px; font-size: 11.5px; }
+.bf-b .b-link { display: inline-block; margin-top: 7px; color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.bf-levert { align-self: flex-end; margin-top: -3px; font-size: 10.5px; color: var(--ink); }
+.bf-b0, .bf-b1, .bf-b2, .bf-b3 { --q: clamp(0, (var(--P, 0) - var(--a)) / 0.1, 1); opacity: var(--q); transform: translateY(calc((1 - var(--q)) * 8px)); }
+.bf-b0 { --a: 1.12; } .bf-b1 { --a: 1.36; } .bf-b2 { --a: 1.48; } .bf-b3 { --a: 1.6; }
+/* Uten rullestyring (smal skjerm, redusert bevegelse): et trykk på telefonen går til neste skjerm */
+.ol-rull:not(.ol-anim) .bf-s, .ol-rull:not(.ol-anim) .bf-b, .ol-rull:not(.ol-anim) .bf-levert { transition: opacity 0.25s ease, transform 0.25s ease; }
+
+/* Toppen som på dagens side: overskrift, ingress og knapp til venstre, Muttern med hodesett til høyre */
+.page-booking.bf .bf-hero { padding-bottom: 40px; }
+.page-booking.bf .bf-hero .lead { color: var(--ink); }
+
+/* Ett lyseblått felt med hvite bokser (etter feltet «Færre telefoner, fullere kalender» på dagens side):
+   nettsiden til venstre og bookingen til høyre. Boksene står på samme høyde i begge kolonnene. */
+.bf-panel { border-radius: 32px; background: #E7EEFB; }
+.bf-p-to { padding: 60px 56px 56px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; }
+.bf-kol { display: grid; grid-template-rows: auto 1fr auto; }
+.bf-kol h2 { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: clamp(1.75rem, 3.3vw, 38px); line-height: 1.14; letter-spacing: -0.9px; text-wrap: balance; }
+.bf-kol > p { margin-top: 16px; padding-bottom: 32px; max-width: 24em; font-size: 19px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+.bf-kort { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+/* Alle boksene er like høye (plass til to linjer), så de to kolonnene står likt */
+.bf-kort li { display: flex; align-items: center; gap: 16px; min-height: 84px; padding: 15px 22px 15px 15px; border-radius: 20px; background: #fff; font-size: 18px; font-weight: 500; line-height: 1.45; color: var(--ink); }
+.bf-kort i { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: #fff; }
+.bf-kort p { text-wrap: pretty; }
+/* Prisen for nettsiden: én hvit boks, like høy som de tre punktene ved siden av, med tallet stort */
+.bf-pris { display: grid; align-content: center; justify-items: start; gap: 12px; min-height: 276px; padding: 30px 40px; border-radius: 24px; background: #fff; }
+.bf-pris p { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 14px; margin: 0; }
+.bf-pris strong { font-size: clamp(56px, 6vw, 76px); font-weight: 600; line-height: 1; letter-spacing: -0.035em; color: var(--navy); font-variant-numeric: tabular-nums; }
+.bf-pris span { font-size: 22px; font-weight: 500; color: var(--ink); }
+.bf-pris small { font-size: 18px; line-height: 1.4; color: var(--ink); }
+.bf-siste { padding-bottom: 120px; }
+
+@media (max-width: 900px) {
+  .bf-ramme { gap: 28px; }
+  .bf-scene { justify-self: center; width: 100%; }
+  .bf-panel { border-radius: 26px; }
+  .bf-p-to { padding: 40px 28px 28px; gap: 36px; }
+  .bf-kol > p { padding-bottom: 24px; }
+  .bf-kort li { font-size: 17px; }
+  .bf-siste { padding-bottom: 88px; }
+}
+@media (max-width: 600px) {
+  .bf .ol-rull { padding-top: 24px; }
+  .bf .ol-valg { container-type: normal; flex-wrap: wrap; gap: 6px; }
+  .bf .ol-v { padding: 7px 13px 8px; font-size: 14.5px; }
+  .bf .ol-v + .ol-v { margin-left: 0; }
+  .bf-panel { border-radius: 22px; }
+  .bf-p-to { grid-template-columns: minmax(0, 1fr); padding: 32px 18px 18px; gap: 40px; }
+  .bf-kol > p { font-size: 17.5px; padding-bottom: 20px; }
+  .bf-pris { min-height: 0; padding: 24px 22px; border-radius: 20px; }
+  .bf-pris span { font-size: 19px; }
+  .bf-pris small { font-size: 16.5px; }
+  .bf-siste { padding-bottom: 64px; }
+}
+/* Tre kort i duse farger (21.11.2026): Forespørsler, Status og Personlig nettside, hvert med en liten tegnet skjerm */
+/* Kortene står rett under toppen (21.11.2026: «flytt opp … over animasjonene») */
+.ol-kap.bf-k3 { padding-top: 24px; padding-bottom: 24px; }
+@media (max-width: 900px) { .ol-kap.bf-k3 { padding-top: 8px; } }
+/* (.k3-stilene er flyttet til OL_CSS, 21.11.2026) */
+/* Forløpet i tre steg (21.11.2026, Nichlas: «få den her til å være 1 ting … mer simpel og forstå hendelsesforløpet.
+   Uten noe sånn gratis og inkludert varsel nede der») i stedet for de tre fargede kortene */
+.fl-rad { position: relative; margin: 0; padding: 30px 34px; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; border: 1px solid #DFE7F7; border-radius: 26px; background: #fff; text-align: left; }
+.fl-rad li { position: relative; display: grid; gap: 8px; align-content: start; }
+.fl-nr { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 15px; font-weight: 700; }
+.fl-rad li:not(:last-child)::after { content: ""; position: absolute; top: 16px; left: 46px; right: -16px; height: 2px; background: #DFE7F7; }
+.fl-rad h3 { margin: 6px 0 0; font-size: 21px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.fl-rad p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+@media (max-width: 900px) {
+  .fl-rad { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 24px 22px; }
+  .fl-rad li:not(:last-child)::after { display: none; }
+}
+/* Trykk på «Bestill time» på RGL-siden (21.11.2026: «legge til animasjon på bestill time knappen og man må scrolle masse
+   på første bildet for å få respons»): straks man begynner å rulle kommer en finger inn, trykker på knappen (den blir
+   mørkere) og sender ut en ring, før bookingskjermen kommer. Knappen ligger på 4,1–95,9 % i bredden og 81,2–86,6 % i høyden
+   av bildet, og skjermen har samme forhold som bildet (390 × 888). */
+.bf-tapp { pointer-events: none;
+  --t1: clamp(0, (var(--P, 0) - 0.015) / 0.075, 1);
+  --t2: clamp(0, (var(--P, 0) - 0.1) / 0.04, 1);
+  --t3: clamp(0, (var(--P, 0) - 0.16) / 0.05, 1);
+  --t4: clamp(0, (var(--P, 0) - 0.15) / 0.1, 1); }
+.bf-tk-knapp { position: absolute; left: 4.1%; top: 81.19%; width: 91.79%; height: 5.41%; background: #000; opacity: calc((var(--t2) - var(--t3)) * 0.3); }
+.bf-tk-finger, .bf-tk-ring { position: absolute; left: 50%; top: 83.9%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; }
+.bf-tk-finger { background: rgba(255, 255, 255, 0.5); border: 2px solid rgba(255, 255, 255, 0.95); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  opacity: calc(var(--t1) * (1 - var(--t3)));
+  transform: translate(calc((1 - var(--t1)) * 40px), calc((1 - var(--t1)) * 64px)) scale(calc(1 - var(--t2) * 0.22 + var(--t3) * 0.12)); }
+.bf-tk-ring { border: 2px solid rgba(255, 255, 255, 0.9); opacity: calc((1 - var(--t4)) * min(1, var(--t4) * 8)); transform: scale(calc(1 + var(--t4) * 2.4)); }
+/* Kortene (22.11.2026, Oscar: «animer denne og»): én historie i en rolig runde på 12 s. Peker trykker «Bestill time»
+   (1,3 s), forespørselen kommer inn (2,0 s), statusen hakes av til «Klar for henting» (2,8 til 8,0 s), så ny runde. */
+.bf-k3 .k3-knapp { position: relative; display: inline-flex; align-items: center; animation: k3Knapp 12s ease-in-out infinite; }
+.bf-k3 .k3-knapp::after { content: ""; position: absolute; inset: -2px; border-radius: 999px; border: 2px solid #2F7D4E; opacity: 0; animation: k3Bolge 12s ease-out infinite; }
+.bf-k3 .k3-knapp-hake { display: inline-grid; place-items: center; width: 0; margin-right: 0; overflow: hidden; opacity: 0; animation: k3KnappHake 12s ease-in-out infinite; }
+.bf-k3 .k3-knapp-hake svg { width: 11px; height: 11px; flex: none; }
+.bf-k3 .k3-peker { position: absolute; left: 62%; top: 56%; width: 18px; height: 18px; pointer-events: none; animation: k3Peker 12s ease-in-out infinite; }
+.bf-k3 .k3-side, .bf-k3 .k3-varsel, .bf-k3 .k3-trinn { animation: k3Runde 12s linear infinite; }
+.bf-k3 .k3-ny { animation: k3Ny 12s ease-out infinite; }
+.bf-k3 .k3-ny i { animation: k3Prikk 12s ease-out infinite; }
+@keyframes k3Peker { 0%, 5% { transform: translate(70px, 46px); opacity: 0; } 6.667% { transform: translate(70px, 46px); opacity: 1; } 10.833% { transform: translate(0, 0); opacity: 1; } 12.083% { transform: translate(0, 0) scale(0.85); opacity: 1; } 13.333% { transform: translate(0, 0) scale(1); opacity: 1; } 18% { transform: translate(14px, 10px); opacity: 0; } 100% { transform: translate(70px, 46px); opacity: 0; } }
+@keyframes k3Knapp { 0%, 10.833% { transform: scale(1); background-color: #0C005A; } 12.083% { transform: scale(0.92); background-color: #0C005A; } 13.333%, 90% { transform: scale(1); background-color: #2F7D4E; } 93.333%, 100% { transform: scale(1); background-color: #0C005A; } }
+@keyframes k3Bolge { 0%, 12.083% { opacity: 0; transform: scale(1); } 12.5% { opacity: 0.7; transform: scale(1); } 17.5%, 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes k3KnappHake { 0%, 13.333% { width: 0; margin-right: 0; opacity: 0; } 15%, 90% { width: 12px; margin-right: 4px; opacity: 1; } 93.333%, 100% { width: 0; margin-right: 0; opacity: 0; } }
+@keyframes k3Runde { 0%, 90% { opacity: 1; } 93.333%, 96.667% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes k3Ny { 0%, 16.667% { opacity: 0; transform: translateY(-14px); } 21.667%, 90% { opacity: 1; transform: translateY(0); } 93.333%, 100% { opacity: 0; transform: translateY(-14px); } }
+@keyframes k3Prikk { 0%, 21.667% { box-shadow: 0 0 0 4px rgba(91, 141, 239, 0.2); } 26% { box-shadow: 0 0 0 10px rgba(91, 141, 239, 0); } 30% { box-shadow: 0 0 0 4px rgba(91, 141, 239, 0.2); } 34% { box-shadow: 0 0 0 10px rgba(91, 141, 239, 0); } 38%, 100% { box-shadow: 0 0 0 4px rgba(91, 141, 239, 0.2); } }
+@keyframes k3Steg1 { 0%, 23.333% { opacity: 0.55; color: #1B1B1F; font-weight: 500; } 25.0%, 90% { opacity: 1; color: #1B1B1F; font-weight: 500; } 93.333%, 100% { opacity: 0.55; color: #1B1B1F; font-weight: 500; } }
+@keyframes k3Ring1 { 0%, 23.333% { border-color: #9DB7A6; background-color: #FFFFFF; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } 25.0%, 90% { border-color: #2F7D4E; background-color: #2F7D4E; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } 93.333%, 100% { border-color: #9DB7A6; background-color: #FFFFFF; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } }
+@keyframes k3Hake1 { 0%, 23.333% { opacity: 0; transform: scale(0.4); } 25.0% { opacity: 1; transform: scale(1.15); } 26.666%, 90% { opacity: 1; transform: scale(1); } 93.333%, 100% { opacity: 0; transform: scale(0.4); } }
+.bf-k3 .k3-t1 { animation: k3Steg1 12s linear infinite; }
+.bf-k3 .k3-t1 i { animation: k3Ring1 12s linear infinite; }
+.bf-k3 .k3-t1 i svg { animation: k3Hake1 12s ease-out infinite; }
+@keyframes k3Steg2 { 0%, 36.667% { opacity: 0.55; color: #1B1B1F; font-weight: 500; } 38.334%, 90% { opacity: 1; color: #1B1B1F; font-weight: 500; } 93.333%, 100% { opacity: 0.55; color: #1B1B1F; font-weight: 500; } }
+@keyframes k3Ring2 { 0%, 36.667% { border-color: #9DB7A6; background-color: #FFFFFF; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } 38.334%, 90% { border-color: #2F7D4E; background-color: #2F7D4E; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } 93.333%, 100% { border-color: #9DB7A6; background-color: #FFFFFF; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } }
+@keyframes k3Hake2 { 0%, 36.667% { opacity: 0; transform: scale(0.4); } 38.334% { opacity: 1; transform: scale(1.15); } 40.0%, 90% { opacity: 1; transform: scale(1); } 93.333%, 100% { opacity: 0; transform: scale(0.4); } }
+.bf-k3 .k3-t2 { animation: k3Steg2 12s linear infinite; }
+.bf-k3 .k3-t2 i { animation: k3Ring2 12s linear infinite; }
+.bf-k3 .k3-t2 i svg { animation: k3Hake2 12s ease-out infinite; }
+@keyframes k3Steg3 { 0%, 50.0% { opacity: 0.55; color: #1B1B1F; font-weight: 500; } 51.667%, 63.333% { opacity: 1; color: #0C005A; font-weight: 600; } 65.0%, 90% { opacity: 1; color: #1B1B1F; font-weight: 500; } 93.333%, 100% { opacity: 0.55; color: #1B1B1F; font-weight: 500; } }
+@keyframes k3Ring3 { 0%, 50.0% { border-color: #9DB7A6; background-color: #FFFFFF; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } 51.667%, 63.333% { border-color: #0C005A; background-color: #FFFFFF; box-shadow: inset 0 0 0 4px #FFFFFF, inset 0 0 0 11px #0C005A; } 65.0%, 90% { border-color: #2F7D4E; background-color: #2F7D4E; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } 93.333%, 100% { border-color: #9DB7A6; background-color: #FFFFFF; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } }
+@keyframes k3Hake3 { 0%, 63.333% { opacity: 0; transform: scale(0.4); } 65.0% { opacity: 1; transform: scale(1.15); } 66.666%, 90% { opacity: 1; transform: scale(1); } 93.333%, 100% { opacity: 0; transform: scale(0.4); } }
+.bf-k3 .k3-t3 { animation: k3Steg3 12s linear infinite; }
+.bf-k3 .k3-t3 i { animation: k3Ring3 12s linear infinite; }
+.bf-k3 .k3-t3 i svg { animation: k3Hake3 12s ease-out infinite; }
+@keyframes k3Steg4 { 0%, 63.333% { opacity: 0.55; color: #1B1B1F; font-weight: 500; } 65.0%, 66.667% { opacity: 1; color: #0C005A; font-weight: 600; } 68.334%, 90% { opacity: 1; color: #0C005A; font-weight: 600; } 93.333%, 100% { opacity: 0.55; color: #1B1B1F; font-weight: 500; } }
+@keyframes k3Ring4 { 0%, 63.333% { border-color: #9DB7A6; background-color: #FFFFFF; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } 65.0%, 66.667% { border-color: #0C005A; background-color: #FFFFFF; box-shadow: inset 0 0 0 4px #FFFFFF, inset 0 0 0 11px #0C005A; } 68.334%, 90% { border-color: #2F7D4E; background-color: #2F7D4E; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } 93.333%, 100% { border-color: #9DB7A6; background-color: #FFFFFF; box-shadow: inset 0 0 0 0 #FFFFFF, inset 0 0 0 0 #0C005A; } }
+@keyframes k3Hake4 { 0%, 66.667% { opacity: 0; transform: scale(0.4); } 68.334% { opacity: 1; transform: scale(1.15); } 70.0%, 90% { opacity: 1; transform: scale(1); } 93.333%, 100% { opacity: 0; transform: scale(0.4); } }
+.bf-k3 .k3-t4 { animation: k3Steg4 12s linear infinite; }
+.bf-k3 .k3-t4 i { animation: k3Ring4 12s linear infinite; }
+.bf-k3 .k3-t4 i svg { animation: k3Hake4 12s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .bf-k3 .k3-knapp, .bf-k3 .k3-knapp::after, .bf-k3 .k3-knapp-hake, .bf-k3 .k3-peker, .bf-k3 .k3-side, .bf-k3 .k3-varsel, .bf-k3 .k3-trinn,
+  .bf-k3 .k3-ny, .bf-k3 .k3-ny i, .bf-k3 .k3-trinn li, .bf-k3 .k3-trinn li i, .bf-k3 .k3-trinn li i svg { animation: none !important; }
+  .bf-k3 .k3-knapp { background: #2F7D4E; }
+  .bf-k3 .k3-knapp-hake { width: 12px; margin-right: 4px; opacity: 1; }
+  .bf-k3 .k3-peker { display: none; }
+  .bf-k3 .k3-trinn li { opacity: 1; color: #1B1B1F; font-weight: 500; }
+  .bf-k3 .k3-trinn li i { border-color: #2F7D4E; background: #2F7D4E; box-shadow: none; }
+  .bf-k3 .k3-trinn li i svg { opacity: 1; }
+  .bf-k3 .k3-trinn li.k3-t4 { color: #0C005A; font-weight: 600; }
+}
+

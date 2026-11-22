@@ -324,9 +324,9 @@ describe("PrisKalkulator — bindingstid og betaling", () => {
   it("starter på 1 måned og betaling for 1 måned, uten rabatt", () => {
     render(<Kalk />);
     expect(radio("1 måned").checked).toBe(true);
-    expect(radio("Betal for 1 måned").checked).toBe(true);
+    expect(radio("Betal per mnd").checked).toBe(true);
     expect(sparRad()).toBeNull();
-    expect(sumLabel()).toBe("Betal for 1 måned");
+    expect(sumLabel()).toBe("Betal per mnd");
     expect(adminKortPris().querySelector("s")).toBeNull();
   });
 
@@ -404,10 +404,10 @@ describe("PrisKalkulator — bindingstid og betaling", () => {
     expect(radio("1 år").checked).toBe(true);
     expect(radio("Betal for 1 år").checked).toBe(true);
     // Setter man betalingen lavere, åpnes kortere binding.
-    velg("Betal for 1 måned");
+    velg("Betal per mnd");
     velg("6 måneder");
     expect(radio("6 måneder").checked).toBe(true);
-    expect(radio("Betal for 1 måned").checked).toBe(true);
+    expect(radio("Betal per mnd").checked).toBe(true);
   });
 
   it("skriver bindingen i betingelseslinjen ved CTA-en", () => {

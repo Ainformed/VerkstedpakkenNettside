@@ -51,6 +51,13 @@ const INTEGRATIONS: Integration[] = [
     logo: { src: "/design/logos/visma-business-nxt.svg", alt: "Visma Business NXT" },
   },
   {
+    // 22.11.2026: Visma Enterprise, med Vismas offisielle logo (Visma Enterprise har ingen egen logo)
+    id: "vismaenterprise",
+    name: "Visma Enterprise",
+    cat: "regnskap",
+    logo: { src: "/design/logos/visma-enterprise.svg", alt: "Visma Enterprise", className: "logo-wide" },
+  },
+  {
     id: "24sevenoffice",
     name: "24SevenOffice",
     cat: "regnskap",
@@ -244,11 +251,12 @@ export default function IntegrationCatalog({ t }: { t: IntegrasjonerDict }) {
                 )}
               </div>
               <span className="ic-cat">{t.categories[card.cat]}</span>
-              <div className="ic-title">
-                <h3>{card.name}</h3>
-                {card.comingSoon && <span className="ic-soon">{t.comingSoon}</span>}
-              </div>
-              <p>{t.integrations[card.id]}</p>
+              {/* 22.11.2026: Henrik «Droppe navnene under»: logoen viser navnet, så bare «Kommer snart» står under */}
+              {card.comingSoon && (
+                <div className="ic-title">
+                  <span className="ic-soon">{t.comingSoon}</span>
+                </div>
+              )}
             </div>
           ))}
         </div>

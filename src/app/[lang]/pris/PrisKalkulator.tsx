@@ -12,6 +12,7 @@ import {
   type StorverkstedState,
 } from "@/app/actions/storverksted";
 import {
+  BETALING_MANEDER,
   MAKS_LISENSER,
   MAKS_TELLER,
   MEKANIKER_PRIS,
@@ -218,6 +219,14 @@ export default function PrisKalkulator({
   const velgBetaling = (i: Trinn) => {
     if (erGyldigKombinasjon(binding, i)) setBetaling(i);
   };
+  // 22.11.2026: «Prøv gratis» tar med valgene til registreringen, så varselet til teamet viser hvor mange de er,
+  // bindingen og betalingen (kom-i-gang leser ?admin=&mek=&binding=&betaling=, med månedene 1, 6 eller 12).
+  const signupHref = `${SIGNUP_URL}${SIGNUP_URL.includes("?") ? "&" : "?"}${new URLSearchParams({
+    admin: String(antall.admin),
+    mek: String(antall.mekanikere),
+    binding: String(BETALING_MANEDER[binding]),
+    betaling: String(BETALING_MANEDER[betaling]),
+  })}`;
 
   // Begge tellerne deler taket på 10 lisenser: maks for den ene er det som er
   // igjen etter den andre. Én state-oppdatering per endring holder klemmingen
@@ -501,7 +510,7 @@ export default function PrisKalkulator({
           )
         ) : (
           <>
-            <a className="btn btn-primary btn-lg" href={SIGNUP_URL}>
+            <a className="btn btn-primary btn-lg" href={signupHref}>
               {c.cta}
             </a>
             <p className="per">

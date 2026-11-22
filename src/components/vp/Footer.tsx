@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import ZenMascot from "./ZenMascot";
+import KaffeMuttern from "./KaffeMuttern";
 import LangSwitcher from "./LangSwitcher";
 import { SIGNUP_URL } from "@/lib/links";
 import { localePath, type Locale } from "@/i18n/config";
 import type { CommonDict } from "@/i18n/dictionaries/nb";
 
-/* Footer-CTA («Prøv gratis i 14 dager» + zen-maskot) og mørkeblå footer.
+/* Footer-CTA («Prøv gratis i 14 dager» + Muttern med kaffekoppen) og mørkeblå footer.
    NB: designreferansen oppga org.nr 913 412 354, men det reelle org.nr-et
    fra dagens side (937 000 847) beholdes — juridiske fakta følger ikke
    design-copy. */
@@ -22,7 +22,7 @@ export default function Footer({ lang, t }: { lang: Locale; t: CommonDict }) {
             <p>{t.footer.ctaNote}</p>
           </div>
           <div className="foot-cta-mascot">
-            <ZenMascot />
+            <KaffeMuttern />
           </div>
         </div>
       </section>

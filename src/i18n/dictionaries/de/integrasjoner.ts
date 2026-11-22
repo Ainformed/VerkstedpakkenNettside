@@ -23,6 +23,7 @@ const integrasjoner: IntegrasjonerDict = {
     tripletex: "Rechnungen, Kunden und Zahlungen bleiben synchron, ohne manuelle Eingabe.",
     visma: "Rechnungen und Belege direkt an Visma senden, fertig zur Buchung.",
     vismabusinessnxt: "Aufträge und Zahlungsstatus gehen direkt in Visma Business NXT.",
+    vismaenterprise: "Rechnungen und Zahlungsstatus gehen direkt in Visma Enterprise.",
     "24sevenoffice": "Verkäufe und Zahlungen automatisch in die Buchhaltung übertragen.",
     systima: "Rechnungsgrundlage und Zahlungen gehen automatisch zur Buchung in Systima.",
     conta: "In einer Minute per API-Schlüssel verbinden. Verkäufe und Zahlungsstatus landen direkt in Conta.",

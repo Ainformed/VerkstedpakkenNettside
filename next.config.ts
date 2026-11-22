@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
   // Gamle indekserte URL-er fra forrige design → nye ruter
   async redirects() {
     return [
-      { source: "/om-oss", destination: "/", permanent: true },
+      // /om-oss er en egen side igjen (lerretet, 22.11.2026), så den gamle videresendingen til forsiden er fjernet
       { source: "/demo", destination: "/", permanent: true },
       // Demo-/interessesiden er fjernet (aug 2026) — prøv gratis-løpet tar over.
       { source: "/interesse", destination: "/", permanent: true },

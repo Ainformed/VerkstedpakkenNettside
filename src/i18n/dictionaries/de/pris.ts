@@ -3,7 +3,7 @@ const pris: PrisDict = {
   meta: {
     title: "Preise für die Werkstattsoftware",
     description:
-      "Admin-Lizenz 1.295 NOK und Mechaniker-Lizenz 595 NOK pro Monat (zzgl. MwSt.). Alles inklusive, keine Bindung, keine Einrichtungsgebühr. 14 Tage kostenlos testen.",
+      "Admin-Lizenz 1.295 NOK und Mechaniker-Lizenz 595 NOK pro Monat (zzgl. MwSt.). Kostenlose Einrichtung und Support. Monatlich ohne Bindung, oder Rabatt mit Bindung. 14 Tage kostenlos testen.",
   },
   title: "Preise für Verkstedpakken",
   priceFormat: { locale: "de-DE", prefix: "", suffix: " NOK" },
@@ -20,7 +20,7 @@ const pris: PrisDict = {
       bindingOptions: ["1 Monat", "6 Monate", "1 Jahr"],
       bindingTerms: ["Keine Bindung", "6 Monate Bindung", "1 Jahr Bindung"],
       paymentTitle: "Zahlungsintervall",
-      paymentOptions: ["Für 1 Monat zahlen", "Für 6 Monate zahlen", "Für 1 Jahr zahlen"],
+      paymentOptions: ["Monatlich zahlen", "Für 6 Monate zahlen", "Für 1 Jahr zahlen"],
       periodLabels: ["Pro Monat", "Pro 6 Monate", "Pro Jahr"],
       months: " × {n} Mon.",
       saving: "Sie sparen {pct} %",
@@ -58,7 +58,7 @@ const pris: PrisDict = {
   },
   included: {
     title: "All das ist inklusive",
-    subtitle: "Was andere extra berechnen, ist bei uns Teil des Preises.",
+    subtitle: "Was andere extra berechnen, ist bei uns kostenlos.",
     pill: "Inklusive",
     groups: [
       {

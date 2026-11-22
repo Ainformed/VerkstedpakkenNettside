@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Header from "@/components/vp/Header";
 import Footer from "@/components/vp/Footer";
+import Pris from "@/lerret/Pris";
+import { lerretTekster } from "@/lerret/tekster";
 import { getDictionary } from "@/i18n";
 import { isLocale, languageAlternates, LOCALE_META } from "@/i18n/config";
 import { notFound } from "next/navigation";
+import { SIGNUP_URL } from "@/lib/links";
+import { sjekkRabattkode } from "@/app/actions/rabattkode";
 import PrisKalkulator from "./PrisKalkulator";
 import "./pris.css";
 
@@ -22,96 +26,34 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
-export default async function Pris({ params }: Params) {
+// Kalkulatoren øverst er Henriks fra verkstedpakken.no (PrisKalkulator.tsx fra main, uendret; stilene i pris.css
+// ligger i .page-pris-kalk så de ikke blander seg med lerretets). Oscar 22.11.2026: «denne som er ute på verkstedpakken
+// nå er helt perfekt egentlig bruk den». Resten av siden (Alt dette er gratis, tillegg, spørsmål) kommer fra lerretet,
+// uten lerretets egen kalkulator (gen/patch_pris_henrik_kalk.py). Prisene og rabattsatsene står i src/lib/pricing.ts.
+export default async function PrisSide({ params }: Params) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const { pris: t, common } = await getDictionary(lang);
   return (
     <>
       <Header lang={lang} t={common} />
-      <main className="page-pris">
-        {/* ── Pris-hero: to lisenstyper, sett opp bedriften og se prisen ── */}
-        <section className="price-hero">
-          <div className="phero-innhold">
-            <h1 className="phero-title">{t.title}</h1>
-            <PrisKalkulator lang={lang} t={t} />
-          </div>
-        </section>
-
-        <div className="price-band">
-          {/* ── Inkludert ── */}
-          <section className="page-sec">
-            <div className="plist-wrap">
-              <div className="sec-title-c">
-                <h2>{t.included.title}</h2>
-                <p>{t.included.subtitle}</p>
-              </div>
-              <div className="plist">
-                {t.included.groups.map((g) => (
-                  <div key={g.label} style={{ display: "contents" }}>
-                    <div className="pgroup-label">{g.label}</div>
-                    {g.items.map((it) => (
-                      <div className="prow-flat" key={it.name}>
-                        <span className="pname">
-                          {it.name}
-                          {"note" in it && it.note ? <> <small>{it.note}</small></> : null}
-                        </span>
-                        <span className="pill pill-inc">{t.included.pill}</span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* ── Tilleggstjenester ── */}
-          <section className="page-sec" style={{ paddingTop: "20px" }}>
-            <div className="plist-wrap">
-              <div className="sec-title-c">
-                <h2>{t.addons.title}</h2>
-                <p>{t.addons.subtitle}</p>
-              </div>
-              <div className="plist">
-                {t.addons.groups.map((g) => (
-                  <div key={g.label} style={{ display: "contents" }}>
-                    <div className="pgroup-label">{g.label}</div>
-                    {g.items.map((it) => (
-                      <div className="prow-flat" key={it.name}>
-                        <span className="pname">
-                          {it.name}
-                          {it.note ? <small>{it.note}</small> : null}
-                        </span>
-                        <span className={`pill ${it.soon ? "pill-soon" : "pill-price"}`}>
-                          {it.price}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-              <div className="pnote">
-                <span>{t.addons.note}</span>
-              </div>
-              <p className="pfine">{t.addons.fine}</p>
+      <main>
+        <div className="page-pris-kalk">
+          <section className="price-hero">
+            <div className="phero-innhold">
+              <h1 className="phero-title">{t.title}</h1>
+              <PrisKalkulator lang={lang} t={t} />
             </div>
           </section>
         </div>
-
-        {/* ── FAQ ── */}
-        <section className="page-sec" style={{ paddingTop: "20px" }}>
-          <div className="faq-wrap">
-            <div className="sec-title-c">
-              <h2>{t.faq.title}</h2>
-            </div>
-            {t.faq.items.map((f) => (
-              <details className="faq" key={f.q}>
-                <summary>{f.q}</summary>
-                <div className="faq-body">{f.a}</div>
-              </details>
-            ))}
-          </div>
-        </section>
+        <Pris
+          lang={lang}
+          skjema={t.calc.form}
+          prisformat={t.priceFormat}
+          tekster={lerretTekster(lang, "Pris")}
+          signupUrl={SIGNUP_URL}
+          sjekkKode={sjekkRabattkode}
+        />
       </main>
       <Footer lang={lang} t={common} />
     </>
