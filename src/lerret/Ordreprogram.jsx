@@ -471,6 +471,55 @@ return (
         {" "}
         <div className="k3-rad">
           {" "}
+          <article className="k3 k3-lilla">
+            {" "}
+            <div className="k3-vis" aria-hidden="true">
+              <div className="ox-jobb ox-garasje">
+                {" "}
+                <p className="ox-gtit">
+                  {T("Min garasje")}
+                </p>
+                <span className="ox-bil">
+                  <span className="ox-skilt">
+                    {T("EK 48213")}
+                  </span>
+                  {T("Tesla Model 3")}
+                </span>
+                {" "}
+                <div className="ox-tilbud">
+                  <span>
+                    {T("Tilbud")}
+                    <b>
+                      {T("4 380 kr")}
+                    </b>
+                  </span>
+                  <em className="ox-godta">
+                    <span className="for">
+                      {T("Godta tilbud")}
+                    </span>
+                    <span className="etter">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 6 9 17l-5-5">
+                        </path>
+                      </svg>
+                      {T("Akseptert")}
+                    </span>
+                  </em>
+                </div>
+                {" "}
+              </div>
+            </div>
+            {" "}
+            <h3>
+              {T("Kunde")}
+            </h3>
+            {" "}
+            <p>
+              {T("Tilbud med ett trykk, og Min garasje med status og historikk.")}
+            </p>
+            {" "}
+          </article>
+          {" "}
           <article className="k3 k3-bla">
             {" "}
             <div className="k3-vis" aria-hidden="true">
@@ -560,55 +609,6 @@ return (
             {" "}
             <p>
               {T("Stempling, deler, bilder og kommentarer rett på mobilen.")}
-            </p>
-            {" "}
-          </article>
-          {" "}
-          <article className="k3 k3-lilla">
-            {" "}
-            <div className="k3-vis" aria-hidden="true">
-              <div className="ox-jobb ox-garasje">
-                {" "}
-                <p className="ox-gtit">
-                  {T("Min garasje")}
-                </p>
-                <span className="ox-bil">
-                  <span className="ox-skilt">
-                    {T("EK 48213")}
-                  </span>
-                  {T("Tesla Model 3")}
-                </span>
-                {" "}
-                <div className="ox-tilbud">
-                  <span>
-                    {T("Tilbud")}
-                    <b>
-                      {T("4 380 kr")}
-                    </b>
-                  </span>
-                  <em className="ox-godta">
-                    <span className="for">
-                      {T("Godta tilbud")}
-                    </span>
-                    <span className="etter">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 6 9 17l-5-5">
-                        </path>
-                      </svg>
-                      {T("Akseptert")}
-                    </span>
-                  </em>
-                </div>
-                {" "}
-              </div>
-            </div>
-            {" "}
-            <h3>
-              {T("Kunde")}
-            </h3>
-            {" "}
-            <p>
-              {T("Tilbud med ett trykk, og Min garasje med status og historikk.")}
             </p>
             {" "}
           </article>
