@@ -203,7 +203,6 @@
   "DNB Regnskap": "DNB Regnskap",
   "Tjenester du kan koble til": "Tjänster du kan koppla till",
   "Pris": "Pris",
-  "Fast pris, ingen overraskelser.": "Fast pris, inga överraskningar.",
   "Hvordan sender jeg et tilbud?": "Hur skickar jag en offert?",
   "Jeg viser deg! Åpne ordren og trykk «Send tilbud».": "Jag visar dig! Öppna ordern och tryck på ”Skicka offert”.",
   "Svar fra et menneske hos Verkstedpakken": "Svar från en människa hos Verkstedpakken",
@@ -212,7 +211,7 @@
   "Programmet satt opp": "Programmet uppsatt",
   "Regnskap koblet til": "Bokföring kopplad",
   "Kunder og kjøretøy flyttet over": "Kunder och fordon flyttade",
-  "Vi setter opp programmet, kobler til regnskapet og flytter over det dere har fra før.": "Vi sätter upp programmet, kopplar in bokföringen och flyttar över det ni redan har.",
+  "Vi hjelper dere med å komme i gang og hva dere måtte lure på.": "Vi hjälper er att komma igång och med det ni undrar över.",
   "Regn ut prisen for ditt verksted": "Räkna ut priset för din verkstad",
   "Spill av": "Spela upp",
   "Sett på pause": "Pausa",
@@ -332,5 +331,5 @@
   "Gratis support": "Gratis support",
   "Gratis oppstart": "Gratis uppstart",
   "Gratis regnskapsintegrasjon": "Gratis bokföringsintegration",
-  "Fakturaene går rett over i regnskapet. Vi kobler til systemet dere bruker.": "Fakturorna går direkt till bokföringen. Vi kopplar in systemet ni använder."
+  "Fakturaene går rett over i regnskapet. Koble til systemet dere bruker.": "Fakturorna går direkt till bokföringen. Koppla in systemet ni använder."
 }

@@ -203,7 +203,6 @@
   "DNB Regnskap": "DNB Regnskap",
   "Tjenester du kan koble til": "Dienste, die Sie anbinden können",
   "Pris": "Preise",
-  "Fast pris, ingen overraskelser.": "Festpreis, keine Überraschungen.",
   "Hvordan sender jeg et tilbud?": "Wie sende ich ein Angebot?",
   "Jeg viser deg! Åpne ordren og trykk «Send tilbud».": "Gern! Auftrag öffnen und auf „Angebot senden“ klicken.",
   "Svar fra et menneske hos Verkstedpakken": "Ein Mensch bei Verkstedpakken antwortet",
@@ -212,7 +211,7 @@
   "Programmet satt opp": "Programm eingerichtet",
   "Regnskap koblet til": "Buchhaltung angebunden",
   "Kunder og kjøretøy flyttet over": "Kunden und Fahrzeuge übernommen",
-  "Vi setter opp programmet, kobler til regnskapet og flytter over det dere har fra før.": "Wir richten das Programm ein, binden die Buchhaltung an und übernehmen, was Sie schon haben.",
+  "Vi hjelper dere med å komme i gang og hva dere måtte lure på.": "Wir helfen Ihnen beim Start und bei allem, was Sie wissen möchten.",
   "Regn ut prisen for ditt verksted": "Preis für Ihre Werkstatt berechnen",
   "Spill av": "Abspielen",
   "Sett på pause": "Pausieren",
@@ -332,5 +331,5 @@
   "Gratis support": "Kostenloser Support",
   "Gratis oppstart": "Kostenlose Einrichtung",
   "Gratis regnskapsintegrasjon": "Kostenlose Buchhaltungsintegration",
-  "Fakturaene går rett over i regnskapet. Vi kobler til systemet dere bruker.": "Rechnungen landen direkt in der Buchhaltung. Wir binden das System an, das Sie nutzen."
+  "Fakturaene går rett over i regnskapet. Koble til systemet dere bruker.": "Rechnungen landen direkt in der Buchhaltung. Binden Sie das System an, das Sie nutzen."
 }
