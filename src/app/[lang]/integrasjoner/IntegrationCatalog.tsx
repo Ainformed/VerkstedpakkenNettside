@@ -14,6 +14,7 @@ type Integration = {
   logo?: { src: string; alt: string; className?: string };
   logoText?: string;
   logoColor?: string;
+  comingSoon?: boolean;
 };
 
 const CATEGORIES: CatKey[] = ["alle", "regnskap", "betaling", "deler", "kjoretoy", "ki"];
@@ -44,6 +45,12 @@ const INTEGRATIONS: Integration[] = [
     logo: { src: "/design/logos/visma-eaccounting.png", alt: "Visma eAccounting" },
   },
   {
+    id: "vismabusinessnxt",
+    name: "Visma Business NXT",
+    cat: "regnskap",
+    logo: { src: "/design/logos/visma-business-nxt.svg", alt: "Visma Business NXT" },
+  },
+  {
     id: "24sevenoffice",
     name: "24SevenOffice",
     cat: "regnskap",
@@ -60,6 +67,25 @@ const INTEGRATIONS: Integration[] = [
     name: "Conta",
     cat: "regnskap",
     logo: { src: "/design/logos/conta.svg", alt: "Conta" },
+  },
+  {
+    id: "unimicro",
+    name: "Unimicro",
+    cat: "regnskap",
+    logo: { src: "/design/logos/unimicro.svg", alt: "Unimicro", className: "logo-wide" },
+  },
+  // Unimicro-plattformen under bankenes navn (Nichlas 27.10).
+  {
+    id: "dnbregnskap",
+    name: "DNB Regnskap",
+    cat: "regnskap",
+    logo: { src: "/design/logos/dnb.svg", alt: "DNB", className: "logo-compact" },
+  },
+  {
+    id: "sparebank1regnskap",
+    name: "SpareBank 1 Regnskap",
+    cat: "regnskap",
+    logo: { src: "/design/logos/sparebank1.svg", alt: "SpareBank 1", className: "logo-compact" },
   },
   {
     id: "susoft",
@@ -102,6 +128,18 @@ const INTEGRATIONS: Integration[] = [
     name: "T-PRO",
     cat: "deler",
     logo: { src: "/design/logos/t-pro.png", alt: "T-PRO" },
+  },
+  {
+    id: "bildeler",
+    name: "Bildeler.no",
+    cat: "deler",
+    logo: { src: "/design/logos/bildeler.svg", alt: "Bildeler.no", className: "logo-compact" },
+  },
+  {
+    id: "nbk",
+    name: "Norsk Bildelkatalog",
+    cat: "deler",
+    logo: { src: "/design/logos/norskbildelkatalog.png", alt: "Norsk Bildelkatalog", className: "logo-compact" },
   },
   {
     id: "vegvesen",
@@ -206,7 +244,10 @@ export default function IntegrationCatalog({ t }: { t: IntegrasjonerDict }) {
                 )}
               </div>
               <span className="ic-cat">{t.categories[card.cat]}</span>
-              <h3>{card.name}</h3>
+              <div className="ic-title">
+                <h3>{card.name}</h3>
+                {card.comingSoon && <span className="ic-soon">{t.comingSoon}</span>}
+              </div>
               <p>{t.integrations[card.id]}</p>
             </div>
           ))}
