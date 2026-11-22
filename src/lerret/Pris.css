@@ -385,21 +385,41 @@ img.m-opptak.m-support { transform-origin: 50% 100%; transform: translate(-3%, 1
 .vp-side .foot-cta-card p { order: 0; max-width: 30em; font-size: 19px; line-height: 1.5; text-align: left; }
 .vp-side .foot-cta-card .btn { order: 1; }
 .vp-side .foot-cta-mascot { left: 50%; right: auto; top: auto; bottom: calc(100% + 60px); transform: translateX(-50%); }
-/* Muttern med kaffekoppen på kanten av knappefeltet (22.11.2026, i stedet for Muttern i yoga): føttene står på kanten,
-   koppen damper, han vugger litt og puster, og hvert 10. s tar han koppen ned foran «munnen» under øyet og drikker med
-   halvlukket øye over kanten */
+/* Muttern med kaffekoppen på kanten av knappefeltet (22.11.2026, i stedet for Muttern i yoga). Ruller inn når båndet
+   kommer til syne (klassen k-gaa), reiser seg med koppen i hånda, og så går kaffen: vugger, puster, blunker og tar koppen
+   ned foran «munnen» hvert 10. s. Uten k-gaa venter han utenfor venstre kant */
 .foot-cta-mascot .m-kaffe { display: block; height: 140px; width: auto; overflow: visible; }
-.m-kaffe .k-vugg { transform-box: view-box; transform-origin: 108px 204.5px; animation: kaffeVugg 4.4s ease-in-out infinite alternate; }
-.m-kaffe .k-pust, .m-kaffe .k-blunk { transform-box: fill-box; }
-.m-kaffe .k-pust { transform-origin: 50% 100%; animation: kaffePust 3.2s ease-in-out infinite alternate; }
-.m-kaffe .k-blunk { transform-origin: 50% 50%; animation: kaffeOye 10s ease-in-out infinite; }
-.m-kaffe .k-arm { animation: kaffeArm 10s ease-in-out infinite; }
-.m-kaffe .k-kopp { animation: kaffeKopp 10s ease-in-out infinite; }
-.m-kaffe .k-tipp { transform-box: view-box; transform-origin: 486px 112px; animation: kaffeTipp 10s ease-in-out infinite; }
-.m-kaffe .k-damp-g { animation: kaffeDampVis 10s linear infinite; }
-.m-kaffe .k-damp { opacity: 0; animation: kaffeDamp 2.6s ease-out infinite; }
-.m-kaffe .k-damp2 { animation-delay: .85s; }
-.m-kaffe .k-damp3 { animation-delay: 1.7s; }
+.m-kaffe .k-vugg { transform-box: view-box; transform-origin: 108px 204.5px; }
+.m-kaffe .k-pust, .m-kaffe .k-blunk, .m-kaffe .k-rull, .m-kaffe .k-bein, .m-kaffe .k-pop { transform-box: fill-box; }
+.m-kaffe .k-pust { transform-origin: 50% 100%; }
+.m-kaffe .k-blunk, .m-kaffe .k-rull { transform-origin: 50% 50%; }
+.m-kaffe .k-bein { transform-origin: 50% 0%; }
+.m-kaffe .k-pop-arm { transform-origin: 0% 100%; }
+.m-kaffe .k-pop-venstre { transform-origin: 100% 0%; }
+.m-kaffe .k-pop-kopp { transform-origin: 30% 100%; }
+.m-kaffe .k-tipp { transform-box: view-box; transform-origin: 486px 112px; }
+.m-kaffe .k-damp { opacity: 0; }
+.m-kaffe:not(.k-gaa) { translate: calc(-50vw - 140px) 0; }
+.m-kaffe.k-gaa { animation: kaffeInn 2.2s cubic-bezier(.25, .6, .35, 1) both; }
+.m-kaffe.k-gaa .k-rull { animation: kaffeSpinn 2.4s linear both; }
+.m-kaffe.k-gaa .k-y { animation: kaffeOpp 3s linear both; }
+.m-kaffe.k-gaa .k-bein { animation: kaffeBein .45s cubic-bezier(.2, .7, .3, 1) 2.34s both; }
+.m-kaffe.k-gaa .k-pop { animation: kaffePop .54s ease-out 2.79s both; }
+.m-kaffe.k-gaa .k-vugg { animation: kaffeVugg 4.4s ease-in-out 3.4s infinite alternate; }
+.m-kaffe.k-gaa .k-pust { animation: kaffePust 3.2s ease-in-out 3.4s infinite alternate; }
+.m-kaffe.k-gaa .k-blunk { animation: kaffeOye 10s ease-in-out 3.4s infinite; }
+.m-kaffe.k-gaa .k-arm { animation: kaffeArm 10s ease-in-out 3.4s infinite; }
+.m-kaffe.k-gaa .k-kopp { animation: kaffeKopp 10s ease-in-out 3.4s infinite; }
+.m-kaffe.k-gaa .k-tipp { animation: kaffeTipp 10s ease-in-out 3.4s infinite; }
+.m-kaffe.k-gaa .k-damp-g { animation: kaffeDampVis 10s linear 3.4s infinite; }
+.m-kaffe.k-gaa .k-damp { animation: kaffeDamp 2.6s ease-out 3.4s infinite; }
+.m-kaffe.k-gaa .k-damp2 { animation-delay: 4.25s; }
+.m-kaffe.k-gaa .k-damp3 { animation-delay: 5.1s; }
+@keyframes kaffeInn { from { translate: calc(-50vw - 140px) 0; } to { translate: 0 0; } }
+@keyframes kaffeSpinn { 0% { transform: rotate(-1080deg); animation-timing-function: cubic-bezier(.25, .6, .35, 1); } 91.7% { transform: rotate(4deg); animation-timing-function: ease-in-out; } 100% { transform: rotate(0deg); } }
+@keyframes kaffeOpp { 0%, 78% { transform: translate(0, 89px); animation-timing-function: cubic-bezier(.2, .7, .3, 1); } 93% { transform: translate(0, -13px); animation-timing-function: ease-in-out; } 100% { transform: translate(0, 0); } }
+@keyframes kaffeBein { 0% { transform: scale(1, 0); opacity: 0; } 8% { opacity: 1; } 100% { transform: scale(1, 1); opacity: 1; } }
+@keyframes kaffePop { 0% { transform: scale(0); opacity: 0; } 18% { opacity: 1; } 72% { transform: scale(1.12); } 100% { transform: scale(1); opacity: 1; } }
 @keyframes kaffeVugg { from { transform: rotate(-1.6deg); } to { transform: rotate(1.6deg); } }
 @keyframes kaffePust { from { transform: scale(1, 1); } to { transform: scale(1.01, 1.028); } }
 @keyframes kaffeOye { 0%, 14% { transform: scale(1, 1); } 15% { transform: scale(1, .12); } 16%, 18% { transform: scale(1, 1); } 19% { transform: scale(1, .12); } 20%, 47% { transform: scale(1, 1); } 50%, 59% { transform: scale(1, .55); } 62%, 84% { transform: scale(1, 1); } 85% { transform: scale(1, .12); } 86%, 100% { transform: scale(1, 1); } }
@@ -409,7 +429,8 @@ img.m-opptak.m-support { transform-origin: 50% 100%; transform: translate(-3%, 1
 @keyframes kaffeDampVis { 0%, 35% { opacity: 1; } 39%, 70% { opacity: 0; } 78%, 100% { opacity: 1; } }
 @keyframes kaffeDamp { 0% { opacity: 0; transform: translate(0, 6px); } 25% { opacity: .85; } 100% { opacity: 0; transform: translate(0, -18px); } }
 @media (prefers-reduced-motion: reduce) {
-  .m-kaffe * { animation: none !important; }
+  .m-kaffe, .m-kaffe * { animation: none !important; }
+  .m-kaffe:not(.k-gaa) { translate: none; }
   .m-kaffe .k-damp { opacity: .6; }
 }
 @media (max-width: 760px) {

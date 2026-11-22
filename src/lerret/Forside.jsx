@@ -439,12 +439,12 @@ state = Object.assign({ meny: false }, { steg: null, pause: false, rull: false, 
     this._seq = seq; this._seqT = 0; this._seqFra = naa;
   }
 
-  // Rolig tempo: P går mot målet, men aldri fortere enn 0,45 steg i sekundet, med myk start og stopp
+  // P følger målet tett (rundt 0,2 s etter), så både musehjul og styreflate flytter flyten med en gang
   rolig(fra, mot, dt) {
     const d = mot - fra;
     if (!dt || Math.abs(d) < 0.0005) { this._V = 0; return mot; }
-    const vMaal = Math.sign(d) * Math.min(Math.abs(d) * 2.2, Math.max(0.45, Math.abs(d) * 1.6));
-    this._V = (this._V || 0) + (vMaal - (this._V || 0)) * (1 - Math.exp(-dt / 180));
+    const vMaal = Math.max(-10, Math.min(10, d * 6));
+    this._V = (this._V || 0) + (vMaal - (this._V || 0)) * (1 - Math.exp(-dt / 70));
     const ny = fra + this._V * dt / 1000;
     if ((mot - ny) * d <= 0) { this._V = 0; return mot; }
     return ny;
@@ -746,12 +746,14 @@ return (
                             {" "}
                             <g className="a-p p-stempel">
                               <g className="a-stor">
-                                <rect x="299" y="38" width="48" height="15" rx="4" fill="#0C005A">
+                                <rect x="300" y="8" width="46" height="8" rx="2" fill="#2F7D4E">
                                 </rect>
-                                <rect x="315" y="8" width="16" height="32" rx="7" fill="#0C005A">
+                                <rect x="297" y="15" width="52" height="26" rx="6" fill="#0C005A">
                                 </rect>
-                                <circle cx="323" cy="6" r="11" fill="#0C005A">
-                                </circle>
+                                <rect x="309" y="24" width="28" height="5" rx="2.5" fill="#FFFFFF" opacity="0.55">
+                                </rect>
+                                <rect x="305" y="40" width="36" height="11" rx="5.5" fill="#2D2372">
+                                </rect>
                               </g>
                             </g>
                             {" "}
@@ -1365,39 +1367,6 @@ return (
           <div className="vh-wrap">
             {" "}
             <div className="m-idag">
-              {" "}
-              <svg className="m-ro m-rull" viewBox="16 -12 328 346" fill="none" aria-hidden="true">
-                <g className="r-y">
-                  <g className="r-sq">
-                    <g className="r-bein">
-                      <path d="M212.5 224L219.4 287V316.5" stroke="#93BBFF" strokeWidth="10" strokeLinecap="round">
-                      </path>
-                      <path d="M151.469 217L144.9 289.5V320.438" stroke="#93BBFF" strokeWidth="10" strokeLinecap="round">
-                      </path>
-                      <ellipse cx="145.09" cy="324.92" rx="25.8" ry="8.1" fill="#93BBFF">
-                      </ellipse>
-                      <ellipse cx="219.09" cy="324.49" rx="25.8" ry="8.1" fill="#93BBFF">
-                      </ellipse>
-                    </g>
-                    <g className="r-pust">
-                      <g className="r-arm">
-                        <path className="r-vink" d="M276 124.665L300.31 119.939C312.998 117.473 322.158 106.361 322.158 93.4354L322.158 50.9799" stroke="#93BBFF" strokeWidth="9" strokeLinecap="round">
-                        </path>
-                      </g>
-                      <g className="r-arm">
-                        <path d="M30.4512 194.5L30.4525 153.738C30.453 138.826 42.5412 126.738 57.4525 126.738L89.9535 126.738" stroke="#93BBFF" strokeWidth="9" strokeLinecap="round">
-                        </path>
-                      </g>
-                      <g className="r-rull">
-                        <path d="M283.332 59.5811V184.834L179.81 243.972L76.2871 184.834V59.5811L179.81 0.444336L283.332 59.5811Z" fill="#93BBFF">
-                        </path>
-                        <circle className="r-blunk" cx="179.809" cy="122.209" r="37.9" fill="#FAF7F2">
-                        </circle>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
               {" "}
               <p className="m-bytt">
                 <b className="m-spm">
