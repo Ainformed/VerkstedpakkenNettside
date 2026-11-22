@@ -10,6 +10,9 @@ const common: CommonDict = {
     menu: "Menu",
     closeMenu: "Luk menu",
     language: "Sprog",
+    omoss: "Om os",
+    ordresystemSub: "Samler hele jobbet",
+    bookingSub: "Klar fra start",
   },
   footer: {
     ctaButton: "Prøv gratis i 14 dage",
@@ -25,7 +28,7 @@ const common: CommonDict = {
     siteDescription:
       "Værkstedsprogrammet uden dobbeltarbejde. Ordrer, booking, mekanikerportal og faktura i ét program. Admin 1.295 NOK og mekaniker 595 NOK pr. måned. Prøv gratis i 14 dage.",
     ogDescription:
-      "Ordrer, hjemmeside og booking, mekanikerportal og faktura i ét program. Alt inkluderet, ingen binding. Prøv gratis i 14 dage.",
+      "Ordrer, hjemmeside og booking, mekanikerportal og faktura i ét program. Gratis opstart og support, og månedlig uden binding. Prøv gratis i 14 dage.",
     ogImageAlt: "Verkstedpakken — komplet program til værksteder",
   },
 };

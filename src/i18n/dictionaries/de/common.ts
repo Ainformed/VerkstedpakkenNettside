@@ -10,6 +10,9 @@ const common: CommonDict = {
     menu: "Menü",
     closeMenu: "Menü schließen",
     language: "Sprache",
+    omoss: "Über uns",
+    ordresystemSub: "Der ganze Auftrag an einem Ort",
+    bookingSub: "Startklar ab Tag eins",
   },
   footer: {
     ctaButton: "14 Tage kostenlos testen",
@@ -25,7 +28,7 @@ const common: CommonDict = {
     siteDescription:
       "Werkstattsoftware ohne Doppelarbeit. Aufträge, Buchung, Mechanikerportal und Rechnung in einem Programm. Admin 1.295 NOK und Mechaniker 595 NOK pro Monat. 14 Tage kostenlos testen.",
     ogDescription:
-      "Aufträge, Website und Buchung, Mechanikerportal und Rechnung in einem Programm. Alles inklusive, keine Bindung. 14 Tage kostenlos testen.",
+      "Aufträge, Website und Buchung, Mechanikerportal und Rechnung in einem Programm. Kostenlose Einrichtung und Support, monatlich ohne Bindung. 14 Tage kostenlos testen.",
     ogImageAlt: "Verkstedpakken — komplette Software für Werkstätten",
   },
 };

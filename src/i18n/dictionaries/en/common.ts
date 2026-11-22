@@ -10,6 +10,9 @@ const common: CommonDict = {
     menu: "Menu",
     closeMenu: "Close menu",
     language: "Language",
+    omoss: "About us",
+    ordresystemSub: "The whole job in one place",
+    bookingSub: "Ready from day one",
   },
   footer: {
     ctaButton: "Try free for 14 days",
@@ -25,7 +28,7 @@ const common: CommonDict = {
     siteDescription:
       "Workshop software without double work. Work orders, booking, mechanic portal and invoicing in one program. Admin NOK 1,295 and mechanic NOK 595 per month. Try free for 14 days.",
     ogDescription:
-      "Work orders, website and booking, mechanic portal and invoicing in one program. Everything included, no lock-in. Try free for 14 days.",
+      "Work orders, website and booking, mechanic portal and invoicing in one program. Free setup and support, and monthly with no lock-in. Try free for 14 days.",
     ogImageAlt: "Verkstedpakken — complete software for workshops",
   },
 };

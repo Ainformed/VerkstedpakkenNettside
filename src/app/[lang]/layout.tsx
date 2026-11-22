@@ -257,7 +257,8 @@ export default async function RootLayout({
         className={`${interTight.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <ScrollReset />
-        {children}
+        {/* Som lerretet: innholdet i .vp-side (lerret.css bruker den) */}
+        <div className="vp-side">{children}</div>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18381801939"
           strategy="afterInteractive"

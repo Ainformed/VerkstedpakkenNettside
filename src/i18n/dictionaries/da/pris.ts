@@ -3,7 +3,7 @@ const pris: PrisDict = {
   meta: {
     title: "Pris på værkstedsprogrammet",
     description:
-      "Admin-licens 1.295 NOK og mekanikerlicens 595 NOK pr. måned (ekskl. moms). Alt inkluderet, ingen binding, ingen oprettelsesgebyr. Prøv gratis i 14 dage.",
+      "Admin-licens 1.295 NOK og mekanikerlicens 595 NOK pr. måned (ekskl. moms). Gratis opstart og support. Månedlig uden binding, eller rabat med binding. Prøv gratis i 14 dage.",
   },
   title: "Pris for Verkstedpakken",
   priceFormat: { locale: "da-DK", prefix: "", suffix: " NOK" },
@@ -20,7 +20,7 @@ const pris: PrisDict = {
       bindingOptions: ["1 måned", "6 måneder", "1 år"],
       bindingTerms: ["Ingen binding", "6 måneders binding", "1 års binding"],
       paymentTitle: "Betalingsfrekvens",
-      paymentOptions: ["Betal for 1 måned", "Betal for 6 måneder", "Betal for 1 år"],
+      paymentOptions: ["Betal pr. måned", "Betal for 6 måneder", "Betal for 1 år"],
       periodLabels: ["Pr. måned", "Pr. 6 måneder", "Pr. år"],
       months: " × {n} md.",
       saving: "Du sparer {pct} %",
@@ -58,7 +58,7 @@ const pris: PrisDict = {
   },
   included: {
     title: "Alt dette er inkluderet",
-    subtitle: "Det, andre tager betaling for, er en del af prisen hos os.",
+    subtitle: "Det, andre tager betaling for, er gratis hos os.",
     pill: "Inkluderet",
     groups: [
       {

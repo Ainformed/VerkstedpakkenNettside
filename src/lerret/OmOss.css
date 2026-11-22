@@ -1,0 +1,176 @@
+/* Stilene for OmOss fra lerretet (gen/til_react.py), i samme rekkefølge som i lerretet. */
+
+
+/* ── Om oss (gen/om-oss.dc.html) ── */
+/* ── Om oss (19.11.2026): polaroidbildene ligger fritt nedover siden, ett eller noen få om gangen,
+   med litt tekst ved siden av. Når man ruller, glir bildene inn og legger seg skjevt til rette,
+   fargene fremkalles, og teksten kommer opp. Bevegelsene følger rullingen (animation-timeline).
+   Bredden styres av container-spørringer, så samme side virker på mobil. ── */
+.om { --navy: #0C005A; --ink: #1B1B1F; --bla: #93BBFF; --panel: #E7EEFB;
+  container-type: inline-size; container-name: om; width: 100%; overflow: clip; background: #fff; color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.om *, .om *::before, .om *::after { box-sizing: border-box; }
+.om svg { display: block; }
+.om img { display: block; width: 100%; height: auto; }
+.om-wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+.om-seksjon { padding: 96px 0 120px; }
+.om-hode { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: end; }
+.om-h2 { margin: 0; max-width: 17em; font-size: clamp(2rem, 4.2cqw, 50px); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); text-wrap: balance; }
+.om-ingress { margin: 22px 0 0; max-width: 34em; font-size: 19px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+.om-haand { font-family: "Caveat", "Bradley Hand", "Segoe Print", cursive; font-weight: 700; }
+
+/* Muttern tar bildene */
+.om-fotograf { position: relative; justify-self: end; width: 270px; padding-top: 34px; }
+.om-fotograf svg { width: 210px; height: auto; margin-left: auto; overflow: visible; }
+.om-rop { position: absolute; left: 0; top: 0; font-size: 38px; line-height: 1; color: var(--navy); transform: rotate(-7deg); white-space: nowrap; }
+/* Fotograf-Muttern (21.11.2026: «animer»): hvert femte sekund spretter «Si mutter!», kameraet løftes og det blitser */
+.om-kamera { transform-box: view-box; transform-origin: 276px 124px; animation: omKamera 5s ease-in-out infinite; }
+.om-lys { transform-box: fill-box; transform-origin: 50% 50%; opacity: 0; animation: omLys 5s ease-out infinite; }
+.om-linse { animation: omLinse 5s ease-out infinite; }
+.om-blits { transform-box: fill-box; transform-origin: 50% 50%; animation: omBlits 5s ease-out infinite; }
+.om-rop { animation: omRop 5s ease-in-out infinite; }
+@keyframes omKamera { 0%, 56%, 100% { transform: rotate(0deg); } 64%, 82% { transform: rotate(-9deg) translateY(-4px); } 92% { transform: rotate(0deg); } }
+@keyframes omLys { 0%, 74%, 100% { opacity: 0; transform: scale(0.2); } 77% { opacity: 1; transform: scale(1.2); } 86% { opacity: 0; transform: scale(2.1); } }
+@keyframes omLinse { 0%, 74%, 86%, 100% { fill: #0C005A; } 77%, 80% { fill: #FFFFFF; } }
+@keyframes omBlits { 0%, 75%, 100% { opacity: 0; transform: scale(0.6); } 79% { opacity: 1; transform: scale(1.15); } 88% { opacity: 0; transform: scale(1.3); } }
+@keyframes omRop { 0%, 56%, 100% { transform: rotate(-7deg) scale(1); } 62% { transform: rotate(-11deg) scale(1.14); } 68% { transform: rotate(-5deg) scale(1.03); } 74% { transform: rotate(-7deg) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .om-kamera, .om-lys, .om-linse, .om-blits, .om-rop { animation: none; } }
+
+/* Stundene: bilder på den ene siden, tekst på den andre, annenhver gang snudd */
+.om-historie { margin-top: 56px; }
+.om-stund { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 72px; align-items: center; padding: 76px 0; }
+.om-stund.snudd .om-bilder { order: 2; }
+.om-stund.midt { grid-template-columns: minmax(0, 1fr); gap: 46px; justify-items: center; text-align: center; padding-bottom: 20px; }
+.om-bilder { display: flex; justify-content: center; align-items: flex-start; padding: 10px 0 30px; }
+.om-tekst h2 { margin: 0; font-size: clamp(1.7rem, 3.3cqw, 40px); font-weight: 600; line-height: 1.12; letter-spacing: -0.025em; color: var(--ink); }
+.om-tekst p { margin: 16px 0 0; max-width: 25em; font-size: 19px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+.om-stund.midt .om-tekst p { margin-left: auto; margin-right: auto; }
+.om-tekst a { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Polaroidbildet. Den ytre boksen glir inn, den indre ligger skjevt og rettes opp når man holder over. */
+.pol { position: relative; flex: none; width: min(78%, 356px); margin: 0; }
+.pol-kort { position: relative; background: #fff; border-radius: 3px; transform: rotate(var(--r)); box-shadow: 0 1px 2px rgba(12, 0, 90, 0.14), 0 22px 36px -18px rgba(12, 0, 90, 0.42); transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease; }
+.pol-kort img { border-radius: 3px; }
+.pol:hover { z-index: 5; }
+.pol:hover .pol-kort { transform: rotate(0deg) scale(1.05); box-shadow: 0 2px 4px rgba(12, 0, 90, 0.16), 0 34px 48px -20px rgba(12, 0, 90, 0.5); }
+.pol.teip .pol-kort::before { content: ""; position: absolute; z-index: 1; left: 50%; top: -13px; width: 92px; height: 28px; margin-left: -46px; background: rgba(147, 187, 255, 0.62); transform: rotate(-3deg); }
+.pol-tekst { position: absolute; left: 7%; right: 7%; bottom: 4.6%; text-align: center; font-size: clamp(20px, 2.5cqw, 30px); line-height: 1; color: #1F1A5E; transform: rotate(-1.5deg); white-space: nowrap; }
+.sk1 { --r: -4deg; } .sk2 { --r: 3deg; } .sk3 { --r: -5deg; } .sk4 { --r: -3deg; } .sk5 { --r: 5deg; } .sk6 { --r: 4deg; } .sk7 { --r: -4deg; } .sk8 { --r: -6deg; } .sk9 { --r: 2deg; } .sk10 { --r: 7deg; } .sk11 { --r: 4deg; } .sk12 { --r: -2deg; } .sk13 { --r: -5deg; }
+.om-bilder.to .pol { width: min(50%, 290px); }
+.om-bilder.to .pol + .pol { margin: 108px 0 0 -22px; }
+.om-bilder.tre { gap: 0; }
+.om-bilder.tre .pol { width: min(31%, 300px); }
+.om-bilder.tre .pol:nth-child(2) { margin: 44px -26px 0; z-index: 1; }
+/* Laget: fire på rad. Bildene overlapper bare i rammene, så ingen ansikter dekkes. */
+.om-bilder.fire { gap: 0; }
+/* Navn og tittel på de fire i teamet: to linjer i den hvite kanten */
+.om-bilder.fire .pol-tekst { bottom: 2.6%; font-size: clamp(18px, 2.2cqw, 26px); }
+.pol-tekst small { display: block; margin-top: 2px; font-size: 0.6em; font-weight: 700; letter-spacing: 0.01em; }
+/* Teamkortene snus ved trykk og viser kontaktinfo på baksiden (21.11.2026: «trykker man på kortene til hver enkelt skal
+   kontaktinfoen komme opp, oscar@verkstedpakken and so on»). Ett kort er snudd om gangen; et nytt trykk snur det tilbake. */
+.pol-snu { cursor: pointer; perspective: 1600px; }
+.pol-snu:focus-visible { outline: none; }
+.pol-snu:focus-visible .pol-kort { outline: 3px solid #93BBFF; outline-offset: 4px; }
+.pol-snu .pol-kort { transform-style: preserve-3d; transform: rotate(var(--r)) scale(1) rotateY(0deg); transition: transform 0.55s cubic-bezier(0.2, 0.75, 0.25, 1), box-shadow 0.28s ease; }
+.pol-snu:hover .pol-kort { transform: rotate(0deg) scale(1.05) rotateY(0deg); }
+.pol-snu.snudd .pol-kort { transform: rotate(var(--r)) scale(1) rotateY(180deg); }
+.pol-snu.snudd:hover .pol-kort { transform: rotate(0deg) scale(1.05) rotateY(180deg); }
+/* 22.11.2026 (Nichlas): «Gjør sånn at da man holder over også at kortet flipper, så de enkelt kan få info». Med mus snus
+   kortet når pekeren er over det; et trykk holder det snudd som før. Med tastatur snus det når det eller en lenke på
+   baksiden har fokus. På telefon er det trykket som snur, som før. */
+@media (hover: hover) and (pointer: fine) {
+  .pol-snu:hover .pol-kort { transform: rotate(0deg) scale(1.05) rotateY(180deg); }
+}
+.pol-snu:focus-visible .pol-kort, .pol-snu:has(:focus-visible) .pol-kort { transform: rotate(0deg) scale(1.05) rotateY(180deg); }
+.pol-snu .pol-kort > img, .pol-snu .pol-kort > .pol-tekst { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.pol-bak { position: absolute; inset: 0; container-type: inline-size; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 7%; border-radius: 3px; background: #FBFAF6; text-align: center; transform: rotateY(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.pol-bak-navn { font-size: clamp(22px, 13cqw, 36px); line-height: 1; color: #1F1A5E; transform: rotate(-2deg); }
+.pol-bak-rolle { font-size: 13px; font-weight: 600; color: var(--ink); opacity: 0.7; }
+.pol-bak-epost { margin-top: 12px; padding: 7px 10px; border-radius: 8px; background: #fff; border: 1px solid #DFE7F7; font-size: clamp(11px, 5.2cqw, 14px); font-weight: 600; line-height: 1.35; color: var(--navy); text-decoration: none; }
+.pol-bak-epost:hover { border-color: var(--navy); }
+@media (prefers-reduced-motion: reduce) { .pol-snu .pol-kort { transition: none; } }
+/* Kopier-knapp under e-posten (22.11.2026: «kopier knapp?»): tekst med ikon, ikke pille; «Kopiert» i grønt en liten stund */
+.pol-bak-tlf { display: inline-flex; align-items: center; gap: 6px; margin-top: 2px; white-space: nowrap; }
+/* Små kort (mobil): mindre skrift og luft, så alt får plass på baksiden */
+@container (max-width: 230px) {
+  .pol-bak-navn { font-size: 20px; }
+  .pol-bak-rolle { font-size: 11px; }
+  .pol-bak-epost { margin-top: 2px; padding: 4px 8px; font-size: 10.5px; }
+  .pol-bak-tlf { margin-top: 0; gap: 4px; }
+  .pol-bak-tlf svg { width: 11px; height: 11px; }
+  .pol-bak-kopier { margin-top: -2px; padding: 3px 6px; font-size: 11px; }
+  .pol-bak-kopier svg { width: 12px; height: 12px; }
+}
+.pol-bak-kopier { display: inline-flex; align-items: center; margin-top: 2px; padding: 5px 8px; border: 0; border-radius: 6px; background: none; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--navy); cursor: pointer; }
+.pol-bak-kopier > span { display: inline-flex; align-items: center; gap: 6px; }
+.pol-bak-kopier:hover { background: rgba(12, 0, 90, 0.06); }
+.pol-bak-kopier:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+.pol-bak-kopier .ok, .pol-bak-kopier.kopiert .kp { display: none; }
+.pol-bak-kopier.kopiert .ok { display: inline-flex; }
+.pol-bak-kopier.kopiert { color: #1F6B3E; }
+.om-bilder.fire .pol { width: min(25.5%, 268px); }
+.om-bilder.fire .pol + .pol { margin-left: -12px; }
+.om-bilder.fire .pol:nth-child(even) { margin-top: 42px; }
+.om-stund.midt .om-bilder.to .pol + .pol { margin-top: 58px; }
+/* Duse farger (21.11.2026): «Fra hverdagen» på et sandfarget bånd over hele bredden */
+.om-hverdag { margin-top: 40px; padding-top: 80px; padding-bottom: 88px; background: #F3F1FA; box-shadow: 0 0 0 100vmax #F3F1FA; clip-path: inset(0 -100vmax); }
+/* Bilder fra hverdagen (21.11.2026): polaroidene i et løst rutenett, tre på rad, midterste litt lavere */
+.om-bilder.hverdag { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 60px 44px; width: 100%; max-width: 1040px; justify-items: center; }
+.om-bilder.hverdag .pol { width: min(100%, 300px); }
+.om-bilder.hverdag .pol:nth-child(3n+2) { margin-top: 40px; }
+
+/* Når man ruller: bildet glir inn og fremkalles, teksten kommer opp */
+@keyframes omInn { from { opacity: 0; transform: translateY(80px) rotate(8deg) scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes omInnV { from { opacity: 0; transform: translateY(80px) rotate(-8deg) scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes omOpp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+@keyframes omFremkall { from { filter: brightness(1.45) contrast(0.4) saturate(0.1) sepia(0.35); } to { filter: none; } }
+@supports (animation-timeline: view()) {
+  .pol { animation: omInn linear both; animation-timeline: view(); animation-range: entry 0% entry 90%; }
+  .pol:nth-child(even) { animation-name: omInnV; animation-range: entry 10% entry 100%; }
+  .pol-kort img { animation: omFremkall linear both; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+  .om-tekst { animation: omOpp linear both; animation-timeline: view(); animation-range: entry 5% entry 95%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .om *, .om *::before { animation: none !important; transition: none !important; }
+}
+
+/* Smalt (mobil): bildene først, teksten under */
+@container om (max-width: 860px) {
+  .om-wrap { padding: 0 16px; }
+  .om-seksjon { padding: 64px 0 72px; }
+  .om-hode { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .om-ingress { font-size: 17px; }
+  .om-fotograf { justify-self: start; width: 220px; padding-top: 26px; }
+  .om-fotograf svg { width: 150px; }
+  .om-rop { font-size: 30px; }
+  .om-historie { margin-top: 28px; }
+  .om-stund, .om-stund.midt { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 34px 0; text-align: left; justify-items: stretch; }
+  .om-stund.snudd .om-bilder { order: 0; }
+  .om-bilder { padding: 6px 0 20px; }
+  .pol { width: min(80%, 300px); }
+  .om-bilder.to .pol { width: 52%; }
+  .om-bilder.to .pol + .pol { margin: 74px 0 0 -18px; }
+  .om-bilder.tre .pol { width: 40%; }
+  .om-bilder.tre .pol:nth-child(2) { margin: 36px -30px 0; }
+  .om-bilder.tre .pol:nth-child(3) { margin-left: -6px; }
+  .om-bilder.fire { flex-wrap: wrap; }
+  .om-bilder.fire .pol { width: 47%; }
+  .om-bilder.fire .pol + .pol { margin-left: 0; }
+  .om-bilder.fire .pol:nth-child(even) { margin: 30px 0 0 -8px; }
+  .om-bilder.fire .pol:nth-child(n+3) { margin-top: -2px; }
+  .om-bilder.fire .pol:nth-child(4) { margin-top: 28px; }
+  .om-bilder.hverdag { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 16px; }
+  .om-bilder.hverdag .pol { width: 100%; }
+  .om-bilder.hverdag .pol:nth-child(3n+2) { margin-top: 0; }
+  .om-bilder.hverdag .pol:nth-child(even) { margin-top: 28px; }
+  .om-hverdag { margin-top: 24px; padding-top: 48px; padding-bottom: 56px; }
+  .pol.teip .pol-kort::before { width: 62px; height: 22px; margin-left: -31px; top: -11px; }
+  .pol-tekst { font-size: clamp(15px, 4.4cqw, 22px); }
+  .om-tekst p { font-size: 17px; }
+  .om-stund.midt .om-tekst p { margin-left: 0; }
+}
+
+.vp-inter .om { font-family: 'Inter Tight', ui-sans-serif, system-ui, sans-serif; }
+
+/* Håndskriften kommer fra next/font (variabelen --font-caveat) */
+.om-haand { font-family: var(--font-caveat), "Bradley Hand", "Segoe Print", cursive; }

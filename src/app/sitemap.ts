@@ -9,6 +9,7 @@ const PAGES: { path: string; changeFrequency: "weekly" | "monthly"; priority: nu
   { path: "/nettside-og-booking", changeFrequency: "monthly", priority: 0.9 },
   { path: "/integrasjoner", changeFrequency: "monthly", priority: 0.8 },
   { path: "/pris", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/om-oss", changeFrequency: "monthly", priority: 0.6 },
 ];
 
 // Én oppføring per side per språk, med hreflang-alternates så Google ser

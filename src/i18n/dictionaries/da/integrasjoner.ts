@@ -23,6 +23,7 @@ const integrasjoner: IntegrasjonerDict = {
     tripletex: "Fakturaer, kunder og betalinger holdes synkroniseret, uden manuel indtastning.",
     visma: "Send fakturaer og bilag direkte til Visma, klar til bogføring.",
     vismabusinessnxt: "Ordrer og betalingsstatus går direkte ind i Visma Business NXT.",
+    vismaenterprise: "Fakturaer og betalingsstatus går direkte ind i Visma Enterprise.",
     "24sevenoffice": "Overfør salg og betalinger automatisk til regnskabet.",
     systima: "Fakturagrundlag og betalinger går automatisk til bogføring i Systima.",
     conta: "Kobl til på et minut med API-nøgle. Salg og betalingsstatus lander direkte i Conta.",
