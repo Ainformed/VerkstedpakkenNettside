@@ -8,16 +8,24 @@ const pris: PrisDict = {
   title: "Verkstedpakken pricing",
   priceFormat: { locale: "en-GB", prefix: "NOK ", suffix: "" },
   calc: {
-    totalLabel: "Your price per month",
     exVat: "excl. VAT",
-    perMonth: "Per month",
     byAgreement: "By agreement",
     adminUnit: "admin",
     mechanicOne: "mechanic",
     mechanicMany: "mechanics",
     cta: "Try free for 14 days",
-    termsBold: "No lock-in",
     termsRest: "No setup fee",
+    choices: {
+      bindingTitle: "Commitment",
+      bindingOptions: ["1 month", "6 months", "1 year"],
+      bindingTerms: ["No lock-in", "6-month commitment", "1-year commitment"],
+      paymentTitle: "Payment frequency",
+      paymentOptions: ["Pay for 1 month", "Pay for 6 months", "Pay for 1 year"],
+      periodLabels: ["Per month", "Per 6 months", "Per year"],
+      months: " × {n} mo.",
+      saving: "You save {pct}%",
+      badge: "−{pct}%",
+    },
     adminCard: {
       name: "Admin / service advisor",
       per: "per user/month",
@@ -135,11 +143,11 @@ const pris: PrisDict = {
     items: [
       {
         q: "Is there a lock-in period?",
-        a: "No. You pay month by month and can cancel whenever you want.",
+        a: "You choose. The default is one month, and then you can cancel whenever you want. Commit to 6 months and you get a 7.5% discount. Commit to 1 year and you get 15%. If you also pay for 6 months, you get another 7.5%. If you pay for 1 year, you get another 15%. You cannot pay for a longer period than the commitment you have chosen. The highest discount is 30%: a 1-year commitment and payment for 1 year. The discount applies to both admin and mechanic licences.",
       },
       {
         q: "How is the price calculated?",
-        a: "You pay NOK 1,295 per admin and NOK 595 per mechanic per month. The price per admin drops when you have more admins: NOK 1,095 from the fourth and NOK 995 from the seventh. The mechanic licence costs the same regardless of number.",
+        a: "You pay NOK 1,295 per admin and NOK 595 per mechanic per month. The price per admin drops when you have more admins: NOK 1,095 from the fourth and NOK 995 from the seventh. The mechanic licence costs the same regardless of number. A longer commitment, or paying for 6 months or 1 year, comes with a discount on top of this.",
       },
       {
         q: "What is the difference between admin and mechanic?",
