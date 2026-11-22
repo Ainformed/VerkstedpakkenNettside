@@ -203,7 +203,6 @@
   "DNB Regnskap": "DNB Regnskap",
   "Tjenester du kan koble til": "Services you can connect",
   "Pris": "Pricing",
-  "Fast pris, ingen overraskelser.": "Fixed price, no surprises.",
   "Hvordan sender jeg et tilbud?": "How do I send a quote?",
   "Jeg viser deg! Åpne ordren og trykk «Send tilbud».": "Let me show you! Open the order and click “Send quote”.",
   "Svar fra et menneske hos Verkstedpakken": "Reply from a human at Verkstedpakken",
@@ -212,7 +211,7 @@
   "Programmet satt opp": "Software set up",
   "Regnskap koblet til": "Accounting connected",
   "Kunder og kjøretøy flyttet over": "Customers and vehicles moved over",
-  "Vi setter opp programmet, kobler til regnskapet og flytter over det dere har fra før.": "We set up the software, connect your accounting and move over what you already have.",
+  "Vi hjelper dere med å komme i gang og hva dere måtte lure på.": "We help you get started and answer anything you're wondering about.",
   "Regn ut prisen for ditt verksted": "Calculate the price for your workshop",
   "Spill av": "Play",
   "Sett på pause": "Pause",
@@ -332,5 +331,5 @@
   "Gratis support": "Free support",
   "Gratis oppstart": "Free setup",
   "Gratis regnskapsintegrasjon": "Free accounting integration",
-  "Fakturaene går rett over i regnskapet. Vi kobler til systemet dere bruker.": "Invoices go straight into your accounts. We connect the system you use."
+  "Fakturaene går rett over i regnskapet. Koble til systemet dere bruker.": "Invoices go straight into your accounts. Connect the system you use."
 }

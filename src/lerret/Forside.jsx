@@ -583,6 +583,167 @@ return (
       {" "}
       <div className={v.vhRot} ref={v.settVh}>
         {" "}
+        <section className="vh-pris" aria-label={T("Pris")}>
+          {" "}
+          <div className="vh-wrap">
+            {" "}
+            <div className="p-felt">
+              {" "}
+              <div className="p3-rad">
+                {" "}
+                <article className="p3 p3-support">
+                  {" "}
+                  <div className="p3-vis" aria-hidden="true">
+                    <div className="p3-prat">
+                      <span className="kunde">
+                        {T("Hvordan sender jeg et tilbud?")}
+                      </span>
+                      <span className="oss">
+                        {T("Jeg viser deg! Åpne ordren og trykk «Send tilbud».")}
+                      </span>
+                      <small>
+                        {T("Svar fra et menneske hos Verkstedpakken")}
+                      </small>
+                    </div>
+                  </div>
+                  {" "}
+                  <h3>
+                    {T("Gratis support")}
+                  </h3>
+                  {" "}
+                  <p>
+                    {T("Det er alltid et menneske som svarer, og du får aldri faktura for hjelp.")}
+                  </p>
+                  {" "}
+                  <span className="p3-merke">
+                    <strong>
+                      {T("0,-")}
+                    </strong>
+                  </span>
+                  {" "}
+                </article>
+                {" "}
+                <article className="p3 p3-oppstart">
+                  {" "}
+                  <div className="p3-vis" aria-hidden="true">
+                    <ul className="p3-liste">
+                      <li>
+                        <i>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                            <path d="M20 6 9 17l-5-5">
+                            </path>
+                          </svg>
+                        </i>
+                        {T("Programmet satt opp")}
+                      </li>
+                      <li>
+                        <i>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                            <path d="M20 6 9 17l-5-5">
+                            </path>
+                          </svg>
+                        </i>
+                        {T("Regnskap koblet til")}
+                      </li>
+                      <li>
+                        <i>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                            <path d="M20 6 9 17l-5-5">
+                            </path>
+                          </svg>
+                        </i>
+                        {T("Kunder og kjøretøy flyttet over")}
+                      </li>
+                    </ul>
+                  </div>
+                  {" "}
+                  <h3>
+                    {T("Gratis oppstart")}
+                  </h3>
+                  {" "}
+                  <p>
+                    {T("Vi hjelper dere med å komme i gang og hva dere måtte lure på.")}
+                  </p>
+                  {" "}
+                  <span className="p3-merke">
+                    <strong>
+                      {T("0,-")}
+                    </strong>
+                  </span>
+                  {" "}
+                </article>
+                {" "}
+                <article className="p3 p3-regnskap">
+                  {" "}
+                  <div className="p3-vis" aria-hidden="true">
+                    <div className="p3-logoer">
+                      <span className="rl0">
+                        <img src="/design/logos/tripletex.png" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl1">
+                        <img src="/design/logos/fiken.svg" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl2">
+                        <img src="/design/logos/poweroffice.png" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl3">
+                        <img src="/design/logos/visma-eaccounting.png" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl4">
+                        <img src="/design/logos/finago.png" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl5">
+                        <img src="/design/logos/visma-business-nxt.svg" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl6">
+                        <img src="/design/logos/conta.svg" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl7">
+                        <img src="/design/logos/unimicro.svg" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl8">
+                        <img src="/design/logos/systima.png" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl9">
+                        <img src="/design/logos/visma-enterprise.svg" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl10">
+                        <img src="/design/logos/sparebank1.svg" alt="" loading="lazy" decoding="async" />
+                      </span>
+                      <span className="rl11">
+                        <img src="/design/logos/dnb.svg" alt="" loading="lazy" decoding="async" />
+                      </span>
+                    </div>
+                  </div>
+                  {" "}
+                  <h3>
+                    {T("Gratis regnskapsintegrasjon")}
+                  </h3>
+                  {" "}
+                  <p>
+                    {T("Fakturaene går rett over i regnskapet. Koble til systemet dere bruker.")}
+                  </p>
+                  {" "}
+                  <span className="p3-merke">
+                    <strong>
+                      {T("0,-")}
+                    </strong>
+                  </span>
+                  {" "}
+                </article>
+                {" "}
+              </div>
+              {" "}
+              <a className="p-lenke" href={L("/pris")}>
+                {T("Regn ut prisen for ditt verksted")}
+              </a>
+              {" "}
+            </div>
+            {" "}
+          </div>
+          {" "}
+        </section>
+        {" "}
         <section className="vh-flyt" aria-label={T("Slik går en jobb gjennom Verkstedpakken")}>
           {" "}
           <div className="vh-wrap">
@@ -1857,171 +2018,6 @@ return (
                 </svg>
               </a>
             </p>
-            {" "}
-          </div>
-          {" "}
-        </section>
-        {" "}
-        <section className="vh-pris" aria-label={T("Pris")}>
-          {" "}
-          <div className="vh-wrap">
-            {" "}
-            <div className="p-felt">
-              {" "}
-              <h2 className="vh-h2">
-                {T("Fast pris, ingen overraskelser.")}
-              </h2>
-              {" "}
-              <div className="p3-rad">
-                {" "}
-                <article className="p3 p3-support">
-                  {" "}
-                  <div className="p3-vis" aria-hidden="true">
-                    <div className="p3-prat">
-                      <span className="kunde">
-                        {T("Hvordan sender jeg et tilbud?")}
-                      </span>
-                      <span className="oss">
-                        {T("Jeg viser deg! Åpne ordren og trykk «Send tilbud».")}
-                      </span>
-                      <small>
-                        {T("Svar fra et menneske hos Verkstedpakken")}
-                      </small>
-                    </div>
-                  </div>
-                  {" "}
-                  <h3>
-                    {T("Gratis support")}
-                  </h3>
-                  {" "}
-                  <p>
-                    {T("Det er alltid et menneske som svarer, og du får aldri faktura for hjelp.")}
-                  </p>
-                  {" "}
-                  <span className="p3-merke">
-                    <strong>
-                      {T("0,-")}
-                    </strong>
-                  </span>
-                  {" "}
-                </article>
-                {" "}
-                <article className="p3 p3-oppstart">
-                  {" "}
-                  <div className="p3-vis" aria-hidden="true">
-                    <ul className="p3-liste">
-                      <li>
-                        <i>
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                            <path d="M20 6 9 17l-5-5">
-                            </path>
-                          </svg>
-                        </i>
-                        {T("Programmet satt opp")}
-                      </li>
-                      <li>
-                        <i>
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                            <path d="M20 6 9 17l-5-5">
-                            </path>
-                          </svg>
-                        </i>
-                        {T("Regnskap koblet til")}
-                      </li>
-                      <li>
-                        <i>
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                            <path d="M20 6 9 17l-5-5">
-                            </path>
-                          </svg>
-                        </i>
-                        {T("Kunder og kjøretøy flyttet over")}
-                      </li>
-                    </ul>
-                  </div>
-                  {" "}
-                  <h3>
-                    {T("Gratis oppstart")}
-                  </h3>
-                  {" "}
-                  <p>
-                    {T("Vi setter opp programmet, kobler til regnskapet og flytter over det dere har fra før.")}
-                  </p>
-                  {" "}
-                  <span className="p3-merke">
-                    <strong>
-                      {T("0,-")}
-                    </strong>
-                  </span>
-                  {" "}
-                </article>
-                {" "}
-                <article className="p3 p3-regnskap">
-                  {" "}
-                  <div className="p3-vis" aria-hidden="true">
-                    <div className="p3-logoer">
-                      <span className="rl0">
-                        <img src="/design/logos/tripletex.png" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl1">
-                        <img src="/design/logos/fiken.svg" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl2">
-                        <img src="/design/logos/poweroffice.png" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl3">
-                        <img src="/design/logos/visma-eaccounting.png" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl4">
-                        <img src="/design/logos/finago.png" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl5">
-                        <img src="/design/logos/visma-business-nxt.svg" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl6">
-                        <img src="/design/logos/conta.svg" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl7">
-                        <img src="/design/logos/unimicro.svg" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl8">
-                        <img src="/design/logos/systima.png" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl9">
-                        <img src="/design/logos/visma-enterprise.svg" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl10">
-                        <img src="/design/logos/sparebank1.svg" alt="" loading="lazy" decoding="async" />
-                      </span>
-                      <span className="rl11">
-                        <img src="/design/logos/dnb.svg" alt="" loading="lazy" decoding="async" />
-                      </span>
-                    </div>
-                  </div>
-                  {" "}
-                  <h3>
-                    {T("Gratis regnskapsintegrasjon")}
-                  </h3>
-                  {" "}
-                  <p>
-                    {T("Fakturaene går rett over i regnskapet. Vi kobler til systemet dere bruker.")}
-                  </p>
-                  {" "}
-                  <span className="p3-merke">
-                    <strong>
-                      {T("0,-")}
-                    </strong>
-                  </span>
-                  {" "}
-                </article>
-                {" "}
-              </div>
-              {" "}
-              <a className="p-lenke" href={L("/pris")}>
-                {T("Regn ut prisen for ditt verksted")}
-              </a>
-              {" "}
-            </div>
             {" "}
           </div>
           {" "}
