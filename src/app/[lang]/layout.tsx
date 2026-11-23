@@ -186,7 +186,7 @@ function JsonLd() {
         "Dekkhotell",
         "Faktura og betaling",
         "Regnskapsintegrasjon",
-        "Timer og lønnsgrunnlag",
+        "Timeregistrering og lønnsgrunnlag",
       ],
     },
     {

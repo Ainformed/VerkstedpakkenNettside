@@ -30,7 +30,7 @@
   "Ta pause": "Take a break",
   "Stemple ut": "Clock out",
   "Mekaniker": "Mechanic",
-  "Stempling, deler, bilder og kommentarer rett på mobilen.": "Clocking in, parts, photos and comments right on the phone.",
+  "Timeregistrering, deler, bilder og kommentarer rett på mobilen.": "Time tracking, parts, photos and comments right on the phone.",
   "Min garasje": "My garage",
   "Tesla Model 3": "Tesla Model 3",
   "Tilbud": "Quote",
@@ -91,7 +91,7 @@
   "Forsiden til Show'N Shine hos Moldestuket": "The homepage for Moldestuket's Show'N Shine",
   "Forsiden til RGL Automotive": "The RGL Automotive homepage",
   "Verkstedprogrammet uten dobbeltarbeid": "Workshop software without double work",
-  "Ordre, booking, mekanikerportal og faktura i ett program.": "Work orders, booking, mechanic portal and invoicing in one program.",
+  "Ordre, booking, mekanikerportal og faktura i ett verkstedprogram.": "Work orders, booking, mechanic portal and invoicing in one workshop program.",
   "Arbeidsordre i Verkstedpakken: menyen til venstre med Drift åpen, og ordrene gruppert etter dag med status, jobb, kjøretøy med skilt, kunde og sum.": "Work orders in Verkstedpakken: the menu on the left with Operations open, and the orders grouped by day with status, job, vehicle with plate, customer and total.",
   "Hjem": "Home",
   "Betaling": "Payments",
@@ -279,7 +279,7 @@
   "Penger og regnskap": "Money and accounting",
   "Faktura og betaling": "Invoicing and payment",
   "Regnskapsintegrasjon": "Accounting integration",
-  "Timer og lønnsgrunnlag": "Hours and payroll basis",
+  "Timeregistrering og lønnsgrunnlag": "Time tracking and payroll basis",
   "Kom i gang": "Getting started",
   "Etablering av programvare": "Software setup",
   "Etablering av regnskapsintegrasjon": "Accounting integration setup",
@@ -331,5 +331,5 @@
   "Gratis support": "Free support",
   "Gratis oppstart": "Free setup",
   "Gratis regnskapsintegrasjon": "Free accounting integration",
-  "Fakturaene går rett over i regnskapet. Koble til systemet dere bruker.": "Invoices go straight into your accounts. Connect the system you use."
+  "Ordrene går rett over i regnskapet. Koble til systemet dere bruker.": "Orders go straight into your accounts. Connect the system you use."
 }

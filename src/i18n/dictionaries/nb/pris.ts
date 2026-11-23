@@ -91,7 +91,7 @@ const pris = {
         items: [
           { name: "Faktura og betaling" },
           { name: "Regnskapsintegrasjon" },
-          { name: "Timer og lønnsgrunnlag" },
+          { name: "Timeregistrering og lønnsgrunnlag" },
         ],
       },
       {

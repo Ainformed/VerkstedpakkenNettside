@@ -30,7 +30,7 @@
   "Ta pause": "Pause starten",
   "Stemple ut": "Ausstempeln",
   "Mekaniker": "Mechaniker",
-  "Stempling, deler, bilder og kommentarer rett på mobilen.": "Stempeln, Teile, Fotos und Kommentare direkt auf dem Handy.",
+  "Timeregistrering, deler, bilder og kommentarer rett på mobilen.": "Zeiterfassung, Teile, Fotos und Kommentare direkt auf dem Handy.",
   "Min garasje": "Meine Garage",
   "Tesla Model 3": "Tesla Model 3",
   "Tilbud": "Angebot",
@@ -91,7 +91,7 @@
   "Forsiden til Show'N Shine hos Moldestuket": "Startseite von Show'N Shine bei Moldestuket",
   "Forsiden til RGL Automotive": "Startseite von RGL Automotive",
   "Verkstedprogrammet uten dobbeltarbeid": "Werkstattsoftware ohne Doppelarbeit",
-  "Ordre, booking, mekanikerportal og faktura i ett program.": "Aufträge, Buchung, Mechanikerportal und Rechnung in einem Programm.",
+  "Ordre, booking, mekanikerportal og faktura i ett verkstedprogram.": "Aufträge, Buchung, Mechanikerportal und Rechnung in einem Werkstattprogramm.",
   "Arbeidsordre i Verkstedpakken: menyen til venstre med Drift åpen, og ordrene gruppert etter dag med status, jobb, kjøretøy med skilt, kunde og sum.": "Arbeitsaufträge in Verkstedpakken: links das Menü mit geöffnetem Bereich Betrieb, daneben die Aufträge nach Tag gruppiert, mit Status, Arbeit, Fahrzeug mit Kennzeichen, Kunde und Summe.",
   "Hjem": "Start",
   "Betaling": "Zahlung",
@@ -279,7 +279,7 @@
   "Penger og regnskap": "Geld und Buchhaltung",
   "Faktura og betaling": "Rechnung und Zahlung",
   "Regnskapsintegrasjon": "Buchhaltungsintegration",
-  "Timer og lønnsgrunnlag": "Stunden und Lohngrundlage",
+  "Timeregistrering og lønnsgrunnlag": "Zeiterfassung und Lohngrundlage",
   "Kom i gang": "Loslegen",
   "Etablering av programvare": "Einrichtung der Software",
   "Etablering av regnskapsintegrasjon": "Einrichtung der Buchhaltungsintegration",
@@ -331,5 +331,5 @@
   "Gratis support": "Kostenloser Support",
   "Gratis oppstart": "Kostenlose Einrichtung",
   "Gratis regnskapsintegrasjon": "Kostenlose Buchhaltungsintegration",
-  "Fakturaene går rett over i regnskapet. Koble til systemet dere bruker.": "Rechnungen landen direkt in der Buchhaltung. Binden Sie das System an, das Sie nutzen."
+  "Ordrene går rett over i regnskapet. Koble til systemet dere bruker.": "Aufträge landen direkt in der Buchhaltung. Binden Sie das System an, das Sie nutzen."
 }

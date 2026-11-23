@@ -447,7 +447,7 @@ return (
                         </svg>
                       </i>
                       <span>
-                        {T("Timer og lønnsgrunnlag")}
+                        {T("Timeregistrering og lønnsgrunnlag")}
                       </span>
                     </li>
                     {" "}

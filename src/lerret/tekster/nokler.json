@@ -56,7 +56,7 @@
     "Ta pause",
     "Stemple ut",
     "Mekaniker",
-    "Stempling, deler, bilder og kommentarer rett på mobilen."
+    "Timeregistrering, deler, bilder og kommentarer rett på mobilen."
   ],
   "NettsideOgBooking": [
     "Nettside og booking, ferdig fra start",
@@ -120,7 +120,7 @@
   ],
   "Forside": [
     "Verkstedprogrammet uten dobbeltarbeid",
-    "Ordre, booking, mekanikerportal og faktura i ett program.",
+    "Ordre, booking, mekanikerportal og faktura i ett verkstedprogram.",
     "Prøv gratis i 14 dager",
     "Pris",
     "Hvordan sender jeg et tilbud?",
@@ -135,7 +135,7 @@
     "Gratis oppstart",
     "Vi hjelper dere med å komme i gang og hva dere måtte lure på.",
     "Gratis regnskapsintegrasjon",
-    "Fakturaene går rett over i regnskapet. Koble til systemet dere bruker.",
+    "Ordrene går rett over i regnskapet. Koble til systemet dere bruker.",
     "Regn ut prisen for ditt verksted",
     "Slik går en jobb gjennom Verkstedpakken",
     "Kunden sender forespørsel, døgnet rundt. Skiltnummer og hva som skal gjøres. Også når verkstedet er stengt.",
@@ -311,7 +311,7 @@
     "Penger og regnskap",
     "Faktura og betaling",
     "Regnskapsintegrasjon",
-    "Timer og lønnsgrunnlag",
+    "Timeregistrering og lønnsgrunnlag",
     "Kom i gang",
     "Etablering av programvare",
     "Etablering av regnskapsintegrasjon",
