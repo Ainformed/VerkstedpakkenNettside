@@ -30,7 +30,7 @@
   "Ta pause": "Tag pause",
   "Stemple ut": "Stempl ud",
   "Mekaniker": "Mekaniker",
-  "Stempling, deler, bilder og kommentarer rett på mobilen.": "Stempling, dele, billeder og kommentarer direkte på mobilen.",
+  "Timeregistrering, deler, bilder og kommentarer rett på mobilen.": "Tidsregistrering, dele, billeder og kommentarer direkte på mobilen.",
   "Min garasje": "Min garage",
   "Tesla Model 3": "Tesla Model 3",
   "Tilbud": "Tilbud",
@@ -91,7 +91,7 @@
   "Forsiden til Show'N Shine hos Moldestuket": "Forsiden af Show'N Shine hos Moldestuket",
   "Forsiden til RGL Automotive": "Forsiden af RGL Automotives hjemmeside",
   "Verkstedprogrammet uten dobbeltarbeid": "Værkstedsprogrammet uden dobbeltarbejde",
-  "Ordre, booking, mekanikerportal og faktura i ett program.": "Ordrer, booking, mekanikerportal og faktura i ét program.",
+  "Ordre, booking, mekanikerportal og faktura i ett verkstedprogram.": "Ordrer, booking, mekanikerportal og faktura i ét værkstedsprogram.",
   "Arbeidsordre i Verkstedpakken: menyen til venstre med Drift åpen, og ordrene gruppert etter dag med status, jobb, kjøretøy med skilt, kunde og sum.": "Arbejdsordrer i Verkstedpakken: menuen til venstre med Drift åben og ordrerne grupperet efter dag med status, job, køretøj med nummerplade, kunde og sum.",
   "Hjem": "Hjem",
   "Betaling": "Betaling",
@@ -279,7 +279,7 @@
   "Penger og regnskap": "Penge og regnskab",
   "Faktura og betaling": "Faktura og betaling",
   "Regnskapsintegrasjon": "Regnskabsintegration",
-  "Timer og lønnsgrunnlag": "Timer og løngrundlag",
+  "Timeregistrering og lønnsgrunnlag": "Tidsregistrering og løngrundlag",
   "Kom i gang": "Kom i gang",
   "Etablering av programvare": "Opsætning af software",
   "Etablering av regnskapsintegrasjon": "Opsætning af regnskabsintegration",
@@ -331,5 +331,5 @@
   "Gratis support": "Gratis support",
   "Gratis oppstart": "Gratis opstart",
   "Gratis regnskapsintegrasjon": "Gratis regnskabsintegration",
-  "Fakturaene går rett over i regnskapet. Koble til systemet dere bruker.": "Fakturaerne går direkte over i regnskabet. Kobl det system på, I bruger."
+  "Ordrene går rett over i regnskapet. Koble til systemet dere bruker.": "Ordrerne går direkte over i regnskabet. Kobl det system på, I bruger."
 }

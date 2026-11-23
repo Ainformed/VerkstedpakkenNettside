@@ -608,7 +608,7 @@ return (
             </h3>
             {" "}
             <p>
-              {T("Stempling, deler, bilder og kommentarer rett på mobilen.")}
+              {T("Timeregistrering, deler, bilder og kommentarer rett på mobilen.")}
             </p>
             {" "}
           </article>

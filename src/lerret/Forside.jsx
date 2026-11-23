@@ -568,7 +568,7 @@ return (
           </h1>
           {" "}
           <p className="lead">
-            {T("Ordre, booking, mekanikerportal og faktura i ett program.")}
+            {T("Ordre, booking, mekanikerportal og faktura i ett verkstedprogram.")}
           </p>
           {" "}
           <div className="cta-row">
@@ -721,7 +721,7 @@ return (
                   </h3>
                   {" "}
                   <p>
-                    {T("Fakturaene går rett over i regnskapet. Koble til systemet dere bruker.")}
+                    {T("Ordrene går rett over i regnskapet. Koble til systemet dere bruker.")}
                   </p>
                   {" "}
                   <span className="p3-merke">
